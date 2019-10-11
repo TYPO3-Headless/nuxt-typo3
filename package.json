@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-typo3",
+  "version": "0.1.0",
+  "description": "TYPO3 Frontend rendered in Vue.js and Nuxt (frontend for EXT:headless)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TYPO3-Initiatives/nuxt-typo3.git"
+  },
+  "keywords": [
+    "typo3",
+    "headless",
+    "nuxt",
+    "vue"
+  ],
+  "author": "Macopedia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TYPO3-Initiatives/nuxt-typo3/issues"
+  },
+  "homepage": "https://github.com/TYPO3-Initiatives/nuxt-typo3#readme"
+}
