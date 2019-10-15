@@ -1,25 +1,69 @@
 {
   "name": "nuxt-typo3",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TYPO3 Frontend rendered in Vue.js and Nuxt (frontend for EXT:headless)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "MIT",
+  "author": "Macopedia",
+  "contributors": [
+    {
+      "name": "Adam Marcinkowski <a.marcinkowski@macopedia.pl>"
+    }
+  ],
+  "main": "lib/module.js",
+  "repository": "https://github.com/TYPO3-Initiatives/nuxt-typo3",
+  "bugs": {
+    "url": "https://github.com/TYPO3-Initiatives/nuxt-typo3/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TYPO3-Initiatives/nuxt-typo3.git"
-  },
+  "homepage": "https://github.com/TYPO3-Initiatives/nuxt-typo3#readme",
   "keywords": [
     "typo3",
     "headless",
     "nuxt",
     "vue"
   ],
-  "author": "Macopedia",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TYPO3-Initiatives/nuxt-typo3/issues"
+  "scripts": {
+    "dev": "nuxt example",
+    "lint": "eslint --ignore-pattern '/lib/templates/plugins' --ext .js,.vue example lib test",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-pattern '/lib/templates/plugins' --ignore-path .gitignore .",
+    "test": "yarn lint && jest",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish"
   },
-  "homepage": "https://github.com/TYPO3-Initiatives/nuxt-typo3#readme"
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "lodash.merge": "^4.6.2",
+    "vue-i18n": "^8.14.1",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@nuxtjs/eslint-config": "1.1.2",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "24.9.0",
+    "codecov": "3.6.1",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jest": "22.19.0",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-nuxt": "^0.4.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "get-port": "latest",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "nuxt-edge": "2.10.2-26184970.a42453bb",
+    "prettier": "^1.18.2",
+    "request": "latest",
+    "request-promise-native": "latest",
+    "standard-version": "7.0.0"
+  }
 }
