@@ -28,9 +28,10 @@ module.exports = {
   typo3: {
     baseURL: 'http://localhost:3000',
     api: {
-      baseURL: ''
+      baseURL: 'https://api.t3pwa.com'
     },
     i18n: {
+      locales: ['en', 'pl', 'de'],
       locale: 'en',
       fallbackLocale: 'en',
       messages: {
