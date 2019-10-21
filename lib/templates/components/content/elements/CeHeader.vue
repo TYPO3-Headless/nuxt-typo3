@@ -1,18 +1,18 @@
 <template>
-  <div class="ce-header">
+  <div v-if="headerLayout !== 100" :class="headerCss" class="ce-header">
     <component
-      :is="headerLevel"
+      :is="`h${headerLevel}`"
       v-if="headerLayout >= 0 && headerLayout !== 100"
       :class="headerPosition"
     >
-      <nuxt-link v-if="headerLink" :to="headerLink">
-        {{ props.header }}
+      <nuxt-link v-if="headerLink" :to="headerLink.url">
+        {{ header }}
       </nuxt-link>
-      <span v-else>{{ header }}</span>
+      <template v-else>{{ header }}</template>
     </component>
-    <p v-if="subheader">
+    <component :is="`h${headerLevel + 1}`" v-if="subheader">
       {{ subheader }}
-    </p>
+    </component>
   </div>
 </template>
 
@@ -23,7 +23,10 @@ export default {
   computed: {
     headerLevel() {
       // by defualt if type is 0, set h1
-      return `h${this.headerLayout === 0 ? 1 : this.headerLayout}`
+      return this.headerLayout === 0 ? 1 : this.headerLayout
+    },
+    headerCss() {
+      return this.headerPosition ? `ce-header--${this.headerPosition}` : ''
     }
   }
 }
