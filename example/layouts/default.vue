@@ -2,7 +2,7 @@
   <div class="container">
     <nav>
       <nuxt-link
-        v-for="(item, key) in $store.state.typo3.initial.mainMenu"
+        v-for="(item, key) in $store.state.typo3.initial.navigation"
         :key="key"
         :to="item.link"
       >
