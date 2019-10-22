@@ -5,9 +5,9 @@
       v-if="headerLayout >= 0 && headerLayout !== 100"
       :class="headerPosition"
     >
-      <nuxt-link v-if="headerLink" :to="headerLink.url">
+      <nav-link v-if="headerLink" :to="headerLink.url">
         {{ header }}
-      </nuxt-link>
+      </nav-link>
       <template v-else>{{ header }}</template>
     </component>
     <component :is="`h${headerLevel + 1}`" v-if="subheader">
