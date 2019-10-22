@@ -1,9 +1,15 @@
 <template>
-  <div class="ce-menu-sitemap">
+  <div v-if="menu" class="ce-menu-sitemap">
     <ul>
-      <li v-for="(firstLevel, keyFirstLevel) in sitemap" :key="keyFirstLevel">
-        <nuxt-link :to="firstLevel.link"> {{ firstLevel.title }} </nuxt-link>
-        <nested-list :children="firstLevel.children" />
+      <li v-for="(menuItem, key) in menu" :key="key">
+        <nuxt-link
+          :to="menuItem.link"
+          :target="menuItem.target || false"
+          :title="menuItem.title"
+        >
+          {{ menuItem.title }}
+        </nuxt-link>
+        <nested-list v-if="menuItem.children" :children="menuItem.children" />
       </li>
     </ul>
   </div>
@@ -32,6 +38,10 @@ const nestedList = {
             {
               props: {
                 to: el.link
+              },
+              attrs: {
+                target: el.target || false,
+                title: el.title
               }
             },
             el.title
@@ -56,7 +66,7 @@ export default {
   },
   extends: baseCe,
   props: {
-    sitemap: {
+    menu: {
       type: Array,
       required: true,
       default: () => []
