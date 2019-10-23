@@ -30,6 +30,9 @@ module.exports = {
     api: {
       baseURL: 'https://api.t3pwa.com'
     },
+    layouts: {
+      1: 'simple'
+    },
     i18n: {
       locales: ['en', 'pl', 'de'],
       locale: 'en',
