@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="381px" height="893px" viewBox="0 0 381 893" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>schema</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M316,331 L211,331" id="Path" stroke="#737373" stroke-width="2" stroke-linecap="square"></path>
+        <path d="M316,333 L316,553" id="Path" stroke="#737373" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#737373" fill-rule="nonzero" points="200 330 215 326 215 334"></polygon>
+        <path d="M315,867 L199,867" id="Path" stroke="#737373" stroke-width="2" stroke-linecap="square"></path>
+        <path d="M315,616 L315,867" id="Path" stroke="#737373" stroke-width="2" stroke-linecap="square"></path>
+        <path d="M99,49 L99,70" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 80 95 69 103 69"></polygon>
+        <path d="M99,149 L99,170" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 180 95 169 103 169"></polygon>
+        <path d="M99,481 L99,502" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 512 95 501 103 501"></polygon>
+        <path d="M99,581 L99,602" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 612 95 601 103 601"></polygon>
+        <path d="M99,681 L99,702" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 712 95 701 103 701"></polygon>
+        <g id="Group" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle" stroke="#05668D" stroke-width="2" x="0" y="0" width="198" height="48" rx="20"></rect>
+            <text id="Incoming-Request" fill="#00658F" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="26" y="30">Incoming Request</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(0.000000, 80.000000)">
+            <rect id="Rectangle" fill="#05668D" fill-rule="nonzero" x="0" y="0" width="200" height="70" rx="20"></rect>
+            <text id="nuxtServerInit" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="41" y="31">nuxtServerInit</tspan>
+            </text>
+            <text id="Store-action" fill="#FFFFFF" font-family="SourceSansPro-ExtraLight, Source Sans Pro" font-size="14" font-weight="300">
+                <tspan x="61" y="52">Store action</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(0.000000, 280.000000)">
+            <rect id="Rectangle" fill="#028090" fill-rule="nonzero" x="0" y="0" width="200" height="100" rx="20"></rect>
+            <text id="middleware" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="51" y="33">middleware</tspan>
+            </text>
+            <g transform="translate(18.000000, 38.000000)" fill="#FFFFFF" font-family="SourceSansPro-ExtraLight, Source Sans Pro" font-size="14" font-weight="300">
+                <text id="1.-nuxt.config.js">
+                    <tspan x="0" y="14">1. nuxt.config.js</tspan>
+                </text>
+                <text id="2.-matching-layout">
+                    <tspan x="0" y="30">2. matching layout</tspan>
+                </text>
+                <text id="3.-matching-page-&amp;-children">
+                    <tspan x="0" y="46">3. matching page &amp; children</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Group" transform="translate(0.000000, 512.000000)">
+            <rect id="Rectangle" fill="#00A896" fill-rule="nonzero" x="0" y="0" width="200" height="70" rx="20"></rect>
+            <text id="validate()" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="61" y="30">validate()</tspan>
+            </text>
+            <text id="Pages-&amp;-children" fill="#FFFFFF" font-family="SourceSansPro-ExtraLight, Source Sans Pro" font-size="14" font-weight="300">
+                <tspan x="54" y="49">Pages &amp; children</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(0.000000, 612.000000)">
+            <rect id="Rectangle" fill="#02C39A" fill-rule="nonzero" x="0" y="0" width="200" height="70" rx="20"></rect>
+            <text id="asyncData()-&amp;-fetch()" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="18" font-weight="500">
+                <tspan x="19" y="30">asyncData() &amp; fetch()</tspan>
+            </text>
+            <text id="Pages-&amp;-children" fill="#FFFFFF" font-family="SourceSansPro-ExtraLight, Source Sans Pro" font-size="14" font-weight="300">
+                <tspan x="59" y="49">Pages &amp; children</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(1.000000, 844.000000)">
+            <rect id="Rectangle" stroke="#5CA4A9" stroke-width="2" x="0" y="0" width="198" height="48" rx="20"></rect>
+            <text id="Render" fill="#5CA4A9" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="66" y="31">Render</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(252.000000, 555.000000)">
+            <rect id="Rectangle" stroke="#737373" stroke-width="2" x="0" y="0" width="128" height="58" rx="20"></rect>
+            <text id="Navigate" fill="#737373" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="17" font-weight="500">
+                <tspan x="30" y="25">Navigate</tspan>
+            </text>
+            <text id="&lt;nuxt-link&gt;" fill="#737373" font-family="SourceSansPro-ExtraLight, Source Sans Pro" font-size="14" font-weight="300">
+                <tspan x="32" y="43">&lt;nuxt-link&gt;</tspan>
+            </text>
+        </g>
+        <path d="M99,249 L99,270" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 280 95 269 103 269"></polygon>
+        <g id="Group" transform="translate(0.000000, 180.000000)">
+            <rect id="Rectangle" fill="#FF8700" fill-rule="nonzero" x="0" y="0" width="200" height="70" rx="20"></rect>
+            <text id="getInitialData" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="41" y="31">getInitialData</tspan>
+            </text>
+            <text id="Store-action" fill="#FFFFFF" font-family="SourceSansPro-ExtraLight, Source Sans Pro" font-size="14" font-weight="300">
+                <tspan x="61" y="52">Store action</tspan>
+            </text>
+        </g>
+        <g id="Group" transform="translate(0.000000, 412.000000)">
+            <rect id="Rectangle" fill="#FF8700" fill-rule="nonzero" x="0" y="0" width="200" height="70" rx="20"></rect>
+            <text id="TYPO3-route-middlewa" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+                <tspan x="44.46" y="28">TYPO3 route </tspan>
+                <tspan x="46.2175" y="52">middleware</tspan>
+            </text>
+        </g>
+        <path d="M99,381 L99,402" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 412 95 401 103 401"></polygon>
+        <rect id="Rectangle" fill="#FF8700" fill-rule="nonzero" x="0" y="714" width="200" height="96" rx="20"></rect>
+        <text id="layout-backendLayout" fill="#FFFFFF" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="19" font-weight="500">
+            <tspan x="68.951" y="742">layout</tspan>
+            <tspan x="31.996" y="766">backendLayout</tspan>
+            <tspan x="42.3985" y="790">pageContent</tspan>
+        </text>
+        <path d="M99,811 L99,832" id="Path" stroke="#9B9B9B" stroke-width="2" stroke-linecap="square"></path>
+        <polygon id="Path" fill="#9B9B9B" fill-rule="nonzero" points="99 842 95 831 103 831"></polygon>
+    </g>
+</svg>
