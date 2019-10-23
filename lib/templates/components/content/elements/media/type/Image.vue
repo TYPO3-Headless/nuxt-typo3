@@ -1,20 +1,24 @@
 <template functional>
-  <div class="ce-media-image">
+  <div
+    v-bind="data.attrs"
+    :class="[data.class, data.staticClass]"
+    class="ce-media-image"
+  >
     <component
-      :is="props.image.metaData.link ? 'nav-link' : 'div'"
-      :to="props.image.metaData.link"
+      :is="props.file.properties.link ? 'nav-link' : 'div'"
+      :to="props.file.properties.link"
     >
       <figure>
         <img
-          :src="props.image.publicUrl"
-          :height="props.image.dimensions.height"
-          :width="props.image.dimensions.width"
-          :alt="props.image.metaData.alternative || false"
-          :title="props.image.metaData.title || title"
+          :src="props.file.publicUrl"
+          :height="props.file.properties.dimensions.height"
+          :width="props.file.properties.dimensions.width"
+          :alt="props.file.properties.alternative || false"
+          :title="props.file.properties.title || title"
         />
       </figure>
-      <figcaption v-if="props.image.metaData.description">
-        {{ props.image.metaData.description }}
+      <figcaption v-if="props.file.properties.description">
+        {{ props.file.properties.description }}
       </figcaption>
     </component>
   </div>
@@ -25,7 +29,7 @@ export default {
   name: 'MediaImage',
   functional: true,
   props: {
-    image: {
+    file: {
       type: Object,
       required: true,
       default: () => {}

@@ -1,6 +1,6 @@
 <template>
   <div class="ce-textpic">
-    <media-gallery :gallery="image.gallery" :files="image.images">
+    <media-gallery :gallery="gallery">
       <ce-header v-bind="$props" />
       <html-parser :content="bodytext" />
     </media-gallery>
@@ -16,7 +16,7 @@ export default {
   },
   extends: baseCe,
   props: {
-    image: {
+    gallery: {
       type: Object,
       required: true,
       default: () => {}

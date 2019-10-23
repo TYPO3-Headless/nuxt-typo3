@@ -1,7 +1,7 @@
 <template>
   <div class="ce-image">
     <ce-header v-bind="$props" />
-    <media-gallery :gallery="image.gallery" :files="image.images" />
+    <media-gallery :gallery="gallery" />
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ export default {
   },
   extends: baseCe,
   props: {
-    image: {
+    gallery: {
       type: Object,
       required: true,
       default: () => {}

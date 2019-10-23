@@ -1,8 +1,8 @@
 <template>
   <div :class="galleryCss" class="ce-gallery">
     <slot name="before" />
-    <slot v-if="gallery.position.vertical === 'above'" />
-    <div v-if="files.length" class="ce-gallery__container">
+    <slot v-if="gallery.position.vertical === 'below'" />
+    <div v-if="gallery.count.files" class="ce-gallery__container">
       <div
         v-for="(row, rowKey) in gallery.rows"
         :key="rowKey"
@@ -13,39 +13,22 @@
           :key="colKey"
           class="ce-gallery__col"
         >
-          <media-image
-            :image="
-              files[
-                rowKey * gallery.count.columns -
-                  gallery.count.columns +
-                  (colKey - 1)
-              ]
-            "
-          />
+          <ce-media-file :file="col" />
         </div>
       </div>
     </div>
-    <slot v-if="gallery.position.vertical === 'below'" />
+    <slot v-if="gallery.position.vertical === 'above'" />
     <slot name="after" />
   </div>
 </template>
 <script>
-import MediaImage from './type/Image'
 export default {
   name: 'MediaGallery',
-  components: {
-    MediaImage
-  },
   props: {
     gallery: {
       type: Object,
       required: true,
       default: () => {}
-    },
-    files: {
-      type: Array,
-      required: true,
-      default: () => []
     }
   },
   computed: {
