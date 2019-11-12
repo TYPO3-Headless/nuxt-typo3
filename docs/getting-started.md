@@ -32,9 +32,8 @@ Add ```typo3``` object to your nuxt.config.js to configure all required settings
       baseURL: 'https://api.yourwebsite.com'
     },
     i18n: {
-      locales: ['en'],
-      locale: 'en',
-      fallbackLocale: 'en'
+      locales: ['en', 'pl', 'de'],
+      defaultLocale: 'en'
     }
   }
 }

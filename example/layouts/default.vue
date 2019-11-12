@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    {{ $typo3.i18n.locale }}
     <nav>
       <nuxt-link :to="navMain.link">
         {{ navMain.title }}

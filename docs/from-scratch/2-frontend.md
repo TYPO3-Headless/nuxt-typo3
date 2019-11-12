@@ -89,6 +89,10 @@ By default it works on [http://localhost:3000](http://localhost:3000)
     baseURL: 'https://yourwebsite.com', // provide your front app domain
     api: {
       baseURL: 'https://api.yourwebsite.com' // provide API address
+    },
+    i18n: {
+      locales: ['en', 'pl', 'de'],
+      defaultLocale: 'en'
     }
   }
 }

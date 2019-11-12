@@ -1,6 +1,6 @@
 # Backend layouts
 
-In the backednd layout can define multiple columns where you want to put your content. Column (colPos from TYPO3 API) is object which contains array of content elements. On the frontend you can define placeholders where you want to show content from these columns. [Read more about this concept](https://usetypo3.com/backend-layouts.html).
+In the backednd layout you can define multiple columns where you want to put your content. Column (colPos from TYPO3 API) is object which contains array of content elements. On the frontend you can define placeholders where you want to show the content from these columns. [Read more about this concept](https://usetypo3.com/backend-layouts.html).
 
 ## Create backend layout component
 

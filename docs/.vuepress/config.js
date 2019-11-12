@@ -36,6 +36,7 @@ module.exports = {
             'frontend/_.vue',
             'frontend/backend-layouts',
             'frontend/content-elements',
+            'frontend/i18n'
           ]
         }
       ],
