@@ -32,9 +32,8 @@
     "lib"
   ],
   "dependencies": {
-    "lodash.merge": "^4.6.2",
-    "vue-i18n": "^8.14.1",
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
     "@babel/core": "7.6.4",
@@ -64,6 +63,8 @@
     "prettier": "^1.18.2",
     "request": "latest",
     "request-promise-native": "latest",
-    "standard-version": "7.0.0"
+    "standard-version": "7.0.0",
+    "vue-i18n": "^8.14.1",
+    "nuxt-i18n": "^6.3.1"
   }
 }

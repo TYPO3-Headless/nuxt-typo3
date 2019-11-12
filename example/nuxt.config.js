@@ -3,6 +3,10 @@ import pl from './locale/pl'
 import en from './locale/en'
 const { resolve } = require('path')
 const pkg = require('../package')
+const localeConfig = {
+  locales: ['en', 'de', 'pl'],
+  defaultLocale: 'en'
+}
 module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
@@ -30,9 +34,25 @@ module.exports = {
     api: {
       baseURL: 'https://api.t3pwa.com'
     },
-    i18n: {
-      locales: ['en', 'pl', 'de'],
-      locale: 'en',
+    i18n: localeConfig
+  },
+  /*
+   ** Add components/layouts overrides
+   */
+  plugins: ['~/plugins/components', '~/plugins/layouts', '~/plugins/i18n'],
+  /*
+   ** Register required modules
+   */
+  modules: [
+    'nuxt-i18n',
+    {
+      handler: require('../')
+    }
+  ],
+
+  i18n: {
+    localeConfig,
+    vueI18n: {
       fallbackLocale: 'en',
       messages: {
         en,
@@ -40,18 +60,6 @@ module.exports = {
       }
     }
   },
-  /*
-   ** Add components/layouts overrides
-   */
-  plugins: ['~/plugins/components', '~/plugins/layouts'],
-  /*
-   ** Register required modules
-   */
-  modules: [
-    {
-      handler: require('../')
-    }
-  ],
 
   build: {
     /*
