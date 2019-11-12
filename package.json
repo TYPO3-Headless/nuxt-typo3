@@ -32,7 +32,7 @@
     "lib"
   ],
   "dependencies": {
-    "axios": "^0.19.0",
+    "@nuxtjs/axios": "^5.9.0",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
