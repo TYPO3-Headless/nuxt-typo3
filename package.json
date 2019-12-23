@@ -64,6 +64,7 @@
     "prettier": "latest",
     "request": "latest",
     "request-promise-native": "latest",
-    "standard-version": "latest"
+    "standard-version": "latest",
+    "set-value": "2.0.1"
   }
 }
