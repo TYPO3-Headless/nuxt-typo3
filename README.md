@@ -75,7 +75,7 @@ npm install nuxt-typo3
 
 ## See In action
 
-- [Macmillan English](https://www2.macmillanenglish.com)
+- [Macmillan English](https://www.macmillanenglish.com)
 
 ## Development
 
