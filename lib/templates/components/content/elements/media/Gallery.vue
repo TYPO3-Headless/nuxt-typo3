@@ -1,7 +1,9 @@
 <template>
   <div :class="galleryCss" class="ce-gallery">
     <slot name="before" />
-    <slot v-if="gallery.position.vertical === 'below'" />
+    <div v-if="gallery.position.vertical === 'below'" class="ce-gallery__text">
+      <slot />
+    </div>
     <div v-if="gallery.count.files" class="ce-gallery__container">
       <div
         v-for="(row, rowKey) in gallery.rows"
@@ -17,7 +19,15 @@
         </div>
       </div>
     </div>
-    <slot v-if="gallery.position.vertical === 'above'" />
+    <div
+      v-if="
+        gallery.position.vertical === 'above' ||
+          gallery.position.vertical === 'intext'
+      "
+      class="ce-gallery__text"
+    >
+      <slot />
+    </div>
     <slot name="after" />
   </div>
 </template>
