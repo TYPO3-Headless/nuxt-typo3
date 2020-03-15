@@ -36,7 +36,15 @@ module.exports = {
             'frontend/_.vue',
             'frontend/backend-layouts',
             'frontend/content-elements',
-            'frontend/i18n'
+
+          ]
+        },
+        {
+          title: 'Configuration',
+          collapsable: false,
+          children: [
+            'configuration/i18n',
+            'configuration/domains'
           ]
         }
       ],
