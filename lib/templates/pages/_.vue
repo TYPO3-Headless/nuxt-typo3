@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>{{ page.title }}</h1>
     <be-dynamic
       :page="page.page"
       :content="page.content"
