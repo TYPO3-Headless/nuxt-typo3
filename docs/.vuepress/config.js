@@ -5,6 +5,7 @@ module.exports = {
     nav: [
       { text: 'Guide', link: '/' },
       { text: 'Glossary', link: '/more/glossary' },
+      { text: 'TYPO3PWA.COM', link: 'https://typo3pwa.com' },
       { text: 'Github', link: 'https://github.com/TYPO3-Initiatives/nuxt-typo3' },
     ],
     sidebar: {
