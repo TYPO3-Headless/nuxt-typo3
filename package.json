@@ -33,6 +33,7 @@
   ],
   "types": "./lib/types.d.ts",
   "dependencies": {
+    "@braid/vue-formulate": "^2.4.2",
     "@nuxtjs/axios": "^5.9.0",
     "lodash.merge": "^4.6.2"
   },
@@ -54,7 +55,7 @@
     "jest": "latest",
     "nuxt-edge": "latest",
     "nuxt-i18n": "latest",
-    "standard-version": "latest",
-    "set-value": "2.0.1"
+    "set-value": "2.0.1",
+    "standard-version": "latest"
   }
 }
