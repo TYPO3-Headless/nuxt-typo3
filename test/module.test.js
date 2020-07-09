@@ -14,6 +14,7 @@ describe('module', () => {
   test('render', async () => {
     // const context = {}
     const html = await get('/')
+    console.log(html)
     expect(html).toContain('page')
   })
 })
