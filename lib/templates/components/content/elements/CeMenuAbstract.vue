@@ -9,7 +9,7 @@
   </menu-pages>
 </template>
 <script>
-import MenuPages from './CeMenu_pages'
+import MenuPages from './CeMenuPages'
 export default {
   name: 'CeMenuAbstract',
   components: {
