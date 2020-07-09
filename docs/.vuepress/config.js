@@ -6,17 +6,17 @@ module.exports = {
       { text: 'Guide', link: '/' },
       { text: 'Glossary', link: '/more/glossary' },
       { text: 'TYPO3PWA.COM', link: 'https://typo3pwa.com' },
-      { text: 'Github', link: 'https://github.com/TYPO3-Initiatives/nuxt-typo3' },
+      {
+        text: 'Github',
+        link: 'https://github.com/TYPO3-Initiatives/nuxt-typo3'
+      }
     ],
     sidebar: {
       '/': [
         {
           title: 'General Information',
           collapsable: false,
-          children: [
-            '/',
-            'getting-started',
-          ]
+          children: ['/', 'getting-started']
         },
         {
           title: 'From scratch',
@@ -25,7 +25,7 @@ module.exports = {
             'from-scratch/',
             'from-scratch/1-backend',
             'from-scratch/2-frontend',
-            'from-scratch/3-customization',
+            'from-scratch/3-customization'
           ]
         },
         {
@@ -36,8 +36,7 @@ module.exports = {
             'frontend/layouts',
             'frontend/_.vue',
             'frontend/backend-layouts',
-            'frontend/content-elements',
-
+            'frontend/content-elements'
           ]
         },
         {
@@ -45,7 +44,8 @@ module.exports = {
           collapsable: false,
           children: [
             'configuration/i18n',
-            'configuration/domains'
+            'configuration/domains',
+            'configuration/static-generate'
           ]
         }
       ],
@@ -53,10 +53,7 @@ module.exports = {
         {
           title: 'More information',
           collapsable: false,
-          children: [
-            'more/',
-            'more/glossary',
-          ]
+          children: ['more/', 'more/glossary']
         }
       ]
     }
