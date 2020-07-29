@@ -56,6 +56,12 @@ export namespace TYPO3 {
      * you can disable it by setup on false
      */
     registerLayouts?: boolean,
+
+    /**
+     * Use plugin's routing by default
+     * you can disable it by setup on true
+     */
+    useCustomRouting?: false,
     /**
      * Additional domains configuration
      */
