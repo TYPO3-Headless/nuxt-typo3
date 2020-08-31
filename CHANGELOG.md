@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.7.0...v0.7.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* **seo:** setup canonical links depends on their type ([6203462](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/6203462d358447fa22f359cbf9c50c97da6cf726))
+
+
 ## [0.7.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.6.0...v0.7.0) (2020-08-31)
 
 
