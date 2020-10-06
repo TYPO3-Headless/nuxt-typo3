@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.7.0...v0.8.0) (2020-10-06)
+
+
+### Features
+
+* [[#51](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/51)] CeDefault pretty format ([3f95fd0](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/3f95fd067168bd1472c7fde155db137a73cd641f))
+* add redirect possibility on middleware level ([ef5c724](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/ef5c7248cd87a22bc6915249de2e22d651116fa1))
+* **options:** add runtime config support ([4d0e485](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/4d0e4859571557fbb8835f458647d3b82d7b93f0))
+
+
+### Bug Fixes
+
+* **seo:** setup canonical links depends on their type ([9688874](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/968887450bf76374fa69408cfb8b28317b88b008))
+* [[#51](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/51)] CeDebug content fix & style improvement ([d2751eb](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/d2751eb2a09434bed13f0b8d994510eaee1a9de1))
+
 ### [0.7.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.7.0...v0.7.1) (2020-08-31)
 
 
