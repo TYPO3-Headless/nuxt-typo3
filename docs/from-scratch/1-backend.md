@@ -1,6 +1,6 @@
 # 1. Provide API
 
-Provide API by installation [TYPO3 headless](https://github.com/TYPO3-Initiatives/headless) extenstion.
+Provide API by installation [TYPO3 headless](https://github.com/TYPO3-Initiatives/headless) extension.
 
 
 Install extension using composer
