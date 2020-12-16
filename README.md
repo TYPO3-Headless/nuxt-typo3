@@ -77,6 +77,9 @@ npm install nuxt-typo3
 
 - [Macmillan English](https://www.macmillanenglish.com)
 - [jwied agency](https://www.jwied.de)
+- [Biofarm](https://www.biofarm.pl/)
+- [Karta Multisport](https://www.kartamultisport.pl/)
+- [Raben Group](https://raben-group.com/)
 
 ## Development
 
@@ -89,3 +92,4 @@ npm install nuxt-typo3
 [MIT License](./LICENSE)
 
 Copyright (c) MACOPEDIA
+ 
