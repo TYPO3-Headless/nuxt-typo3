@@ -11,6 +11,7 @@
 <script>
 import defaultPage from '../mixins/page/default'
 export default {
+  name: 'Page',
   mixins: [defaultPage]
 }
 </script>

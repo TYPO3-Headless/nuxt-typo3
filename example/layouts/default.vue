@@ -22,6 +22,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  name: 'Default',
   computed: {
     ...mapState({
       navMain: state => state.typo3.initial.navigation[0] || [] // get first instance from root

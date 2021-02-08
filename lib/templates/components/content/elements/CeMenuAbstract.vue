@@ -1,6 +1,6 @@
 <template>
   <menu-pages v-bind="$props" class="ce-menu-abstract">
-    <template v-slot:link="{ link }">
+    <template #link="{ link }">
       <html-parser
         v-if="link.data && link.data.abstract"
         :content="link.data.abstract"
