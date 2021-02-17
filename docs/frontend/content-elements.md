@@ -12,9 +12,10 @@ Base props are used by [render components](lib/templates/components/content/CeDy
 ```js
  props: {
     ...{
-      id: this.data.uid,
+      id: this.data.id,
       type: this.data.type,
-      appearance: this.data.appearance
+      appearance: this.data.appearance,
+      index: this.index
     },
     ...this.data.content
  }

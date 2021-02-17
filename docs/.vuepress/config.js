@@ -45,7 +45,8 @@ module.exports = {
           children: [
             'configuration/i18n',
             'configuration/domains',
-            'configuration/static-generate'
+            'configuration/static-generate',
+            'configuration/404-handling'
           ]
         }
       ],
