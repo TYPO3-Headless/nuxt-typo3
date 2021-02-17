@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.2.0",
+    "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
-    "kind-of": "^6.0.3"
+    "vuepress": "^1.2.0"
   }
 }
