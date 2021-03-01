@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.8.0...v0.9.1) (2021-03-01)
+
+### Bug Fixes
+
+* remove tag props from navlink ([f80722e](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/f80722ea88be115cc25d417de65a1ecd66718a1d))
 ## [0.9.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.8.0...v0.9.0) (2021-02-08)
 
 
