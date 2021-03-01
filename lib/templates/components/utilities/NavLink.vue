@@ -20,6 +20,7 @@ export default {
           props: {}
         }
       }
+
       return {
         tag: 'nuxt-link',
         data: {},
@@ -29,13 +30,14 @@ export default {
       }
     }
     const url = prepareLink(ctx.props.to)
+    const { tag, ...props } = ctx.props
     return h(
       url.tag,
       {
         ...ctx.data,
         ...url.data,
         props: {
-          ...ctx.props,
+          props,
           ...url.props
         }
       },
