@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.8.0...v0.9.1) (2021-03-01)
+
+
+### Features
+
+* add iteration index for content elements ([ec8c9ae](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/ec8c9ae39786088c127749755be594e790b368f4))
+
+
+### Bug Fixes
+
+* avoid warning in standalone build ([19a28c2](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/19a28c2f5ccecb80a9b75705f95c430a4b6a7466))
+* id prop of the content elements ([be6aa36](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/be6aa368ba17ece5bf6cd52782ccda1847c6e122))
+* initialData fallback loop ([9ac31c3](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/9ac31c3a76a5bf6e4784b58ef05265a714873aa2))
+* remove tag props from navlink ([f80722e](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/f80722ea88be115cc25d417de65a1ecd66718a1d))
+* typing error of word 'extension' in docs ([#75](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/75)) ([e470c51](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/e470c51a2fa220dad7ddafe1cb3ad3fbe53db0ed))
+* use module options instead of env for debugging ([05c671d](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/05c671db04c1f31a8f45e9ee9aded37c41396674))
+* warnings after upgrades ([c577cb5](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/c577cb5673028bc58593e72b24e188efde562b6b))
+
 ## [0.9.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.8.0...v0.9.0) (2021-02-08)
 
 
