@@ -26,6 +26,7 @@
     "lint": "eslint --ignore-pattern '/lib/templates/plugins' --ext .js,.vue example lib test",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-pattern '/lib/templates/plugins' --ignore-path .gitignore .",
     "test": "yarn lint && jest",
+    "commitlint": "commitlint --verbose",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish"
   },
   "files": [
