@@ -1,0 +1,26 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: ''
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - run: yarn --frozen-lockfile
+
+      - name: Commitlint
+        run: git log -1 --pretty=format:"%s" | yarn commitlint
+
+      - name: Eslint
+        run: yarn lint
