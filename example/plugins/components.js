@@ -5,7 +5,7 @@ const components = {
   CeText
 }
 
-export default ({ app }) => {
+export default () => {
   Object.keys(components).forEach(key => {
     Vue.component(key, components[key])
   })
