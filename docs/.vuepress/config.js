@@ -46,7 +46,8 @@ module.exports = {
             'configuration/i18n',
             'configuration/domains',
             'configuration/static-generate',
-            'configuration/404-handling'
+            'configuration/404-handling',
+            'configuration/redirects/'
           ]
         }
       ],
