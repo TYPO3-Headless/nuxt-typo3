@@ -23,7 +23,7 @@
 import baseCe from '../mixins/baseCe'
 import MenuNestedList from './menu/NestedList'
 export default {
-  name: 'CeMenuSitemap',
+  name: 'CeMenuPages',
   components: {
     MenuNestedList
   },
