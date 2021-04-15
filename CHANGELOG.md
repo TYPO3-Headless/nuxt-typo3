@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.1...v0.9.2) (2021-04-15)
+
+
+### Features
+
+* add github actions [#91](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/91) ([638d54d](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/638d54d60401d7ec392a7b65fcbb93b472b5a5ed))
+* add http status to redirects ([28d151e](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/28d151e6e073a1ecee0a06a826204617fb9c2b1f))
+
+
+### Bug Fixes
+
+* **ce:** fix name for menu pages component ([a4b00d2](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/a4b00d26ba77380f2860ce6824136a590a7aed2a))
+* **test:** transform nuxt-i18n ([dd947ff](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/dd947ff8725fbd86b9c855db068f71a69dfb8f56))
+*  add if in checking dynamic route ([4b3e485](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/4b3e4855728079beac79ac72859dab43d028f873))
+
 ### [0.9.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.8.0...v0.9.1) (2021-03-01)
 
 ### Bug Fixes
