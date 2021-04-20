@@ -18,13 +18,11 @@ export default {
   props: {
     gallery: {
       type: Object,
-      required: true,
-      default: () => ({})
+      required: true
     },
     bodytext: {
       type: String,
-      required: true,
-      default: ''
+      required: true
     }
   }
 }
