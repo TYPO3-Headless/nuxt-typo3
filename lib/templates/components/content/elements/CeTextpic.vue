@@ -19,7 +19,7 @@ export default {
     gallery: {
       type: Object,
       required: true,
-      default: () => {}
+      default: () => ({})
     },
     bodytext: {
       type: String,
