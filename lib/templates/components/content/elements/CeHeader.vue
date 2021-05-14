@@ -1,5 +1,9 @@
 <template>
-  <div v-if="headerLayout !== 100" :class="headerCss" class="ce-header">
+  <div
+    v-if="header && headerLayout !== 100"
+    :class="headerCss"
+    class="ce-header"
+  >
     <component
       :is="`h${headerLevel}`"
       v-if="headerLayout >= 0 && headerLayout !== 100"
