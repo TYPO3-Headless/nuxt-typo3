@@ -58,9 +58,9 @@ export default {
       default: ''
     },
     tableTfoot: {
-      type: Number,
+      type: String,
       required: false,
-      default: 0
+      default: '0'
     },
     bodytext: {
       type: Array,
