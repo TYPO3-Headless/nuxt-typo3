@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.2...v0.9.3) (2021-06-17)
+
+
+### Features
+
+* added htmlAttrs with lang inside getMeta ([70e3dd2](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/70e3dd2c18cfbf461b4fc86ebd277cc7f1f5eaa4))
+
+
+### Bug Fixes
+
+* **ce:** fix navlink - check if prop to exist ([9466c09](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/9466c09b8a95ab74f45908c2736f2aeae4d572d7))
+* change axios plugin order [#116](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/116) ([49a1dfe](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/49a1dfe569aed7a8027b79dda4aa42bef94faa94))
+* check if header is not null ([3bb2bb1](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/3bb2bb13c5232663b0e8e8c5614c667b4a9ab8c8))
+* Delete redundant default values ([865f0d6](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/865f0d696c5736803450488d612bce4b10c40146))
+
 ### [0.9.2](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.1...v0.9.2) (2021-04-15)
 
 
