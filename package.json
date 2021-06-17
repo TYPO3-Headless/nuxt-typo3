@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/core": "latest",
     "@babel/preset-env": "latest",
-    "@commitlint/cli": "^8.2.0",
+    "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "latest",
@@ -56,7 +56,6 @@
     "jest": "latest",
     "nuxt-edge": "latest",
     "nuxt-i18n": "latest",
-    "set-value": "2.0.1",
     "standard-version": "latest"
   }
 }
