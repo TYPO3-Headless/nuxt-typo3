@@ -7,7 +7,7 @@ export default {
   extends: Vue.component('RouterLink'),
   render(h, ctx) {
     function prepareLink(url) {
-      if (url.match(/^(http(s)?|ftp):\/\//)) {
+      if (typeof url === 'string' && url.match(/^(http(s)?|ftp):\/\//)) {
         return {
           tag: 'a',
           data: {
@@ -29,6 +29,7 @@ export default {
         }
       }
     }
+
     const url = prepareLink(ctx.props.to)
     const { tag, ...props } = ctx.props
     return h(
