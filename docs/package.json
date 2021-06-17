@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "is-svg": "^4.2.2",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
-    "vuepress": "^1.8.2",
     "ssri": "^8.0.1",
-    "is-svg": "^4.2.2"
+    "vuepress": "^1.8.2"
   }
 }
