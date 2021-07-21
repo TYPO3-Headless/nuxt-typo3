@@ -1,20 +1,20 @@
 # 2. Bootstrap frontend application
 
-Let start with the frontend. In that phase we will provide frontend application based on Nuxt.js. 
+Let's start with the frontend. In this phase we will provide a frontend application based on Nuxt.js. 
 
 ## 1. Nuxt.js installation
 
-The easiest way to start is just use the [CLI](https://github.com/TYPO3-Initiatives/create-nuxt-typo3) which we provided. 
+The easiest way to start is to use the [CLI](https://github.com/TYPO3-Initiatives/create-nuxt-typo3), which we provide. 
 
 ### Scaffold project 
 
-Run in the console and follow with the instruction.
+Run the following command in the console:
 
 ```bash
 $ yarn create nuxt-typo3 <project-name>
 ```
 
-it will ask you some questions:
+Then answer these questions and choose your preferred technologies:
 
 1. **Project name** - provide name for package.json
 2. **Project description** - provide description for package.json
@@ -59,25 +59,25 @@ it will ask you some questions:
   - Universal (SSR) <Badge text="checked by default" type="tip"/>
   - Single Page App
 
-::: warning Be aware
-Be aware of the last step where you should select Universal as Nuxt mode if you want support server side rendering.  
+::: warning About Rendering Modes
+Be aware of the last step where you should select `Universal` as rendering mode if you want to support server side rendering.  
 :::
 
 
-## 2. Is it works?
+## 2. Does it work?
 
-After scaffolind you should be able to run your application:
+After scaffolding you should be able to run your application:
 
 ```bash
 $ cd <project-name>
 $ yarn run dev
 ```
 
-By default it works on [http://localhost:3000](http://localhost:3000)
+By default the application runs on [http://localhost:3000](http://localhost:3000)
 
 ## 3. Provide configuration
  
- CLI preconfigured some settings for you, but you can check it and reconfigure your module acording to [Configuration](/configuration)
+Our CLI preconfigured some settings for you, but you can always reconfigure your module to your likings. All the configuration options can be found in the [Configuration](/configuration) section.
  
 ```js {
 {
@@ -99,7 +99,7 @@ By default it works on [http://localhost:3000](http://localhost:3000)
 ```
 
 ::: tip CORS
-If you use various domain for your frontend and API - please make sure that API sends responses with [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) header. For your local development you can use [proxy-module](https://github.com/nuxt-community/proxy-module)
+If you use various domains for your frontend and/or the API, please make sure that the API sends responses incorporating the [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) header. For your local development you can use [proxy-module](https://github.com/nuxt-community/proxy-module)
 :::
 
-#### Now it's time to some customize. 
+#### Now it's time for some customisation. 
