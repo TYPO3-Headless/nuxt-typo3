@@ -30,16 +30,16 @@
 
 ## How it works
 
-To handle dynamic routes provided by API we use [Unknown Dynamic Nested Routes Pattern](https://nuxtjs.org/guide/routing#unknown-dynamic-nested-routes). (We don't know exactly what pages are defined in the backend).
-What this plugin is doing to resolve TYPO3 data is just hook in Nuxt.js navigation cycle to provide page data for frontend and SSR context. 
+To handle dynamic routes provided by an API we use [Unknown Dynamic Nested Routes Pattern](https://nuxtjs.org/guide/routing#unknown-dynamic-nested-routes). (We don't know exactly what pages are defined in the backend).
+What this plugin is doing to resolve TYPO3 data is just hook into the Nuxt.js navigation cycle to provide page data for the frontend and the SSR context. 
 
-1. First call to API is executing during [nuxtServerInit Action](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) and is responsible for getting initialData for your application like languages, main navigations etc. This call is executing in SSR context (first hit) and also when language on the website has been changed - then we want to get initialData again for correct language.
-2. Second call to API is calling to get current page data information - is calling on first hit and also on each route change. 
+1. The first call to the API is executed during [nuxtServerInit Action](https://nuxtjs.org/guide/vuex-store#the-nuxtserverinit-action) and is responsible for getting initial data for your application like languages, main navigations etc. This call is executed in SSR context (first hit) and also when the language on the website has been changed - then we want to get the initial data again for the correct language.
+2. The second call to the API gets the current page data information. It is executed on first hit and also on each route change. 
 
-On the frontend we have implemeneted some helper components to handle main features of TYPO3 frontend. Read more here in frontend section.
+On the frontend we have implemeneted some helper components to handle main features of TYPO3 frontend. Read more in [frontend section](https://typo3-initiatives.github.io/nuxt-typo3/frontend/).
 
 ## Schema 
 
-This schema shows how the Nuxt.js navigate cycle was changed. 
+This schema shows how the Nuxt.js navigation cycle was changed. 
 
 ![Schema](/nuxt-typo3/images/schema.svg)
