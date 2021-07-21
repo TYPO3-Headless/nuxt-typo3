@@ -4,7 +4,7 @@ Let's start with the frontend. In this phase we will provide a frontend applicat
 
 ## 1. Nuxt.js installation
 
-The easiest way to start is to use the [CLI](https://github.com/TYPO3-Initiatives/create-nuxt-typo3), which we provide. 
+The easiest way to start building a frontend application for a TYPO3 headless project is to use the [CLI](https://github.com/TYPO3-Initiatives/create-nuxt-typo3) which we provide. 
 
 ### Scaffold project 
 
