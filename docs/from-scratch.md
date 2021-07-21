@@ -1,7 +1,7 @@
 # Step by step
 
-This is guide is explaining how to build your headless/PWA TYPO3 application from scratch. The process includes some steps to achieve this. Thins to do:
+This guide explains how to build a headless/PWA TYPO3 application from scratch. Things to do:
 
 1. Provide the TYPO3 headless API.
-2. Bootstrap Nuxt.js application with required modules.
+2. Bootstrap the Nuxt.js application with required modules.
 3. Provide your frontend
