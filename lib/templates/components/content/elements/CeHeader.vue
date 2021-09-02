@@ -9,7 +9,7 @@
       v-if="headerLayout >= 0 && headerLayout !== 100"
       :class="headerPosition"
     >
-      <nav-link v-if="headerLink" :to="headerLink.url">
+      <nav-link v-if="headerLink && headerLink.url" :to="headerLink.url">
         {{ header }}
       </nav-link>
       <template v-else>{{ header }}</template>
