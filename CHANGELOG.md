@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.3...v0.9.4) (2021-10-11)
+
+
+### Bug Fixes
+
+* meta tags improvement [#9](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/9) ([#139](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/139)) ([376fd09](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/376fd09722a5dc508b2c4e4f1659a887e0f9307b))
+* remove title as it isn't defined ([#138](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/138)) ([7554b70](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/7554b702e5207b9a5d3139c6f16eecba2d43dcbc))
+
 ### [0.9.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.2...v0.9.3) (2021-06-17)
 
 
