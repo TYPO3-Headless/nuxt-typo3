@@ -9,10 +9,10 @@ export default {
       default: () => []
     }
   },
-  render(createElement, ctx) {
+  render (createElement, ctx) {
     return createElement(
       'ul',
-      ctx.props.children.map(el => {
+      ctx.props.children.map((el) => {
         return createElement('li', {}, [
           createElement(
             'nav-link',
@@ -29,10 +29,10 @@ export default {
           ),
           el.children
             ? createElement('menu-nested-list', {
-                props: {
-                  children: el.children
-                }
-              })
+              props: {
+                children: el.children
+              }
+            })
             : false
         ])
       })

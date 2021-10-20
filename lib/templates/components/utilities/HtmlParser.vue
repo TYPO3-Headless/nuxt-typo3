@@ -20,14 +20,14 @@ export default {
   watch: {
     content: 'contentUpdated'
   },
-  mounted() {
+  mounted () {
     this.$nextTick(this.addListeners)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.removeListeners()
   },
   methods: {
-    navigate(event) {
+    navigate (event) {
       let target = event.target
       let i = 0
       // Go throught 5 parents max to find a tag
@@ -40,10 +40,10 @@ export default {
         i++
       }
       // If target is still not a link, ignore
-      if (!(target instanceof HTMLAnchorElement)) return
+      if (!(target instanceof HTMLAnchorElement)) { return }
       return this.redirect(target)
     },
-    redirect(target) {
+    redirect (target) {
       const href = target.getAttribute('href')
       // Get link target, if local link, navigate with router link
       if (href && href[0] === '/') {
@@ -51,19 +51,19 @@ export default {
         this.$router.push(href)
       }
     },
-    contentUpdated() {
+    contentUpdated () {
       this.removeListeners()
       this.$nextTick(() => {
         this.addListeners()
       })
     },
-    addListeners() {
+    addListeners () {
       this._links = this.$el.getElementsByTagName('a')
       for (let i = 0; i < this._links.length; i++) {
         this._links[i].addEventListener('click', this.navigate, false)
       }
     },
-    removeListeners() {
+    removeListeners () {
       if (this._links) {
         for (let i = 0; i < this._links.length; i++) {
           this._links[i].removeEventListener('click', this.navigate, false)

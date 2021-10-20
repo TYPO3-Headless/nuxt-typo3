@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    getMediaType(file) {
+    getMediaType (file) {
       switch (file.type) {
         case 'video': {
           if (file.mimeType.includes('youtube')) {

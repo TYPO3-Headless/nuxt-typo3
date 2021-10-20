@@ -5,8 +5,8 @@ export default {
   name: 'NavLink',
   functional: true,
   extends: Vue.component('RouterLink'),
-  render(h, ctx) {
-    function prepareLink(url) {
+  render (h, ctx) {
+    function prepareLink (url) {
       if (typeof url === 'string' && url.match(/^(http(s)?|ftp):\/\//)) {
         return {
           tag: 'a',

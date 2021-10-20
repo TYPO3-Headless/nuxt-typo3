@@ -2,7 +2,9 @@
   <div>
     <ul class="lang-switcher">
       <li v-for="(locale, index) in available" :key="index">
-        <nuxt-link :to="locale.link">{{ locale.title }}</nuxt-link>
+        <nuxt-link :to="locale.link">
+          {{ locale.title }}
+        </nuxt-link>
       </li>
     </ul>
     {{ current }}

@@ -9,7 +9,7 @@ export default {
       default: () => []
     }
   },
-  render(createElement, ctx) {
+  render (createElement, ctx) {
     return createElement('div', [
       createElement('ce-renderer', {
         props: {

@@ -10,7 +10,7 @@
       :height="props.file.properties.dimensions.height"
       :width="props.file.properties.dimensions.width"
       :type="props.file.properties.mimeType"
-    />
+    >
   </video>
 </template>
 <script>

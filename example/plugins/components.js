@@ -6,7 +6,7 @@ const components = {
 }
 
 export default () => {
-  Object.keys(components).forEach(key => {
+  Object.keys(components).forEach((key) => {
     Vue.component(key, components[key])
   })
 }

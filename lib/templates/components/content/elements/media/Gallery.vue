@@ -42,7 +42,7 @@ export default {
     }
   },
   computed: {
-    galleryCss() {
+    galleryCss () {
       return [
         `ce-gallery--horizontal-${this.gallery.position.horizontal}`,
         `ce-gallery--vertical-${this.gallery.position.vertical}`,
