@@ -8,7 +8,7 @@
             <img
               :src="getExtensionImg(file.properties.extension)"
               @error="onError"
-            />
+            >
           </span>
           <span
             v-if="displayInformation === 2 && file.properties.type === 'image'"
@@ -68,12 +68,12 @@ export default {
     }
   },
   methods: {
-    getExtensionImg(extension) {
+    getExtensionImg (extension) {
       return this.getApiBaseUrl(
         `typo3/sysext/frontend/Resources/Public/Icons/FileIcons/${extension}.gif`
       )
     },
-    onError(err) {
+    onError (err) {
       // resolve default icon on error
       // @todo make it nicer
       // https://github.com/TYPO3/TYPO3.CMS/tree/master/typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes

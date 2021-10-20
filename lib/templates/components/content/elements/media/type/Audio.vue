@@ -5,7 +5,7 @@
     class="ce-media-audio"
     controls
   >
-    <source :src="props.file.publicUrl" type="audio/mp3" />
+    <source :src="props.file.publicUrl" type="audio/mp3">
   </audio>
 </template>
 <script>

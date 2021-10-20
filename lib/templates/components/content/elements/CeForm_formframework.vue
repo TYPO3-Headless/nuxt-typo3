@@ -80,7 +80,7 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
       currentStep: 0,
       state: {
@@ -91,24 +91,24 @@ export default {
     }
   },
   computed: {
-    showCTA() {
+    showCTA () {
       return this.currentStep === 0 && this.schema.length === 1
     },
-    hiddenFields() {
+    hiddenFields () {
       return Object.keys(this.form.hidden).map(key => ({
         [`tx_form_formframework[${this.form.id}][${key}]`]: this.form.hidden[
           key
         ]
       }))
     },
-    schema() {
+    schema () {
       // copy array without nested object references
       const steps = JSON.parse(JSON.stringify(this.form.renderables))
       // map fields delivered by API to vueformulate schema
       return steps
-        .map(step => {
+        .map((step) => {
           step.renderables &&
-            step.renderables.map(item => {
+            step.renderables.map((item) => {
               item.id = item.identifier
               item.validationName = item.label
               item.name = `tx_form_formframework[${this.form.id}][${item.identifier}]`
@@ -137,16 +137,16 @@ export default {
     }
   },
   methods: {
-    toggleState(state, value) {
+    toggleState (state, value) {
       this.state[state] = value || !this.state[state]
     },
-    resetState() {
+    resetState () {
       Object.keys(this.state).map(state => (this.state[state] = false))
     },
-    setStep(step) {
+    setStep (step) {
       this.currentStep = step
     },
-    submit(data) {
+    submit (data) {
       this.resetState()
       this.toggleState('loading')
       this.$typo3.api.$http
@@ -154,7 +154,7 @@ export default {
           ...data,
           ...Object.assign({}, ...this.hiddenFields)
         })
-        .then(data => {
+        .then((data) => {
           this.$formulate.reset(this.form.id)
           this.toggleState('loading')
           this.toggleState('success')

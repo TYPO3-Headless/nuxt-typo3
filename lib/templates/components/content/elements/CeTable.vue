@@ -69,10 +69,10 @@ export default {
     }
   },
   computed: {
-    thead() {
+    thead () {
       return this.tableHeaderPosition === 1 ? [...this.bodytext].shift() : false
     },
-    tbody() {
+    tbody () {
       const tbody = [...this.bodytext]
       if (this.thead) {
         tbody.shift()
@@ -82,7 +82,7 @@ export default {
       }
       return tbody
     },
-    tfoot() {
+    tfoot () {
       return this.tableTfoot === 1 ? [...this.bodytext].pop() : false
     }
   }

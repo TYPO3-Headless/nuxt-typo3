@@ -12,7 +12,9 @@
       <nav-link v-if="headerLink" :to="headerLink.url">
         {{ header }}
       </nav-link>
-      <template v-else>{{ header }}</template>
+      <template v-else>
+        {{ header }}
+      </template>
     </component>
     <component :is="`h${headerLevel + 1}`" v-if="subheader">
       {{ subheader }}
@@ -25,11 +27,11 @@ import baseCe from '../mixins/baseCe'
 export default {
   extends: baseCe,
   computed: {
-    headerLevel() {
+    headerLevel () {
       // by defualt if type is 0, set h1
       return this.headerLayout === 0 ? 1 : this.headerLayout
     },
-    headerCss() {
+    headerCss () {
       return this.headerPosition ? `ce-header--${this.headerPosition}` : ''
     }
   }

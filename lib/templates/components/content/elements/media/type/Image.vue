@@ -15,7 +15,7 @@
           :width="props.file.properties.dimensions.width"
           :alt="props.file.properties.alternative || false"
           :title="props.file.properties.title || ''"
-        />
+        >
       </figure>
       <figcaption v-if="props.file.properties.description">
         {{ props.file.properties.description }}
