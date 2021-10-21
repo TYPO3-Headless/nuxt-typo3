@@ -84,8 +84,10 @@ npm install nuxt-typo3
 ## Development
 
 1. Clone this repository
-2. Install dependencies using `yarn install` or `npm install`
-3. Start development server using `npm run dev`
+2. Install dependencies using `yarn install`
+3. Start development server using `yarn dev`
+
+Please read [contributing guide](CONTRIBUTING.md)
 
 ## License
 
