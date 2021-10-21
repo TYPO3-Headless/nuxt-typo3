@@ -24,13 +24,11 @@
 
 ✅ Meta tags provided by API
 
-✅ Most of the standard TYPO3 Content Elements (in progress)
+✅ Most of the standard TYPO3 Content Elements
 
 ✅ SSR Ready
 
 # Setup
-
-We're working on documentation/guide, but you can use it right now.
 
 ## Installation
 
