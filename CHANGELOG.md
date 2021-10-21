@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.5](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.5-alpha.0...v0.9.5) (2021-10-21)
+
+
+### Bug Fixes
+
+* remove ignore pattern for plugins and fix issues ([#169](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/169)) ([e03c90b](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/e03c90b4e5e2bdd43d32017c845145c8661115a5))
+* **eslint:** fix eslint issues and stick to standard ([#169](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/169)) ([39f8e72](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/39f8e725cdbc23415200a5346bf94dec993d9431))
+
 ### [0.9.5-alpha.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.4...v0.9.5-alpha.0) (2021-10-20)
 
 
