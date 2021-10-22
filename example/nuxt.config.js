@@ -44,13 +44,14 @@ module.exports = {
    ** Register required modules
    */
   modules: [
-    'nuxt-i18n',
+    '@nuxtjs/i18n',
     {
       handler: require('../')
     }
   ],
 
   i18n: {
+    strategy: 'no_prefix',
     localeConfig,
     vueI18n: {
       fallbackLocale: 'en',
