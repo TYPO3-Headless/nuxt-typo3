@@ -41,9 +41,6 @@ export default {
       }
       // If target is still not a link, ignore
       if (!(target instanceof HTMLAnchorElement)) { return }
-      return this.redirect(target)
-    },
-    redirect (target) {
       const href = target.getAttribute('href')
       // Get link target, if local link, navigate with router link
       if (href && href[0] === '/') {
