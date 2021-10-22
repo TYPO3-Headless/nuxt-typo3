@@ -18,10 +18,6 @@ export namespace TYPO3 {
       locales: string[],
       /** default/fallback locale */
       defaultLocale: string,
-      /** register your callback method on locale change */
-      onLocaleChange(oldLocale: string, newLocale: string): void,
-      /** register your callback method before locale change */
-      beforeLocaleChange(oldLocale: string, newLocale: string): void
     }
 
     interface Endpoints {
@@ -74,10 +70,6 @@ export namespace TYPO3 {
       getLocaleByPath(): string,
       /** Set current locale and get initialData */
       setLocale(localeCode: string, updateInitialData: boolean): Promise<void>,
-      /** Call method on locale change */
-      onLocaleChange(oldLocale: string, newLocale: string): void,
-      /** Call method before locale change */
-      beforeLocaleChange(oldLocale: string, newLocale: string): void
     }
 
     interface Domains {
