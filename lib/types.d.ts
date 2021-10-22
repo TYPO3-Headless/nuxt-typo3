@@ -106,15 +106,64 @@ export namespace TYPO3 {
     options: Options,
   }
 
-  namespace Response {
-    interface Page {
-      /** page settings */
-      page: object,
-      /** page content */
-      content: object,
-      /** available page languages */
-      languages: object[]
-    }
+  interface Typo3Link {
+    href: string,
+    target: string | null,
+    class: string | null,
+    title: string | null,
+    linkText: string,
+    additionalAttributes: []
+  }
+
+  interface Metadata {
+    title: string,
+    subtitle: string,
+    abstract: string,
+    description: string,
+    keywords: string,
+    canonical: TYPO3.Typo3Link,
+    robots: {
+      noIndex: boolean
+      noFollow: boolean
+    },
+    author: string,
+    authorEmail: string,
+    ogTitle: string,
+    ogDescription: string,
+    ogImage: object | null,
+    twitterTitle: string,
+    twitterDescription: string,
+    twitterCard: string,
+    twitterImage: object | null
+  }
+
+  interface Breadcrumbs {
+    title: string,
+    link: string,
+    target: string,
+    active: number,
+    current: number,
+    spacer: number
+  }
+
+  interface Appearance {
+    appearance: string
+    backendLayout: string
+  }
+
+  interface Response {
+    /** typo3 page id */
+    id: number
+    type: string
+    slug: string
+    /** page metadata */
+    meta: object,
+    /** breadcrumbs data */
+    breadcrumbs: TYPO3.Breadcrumbs
+     /** page appearance */
+    appearance: TYPO3.Appearance
+    /** page content */
+    content: object,
   }
 }
 
@@ -125,7 +174,7 @@ declare module '@nuxt/vue-app' {
     /** backend layout */
     backendLayout: string,
     /** page content */
-    pageContent: TYPO3.Response.Page
+    pageContent: TYPO3.Response
   }
 
   interface NuxtAppOptions {
@@ -142,7 +191,7 @@ declare module '@nuxt/types' {
     /** backend layout */
     backendLayout: string,
     /** page content */
-    pageContent: TYPO3.Response.Page
+    pageContent: TYPO3.Response
   }
   interface NuxtAppOptions {
     /** TYPO3 plugin */

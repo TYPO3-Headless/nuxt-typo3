@@ -1,7 +1,7 @@
 <template>
   <div>
     <be-dynamic
-      :page="page.page"
+      :page="page"
       :content="page.content"
       :type="backendLayout"
     />

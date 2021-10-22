@@ -16,7 +16,7 @@ export default {
   computed: {
     ...mapState({
       current: state => state.typo3.locale,
-      available: state => state.typo3.page.languages
+      available: state => state.typo3.initial.i18n
     })
   }
 }
