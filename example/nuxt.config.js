@@ -39,7 +39,7 @@ module.exports = {
   /*
    ** Add components/layouts overrides
    */
-  plugins: ['~/plugins/components', '~/plugins/layouts', '~/plugins/i18n'],
+  plugins: ['~/plugins/components', '~/plugins/layouts', '~/plugins/i18n', '~/plugins/hooks'],
   /*
    ** Register required modules
    */
@@ -51,8 +51,8 @@ module.exports = {
   ],
 
   i18n: {
-    strategy: 'no_prefix',
     localeConfig,
+    strategy: 'no_prefix', // because route strategy is handled on nuxt-typo3 side
     vueI18n: {
       fallbackLocale: 'en',
       messages: {

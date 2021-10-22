@@ -43,6 +43,7 @@ module.exports = {
           title: 'Configuration',
           collapsable: false,
           children: [
+            'configuration/hooks',
             'configuration/i18n',
             'configuration/domains',
             'configuration/static-generate',
