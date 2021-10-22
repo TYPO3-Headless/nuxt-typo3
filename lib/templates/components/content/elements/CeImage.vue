@@ -1,7 +1,7 @@
 <template>
   <div class="ce-image">
     <ce-header v-bind="$props" />
-    <media-gallery :gallery="gallery" />
+    <media-gallery :gallery="gallery" :enlarge-image-on-click="enlargeImageOnClick" />
   </div>
 </template>
 <script>
@@ -17,7 +17,11 @@ export default {
     gallery: {
       type: Object,
       required: true,
-      default: () => {}
+      default: () => ({})
+    },
+    enlargeImageOnClick: {
+      type: Boolean,
+      default: false
     }
   }
 }

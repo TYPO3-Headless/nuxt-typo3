@@ -1,6 +1,6 @@
 <template>
   <div class="ce-textpic">
-    <media-gallery :gallery="gallery">
+    <media-gallery :gallery="gallery" :enlarge-image-on-click="enlargeImageOnClick">
       <ce-header v-bind="$props" />
       <html-parser :content="bodytext" />
     </media-gallery>
@@ -23,6 +23,10 @@ export default {
     bodytext: {
       type: String,
       required: true
+    },
+    enlargeImageOnClick: {
+      type: Boolean,
+      default: false
     }
   }
 }

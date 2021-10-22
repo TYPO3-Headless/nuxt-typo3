@@ -10,13 +10,20 @@
         :key="rowKey"
         class="ce-gallery__row"
       >
-        <div
+        <component
+          :is="enlargeImageOnClick ? 'a' : 'div'"
           v-for="(col, colKey) in row.columns"
           :key="colKey"
           class="ce-gallery__col"
+          v-bind="{
+            ...(enlargeImageOnClick && {
+              target: '_blank',
+              href: col.publicUrl
+            })
+          }"
         >
           <ce-media-file :file="col" />
-        </div>
+        </component>
       </div>
     </div>
     <div
@@ -38,7 +45,11 @@ export default {
     gallery: {
       type: Object,
       required: true,
-      default: () => {}
+      default: () => ({})
+    },
+    enlargeImageOnClick: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
