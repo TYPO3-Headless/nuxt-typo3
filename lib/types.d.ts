@@ -127,6 +127,7 @@ export namespace TYPO3 {
     twitterDescription: string,
     twitterCard: string,
     twitterImage: object | null
+    schema: string
   }
 
   interface Breadcrumbs {
@@ -149,7 +150,7 @@ export namespace TYPO3 {
     type: string
     slug: string
     /** page metadata */
-    meta: object,
+    meta: Metadata,
     /** breadcrumbs data */
     breadcrumbs: TYPO3.Breadcrumbs
      /** page appearance */
