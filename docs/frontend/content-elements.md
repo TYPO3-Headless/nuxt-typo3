@@ -7,7 +7,7 @@
 📍 Each content element has `Ce` prefix ( We would like to avoid conflicts with other libraries or with your UI components )
 
 
-Base props are used by [render components](lib/templates/components/content/CeDynamic.js): 
+Base props are used by [render components](lib/components/content/CeDynamic.js): 
 
 ```js
  props: {
@@ -23,11 +23,11 @@ Base props are used by [render components](lib/templates/components/content/CeDy
 
 📍 ```this.data.content``` contains all custom props shipped by API
 
-📍 Common props are related mainly with header, check [shareProps](lib/templates/components/mixins/../content/mixins/shareProps.js)
+📍 Common props are related mainly with header, check [shareProps](lib/components/mixins/../content/mixins/shareProps.js)
 
 ## Create own content element 
 
-1. Create component, you can use [base content element](lib/templates/components/content/mixins/baseCe.js) mixin to inherit all common props. 
+1. Create component, you can use [base content element](lib/components/content/mixins/baseCe.js) mixin to inherit all common props. 
 
 `CeText.vue`:
 
