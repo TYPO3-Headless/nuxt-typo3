@@ -3,10 +3,10 @@
     <strong>2 columns layout</strong>
     <div class="two-columns">
       <div>
-        <ce-renderer :content="content.colPos0" />
+        <t3-renderer :content="content.colPos0" />
       </div>
       <div>
-        <ce-renderer :content="content.colPos1" />
+        <t3-renderer :content="content.colPos1" />
       </div>
     </div>
   </div>

@@ -26,10 +26,10 @@ create: `layouts/backend/Be2columns.vue`:
   <div>
     <strong>2 columns backend layout</strong>
     <main>
-      <ce-renderer :content="content.colPos0" />
+      <t3-renderer :content="content.colPos0" />
     </main>
     <aside>
-      <ce-renderer :content="content.colPos1" />
+      <t3-renderer :content="content.colPos1" />
     </aside>
   </div>
 </template>

@@ -15,7 +15,7 @@
         </nuxt-link>
       </template>
     </nav>
-    <lang-switcher />
+    <t3-lang-switcher />
     <nuxt />
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   name: 'Default',
   computed: {
     ...mapState({
-      navMain: state => state.typo3.initial.i18n[0] || [] // get first instance from root
+      navMain: state => state.typo3.initial.navigation[0] || [] // get first instance from root
     })
   }
 }

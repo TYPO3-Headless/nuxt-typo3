@@ -1,7 +1,7 @@
 <template>
   <div>
     <strong>Custom 1 column backend layout</strong>
-    <ce-renderer :content="content.colPos0" />
+    <t3-renderer :content="content.colPos0" />
   </div>
 </template>
 <script>
