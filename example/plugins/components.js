@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import CeText from '~/components/content/elements/CeText'
+// import CeText from '~/components/content/elements/CeText'
 
 const components = {
-  CeText
+  // CeText
 }
 
 export default () => {

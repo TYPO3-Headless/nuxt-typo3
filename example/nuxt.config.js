@@ -32,7 +32,7 @@ module.exports = {
   typo3: {
     baseURL: 'http://localhost:3000',
     api: {
-      baseURL: 'https://api.t3pwa.com/v11'
+      baseURL: 'https://api.pwa-demo.ddev.site/'
     },
     i18n: localeConfig
   },

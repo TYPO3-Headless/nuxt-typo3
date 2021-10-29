@@ -79,7 +79,7 @@ Next, add some CSS and override the markup so that the component looks like this
 <template>
   <div class="ce-text">
     <strong> My custom text element </strong>
-    <html-parser :content="bodytext" />
+    <t3-html-parser :content="bodytext" />
   </div>
 </template>
 <script src="~typo3/components/content/elements/CeText.vue" />
@@ -93,7 +93,7 @@ Next, add some CSS and override the markup so that the component looks like this
 The important part to remember here is that the original component can be imported via a `script` tag's `src` parameter. If you intend to override Javascript, though, you have to choose a different method – see below.
 
 ::: tip Parse HTML content
-Rembember that HTML content shipped by RTE should be parsed. To do so, use the `<html-parser>` component.
+Rembember that HTML content shipped by RTE should be parsed. To do so, use the `<t3-html-parser>` component.
 :::
 
 **Override component logic**
@@ -103,7 +103,7 @@ If you want to change the Javascript of the original component, then you first h
 ```html
 <template>  <div class="ce-text">
     <strong> My custom text element </strong>
-    <html-parser :content="bodytext" />
+    <t3-html-parser :content="bodytext" />
   </div>
 </template>
 
