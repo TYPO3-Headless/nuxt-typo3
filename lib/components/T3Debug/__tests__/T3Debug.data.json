@@ -1,0 +1,21 @@
+{
+  "id": 72,
+  "pid": 1,
+  "type": "text",
+  "colPos": 0,
+  "categories": "",
+  "appearance": {
+    "layout": "default1",
+    "frameClass": "container",
+    "spaceBefore": "medium",
+    "spaceAfter": "medium"
+  },
+  "content": {
+    "header": "Header 3",
+    "subheader": "Sub-Header 4",
+    "headerLayout": 3,
+    "headerPosition": "",
+    "headerLink": "",
+    "bodytext": "<p>Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h4>Title</h4>\r\n<ul> \t<li>List Element 1</li> \t<li>List Element 1 \t<ol> \t\t<li>List Element 1</li> \t\t<li>List Element 1</li> \t\t<li>List Element 1</li> \t</ol> \t</li> \t<li>List Element 1</li> \t<li>List Element 1</li> </ul>\r\n\r\n<p><a href=\"/aktualnosci\" class=\"btn btn--primary btn--large\">I am main CTA</a></p>"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "content": [
+    {
+      "id": 72,
+      "pid": 1,
+      "type": "text",
+      "colPos": 0,
+      "categories": "",
+      "appearance": {
+        "layout": "default",
+        "frameClass": "container",
+        "spaceBefore": "medium",
+        "spaceAfter": "medium"
+      },
+      "content": {
+        "header": "Header 3",
+        "subheader": "Sub-Header 4",
+        "headerLayout": 3,
+        "headerPosition": "",
+        "headerLink": "",
+        "bodytext": "<p>Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h4>Title</h4>\r\n<ul> \t<li>List Element 1</li> \t<li>List Element 1 \t<ol> \t\t<li>List Element 1</li> \t\t<li>List Element 1</li> \t\t<li>List Element 1</li> \t</ol> \t</li> \t<li>List Element 1</li> \t<li>List Element 1</li> </ul>\r\n\r\n<p><a href=\"/aktualnosci\" class=\"btn btn--primary btn--large\">I am main CTA</a></p>"
+      }
+    },
+    {
+      "id": 35,
+      "pid": 1,
+      "type": "textpic",
+      "colPos": 0,
+      "categories": "",
+      "appearance": {
+        "layout": "hero",
+        "frameClass": "none",
+        "spaceBefore": "",
+        "spaceAfter": "extra-large",
+        "proportions": ""
+      },
+      "content": {
+        "header": "Grupa ",
+        "subheader": "Dowiedz się więcej",
+        "headerLayout": 1,
+        "headerPosition": "left",
+        "headerLink": "",
+        "bodytext": "<h3>Witamy na naszej stronie.<br /> <span class=\"mobile-hidden\">Znajdziesz tutaj wszystkie informacje na temat naszej grupy.</span></h3>",
+        "gallery": {
+          "position": {
+            "horizontal": "left",
+            "vertical": "above",
+            "noWrap": false
+          },
+          "width": 600,
+          "count": {
+            "files": 1,
+            "columns": 1,
+            "rows": 1
+          },
+          "columnSpacing": 10,
+          "border": {
+            "enabled": false,
+            "width": 2,
+            "padding": 0
+          },
+          "rows": {
+            "1": {
+              "columns": {
+                "1": {
+                  "publicUrl": "https://image.jpg",
+                  "properties": {
+                    "title": null,
+                    "alternative": null,
+                    "description": null,
+                    "mimeType": "image/jpeg",
+                    "type": "image",
+                    "filename": "image.jpg",
+                    "originalUrl": "fileadmin/user_upload/image.jpg",
+                    "uidLocal": 7,
+                    "fileReferenceUid": 35,
+                    "size": "479 KB",
+                    "link": null,
+                    "dimensions": {
+                      "width": 1366,
+                      "height": 696
+                    },
+                    "cropDimensions": {
+                      "width": 1366,
+                      "height": 696
+                    },
+                    "crop": {
+                      "default": {
+                        "cropArea": {
+                          "x": 0,
+                          "y": 0,
+                          "width": 1,
+                          "height": 1
+                        },
+                        "selectedRatio": "NaN",
+                        "focusArea": null
+                      }
+                    },
+                    "autoplay": null,
+                    "extension": "jpg"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "frame": true
+}
