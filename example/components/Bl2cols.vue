@@ -12,10 +12,9 @@
   </div>
 </template>
 <script>
-import BeLayoutDefault from '~typo3/layouts/backend/BeDefault'
+import T3BlDefault from '~typo3/components/T3BlDefault/T3BlDefault.vue'
 export default {
-  functional: false,
-  extends: BeLayoutDefault
+  extends: T3BlDefault
 }
 </script>
 <style>
