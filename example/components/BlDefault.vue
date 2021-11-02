@@ -5,10 +5,9 @@
   </div>
 </template>
 <script>
-import BeDefault from '~typo3/layouts/backend/BeDefault'
+import T3BlDefault from '~typo3/components/T3BlDefault/T3BlDefault.vue'
 export default {
-  name: 'BeDefault',
-  functional: false,
-  extends: BeDefault
+  name: 'T3BlDefault',
+  extends: T3BlDefault
 }
 </script>

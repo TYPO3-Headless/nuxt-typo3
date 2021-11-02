@@ -1,9 +1,9 @@
 <template>
   <div>
-    <be-dynamic
-      :page="page"
-      :content="page.content"
+    <t3-dynamic
+      :data="page.content"
       :type="backendLayout"
+      layout
     />
   </div>
 </template>
