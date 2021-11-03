@@ -1,10 +1,10 @@
 <template>
-  <div class="ce-uploads">
+  <div class="t3-ce-uploads">
     <t3-ce-header v-bind="$props" />
     <ul v-if="media">
       <li v-for="(file, key) in media" :key="key">
         <t3-nav-link :to="file.publicUrl" :target="target">
-          <span v-if="displayInformation === 1" class="ce-uploads__icon">
+          <span v-if="displayInformation === 1" class="t3-ce-uploads__icon">
             <img
               :src="getExtensionImg(file.properties.extension)"
               @error="onError"
@@ -12,20 +12,20 @@
           </span>
           <span
             v-if="displayInformation === 2 && file.properties.type === 'image'"
-            class="ce-uploads__thumb"
+            class="t3-ce-uploads__thumb"
           >
             <t3-ce-media-file :file="file" />
           </span>
-          <span class="ce-uploads__name">
+          <span class="t3-ce-uploads__name">
             {{ file.properties.title || file.publicUrl }}
           </span>
-          <span v-if="displayFileSizeInformation" class="ce-uploads__size">
+          <span v-if="displayFileSizeInformation" class="t3-ce-uploads__size">
             {{ file.properties.size }}
           </span>
         </t3-nav-link>
         <p
           v-if="displayDescription && file.properties.description"
-          class="ce-uploads__desc"
+          class="t3-ce-uploads__desc"
         >
           {{ file.properties.description }}
         </p>

@@ -2,7 +2,7 @@
   <div
     v-if="header && headerLayout !== 100"
     :class="headerCss"
-    class="ce-header"
+    class="t3-ce-header"
   >
     <component
       :is="`h${headerLevel}`"

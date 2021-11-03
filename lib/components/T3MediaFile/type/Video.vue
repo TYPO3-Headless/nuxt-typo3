@@ -2,7 +2,7 @@
   <video
     v-bind="data.attrs"
     :class="[data.class, data.staticClass]"
-    class="ce-media-video"
+    class="t3-ce-media-video"
     controls
   >
     <source

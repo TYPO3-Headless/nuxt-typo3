@@ -1,5 +1,5 @@
 <template>
-  <div class="ce-textpic">
+  <div class="t3-ce-textpic">
     <t3-media-gallery :gallery="gallery" :enlarge-image-on-click="enlargeImageOnClick">
       <t3-ce-header v-bind="$props" />
       <t3-html-parser :content="bodytext" />

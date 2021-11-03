@@ -10,7 +10,7 @@ export default {
   },
   render (createElement, ctx) {
     return createElement('div', [
-      createElement('ce-renderer', {
+      createElement('t3-ce-renderer', {
         props: {
           content: ctx.props.shortcut
         }

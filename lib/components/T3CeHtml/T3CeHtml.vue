@@ -1,5 +1,5 @@
 <template functional>
-  <div class="ce-html">
+  <div class="t3-ce-html">
     <t3-html-parser :content="props.bodytext" />
   </div>
 </template>
