@@ -31,8 +31,7 @@ export default {
   props: {
     menu: {
       type: Array,
-      required: true,
-      default: () => []
+      required: true
     }
   }
 }

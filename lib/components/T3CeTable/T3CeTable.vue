@@ -44,28 +44,23 @@ export default {
   props: {
     tableCaption: {
       type: String,
-      required: false,
       default: ''
     },
     tableHeaderPosition: {
       type: Number,
-      required: false,
       default: 0
     },
     tableClass: {
       type: String,
-      required: false,
       default: ''
     },
     tableTfoot: {
       type: Number,
-      required: false,
       default: 0
     },
     bodytext: {
       type: Array,
-      required: true,
-      default: () => []
+      required: true
     }
   },
   computed: {

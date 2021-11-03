@@ -20,8 +20,7 @@ export default {
   props: {
     file: {
       type: Object,
-      required: true,
-      default: () => {}
+      required: true
     }
   }
 }

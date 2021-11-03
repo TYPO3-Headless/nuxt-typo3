@@ -43,27 +43,22 @@ export default {
   props: {
     media: {
       type: Array,
-      required: true,
-      default: () => []
+      required: true
     },
     displayDescription: {
       type: Number,
-      required: false,
       default: 0
     },
     displayFileSizeInformation: {
       type: Number,
-      required: false,
       default: 0
     },
     displayInformation: {
       type: Number,
-      required: false,
       default: 0
     },
     target: {
       type: String,
-      required: false,
       default: ''
     }
   },
