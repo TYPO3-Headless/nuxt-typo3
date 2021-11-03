@@ -2,7 +2,7 @@
   <audio
     v-bind="data.attrs"
     :class="[data.class, data.staticClass]"
-    class="ce-media-audio"
+    class="t3-ce-media-audio"
     controls
   >
     <source :src="props.file.publicUrl" type="audio/mp3">

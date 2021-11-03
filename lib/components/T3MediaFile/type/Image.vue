@@ -2,7 +2,7 @@
   <div
     v-bind="data.attrs"
     :class="[data.class, data.staticClass]"
-    class="ce-media-image"
+    class="t3-ce-media-image"
   >
     <component
       :is="props.file.properties.link ? 't3-nav-link' : 'div'"

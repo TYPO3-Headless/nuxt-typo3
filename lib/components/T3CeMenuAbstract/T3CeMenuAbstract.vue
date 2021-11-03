@@ -1,5 +1,5 @@
 <template>
-  <t3-ce-menu-pages v-bind="$props" class="ce-menu-abstract">
+  <t3-ce-menu-pages v-bind="$props" class="t3-ce-menu-abstract">
     <template #link="{ link }">
       <t3-html-parser
         v-if="link.data && link.data.abstract"

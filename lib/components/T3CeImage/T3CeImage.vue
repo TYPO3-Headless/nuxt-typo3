@@ -1,5 +1,5 @@
 <template>
-  <div class="ce-image">
+  <div class="t3-ce-image">
     <t3-ce-header v-bind="$props" />
     <t3-media-gallery :gallery="gallery" :enlarge-image-on-click="enlargeImageOnClick" />
   </div>

@@ -7,7 +7,7 @@
     :width="props.file.properties.dimensions.width || 640"
     :height="props.file.properties.dimensions.height || 360"
     :src="props.file.publicUrl"
-    class="ce-media-video ce-media-youtube"
+    class="t3-ce-media-video ce-media-youtube"
     type="text/html"
     frameborder="0"
   />

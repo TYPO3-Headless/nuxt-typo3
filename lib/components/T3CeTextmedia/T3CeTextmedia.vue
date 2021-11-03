@@ -1,5 +1,5 @@
 <template>
-  <t3-ce-textpic v-bind="$props" class="ce-textmedia" />
+  <t3-ce-textpic v-bind="$props" class="t3-ce-textmedia" />
 </template>
 <script>
 import T3CeTextpic from '../T3CeTextpic/T3CeTextpic.vue'

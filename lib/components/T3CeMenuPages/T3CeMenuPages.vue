@@ -1,5 +1,5 @@
 <template>
-  <div class="ce-menu">
+  <div class="t3-ce-menu">
     <t3-ce-header v-bind="$props" />
     <ul v-if="menu">
       <li v-for="(menuItem, key) in menu" :key="key">

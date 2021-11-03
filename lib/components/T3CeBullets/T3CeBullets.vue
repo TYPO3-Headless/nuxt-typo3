@@ -1,5 +1,5 @@
 <template functional>
-  <div class="ce-bullets">
+  <div class="t3-ce-bullets">
     <t3-ce-header v-bind="props" />
     <ul
       :is="props.bulletsType === 1 ? 'ol' : 'ul'"

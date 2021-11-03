@@ -1,5 +1,5 @@
 <template functional>
-  <hr class="ce-div">
+  <hr class="t3-ce-div">
 </template>
 <script>
 export default {
