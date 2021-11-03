@@ -11,7 +11,7 @@ extension repository.
 
 In order to provide a `headless API`, you need to setup a TYPO3 project that is configured around the [TYPO3 headless](https://github.com/TYPO3-Initiatives/headless) extension. The essential steps are:
 
-1. Install TYPO3 v9.5 or higher (preferably using composer)
+1. Install TYPO3 v11 or higher (preferably using composer)
 2. Install and activate the `headless` extension, e.g. using composer:
 
 ```bash
