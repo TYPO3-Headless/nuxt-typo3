@@ -1,0 +1,33 @@
+{
+  "id": {
+    "type": "number",
+    "description": "Content element ID"
+  },
+  "type": {
+    "type": "string",
+    "description": "Type of content elements"
+  },
+  "colPos": {
+    "type": "number",
+    "description": "CE column position"
+  },
+  "header": {
+    "type": "string",
+    "description": "Header text"
+  },
+  "headerLayout": {
+    "type": "number",
+    "description": "Heading level (0,1,2,3,4,5) - eg pass 1 to get H1"
+  },
+  "headerPosition": {
+    "type": "string",
+    "description": "Heading alignment - left / center / right"
+  },
+  "headerLink": {
+    "description": "Heading link object"
+  },
+  "subheader": {
+    "type": "string",
+    "description": "Subheading text"
+  }
+}

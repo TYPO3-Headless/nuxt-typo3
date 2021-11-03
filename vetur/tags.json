@@ -1,0 +1,89 @@
+{
+  "t3-ce-bullets": {
+    "description": "Bullet list",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-default": {
+    "description": "Default content element - fallback",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-div": {
+    "description": "Divider <hr/>",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-formformframework": {
+    "description": "Generate <Form/> based on JSON schema",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-header": {
+    "description": "Regular heading text",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-html": {
+    "description": "Display HTML content",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-image": {
+    "description": "Media image",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-menu-abstract": {
+    "description": "Menu of pages including abstracts",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-menu-pages": {
+    "description": "A simple menu",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-shortcut": {
+    "description": "Shortcut to another element",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-table": {
+    "description": "Regular <table/>",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-text": {
+    "description": "Regular text",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-textmedia": {
+    "description": "Regular text + media elements",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-textpic": {
+    "description": "Regular text + gallery",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-ce-uploads": {
+    "description": "File list",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-debug": {
+    "description": "CE wrapper to debug props",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-dynamic": {
+    "description": "Render dynamic CE or Backend Layout based on type",
+    "attributes": ["id", "type", "colPos", "header", "headerLayout", "headerPosition", "headerLink", "subheader"]
+  },
+  "t3-frame": {
+    "description": "Frame wrapper for content elements"
+  },
+  "t3-html-parser": {
+    "description": "Component to render RTE or HTML content. Useful to render and detect internal/external links"
+  },
+  "t3-media-file": {
+    "description": "Media file component [Audio, Image, Video, Vimeo, Youtube]"
+  },
+  "t3-media-gallery": {
+    "description": "Media gallery helper used in CE related with media"
+  },
+  "t3-nav-link": {
+    "description": "Link component to detect internal/external links"
+  },
+  "t3-renderer": {
+    "description": "Element to render specific colPos"
+  }
+}
+
