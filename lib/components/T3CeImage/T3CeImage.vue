@@ -16,8 +16,7 @@ export default {
   props: {
     gallery: {
       type: Object,
-      required: true,
-      default: () => ({})
+      required: true
     },
     enlargeImageOnClick: {
       type: Boolean,

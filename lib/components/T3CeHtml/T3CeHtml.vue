@@ -12,7 +12,6 @@ export default {
   props: {
     bodytext: {
       type: String,
-      required: true,
       default: ''
     }
   }

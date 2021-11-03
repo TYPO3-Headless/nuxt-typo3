@@ -5,8 +5,7 @@ export default {
   props: {
     shortcut: {
       type: Array,
-      required: true,
-      default: () => []
+      required: true
     }
   },
   render (createElement, ctx) {

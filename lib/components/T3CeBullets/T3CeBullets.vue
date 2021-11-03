@@ -29,12 +29,10 @@ export default {
   props: {
     bodytext: {
       type: Array,
-      required: true,
       default: () => []
     },
     bulletsType: {
       type: Number,
-      required: false,
       default: 0
     }
   }
