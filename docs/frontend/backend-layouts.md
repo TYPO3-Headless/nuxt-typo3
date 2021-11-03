@@ -20,7 +20,7 @@ If you would like to create multiple columns backend layout just define your lay
 
 If the response is ok, we can create component file. 
 
-create: `layouts/backend/Be2columns.vue`:
+create: `components/T3Bl2Columns.vue`:
 ```html
 <template>
   <div>
@@ -34,9 +34,9 @@ create: `layouts/backend/Be2columns.vue`:
   </div>
 </template>
 <script>
-import BeDefault from '~typo3/layouts/backend/BeDefault'
+import T3BlDefault from '~typo3/components/T3BlDefault/T3BlDefault.vue'
 export default {
-  extends: BeDefault
+  extends: T3BlDefault
 }
 </script>
 
@@ -51,9 +51,9 @@ create: `plugins/layouts.js`:
 ```js
 import Vue from 'vue'
 import { registerBackendLayouts } from '~typo3/plugins/layouts'
-import Be2Columns from '~/layouts/backend/Be2columns'
+import T3Bl2Columns from '~/components/T3Bl2Columns'
 const layouts = {
-  Be2Columns
+  T3Bl2Columns
 }
 
 export default ({ app }) => {
@@ -75,5 +75,5 @@ export default {
 ```
 
 ::: tip Be Prefix
-Backend layouts are regular Vue components. You have to provide `Be` prefix for name of your backend layout to avoid conflicts with other components.
+Backend layouts are regular Vue components. You have to provide `T3Bl` prefix for name of your backend layout.
 ::: 

@@ -44,7 +44,7 @@ export default {
 Here we fetch the initial navigation data using the integrated (Vuex) `store` module and map it to the computed property `navMain`. That way we have access to all the pages, including their children, of the page tree defined in the TYPO3 backend. Now `navMain` holds data that is structured like this:
 
 ```js
-navMain = {
+navMain = [{
   "active": 1,
   "children": {...},
   "current": 1,
@@ -52,11 +52,11 @@ navMain = {
   "spacer": 0,
   "target": "",
   "title": "[e.g.: 'API Root Page']"
-}
+}]
 ```
 
 ::: tip
-The call to the `store` is actually done in the `nuxt-typo3` plugin. If you want to learn more about how the `store` works, have a look at the [nuxt-typo3](https://github.com/mercs600/nuxt-typo3-skin) plugin, specifically at its store folder.
+The call to the `store` is actually done in the `nuxt-typo3` plugin. If you want to learn more about how the `store` works, have a look at the [nuxt-typo3](https://github.com/TYPO3-Initiatives/nuxt-typo3/tree/master/lib/store) plugin, specifically at its store folder.
 :::
 
 ## 2. Play with content elements
@@ -67,10 +67,10 @@ The call to the `store` is actually done in the `nuxt-typo3` plugin. If you want
 
 **Just add / override some CSS styles.**
 
-If you just want to override existing or add new CSS styles (and not change any Javascript), simply create a component of the same name in the same folder structure, e.g. `components/content/elements/CeText.vue`. Then import the original component from the `nuxt-typo3` module using the `script` tag's `src` parameter:
+If you just want to override existing or add new CSS styles (and not change any Javascript), simply create a component of the same name in the same folder structure, e.g. `components/T3CeText.vue`. Then import the original component from the `nuxt-typo3` module using the `script` tag's `src` parameter:
 
 ```html
-<script src="~typo3/components/content/elements/CeText.vue" />
+<script src="~typo3/components/T3CeText/T3CeText.vue" />
 ```
 
 Next, add some CSS and override the markup so that the component looks like this:
@@ -82,7 +82,7 @@ Next, add some CSS and override the markup so that the component looks like this
     <t3-html-parser :content="bodytext" />
   </div>
 </template>
-<script src="~typo3/components/content/elements/CeText.vue" />
+<script src="~typo3/components/T3CeText/T3CeText.vue" />
 <style>
 .ce-text {
   background: green;
@@ -96,21 +96,26 @@ The important part to remember here is that the original component can be import
 Rembember that HTML content shipped by RTE should be parsed. To do so, use the `<t3-html-parser>` component.
 :::
 
+::: warning Override by registration
+To make it work you have to register your new component as the global one. Please look step [2.2](#_2-2-register-your-component)
+:::
+
 **Override component logic**
 
-If you want to change the Javascript of the original component, then you first have to setup the component as explained in #2.1. However, now the origianl component is imported via the `import` statement. That way we can employ the `extends` method on `export default {}` and add or override Javascript:
+If you want to change the Javascript of the original component, then you first have to setup the component as explained in #2.1. However, now the original component is imported via the `import` statement. That way we can employ the `extends` option on `export default {}` and add or override Javascript:
 
 ```html
-<template>  <div class="ce-text">
+<template>
+  <div class="t3-ce-text">
     <strong> My custom text element </strong>
     <t3-html-parser :content="bodytext" />
   </div>
 </template>
 
 <script>
-import CeText from '~typo3/components/content/elements/CeText'
+import T3CeText from '~typo3/components/T3CeText/T3CeText.vue'
 export default {
-  extends: CeText,
+  extends: T3CeText,
   mounted () {
     console.log('My custom text element has benn mounted.')
   }
@@ -118,7 +123,7 @@ export default {
 </script>
 
 <style>
-.ce-text {
+.t3-ce-text {
   background: green;
 }
 </style>
@@ -126,15 +131,15 @@ export default {
 
 ### 2.2 Register your component
 
-Eventually, to override existing `nuxt-typo3` components with your own ones, your components must be registered globally. This is done by adding them as a plugin to the main instance of your Nuxt application. [Read more about plugins](https://nuxtjs.org/guide/plugins/). This involves 2 steps:
+Finally, to override existing `nuxt-typo3` components with your own ones, your components must be registered globally. This is done by adding them as a plugin to the main instance of your Nuxt application. [Read more about plugins](https://nuxtjs.org/guide/plugins/). This involves 2 steps:
 
 1. Create `plugins/components.js`:
 
 ```js
 import Vue from 'vue'
-import CeText from '~/components/content/elements/CeText'
+import T3CeText from '~/components/T3CeText'
 const components = {
-  CeText
+  T3CeText
 }
 export default ({ app }) => {
   Object.keys(components).forEach((key) => {

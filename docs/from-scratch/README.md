@@ -16,9 +16,11 @@ It is important to understand that there are two separate applications involved 
 
 ### Backend
 
-+ TYPO3 - minimum required version is `9.5`
++ TYPO3 - minimum required version is `11`
+
+If you want to implement `nuxt-typo3` for previous version ( < 11 ) please use [0.x version](https://github.com/TYPO3-Initiatives/nuxt-typo3/releases/tag/v0.9.5)
 
 ### Frontend
 
-+ Node.js - minimum required version is `8.9.0`
++ Node.js - minimum required version is `12.0.0`
 + npm/yarn
