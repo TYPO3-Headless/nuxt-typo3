@@ -7,7 +7,7 @@
     :height="props.file.properties.dimensions.height || 360"
     :title="props.file.properties.title || false"
     frameborder="0"
-    class="t3-ce-media-video ce-media-vimeo"
+    class="t3-ce-media-video t3-ce-media-vimeo"
     webkitallowfullscreen
     mozallowfullscreen
     allowfullscreen

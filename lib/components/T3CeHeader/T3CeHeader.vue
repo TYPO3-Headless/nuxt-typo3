@@ -33,7 +33,7 @@ export default {
       return this.headerLayout === 0 ? 1 : this.headerLayout
     },
     headerCss () {
-      return this.headerPosition ? `ce-header--${this.headerPosition}` : ''
+      return this.headerPosition ? `t3-ce-header--${this.headerPosition}` : ''
     }
   }
 }
