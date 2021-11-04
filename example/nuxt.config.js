@@ -34,12 +34,13 @@ module.exports = {
     api: {
       baseURL: 'https://api.pwa-demo.ddev.site/' // please use https://github.com/TYPO3-Initiatives/pwa-demo/pull/42
     },
-    i18n: localeConfig
+    i18n: localeConfig,
+    registerForms: true
   },
   /*
    ** Add components/layouts overrides
    */
-  plugins: ['~/plugins/components', '~/plugins/layouts', '~/plugins/i18n', '~/plugins/hooks'],
+  plugins: ['~/plugins/components', '~/plugins/layouts', '~/plugins/i18n', '~/plugins/hooks', '~/plugins/validators/extendValidation.js'],
   /*
    ** Register required modules
    */
@@ -63,6 +64,9 @@ module.exports = {
   },
 
   build: {
+    transpile: [
+      'vee-validate/dist/rules'
+    ],
     /*
      ** You can extend webpack config here
      */

@@ -40,8 +40,8 @@
     "attributes": "vetur/attributes.json"
   },
   "dependencies": {
-    "@braid/vue-formulate": "^2.4.2",
-    "@nuxtjs/axios": "^5.13.6"
+    "@nuxtjs/axios": "^5.13.6",
+    "vee-validate": "^3.4.13"
   },
   "devDependencies": {
     "@babel/core": "latest",
