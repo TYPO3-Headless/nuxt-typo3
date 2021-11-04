@@ -18,5 +18,8 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': '@vue/vue2-jest'
   },
-  transformIgnorePatterns: ['/node_modules/(?!nuxt-i18n).+\\.js$']
+  transformIgnorePatterns: [
+    '/node_modules/(?!nuxt-i18n|).+\\.js$',
+    '/node_modules/(?!vee-validate/dist/rules)'
+  ]
 }

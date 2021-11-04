@@ -1,0 +1,78 @@
+{
+  "elements": [
+    {
+      "type": "Fieldset",
+      "identifier": "fieldset-1",
+      "label": "Personal Information",
+      "defaultValue": null,
+      "properties": [],
+      "elements": [
+        {
+          "defaultValue": "",
+          "validators": [
+            {
+              "identifier": "EmailAddress",
+              "errorMessage": "You must enter a valid email address."
+            },
+            {
+              "identifier": "NotEmpty",
+              "errorMessage": "This field is mandatory."
+            }
+          ],
+          "type": "Email",
+          "identifier": "email",
+          "label": "Email",
+          "properties": {
+            "fluidAdditionalAttributes": {
+              "placeholder": "your email",
+              "required": "required"
+            }
+          },
+          "name": "tx_form_formframework[email]"
+        },
+        {
+          "defaultValue": "",
+          "type": "Text",
+          "identifier": "name",
+          "label": "Name",
+          "properties": {
+            "elementDescription": "",
+            "fluidAdditionalAttributes": { "required": "required" }
+          },
+          "validators": [
+            {
+              "identifier": "NotEmpty",
+              "errorMessage": "This field is mandatory."
+            }
+          ],
+          "name": "tx_form_formframework[name]"
+        },
+        {
+          "defaultValue": "+49",
+          "type": "Text",
+          "identifier": "phone",
+          "label": "Telephone",
+          "validators": [
+            {
+              "options": { "expression": "^[0-9-+]+$" },
+              "identifier": "RegularExpression",
+              "errorMessage": "You must enter a valid value. Please refer to the description of this field."
+            }
+          ],
+          "properties": {
+            "validationErrorMessages": [
+              {
+                "code": 1221565130,
+                "message": "You must enter a valid value. Please refer to the description of this field."
+              }
+            ],
+            "fluidAdditionalAttributes": {
+              "placeholder": "00-000-000-000"
+            }
+          },
+          "name": "tx_form_formframework[phone]"
+        }
+      ]
+    }
+  ]
+}
