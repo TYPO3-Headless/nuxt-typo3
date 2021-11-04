@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    {{ $typo3.i18n.locale }}
-    <nav>
-      <nuxt-link :to="navMain.link">
+    <nav v-if="navMain">
+      <nuxt-link v-if="navMain.link" :to="navMain.link">
         {{ navMain.title }}
       </nuxt-link>
       <template v-if="navMain.children">
@@ -14,8 +13,9 @@
           {{ item.title }}
         </nuxt-link>
       </template>
+      <t3-lang-switcher />
     </nav>
-    <t3-lang-switcher />
+
     <nuxt />
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   name: 'Default',
   computed: {
     ...mapState({
-      navMain: state => state.typo3.initial.navigation[0] || [] // get first instance from root
+      navMain: state => state.typo3.initial?.navigation[0] // get first typo3 instance from root tree
     })
   }
 }
@@ -35,6 +35,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   margin: 0;
+}
+
+nav {
+  margin: 20px 0;
 }
 
 .container {

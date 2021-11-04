@@ -1,5 +1,5 @@
 <template>
-  <div :class="galleryCss" class="t3-ce-gallery">
+  <div :class="galleryClass" class="t3-ce-gallery">
     <slot name="before" />
     <div v-if="gallery.position.vertical === 'below'" class="t3-ce-gallery__text">
       <slot />
@@ -52,7 +52,7 @@ export default {
     }
   },
   computed: {
-    galleryCss () {
+    galleryClass () {
       return [
         `t3-ce-gallery--horizontal-${this.gallery.position.horizontal}`,
         `t3-ce-gallery--vertical-${this.gallery.position.vertical}`,

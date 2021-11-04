@@ -7,7 +7,7 @@
         </nuxt-link>
       </li>
     </ul>
-    {{ current }}
+    Current locale: {{ current }}
   </div>
 </template>
 <script>
