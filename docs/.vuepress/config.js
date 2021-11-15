@@ -36,7 +36,8 @@ module.exports = {
             'frontend/layouts',
             'frontend/_.vue',
             'frontend/backend-layouts',
-            'frontend/content-elements'
+            'frontend/content-elements',
+            'frontend/forms'
           ]
         },
         {

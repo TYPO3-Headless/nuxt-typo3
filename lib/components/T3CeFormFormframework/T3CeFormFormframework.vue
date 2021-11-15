@@ -109,6 +109,7 @@ export default {
       Object.values(errObj).map(value => ([value]))
       return errObj
     }
+
   }
 }
 </script>

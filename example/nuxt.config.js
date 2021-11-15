@@ -64,9 +64,6 @@ module.exports = {
   },
 
   build: {
-    transpile: [
-      'vee-validate/dist/rules'
-    ],
     /*
      ** You can extend webpack config here
      */

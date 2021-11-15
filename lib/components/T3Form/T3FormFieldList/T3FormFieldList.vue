@@ -28,6 +28,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import { pascalCase } from 'scule'
 import { ValidationProvider, extend } from 'vee-validate'
 import extendableComponents from '../../../mixins/component/extendableComponents'
 import T3FormFieldset from '../T3FormFieldset/T3FormFieldset.vue'
@@ -192,6 +193,9 @@ export default Vue.extend({
       }
       if (Object.keys(this.customTypes).includes(field.type)) {
         return this.customTypes[field.type]
+      }
+      if (this.$options.components && this.$options.components[`T3FormField${pascalCase(field.identifier)}`]) {
+        return `T3FormField${pascalCase(field.identifier)}`
       }
       if (this.$options.components && this.$options.components[`T3FormField${field.type}`]) {
         return `T3FormField${field.type}`

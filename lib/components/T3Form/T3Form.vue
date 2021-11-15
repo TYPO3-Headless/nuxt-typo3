@@ -4,10 +4,6 @@
     ref="validator"
     slim
   >
-    <slot
-      name="before"
-      :validator="validator"
-    />
     <form
       ref="form"
       class="t3-form"
@@ -15,20 +11,33 @@
       @submit.prevent="onSubmit"
       @reset="resetForm"
     >
-      <T3FormFieldList
-        ref="fieldlist"
-        :elements="elements"
-        :components="components"
-        :classes="classes"
-        :i18n="i18n"
-        @change="updateModel"
-      />
-      <T3FormCta
+      <slot
+        name="before"
+        :model="model"
+        :validator="validator"
         :state="state"
-        :i18n="i18n"
       />
+      <slot name="fields">
+        <T3FormFieldList
+          ref="fieldlist"
+          :elements="elements"
+          :components="components"
+          :classes="classes"
+          :i18n="i18n"
+          @change="updateModel"
+        />
+      </slot>
+
+      <slot name="cta">
+        <T3FormCta
+          :state="state"
+          :i18n="i18n"
+        />
+      </slot>
+
       <slot
         name="after"
+        :model="model"
         :validator="validator"
         :state="state"
       />
@@ -78,6 +87,7 @@ export default {
     return {
       model: {},
       state: { ...defaultState },
+      // fallback labels, it will be merged with labels from API
       i18n: {
         submitButton: 'Submit',
         sendingLabel: 'Sending',
