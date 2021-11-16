@@ -179,12 +179,8 @@ declare module '@nuxt/vue-app' {
 // Nuxt 2.9+
 declare module '@nuxt/types' {
   interface Context {
-    /** frontend layout */
-    layout: string,
-    /** backend layout */
-    backendLayout: string,
     /** page content */
-    pageContent: TYPO3.Response
+    t3page: TYPO3.Response
   }
   interface NuxtAppOptions {
     /** TYPO3 plugin */

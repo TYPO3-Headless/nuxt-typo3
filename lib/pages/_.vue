@@ -1,8 +1,8 @@
 <template>
   <div>
     <t3-dynamic
-      :data="page.content"
-      :type="backendLayout"
+      :data="t3page.content"
+      :type="t3page.appearance.backendLayout"
       layout
     />
   </div>

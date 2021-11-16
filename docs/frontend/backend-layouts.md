@@ -6,21 +6,25 @@ In the backednd layout you can define multiple columns where you want to put you
 
 If you would like to create multiple columns backend layout just define your layout and create some Vue component. Your API for selected page should returns 
 
-`...page.appearance`:
+`(partial) page response`:
 ``` json{4,5}
 {
   ...
   "content": {
     "colPos0": [...Array with content elements],
     "colPos1": [...Array with content elements]
-  }
+  },
+  "appearance": {
+    "layout": "layout-0",
+    "backendLayout": "2Columns"
+  },
   ...
 }
 ```
 
-If the response is ok, we can create component file. 
+If the response is ok - we see there are 2 object in content and custom backendLayout, then we can create layout file. To render content from selected `colPos` you can use `T3Renderer` .
 
-create: `components/T3Bl2Columns.vue`:
+create: `components/Bl2Columns.vue`:
 ```html
 <template>
   <div>
@@ -39,38 +43,28 @@ export default {
   extends: T3BlDefault
 }
 </script>
-
 ```
+
 
 ## Register backend layouts
 
-You have to register component layouts to Nuxt application context - this is needed to provide the backend layout for SSR purposes. Just use `registerBackendLayouts` plugin
-   
-create: `plugins/layouts.js`:
+You can register backend layout as a regular global Vue component. 
+
+edit/create: `plugins/components.js`:
 
 ```js
 import Vue from 'vue'
-import { registerBackendLayouts } from '~typo3/plugins/layouts'
-import T3Bl2Columns from '~/components/T3Bl2Columns'
-const layouts = {
-  T3Bl2Columns
-}
-
-export default ({ app }) => {
-  Vue.use(registerBackendLayouts, {
-    context: app,
-    layouts
-  })
-}
+import Bl2Columns from '~/components/Bl2Columns'
+Vue.component('T3Bl2Columns', Bl2Columns)
 ```
 
-The last thing to do is edit Nuxt configuration file
+The last thing to do (if you haven't done it before) is edit Nuxt configuration file
 
 edit `nuxt.config.js`:
 
 ```js
 export default {
-  plugins: ['~/plugins/layouts']
+  plugins: ['~/plugins/components']
 }
 ```
 
