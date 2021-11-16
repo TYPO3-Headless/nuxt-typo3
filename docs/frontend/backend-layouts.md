@@ -22,7 +22,10 @@ If you would like to create multiple columns backend layout just define your lay
 }
 ```
 
-If the response is ok - we see there are 2 object in content and custom backendLayout, then we can create layout file. To render content from selected `colPos` you can use `T3Renderer` .
+We can see two objects - content and appearance with backendLayout property.
+
+If the response is ok, we will receive 2 objects - content and appearance. The name of the backend layout is stored in the appearance object as backendLayout property, so we should create a layout file named after data provided by API.
+To render content from selected colPos you can use T3Renderer.
 
 create: `components/Bl2Columns.vue`:
 ```html
@@ -48,7 +51,7 @@ export default {
 
 ## Register backend layouts
 
-You can register backend layout as a regular global Vue component. 
+You have to register backend layout as a regular global Vue component. 
 
 edit/create: `plugins/components.js`:
 

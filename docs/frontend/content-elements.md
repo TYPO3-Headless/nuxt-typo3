@@ -94,9 +94,6 @@ import Vue from 'vue'
 import CeKeyvisual from '~/components/CeKeyvisual'
 
 Vue.component('T3CeKeyvisual', CeKeyVisual)
-const components = {
-  T3CeKeyvisual
-}
 ```
 
 3. Setup nuxt configuration
