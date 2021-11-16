@@ -39,9 +39,6 @@ Add the `typo3` object to your `nuxt.config.js` to configure all required settin
 }
 ```
 
-::: warning
-`nuxt-typo3` requires [Vuex](https://vuex.vuejs.org/). Create an empty index.js file in the store directory. (Read more about Vuex in Nuxt.js [here](https://nuxtjs.org/guide/vuex-store).)
-:::
 
 ::: tip
 If you want to see TYPO3 headless API response on your homepage, please remove your `pages/index.vue` file.
