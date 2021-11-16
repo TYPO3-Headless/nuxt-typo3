@@ -37,15 +37,15 @@ You can display content from selected page by API.
 
 edit `layouts.error.vue`:
 
-```js
+```vue
 <template>
   <div>
     <h1>ERROR PAGE {{ error.statusCode }}</h1>
-    <be-dynamic
-      v-if="error.ssr"
-      :page="error.ssr.pageContent.page"
-      :content="error.ssr.pageContent.content"
-      :type="error.ssr.backendLayout"
+    <t3-dynamic
+      v-if="t3page"
+      :data="t3page.content"
+      :type="t3page.appearance.backendLayout"
+      layout
     />
   </div>
 </template>
@@ -56,7 +56,13 @@ export default {
       type: Object,
       default: () => {}
     }
+  },
+  computed: {
+    t3page () {
+      return this.error?.ssr?.t3page
+    }
   }
 }
 </script>
+
 ```
