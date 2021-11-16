@@ -67,9 +67,7 @@ npm install nuxt-typo3
 }
 ```
 
-2. `nuxt-typo3` require [Vuex](https://vuex.vuejs.org/) store. Create empty index.js file in store directory, read more [here](https://nuxtjs.org/guide/vuex-store).
-
-3. remove `index.vue` from pages directory - now your pages provides TYPO3 API
+2. By default this plugin uses dynamic routing (`_.vue`), please remove `index.vue` from pages directory - now your pages provides TYPO3 API. 
 
 ## See In action
 
