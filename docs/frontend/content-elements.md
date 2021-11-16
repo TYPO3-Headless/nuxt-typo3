@@ -91,16 +91,11 @@ export default {
    
 ```js
 import Vue from 'vue'
-import CeKeyvisual as T3CeKeyvisual from '~/components/CeKeyvisual'
+import CeKeyvisual from '~/components/CeKeyvisual'
 
+Vue.component('T3CeKeyvisual', CeKeyVisual)
 const components = {
   T3CeKeyvisual
-}
-
-export default ({ app }) => {
-  Object.keys(components).forEach(key => {
-    Vue.component(key, components[key])
-  })
 }
 ```
 

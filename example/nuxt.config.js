@@ -40,7 +40,7 @@ module.exports = {
   /*
    ** Add components/layouts overrides
    */
-  plugins: ['~/plugins/components', '~/plugins/layouts', '~/plugins/i18n', '~/plugins/hooks', '~/plugins/validators/extendValidation.js'],
+  plugins: ['~/plugins/components', '~/plugins/i18n', '~/plugins/hooks', '~/plugins/validators/extendValidation.js'],
   /*
    ** Register required modules
    */
