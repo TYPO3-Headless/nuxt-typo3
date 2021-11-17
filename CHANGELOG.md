@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.5...v1.0.0-alpha.0) (2021-11-17)
+
+
+### ⚠ BREAKING CHANGES
+* **core**: support for TYPO3v11 and Headless ext 3.0 only, get familiar with new [page response object](https://github.com/TYPO3-Initiatives/headless#page-response), for TYPO3v<11 please use nuxt-typo3 0.X.X 
+* **layouts:** setup error page content (#166)
+* **layouts:** 
+  * refactored nuxt context:
+     * removed backendLayout field
+     * renamed pageContent to t3page
+  * removed registerBackendLayouts plugin - you can [register backend](https://typo3-initiatives.github.io/nuxt-typo3/frontend/backend-layouts.html#register-backend-layouts) layouts as global components 
+* **components:** all components use css class with prefix t3-ce-[component]
+* **components:** use T3 prefix and move layouts to components (#189)"
+* **components:** All components all registered in as T3Component - eg. T3CeText, T3Renderer, please look at [new component structure](https://github.com/TYPO3-Initiatives/nuxt-typo3/tree/master/lib/components)
+* callbacks onLocaleChange and beforeLocaleChange was replaced by [hooks](https://typo3-initiatives.github.io/nuxt-typo3/configuration/hooks.html#available-hooks)
+* **multidomains** www subdomain is taken into account if it comes to domain name
+
+### Features
+
+* enable store in runtime ([#198](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/198)) ([ec26711](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/ec26711565733b071931eabf56842f4d72d91802))
+* **components:** add new form framework ([#192](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/192)) ([f0b2b53](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/f0b2b53af7fb63978beb65fe8538bcf95148f37f)) [docs](https://typo3-initiatives.github.io/nuxt-typo3/frontend/forms.html#component-data-flow)
+* **components:** add Vetur component data ([#189](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/189)) ([0be7522](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/0be75221d33cbd667fba551d5bd07fec18b55fab))
+* add enlarge on click functionality ([b0b75ff](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/b0b75ff7896effb73657f681927e4c8e178895c1))
+* add hooks ([#164](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/164)) ([3d3f777](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/3d3f77786e09d61b9f2398ba4e2a67457f94b814))
+* add injecting of ld+json schema in head ([50c93fe](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/50c93fed7d0a1a8fa01ffb7e675ecf391c639e5e))
+* add rtl attribute on root html node([#162](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/162)) ([dc6d116](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/dc6d11698c6987a4c3141fcefac84b8cb2cb17b4))
+* adjust data flow to the headless v11([#155](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/155)) ([61c9e07](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/61c9e073c23446410d5656664fe6c3f0a7d891b8))
+* merge v11 ([497bedb](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/497bedb22ff8d8030d858bdb6b03a4dd620f7df2))
+
+
+### Bug Fixes
+
+* add handling mailto and tel ([a6d7802](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/a6d7802e233abffce32d1a6943f03de8baaf17e3))
+* delete redundant code ([57645a3](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/57645a316636263aaa1fc1c26d48732d3a9ddce9))
+* fix canonical URL path ([c151f57](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/c151f57e80a26114518a127fa7ca6d9bb9e11ae9))
+* removing deprecated code ([#165](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/165)) ([2f03cfe](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/2f03cfeaf0c97a2ba638ae2e901be936728f1a38))
+* **example:** upgrade nuxt-i18n ([#182](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/182)) ([e6f064f](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/e6f064fbef539ff489ec6db33b0724c29798c657))
+
+
+* **components:** change CE css classes to t3-ce-[component] ([#189](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/189)) ([803b15f](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/803b15fc0c4078477144df64cea84ffbe0729aaa))
+* **components:** use T3 prefix and move layouts to components ([#189](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/189))" ([1e683b4](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/1e683b4c1c9d685481a7991f832f841c8f54a1ec))
+* **components:** use T3 prefix for all components ([89ffa3e](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/89ffa3e1dda4f122fef92fb956dea81e6a299c27))
+* **layouts:** remove additional function to register backend layouts ([#166](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/166)) ([04ea9e9](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/04ea9e9109acc16d49d6af08fd3774bdad50fd6f))
+* **layouts:** setup error page content ([#166](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/166)) ([e995653](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/e9956533dd096f8c7170a0a056b7bc614b062f57))
+* avoid trimming www in domain name ([#99](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/99)) ([8a13f45](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/8a13f4523428c2db419fce6c98790a5bdb6154da))
+
 ### [0.9.5](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.5-alpha.0...v0.9.5) (2021-10-21)
 
 
