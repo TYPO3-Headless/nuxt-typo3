@@ -2,6 +2,14 @@
 
 TYPO3 Headless supports [Form Framework](https://docs.typo3.org/m/typo3/tutorial-editors/master/en-us/ContentElements/ContactForm/Index.html) and nuxt-typo3 supports form handling.
 
+Forms handling is disabled by default. You can enable it in `nuxt.config`
+
+```js
+  typo3: {
+    forms: true
+  },
+```
+
 ### TYPO3 Headless Limitations
 Please note, that currently we are experiencing following limitations on API level:
 1. TYPO3 Headless supports only one step forms (however, you are still able to build multistep forms on frontend side - guide soon). 
