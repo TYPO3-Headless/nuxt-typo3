@@ -1,4 +1,3 @@
-// import https from 'https'
 import pl from './locale/pl'
 import en from './locale/en'
 const { resolve } = require('path')
@@ -35,7 +34,7 @@ module.exports = {
       baseURL: 'https://api.pwa-demo.ddev.site/' // please use https://github.com/TYPO3-Initiatives/pwa-demo/pull/42
     },
     i18n: localeConfig,
-    registerForms: true
+    forms: true
   },
   /*
    ** Add components/layouts overrides

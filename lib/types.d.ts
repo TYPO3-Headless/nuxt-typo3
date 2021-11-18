@@ -46,12 +46,11 @@ export namespace TYPO3 {
      * Register all components by default
      * you can disable it by setup on false
      */
-    registerComponents?: boolean,
+    components?: boolean,
     /**
-     * Register all default layouts
-     * you can disable it by setup on false
+     * Enable form components with vee-validate
      */
-    registerLayouts?: boolean,
+    forms?: boolean,
     /**
      * Additional domains configuration
      */
