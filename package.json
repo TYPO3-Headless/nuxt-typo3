@@ -1,6 +1,6 @@
 {
   "name": "nuxt-typo3",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "TYPO3 Frontend rendered in Vue.js and Nuxt (frontend for EXT:headless)",
   "license": "MIT",
   "author": "Macopedia",
