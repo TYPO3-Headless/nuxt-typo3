@@ -1,0 +1,99 @@
+{
+  "id": 379,
+  "type": "form_formframework",
+  "colPos": 0,
+  "categories": "",
+  "appearance": {
+    "layout": "default",
+    "frameClass": "ruler-before",
+    "spaceBefore": "",
+    "spaceAfter": ""
+  },
+  "content": {
+    "link": {
+      "href": "/form-1?tx_form_formframework%5Baction%5D=perform&amp;tx_form_formframework%5Bcontroller%5D=FormFrontend&amp;cHash=da1dd80055199b3d1e178b1f98253e50",
+      "target": null,
+      "class": null,
+      "title": null,
+      "linkText": "96",
+      "additionalAttributes": []
+    },
+    "form": {
+      "id": "contact-379",
+      "api": {
+        "status": null,
+        "errors": null,
+        "actionAfterSuccess": null,
+        "page": { "current": 0, "nextPage": null, "pages": 1 }
+      },
+      "i18n": [],
+      "elements": [
+        {
+          "defaultValue": "",
+          "validators": [
+            {
+              "identifier": "EmailAddress",
+              "errorMessage": "You must enter a valid email address."
+            },
+            {
+              "identifier": "NotEmpty",
+              "errorMessage": "This field is mandatory."
+            }
+          ],
+          "type": "Email",
+          "identifier": "email",
+          "label": "Email",
+          "properties": {
+            "fluidAdditionalAttributes": {
+              "placeholder": "your email",
+              "required": "required"
+            }
+          },
+          "name": "tx_form_formframework[email]"
+        },
+        {
+          "defaultValue": "",
+          "type": "Text",
+          "identifier": "name",
+          "label": "Name",
+          "properties": {
+            "elementDescription": "",
+            "fluidAdditionalAttributes": { "required": "required" }
+          },
+          "validators": [
+            {
+              "identifier": "NotEmpty",
+              "errorMessage": "This field is mandatory."
+            }
+          ],
+          "name": "tx_form_formframework[name]"
+        },
+        {
+          "defaultValue": "+49",
+          "type": "Text",
+          "identifier": "phone",
+          "label": "Telephone",
+          "validators": [
+            {
+              "options": { "expression": "^[0-9-+]+$" },
+              "identifier": "RegularExpression",
+              "errorMessage": "You must enter a valid value. Please refer to the description of this field."
+            }
+          ],
+          "properties": {
+            "validationErrorMessages": [
+              {
+                "code": 1221565130,
+                "message": "You must enter a valid value. Please refer to the description of this field."
+              }
+            ],
+            "fluidAdditionalAttributes": {
+              "placeholder": "00-000-000-000"
+            }
+          },
+          "name": "tx_form_formframework[phone]"
+        }
+      ]
+    }
+  }
+}

@@ -4,6 +4,7 @@
     :vid="field.identifier"
     :name="field.label"
     :rules="rules"
+    :custom-messages="messages"
     slim
   >
     <label :for="field.identifier"> {{ field.label }} </label>
@@ -53,30 +54,33 @@ export default {
   },
   computed: {
     placeholder () {
-      return this.field.properties?.fluidAdditionalAttributes?.placeholder || ''
+      return this.field.placeholder || ''
     },
     required () {
-      return !!Object.keys(this.rules).find(key => key === 'NotEmpty')
+      return this.field.required || !!Object.keys(this.rules).find(key => key === 'required')
     },
     rules () {
       const rules = {}
       if (this.field.validators) {
         this.field.validators.forEach((validator) => {
-          if (validator.options) {
-            switch (validator.identifier) {
-              case 'RegularExpression' : rules[validator.identifier] = validator.options.expression
-                break
-              case 'FileSize': rules[validator.identifier] = validator.options.maximum
-                break
-              default: rules[validator.identifier] = validator.options
-            }
-          } else {
-            rules[validator.identifier] = true
+          rules[validator.identifier] = validator.options || true
+        })
+      }
+      if (this.field.required) {
+        rules.required = true
+      }
+      return rules
+    },
+    messages () {
+      const messages = {}
+      if (this.field.validators) {
+        this.field.validators.forEach((validator) => {
+          if (validator.message) {
+            messages[validator.identifier] = validator.message
           }
         })
       }
-
-      return rules
+      return messages
     }
   },
   watch: {
@@ -85,8 +89,8 @@ export default {
     }
   },
   created () {
-    if (this.field.defaultValue && this.field.defaultValue.toString().length > 0) {
-      this.innerValue = this.field.defaultValue
+    if (this.field.value && this.field.value.toString().length > 0) {
+      this.innerValue = this.field.value
     }
   }
 }

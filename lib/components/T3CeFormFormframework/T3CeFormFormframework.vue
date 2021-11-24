@@ -1,7 +1,7 @@
 <template>
   <T3Form
     ref="form"
-    :elements="form.elements"
+    :elements="elements"
     @submit="onSubmit"
   >
     <template #after="{state}">
@@ -40,7 +40,25 @@ export default {
         serverSuccess: 'The form was sent, thank you.',
         serverError: 'We can not process form right now, please try again later.',
         validationErrors: 'There were some errors, review the form'
+      },
+      // map TYPO3 validation rules to
+      // https://vee-validate.logaretm.com/v3/guide/rules.html#rules
+      rules: {
+        NotEmpty: 'required',
+        EmailAddress: 'email',
+        RegularExpression: {
+          identifier: 'regex',
+          options: {
+            expression: 'regex'
+          }
+        }
       }
+    }
+  },
+  computed: {
+    elements () {
+      const elements = [...this.form.elements]
+      return this.prepareElements(elements)
     }
   },
   created () {
@@ -108,6 +126,77 @@ export default {
       const errObj = { ...errors }
       Object.values(errObj).map(value => ([value]))
       return errObj
+    },
+    /**
+     * Map TYPO3 Form Framework to T3Form Schema
+     * @param {FormFrameworkElement[]} elements
+     * @returns {T3FormELement[]} elements
+     */
+    prepareElements (elements) {
+      let _elements = []
+      _elements = elements.map((element) => {
+        const _element = Object.assign({}, element)
+        if (_element.elements) {
+          _element.elements = this.prepareElements(_element.elements)
+        }
+        if (!Array.isArray(_element.properies)) {
+          _element.placeholder = element.properties?.fluidAdditionalAttributes?.placeholder
+          _element.required = element.properties?.fluidAdditionalAttributes?.required
+        }
+        _element.value = element.defaultValue
+        _element.type = _element.type.toLowerCase()
+
+        if (_element.type === 'fieldset') {
+          _element.fieldlist = true
+        }
+
+        if (_element.validators) {
+          _element.validators = this.mapValidationRules(_element.validators)
+        }
+
+        return _element
+      })
+      return _elements
+    },
+    /**
+     * Map TYPO3 Form Framework
+     * @param {FormFramworkRule[]} FormFramework element rules
+     * @returns {T3FormRule[]} rules
+     * https://vee-validate.logaretm.com/v3/advanced/rules-object-expression.html
+     */
+    mapValidationRules (elementRules) {
+      const rules = []
+
+      elementRules.forEach((rule) => {
+        const ruleToMap = this.rules[rule.identifier]
+        let newRule = {}
+
+        if (ruleToMap) {
+          if (typeof ruleToMap === 'string') {
+            newRule.identifier = ruleToMap
+          } else {
+            newRule = {
+              identifier: ruleToMap.identifier,
+              options: {}
+            }
+            if (rule.options && ruleToMap.options && Object.keys(rule.options).length) {
+              Object.entries(ruleToMap.options).forEach(([key, option]) => {
+                newRule.options[option] = rule.options[key]
+              })
+            }
+          }
+        } else {
+          newRule = rule
+        }
+
+        if (rule.errorMessage) {
+          newRule.message = rule.errorMessage
+        }
+
+        rules.push(newRule)
+      })
+
+      return rules
     }
 
   }
