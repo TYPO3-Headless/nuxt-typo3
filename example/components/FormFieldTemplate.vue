@@ -1,8 +1,10 @@
 <template>
   <ValidationProvider
     v-slot="state"
+    :vid="field.identifier"
     :name="field.label"
     :rules="rules"
+    :custom-messages="messages"
     slim
   >
     <div class="field-row">

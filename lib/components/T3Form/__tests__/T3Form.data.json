@@ -1,75 +1,61 @@
 {
   "elements": [
     {
-      "type": "Fieldset",
+      "type": "fieldset",
+      "fieldlist": true,
       "identifier": "fieldset-1",
       "label": "Personal Information",
-      "defaultValue": null,
-      "properties": [],
+      "value": null,
       "elements": [
         {
-          "defaultValue": "",
+          "value": "",
           "validators": [
             {
-              "identifier": "EmailAddress",
-              "errorMessage": "You must enter a valid email address."
+              "identifier": "email",
+              "message": "You must enter a valid email address."
             },
             {
-              "identifier": "NotEmpty",
-              "errorMessage": "This field is mandatory."
+              "identifier": "required",
+              "message": "This field is mandatory."
             }
           ],
-          "type": "Email",
+          "type": "email",
           "identifier": "email",
           "label": "Email",
-          "properties": {
-            "fluidAdditionalAttributes": {
-              "placeholder": "your email",
-              "required": "required"
-            }
-          },
+          "placeholder": "your email",
+          "required": true,
           "name": "tx_form_formframework[email]"
         },
         {
-          "defaultValue": "",
-          "type": "Text",
+          "value": "",
+          "type": "text",
           "identifier": "name",
           "label": "Name",
-          "properties": {
-            "elementDescription": "",
-            "fluidAdditionalAttributes": { "required": "required" }
-          },
+          "description": "",
+          "required": true,
           "validators": [
             {
-              "identifier": "NotEmpty",
-              "errorMessage": "This field is mandatory."
+              "identifier": "required",
+              "message": "This field is mandatory."
             }
           ],
           "name": "tx_form_formframework[name]"
         },
         {
-          "defaultValue": "+49",
-          "type": "Text",
+          "value": "+49",
+          "type": "text",
           "identifier": "phone",
           "label": "Telephone",
+          "placeholder": "00-000-000-000",
           "validators": [
             {
-              "options": { "expression": "^[0-9-+]+$" },
-              "identifier": "RegularExpression",
-              "errorMessage": "You must enter a valid value. Please refer to the description of this field."
+              "options": {
+                "regex": "^[0-9-+]+$"
+              },
+              "identifier": "regex",
+              "message": "You must enter a valid value. Please refer to the description of this field."
             }
           ],
-          "properties": {
-            "validationErrorMessages": [
-              {
-                "code": 1221565130,
-                "message": "You must enter a valid value. Please refer to the description of this field."
-              }
-            ],
-            "fluidAdditionalAttributes": {
-              "placeholder": "00-000-000-000"
-            }
-          },
           "name": "tx_form_formframework[phone]"
         }
       ]

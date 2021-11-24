@@ -20,11 +20,11 @@
       <slot name="fields">
         <T3FormFieldList
           ref="fieldlist"
+          v-model="model"
           :elements="elements"
           :components="components"
           :classes="classes"
           :i18n="i18n"
-          @change="updateModel"
         />
       </slot>
 
@@ -110,9 +110,6 @@ export default {
     this.i18n = Object.freeze(Object.assign(this.i18n, this.labels))
   },
   methods: {
-    updateModel (model) {
-      this.model = Object.assign(this.model, model)
-    },
     focusOnErrors () {
       const errors = Object.entries(this.validatorRef.refs)
         .map(([key, value]) => ({

@@ -63,5 +63,8 @@
     "jest": "latest",
     "nuxt-edge": "latest",
     "standard-version": "latest"
+  },
+  "volta": {
+    "node": "12.22.7"
   }
 }

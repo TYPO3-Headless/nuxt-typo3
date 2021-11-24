@@ -5,16 +5,19 @@
       :key="field.identifier"
       :class="[`t3-form-field-${field.identifier}`, getCssClass(field, classes)]"
     >
-      <template v-if="field.type === 'Fieldset'">
-        <T3FormFieldset :field="field">
+      <template v-if="field.fieldlist">
+        <component
+          :is="getComponentField(field)"
+          :field="field"
+        >
           <T3FormFieldList
             ref="nested"
             :elements="field.elements"
             :components="components"
             :classes="classes"
-            @change="updateModel"
+            @input="updateModel"
           />
-        </T3FormFieldset>
+        </component>
       </template>
       <template v-else>
         <component
@@ -61,10 +64,6 @@ export default Vue.extend({
       type: [Object, Boolean],
       default: false
     },
-    extendRules: {
-      type: Array,
-      default: () => []
-    },
     extendTypes: {
       type: Object,
       default: () => ({})
@@ -72,9 +71,10 @@ export default Vue.extend({
   },
   data () {
     return {
-      rules: [],
       availableCustomTypes: {
-        Honeypot: 'T3FormFieldHidden'
+        honeypot: 'T3FormFieldHidden',
+        singleselect: 'T3FormFieldSelect',
+        fieldset: 'T3FormFieldset'
       },
       model: {}
     }
@@ -90,7 +90,7 @@ export default Vue.extend({
   watch: {
     model: {
       handler (newModel) {
-        this.$emit('change', Object.assign(this.model, newModel))
+        this.$emit('input', Object.assign(this.model, newModel))
       },
       deep: true
     }
@@ -117,7 +117,7 @@ export default Vue.extend({
       }
     },
     updateModel (model) {
-      this.$emit('change', Object.assign(this.model, model))
+      this.$emit('input', Object.assign(this.model, model))
     },
     restoreModel () {
       this.setupModel()
@@ -141,16 +141,7 @@ export default Vue.extend({
      * @returns {Validator[]} Array with unique validation rules
      */
     getValidationRules (elements) {
-      let rules = []
-      elements.forEach((element) => {
-        if (element.elements) {
-          rules = rules.concat(this.getValidationRulesByFieldset(element.elements))
-          return rules
-        }
-
-        rules = rules.concat(this.getValidationRulesByFieldset(elements))
-      })
-
+      const rules = this.getValidationRulesByFieldset(elements)
       return [...new Set(rules.map(validator => JSON.stringify(validator)))].map(validator => JSON.parse(validator))
     },
 
@@ -178,12 +169,12 @@ export default Vue.extend({
         extend(rule.identifier, {
           /* eslint import/namespace: [2, { allowComputed: true }] */
           ...validators[rule.identifier],
-          message: rule.errorMessage
+          message: rule.errorMessage ?? rule.errorMessage
         })
       })
     },
     /**
-     * Get component by field type
+     * Get component by field
      * @param {Element} field single field
      * @returns {String} field component name
      */
@@ -194,13 +185,20 @@ export default Vue.extend({
       if (Object.keys(this.customTypes).includes(field.type)) {
         return this.customTypes[field.type]
       }
-      if (this.$options.components && this.$options.components[`T3FormField${pascalCase(field.identifier)}`]) {
-        return `T3FormField${pascalCase(field.identifier)}`
+      if (field.component && this.$options.components[field.component]) {
+        return this.$options.components[field.component]
       }
-      if (this.$options.components && this.$options.components[`T3FormField${field.type}`]) {
-        return `T3FormField${field.type}`
-      }
-      return 'T3FormField'
+
+      return this.getComponentBy(field.identifier) || this.getComponentBy(field.type) || 'T3FormField'
+    },
+    /**
+     * Get component by field type/identifier
+     * @param {String} field.identifier/field.type
+     * @returns {String} field component name
+     */
+    getComponentBy (type) {
+      return (this.$options.components && this.$options.components[`T3FormField${pascalCase(type)}`]) ??
+        this.$options.components[`T3FormField${pascalCase(type)}`]
     },
     /**
      * Get css class for single row based on fields
