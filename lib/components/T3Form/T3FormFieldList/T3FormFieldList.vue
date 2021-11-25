@@ -166,7 +166,7 @@ export default Vue.extend({
      */
     extendValidation (rules) {
       rules.forEach((rule) => {
-        extend(rule.identifier, {
+        validators[rule.identifier] && extend(rule.identifier, {
           /* eslint import/namespace: [2, { allowComputed: true }] */
           ...validators[rule.identifier],
           message: rule.errorMessage ?? rule.errorMessage
