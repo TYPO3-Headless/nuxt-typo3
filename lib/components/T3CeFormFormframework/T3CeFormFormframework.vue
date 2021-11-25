@@ -44,6 +44,8 @@ export default {
       // map TYPO3 validation rules to
       // https://vee-validate.logaretm.com/v3/guide/rules.html#rules
       rules: {
+        Alphanumeric: 'alpha',
+        Integer: 'integer',
         NotEmpty: 'required',
         EmailAddress: 'email',
         RegularExpression: {
