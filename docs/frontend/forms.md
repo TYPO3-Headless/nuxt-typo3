@@ -21,12 +21,13 @@ Please note, that currently we are experiencing following limitations on API lev
 
 ## Component data flow
 To handle [Form Framework](https://docs.typo3.org/m/typo3/tutorial-editors/master/en-us/ContentElements/ContactForm/Index.html) we have implemented [FormFramework Content Element](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3CeFormFormframework/T3CeFormFormframework.vue) which uses [T3Form component](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3Form/T3Form.vue). This is good example of distribution UI components and Content elements where UI is responsible for displaying interface based on delivered props. In that specific case FormFramework Content Element is responsible for delivering props to UI and submiting form data to API.
-You can use [T3Form component](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3Form/T3Form.vue) for more specific cases, not only for T3FormFramework - you can build your own forms, not related with FormFramework ContentElement. You may also override whole T3Form component to implement complicated scenarios. However, before you decide to do so, please read this documentation. We have provided a lot of ways of customising forms.
+You can use [T3Form component](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3Form/T3Form.vue) for more specific cases, not only for T3FormFramework - you can build your own forms, not related with FormFramework ContentElement. One thing you have to do is use our T3Form schema.
+You may also override whole T3Form component to implement complicated scenarios. However, before you decide to do so, please read this documentation. We have provided a lot of ways of customising forms.
 
 For model validation we have used [VeeValidate](https://vee-validate.logaretm.com/v3) plugin which in our opinion is the best way to validate forms in Vue.js applications. 
 
 ## FormFramework Content Element
-Entry point for form handling is [`T3CeFormFormframework`](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3CeFormFormframework/T3CeFormFormframework.vue) and this component is responsible for wraping `T3Form` and exchaning information between them. At this level you can override form template or default I18n labels. 
+Entry point for form handling is [`T3CeFormFormframework`](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3CeFormFormframework/T3CeFormFormframework.vue) and this component is responsible for wraping `T3Form` and exchaning information between them. At this level you can override form template, default I18n labels and customize mapping fields to T3Form schema.
 
 ### Customize T3CeFormFormframework
 To customize `T3CeFormFormframework` you have to register a new one with the same name. This is common solution to [override global components](https://typo3-initiatives.github.io/nuxt-typo3/from-scratch/3-customization.html#_2-2-register-your-component). 
@@ -73,7 +74,7 @@ At this level you can also provide custom css classes for your fields.
 <template>
   <T3Form
     ref="form"
-    :elements="form.elements"
+    :elements="elements"
     :classes="css"
     @submit="onSubmit"
   >
@@ -106,7 +107,18 @@ export default {
       css: Object.freeze({
         // field.identifier : class name
         name: 'wrap-my-name-field'
-      })
+      }),
+      // map TYPO3 Form Framework validation rules to vee-validate schema
+      rules: {
+        NotEmpty: 'required',
+        EmailAddress: 'email',
+        RegularExpression: {
+          identifier: 'regex',
+          options: {
+            regex: 'pattern'
+          }
+        }
+      }
     }
   },
   methods: {
@@ -134,6 +146,7 @@ Create and register global components `components/T3FormField.vue`:
     :vid="field.identifier"
     :name="field.label"
     :rules="rules"
+    :custom-messages="messages"
     slim
   >
     <div class="field-row">
@@ -193,62 +206,78 @@ This template will be suitable for most regular input elements. You can use this
 <br/>
 :::
 
-All fields are generated in the loop, based on form response `elements` field. This is the part of the form response:
+All fields are generated in the loop, based on T3Form schema. T3FormFormFramework component is responsible 
 
 
 ```json
+{
   "elements": [
-              {
-                "type": "Fieldset",
-                "identifier": "fieldset-1",
-                "label": "Fieldset",
-                "defaultValue": null,
-                "properties": [],
-                "elements": [
-                  {
-                    "type": "Fieldset",
-                    "identifier": "fieldset-2",
-                    "label": "Fieldset",
-                    "defaultValue": null,
-                    "properties": [],
-                    "elements": [
-                      {
-                        "defaultValue": "",
-                        "identifier": "name",
-                        "label": "Name",
-                        "type": "Text",
-                        "properties": {
-                          "fluidAdditionalAttributes": {
-                            "placeholder": "Name",
-                            "required": "required"
-                          }
-                        },
-                        "validators": [{ "identifier": "NotEmpty" }],
-                        "name": "tx_form_formframework[name]"
-                      }
-                    ]
-                  },
-                  {
-                    "defaultValue": "",
-                    "identifier": "subject",
-                    "label": "Subject",
-                    "type": "Text",
-                    "properties": {
-                      "fluidAdditionalAttributes": {
-                        "placeholder": "Subject",
-                        "required": "required"
-                      }
-                    },
-                    "validators": [{ "identifier": "NotEmpty" }],
-                    "name": "tx_form_formframework[subject]"
-                  },
-                  
-                ]
+    {
+      "type": "fieldset",
+      "fieldlist": true,
+      "identifier": "fieldset-1",
+      "label": "Personal Information",
+      "value": null,
+      "elements": [
+        {
+          "value": "",
+          "validators": [
+            {
+              "identifier": "email",
+              "message": "You must enter a valid email address."
+            },
+            {
+              "identifier": "required",
+              "message": "This field is mandatory."
+            }
+          ],
+          "type": "email",
+          "identifier": "email",
+          "label": "Email",
+          "placeholder": "your email",
+          "required": true,
+          "name": "tx_form_formframework[email]"
+        },
+        {
+          "value": "",
+          "type": "text",
+          "identifier": "name",
+          "label": "Name",
+          "description": "",
+          "required": true,
+          "validators": [
+            {
+              "identifier": "required",
+              "message": "This field is mandatory."
+            }
+          ],
+          "name": "tx_form_formframework[name]"
+        },
+        {
+          "value": "+49",
+          "type": "text",
+          "identifier": "phone",
+          "label": "Telephone",
+          "placeholder": "00-000-000-000",
+          "validators": [
+            {
+              "options": {
+                "regex": "^[0-9-+]+$"
               },
-            ]
+              "identifier": "regex",
+              "message": "You must enter a valid value. Please refer to the description of this field."
+            }
+          ],
+          "name": "tx_form_formframework[phone]"
+        }
+      ]
+    }
+  ]
+}
+
 ```
 
-You may have noticed that `name` and `subject` fields are nested in `Fieldset-2` which is nested in `Fieldset-1`. It means we have to render component fields in recursion. 
+You may have noticed that `name` and `email` and `phone` fields are nested in `fieldset-1` which is nested in `fieldset-1` and `fieldset-1` is `fieldlist` type to generate nested elements. It means we have to render component fields in recursion. 
 [`T3FormFieldList` component](https://github.com/TYPO3-Initiatives/nuxt-typo3/blob/master/lib/components/T3Form/T3FormFieldList/T3FormFieldList.vue) is responsible for rendering this list.
 
 This part of the template is responsible for matching frontend component with `field.type` or `field.identifier`. 
@@ -264,7 +293,7 @@ This part of the template is responsible for matching frontend component with `f
 
 For example: to display and render `input type="hidden"` we had to register `T3FormFieldHidden`.
 
-If you want to add custom textarea field with type "Textarea" then you have to register `T3FormFieldTextarea`
+If you want to add custom textarea field with type "textarea" then you have to register `T3FormFieldTextarea`
 
 You can also register custom field component for specific field - `T3FormFieldName` if your `field.identifier === 'name'`
 
@@ -274,7 +303,7 @@ Default one is `T3FormField`
 
 At this moment we support
 
-1. regular input fields like text, email, number and single
+1. regular input fields like text, email, number
 2. single select
 3. fieldset
 4. honeypot == hidden
@@ -319,16 +348,66 @@ Notice that we have used default `T3FormField` as the base template for new form
 
 
 ## Add new validation rule
-
 For model validation we use `vee-validate`. 
-By default we have setup following rules:
 
-1. required as **NotEmpty**
-2. email as **EmailAddress**
-3. regex as **RegularExpression**
+If you want to use validation rules from `vee-validate` you have to map validation rules which come from API to vee-validate naming.
 
+Example in `T3FormFormFramework`:
+```js
+rules: {
+  NotEmpty: 'required',
+  EmailAddress: 'email',
+  RegularExpression: {
+    identifier: 'regex',
+    options: {
+      expression: 'regex'
+    }
+  }
+}
+```
 
-All additional rules are available [here](https://vee-validate.logaretm.com/v3/guide/rules.html#rules). Remember to use the same rules name as in TYPO3.
+If you want to extend these rules please override `T3FormFormFramework` component and `rules` data object.
 
+For example:
+```vue
+<script>
+import T3CeFormFormframework from '~typo3/components/T3CeFormFormframework/T3CeFormFormframework.vue'
+export default {
+  extends: T3CeFormFormframework,
+   data () {
+    return {
+      // map TYPO3 Form Framework validation rules to vee-validate schema
+      rules: {
+        Match: 'confirmed',
+        NotEmpty: 'required',
+        EmailAddress: 'email',
+        RegularExpression: {
+          identifier: 'regex',
+          options: {
+            regex: 'pattern'
+          }
+        }
+      }
+    }
+  }
+}
+</script>
+```
+
+If you don't want to map rules, then you can add own rule: 
+
+```js
+import { extend } from 'vee-validate';
+
+extend('Length', {
+  validate(value, args) {
+    return value.length >= args.length;
+  },
+  params: ['length']
+});
+
+```
+
+All additional rules are available [here](https://vee-validate.logaretm.com/v3/guide/rules.html#rules). 
 ### Add new rule 
 [Instruction here](https://vee-validate.logaretm.com/v3/guide/rules.html#importing-the-rules)
