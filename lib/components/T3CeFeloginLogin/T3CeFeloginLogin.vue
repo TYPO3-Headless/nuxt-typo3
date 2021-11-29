@@ -1,6 +1,7 @@
 <template>
   <div class="fe-login">
-    <T3Form ref="form" :elements="elements" @submit.prevent="onSubmit" />
+    {{ elements }}
+    <T3Form ref="form" :elements="elements" @submit="onSubmit" />
   </div>
 </template>
 <script>
