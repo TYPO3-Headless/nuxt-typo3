@@ -5,27 +5,20 @@
       :key="field.identifier"
       :class="[`t3-form-field-${field.identifier}`, getCssClass(field, classes)]"
     >
-      <template v-if="field.fieldlist">
-        <component
-          :is="getComponentField(field)"
-          :field="field"
-        >
-          <T3FormFieldList
-            ref="nested"
-            :elements="field.elements"
-            :components="components"
-            :classes="classes"
-            @input="updateModel"
-          />
-        </component>
-      </template>
-      <template v-else>
-        <component
-          :is="getComponentField(field)"
-          v-model="model[field.name]"
-          :field="field"
+      <component
+        :is="getComponentField(field)"
+        v-model="model[field.name]"
+        :field="field"
+      >
+        <T3FormFieldList
+          v-if="field.fieldlist"
+          ref="nested"
+          :elements="field.elements"
+          :components="components"
+          :classes="classes"
+          @input="updateModel"
         />
-      </template>
+      </component>
     </div>
   </div>
 </template>

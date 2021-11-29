@@ -206,7 +206,7 @@ This template will be suitable for most regular input elements. You can use this
 <br/>
 :::
 
-All fields are generated in the loop, based on T3Form schema. T3FormFormFramework component is responsible 
+All fields are generated in the loop, based on T3Form schema. T3FormFormFramework component is responsible for mapping fields to this strategy.
 
 
 ```json

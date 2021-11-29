@@ -59,8 +59,7 @@ export default {
   },
   computed: {
     elements () {
-      const elements = [...this.form.elements]
-      return this.prepareElements(elements)
+      return this.prepareElements(this.form.elements)
     }
   },
   created () {
