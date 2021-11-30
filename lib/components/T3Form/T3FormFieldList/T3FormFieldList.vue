@@ -66,6 +66,7 @@ export default Vue.extend({
     return {
       availableCustomTypes: {
         honeypot: 'T3FormFieldHidden',
+        hidden: 'T3FormFieldHidden',
         singleselect: 'T3FormFieldSelect',
         fieldset: 'T3FormFieldset'
       },
