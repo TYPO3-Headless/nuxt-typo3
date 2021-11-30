@@ -1,6 +1,5 @@
 <template>
   <div class="fe-login">
-    {{ elements }}
     <T3Form ref="form" :elements="elements" @submit="onSubmit" />
   </div>
 </template>
@@ -26,8 +25,13 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
-      alert('submitted')
+    onSubmit ({ validator, form, formRef }) {
+      const data = new FormData(formRef)
+      this.$typo3.api.$http
+        .$post(this.data.form.action, data)
+        .then((data) => {
+          alert(data)
+        })
     }
   }
 }
