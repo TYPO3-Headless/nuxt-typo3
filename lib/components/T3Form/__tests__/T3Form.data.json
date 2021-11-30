@@ -59,6 +59,23 @@
           "name": "tx_form_formframework[phone]"
         }
       ]
+    },
+    {
+      "type": "fieldset",
+      "fieldlist": true,
+      "identifier": "fieldset-2",
+      "label": "Message",
+      "value": null,
+      "elements": [
+        {
+          "value": "",
+          "type": "text",
+          "identifier": "message",
+          "label": "Message",
+          "description": "",
+          "name": "tx_form_formframework[message]"
+        }
+      ]
     }
   ]
 }
