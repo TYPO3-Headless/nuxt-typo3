@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="t3-form-fieldlist">
     <div
       v-for="field in elements"
       :key="field.identifier"
@@ -11,7 +11,7 @@
         :field="field"
       >
         <T3FormFieldList
-          v-if="field.fieldlist"
+          v-if="field.fieldlist && field.elements && field.elements.length"
           ref="nested"
           :elements="field.elements"
           :components="components"
@@ -93,12 +93,14 @@ export default Vue.extend({
       Object.assign(this.$options.components, this.components)
     }
 
+    let rules = []
+
     if (this.elements.length) {
-      this.rules = this.getValidationRules(this.elements)
+      rules = this.getValidationRules(this.elements)
     }
 
-    if (this.rules.length) {
-      this.extendValidation(this.rules)
+    if (rules.length) {
+      this.extendValidation(rules)
     }
 
     this.setupModel()
@@ -114,7 +116,9 @@ export default Vue.extend({
     },
     restoreModel () {
       this.setupModel()
-      this.$refs?.nested?.[0].restoreModel()
+      if (this.$refs?.nested?.length) {
+        this.$refs.nested.forEach(ref => ref.restoreModel())
+      }
     },
     createModel (elements) {
       return Object.assign({}, this.createModelByFieldset(elements))
