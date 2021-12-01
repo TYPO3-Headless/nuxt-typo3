@@ -27,6 +27,7 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "yarn jest",
     "commitlint": "commitlint --verbose",
+    "prerelease": "yarn test && standard-version --prerelease alpha && git push --follow-tags && npm publish --tag alpha",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "prepare": "husky install"
   },
