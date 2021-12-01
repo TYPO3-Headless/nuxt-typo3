@@ -27,6 +27,9 @@ export default {
   methods: {
     onSubmit ({ validator, form, formRef }) {
       const data = new FormData(formRef)
+      data.append('responseElementId', this.id.toString())
+      data.append('responseElementRecursive', '1')
+
       this.$typo3.api.$http
         .$post(this.data.form.action, data)
         .then((data) => {
