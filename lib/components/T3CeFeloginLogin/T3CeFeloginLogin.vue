@@ -21,7 +21,18 @@ export default {
   },
   computed: {
     elements () {
-      return this.data.form.fields.pages
+      return this.data.form.elements.map(function (element) {
+        return {
+          value: element.value || '',
+          type: element.type || '',
+          identifier: '', // TODO get from form element
+          label: element.label || '',
+          placeholder: element.placeholder || '',
+          required: false, // TODO: parse required form validators
+          name: element.name || '',
+          validators: element.validators ? [element.validators] : [] // TODO: Create a function to proper parse validators.
+        }
+      })
     }
   },
   methods: {
