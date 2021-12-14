@@ -46,7 +46,14 @@ export default {
       this.$typo3.api.$http
         .$post(this.data.form.action, data)
         .then((data) => {
-          alert(data)
+          // Get to the actual data we need from the response
+          data = data.content.data
+          if (data.status === 'succeess') {
+            this.$store.dispatch('getInitialData', { path: this.$route.path })
+          } else {
+            alert('Login status was not succeess')
+            // TODO: Error handling
+          }
         })
     }
   }
