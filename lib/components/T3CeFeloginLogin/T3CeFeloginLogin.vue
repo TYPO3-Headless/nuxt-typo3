@@ -22,6 +22,17 @@ export default {
     }
   },
   computed: {
+    redirectUrl () {
+      const element = this.data.form.elements.filter(function (element) {
+        return element.name === 'redirect_url'
+      })
+
+      if (element.length > 0) {
+        return element?.value || ''
+      }
+
+      return ''
+    },
     elements () {
       return this.data.form.elements.map(function (element) {
         return {
@@ -50,6 +61,11 @@ export default {
           data = data.content.data
           if (data.status === 'succeess') {
             this.$store.dispatch('getInitialData', { path: this.$route.path })
+              .then((response) => {
+                if (this.redirectUrl !== '') {
+                  this.$route.push(this.redirectUrl)
+                }
+              })
           } else {
             alert('Login status was not succeess')
             // TODO: Error handling
