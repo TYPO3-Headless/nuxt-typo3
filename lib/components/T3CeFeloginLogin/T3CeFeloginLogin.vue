@@ -1,5 +1,7 @@
 <template>
   <div class="fe-login">
+    <p>{{ $props.data.message.header }}</p>
+    <p>{{ $props.data.message.message }}</p>
     <T3Form ref="form" :elements="elements" @submit="onSubmit" />
   </div>
 </template>
