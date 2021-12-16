@@ -34,7 +34,12 @@ export default {
       return ''
     },
     elements () {
-      return this.data.form.elements.map(function (element) {
+      return this.compileFormElements(this.data.form.elements)
+    }
+  },
+  methods: {
+    compileFormElements (elements) {
+      return elements.map((element) => {
         return {
           value: element.value || '',
           type: element.type || '',
@@ -46,9 +51,7 @@ export default {
           validators: element.validators ? [element.validators] : [] // TODO: Create a function to proper parse validators.
         }
       })
-    }
-  },
-  methods: {
+    },
     onSubmit ({ validator, form, formRef }) {
       const data = new FormData(formRef)
       data.append('responseElementId', this.id.toString())
