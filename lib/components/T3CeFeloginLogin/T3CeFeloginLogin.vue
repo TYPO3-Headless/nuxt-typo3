@@ -59,7 +59,7 @@ export default {
         .then((data) => {
           // Get to the actual data we need from the response
           data = data.content.data
-          if (data.status === 'succeess') {
+          if (data.status === 'success') {
             this.$store.dispatch('getInitialData', { path: this.$route.path })
               .then((response) => {
                 if (this.redirectUrl !== '') {
@@ -67,7 +67,7 @@ export default {
                 }
               })
           } else {
-            alert('Login status was not succeess')
+            alert('Login status was not success')
             // TODO: Error handling
           }
         })
