@@ -48,7 +48,7 @@ export default {
           placeholder: element.placeholder || '',
           required: false, // TODO: parse required form validators
           name: element.name || '',
-          validators: element.validators ? [element.validators] : [] // TODO: Create a function to proper parse validators.
+          validators: element.validators
         }
       })
     },
