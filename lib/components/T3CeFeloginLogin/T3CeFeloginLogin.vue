@@ -43,6 +43,7 @@ export default {
         .filter(element => element.type !== 'submit')
         .map((element) => {
           return {
+            id: element.name,
             value: element.value || '',
             type: element.type || '',
             identifier: '', // TODO get from form element
