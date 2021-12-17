@@ -66,10 +66,11 @@ export default {
           // Get to the actual data we need from the response
           data = data.content.data
           if (data.status === 'success') {
-            this.$store.dispatch('getInitialData', { path: this.$route.path })
+            this.$store
+              .dispatch('getInitialData', { path: this.$route.path })
               .then((response) => {
-                if (this.redirectUrl !== '') {
-                  this.$route.push(this.redirectUrl)
+                if (data.redirectUrl) {
+                  this.$router.push(data.redirectUrl)
                 }
               })
           } else {
