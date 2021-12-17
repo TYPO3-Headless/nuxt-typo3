@@ -39,18 +39,20 @@ export default {
   },
   methods: {
     compileFormElements (elements) {
-      return elements.map((element) => {
-        return {
-          value: element.value || '',
-          type: element.type || '',
-          identifier: '', // TODO get from form element
-          label: element.label || '',
-          placeholder: element.placeholder || '',
-          required: false, // TODO: parse required form validators
-          name: element.name || '',
-          validators: element.validators
-        }
-      })
+      return elements
+        .filter(element => element.type !== 'submit')
+        .map((element) => {
+          return {
+            value: element.value || '',
+            type: element.type || '',
+            identifier: '', // TODO get from form element
+            label: element.label || '',
+            placeholder: element.placeholder || '',
+            required: false, // TODO: parse required form validators
+            name: element.name || '',
+            validators: element.validators
+          }
+        })
     },
     onSubmit ({ validator, form, formRef }) {
       const data = new FormData(formRef)
