@@ -55,29 +55,42 @@ export default {
           }
         })
     },
-    onSubmit ({ validator, form, formRef }) {
+    async onSubmit ({ validator, form, formRef }) {
+      const { flags } = validator
       const data = new FormData(formRef)
       data.append('responseElementId', this.id.toString())
       data.append('responseElementRecursive', '1')
 
-      this.$typo3.api.$http
-        .$post(this.data.form.action, data)
-        .then((data) => {
-          // Get to the actual data we need from the response
-          data = data.content.data
-          if (data.status === 'success') {
-            this.$store
-              .dispatch('getInitialData', { path: this.$route.path })
-              .then((response) => {
-                if (data.redirectUrl) {
-                  this.$router.push(data.redirectUrl)
-                }
-              })
-          } else {
-            alert('Login status was not success')
-            // TODO: Error handling
+      if (flags.valid) {
+        try {
+          const response = await this.$typo3.api.$http.$post(this.data.form.action, data)
+          const { redirectUrl, status } = response.content.data
+
+          if (status === 'success') {
+            try {
+              await this.$store.dispatch('getInitialData', { path: redirectUrl || this.$route.path })
+            } finally {
+              this.onSuccess(redirectUrl)
+            }
           }
-        })
+        } catch {
+          this.onFailure()
+        }
+      }
+    },
+    /**
+     * @param redirectUrl
+     */
+    onSuccess (redirectUrl) {
+      if (redirectUrl) {
+        this.$router.push(redirectUrl)
+      }
+    },
+    /**
+     * TODO: Proper error handling
+     */
+    onFailure () {
+      alert('Login status was not success')
     }
   }
 }
