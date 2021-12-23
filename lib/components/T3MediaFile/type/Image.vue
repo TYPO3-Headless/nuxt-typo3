@@ -16,10 +16,10 @@
           :alt="props.file.properties.alternative || false"
           :title="props.file.properties.title || ''"
         >
+        <figcaption v-if="props.file.properties.description">
+          {{ props.file.properties.description }}
+        </figcaption>
       </figure>
-      <figcaption v-if="props.file.properties.description">
-        {{ props.file.properties.description }}
-      </figcaption>
     </component>
   </div>
 </template>
