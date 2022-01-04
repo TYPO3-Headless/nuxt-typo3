@@ -11,7 +11,7 @@ export default {
     * page contentData
     */
     content: {
-      type: Object,
+      type: [Object, Array],
       required: true
     }
   }
