@@ -4,5 +4,6 @@ dist
 .nuxt
 coverage
 
-# Plugin
+# Templates
 lib/plugins/context.js
+lib/store/index.js
