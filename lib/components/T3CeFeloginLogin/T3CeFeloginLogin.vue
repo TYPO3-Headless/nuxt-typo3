@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     ...mapState({
-      isLoggedIn: state => state.typo3.isLoggedIn
+      isLoggedIn: state => state.typo3?.initial?.user?.logged || false
     }),
     elements () {
       return this.compileFormElements(this.data.form.elements || this.data.form.fields)
@@ -61,7 +61,7 @@ export default {
           validators: element.validators
         }))
     },
-    async onSubmit ({ validator, form, formRef }) {
+    async onSubmit ({ validator, formRef }) {
       const { flags } = validator
       const data = new FormData(formRef)
       data.append('responseElementId', this.id.toString())
@@ -75,7 +75,6 @@ export default {
           if (status === 'success') {
             try {
               await this.$store.dispatch('getInitialData', { path: redirectUrl === '/' ? '' : redirectUrl || this.$route.path })
-              this.$store.commit('SET_USER_STATE', this.loginType === 'login') // should be setup by API in initialData
             } finally {
               this.onSuccess(response, this.loginType)
             }
