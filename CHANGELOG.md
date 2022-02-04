@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-02-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **store:** add option to override typo3 store module (#214)
+
+### Features
+
+* handle user state based on initialData ([f2b01e5](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/f2b01e50353e6ec40fda60e689fcd8f3aeb2ab5e))
+* **fe-login:** add felogin setup ([ce764a0](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/ce764a07a089de6f12ed4154738e59bd8909d16a))
+
+
+### Bug Fixes
+
+* add Array type for empty pages ([#218](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/218)) ([524a907](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/524a907d55f04a0af7927c8a42fa93ab542c2443))
+* wrap figcaption in figure to validate html ([149bff9](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/149bff96906f45e1f3424d4d00ddc22d3d0e949a))
+* **t3-dynamic:** correct spelling of `default` in layout prop ([b3b7cde](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/b3b7cde9fb42096a5994b02fb14a057e34817633))
+
+
+* **store:** add option to override typo3 store module ([#214](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/214)) ([648d451](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/648d4519f09150c4166e02331c8167714cda888b))
+
 ## [1.0.0-alpha.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-12-01)
 
 
