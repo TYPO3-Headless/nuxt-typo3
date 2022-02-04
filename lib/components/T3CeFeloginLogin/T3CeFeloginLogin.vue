@@ -74,7 +74,7 @@ export default {
 
           if (status === 'success') {
             try {
-              await this.$store.dispatch('getInitialData', { path: redirectUrl === '/' ? '' : redirectUrl || this.$route.path })
+              await this.$store.dispatch('typo3/getInitialData', { path: redirectUrl === '/' ? '' : redirectUrl || this.$route.path })
             } finally {
               this.onSuccess(response, this.loginType)
             }
