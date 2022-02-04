@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.5](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-02-04)
+
+
+### Bug Fixes
+
+* use typo3 prefix in store action ([#232](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/232)) ([90fe863](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/90fe863872b489bfaa3d6140e74e80655da61804))
+
 ## [1.0.0-alpha.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-02-04)
 
 
