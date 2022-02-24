@@ -10,6 +10,11 @@
 
 #### TYPO3 module for [Nuxt.js](https://nuxtjs.org) and [TYPO3 headless](https://github.com/TYPO3-Initiatives/headless) provides API handling and frontend rendering.
 
+#### TYPO3 & Headless Ext compability
+
+TYPO3 >= v11.5 & Headless version 3.x -> nuxt-typo3@1.x.x (master)
+
+TYPO3 < 11.5 & Headless version 2.x -> nuxt-typo3@0.x.x [(0.9x)](https://github.com/TYPO3-Headless/nuxt-typo3/tree/0.9x) 
 ### [DOCUMENTATION](https://typo3-initiatives.github.io/nuxt-typo3/)
 
 # Features
@@ -73,9 +78,10 @@ npm install nuxt-typo3
 
 - [Macmillan English](https://www.macmillanenglish.com)
 - [jwied agency](https://www.jwied.de)
-- [Biofarm](https://www.biofarm.pl/)
 - [Karta Multisport](https://www.kartamultisport.pl/)
 - [Raben Group](https://raben-group.com/)
+- [Robomow.com](https://www.robomow.com/)
+- [Macopedia.com](https://macopedia.com/)
 
 ## Development
 
