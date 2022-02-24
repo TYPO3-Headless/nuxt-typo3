@@ -22,7 +22,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: 'Default',
+  name: 'LayoutDefault',
   computed: {
     ...mapState('typo3', {
       navMain: state => state.initial?.navigation?.[0] // get first typo3 instance from root tree

@@ -5,7 +5,9 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  name: 'LayoutSimple'
+}
 </script>
 <style>
 body {
