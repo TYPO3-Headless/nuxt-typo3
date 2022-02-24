@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.6](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.5...v0.9.6) (2022-02-24)
+
+
+### Bug Fixes
+
+* encodeURI of server requests ([#234](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/234)) ([19ad898](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/19ad8986ba80b9eb9ac941361bebb47368067267))
+
 ### [0.9.5](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v0.9.5-alpha.0...v0.9.5) (2021-10-21)
 
 
