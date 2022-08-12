@@ -24,3 +24,24 @@ jobs:
 
       - name: Eslint
         run: yarn lint
+
+  run-tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: [run-linters]
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: ''
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - run: yarn --frozen-lockfile
+
+      - name: Units
+        run: yarn test
+
+
