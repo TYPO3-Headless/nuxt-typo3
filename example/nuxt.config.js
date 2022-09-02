@@ -43,6 +43,9 @@ module.exports = {
   /*
    ** Register required modules
    */
+  buildModules: [
+    ['@nuxtjs/eslint-module', { context: resolve(__dirname, '..'), files: ['..'] }]
+  ],
   modules: [
     '@nuxtjs/i18n',
     {
@@ -58,27 +61,6 @@ module.exports = {
       messages: {
         en,
         pl
-      }
-    }
-  },
-
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend (config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-
-      if (ctx.isDev) {
-        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     }
   }

@@ -51,21 +51,21 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@nuxtjs/eslint-config": "latest",
+    "@nuxtjs/eslint-module": "latest",
     "@nuxtjs/i18n": "latest",
     "@nuxtjs/module-test-utils": "latest",
     "@vue/test-utils": "^1.3.0",
-    "@vue/vue2-jest": "^27.0.0-alpha.4",
-    "babel-core": "^7.0.0-bridge.0",
+    "@vue/vue2-jest": "28",
     "babel-jest": "latest",
     "eslint": "latest",
-    "eslint-loader": "latest",
     "eslint-plugin-nuxt": "latest",
     "husky": "latest",
     "jest": "latest",
+    "jest-environment-jsdom": "latest",
     "nuxt-edge": "latest",
     "standard-version": "latest"
   },
   "volta": {
-    "node": "12.22.7"
+    "node": "14.20.0"
   }
 }

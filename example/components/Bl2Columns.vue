@@ -1,7 +1,6 @@
 <template>
   <div>
     <strong>2 columns layout</strong>
-
     <div class="two-columns">
       <div>
         <t3-renderer :content="content.colPos0" />

@@ -96,7 +96,11 @@ export default {
       }
     },
     onFailure (response) {
-      const { message } = response?.content?.data
+      if (!response?.content?.data) {
+        return
+      }
+
+      const { message } = response.content.data
 
       if (message) {
         this.message = message
