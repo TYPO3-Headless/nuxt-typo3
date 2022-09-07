@@ -1,6 +1,6 @@
 <template>
-  <!-- eslint-disable-next-line vue/no-v-html -->
-  <div v-html="content" />
+  <!-- eslint-disable-next-line vue/no-v-html vue/no-v-text-v-html-on-component -->
+  <component :is="tag" v-html="content" />
 </template>
 
 <script>
@@ -14,6 +14,10 @@ export default {
     content: {
       type: String,
       default: ''
+    },
+    tag: {
+      type: String,
+      default: 'div'
     }
   },
   watch: {
