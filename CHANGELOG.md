@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.6...v1.0.0) (2022-09-12)
+
+
+### Features
+
+* add export defaults for components ([#254](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/254)) ([270ed2e](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/270ed2e63c05a196e564f7ce7629bf0f65e3f60b))
+* add id to frame or content element ([#163](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/163)) ([6b0bc68](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/6b0bc68bcbd80b76f9ecca80bde984dbcae8c352))
+* restore functional component / add units ([#163](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/163)) ([cf2cb31](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/cf2cb3101ad318dddec6190778560458b1b5cb95))
+
+
+### Bug Fixes
+
+* include felogin in the right place ([#262](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/262)) ([7316b28](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/7316b284f7acd53cde827db8fe94f53e155cb777))
+* wrong tag name for og image ([#272](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/272)) ([d6b24d1](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/d6b24d1d841cfe29ed0aee40f27f7599bf5ad04b))
+
 ## [1.0.0-alpha.6](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-02-24)
 
 
