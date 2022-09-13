@@ -12,7 +12,7 @@ To avoids conflicts with other UI libraries or your design system we use `T3` pr
 For instance new content elements should be named `T3CeMycontentelement`. 
 
 
-We use `T3` prefix because some of our global components are not ContentElement e.g. `T3NavLink`
+We use `T3` prefix because some of our global components are not ContentElements e.g. `T3NavLink`
 
 
 You don't have name your content elements component file this way, but this is imporant when you register them as global (look below).
@@ -61,7 +61,7 @@ We assume our API deliver new content element - with type "keyvisual".
 
 1. to create new content element, you can use [base content element](https://github.com/TYPO3-Initiatives/nuxt-typo3/tree/master/lib/mixins/component/baseCe.js) mixin to inherit all common props. 
 
-`components/CeKeyvisual.vue`:
+`components/T3CeKeyvisual.vue`:
 
 ```html
 <template>
@@ -72,7 +72,7 @@ We assume our API deliver new content element - with type "keyvisual".
 <script>
 import baseCe from '~typo3/mixins/component/baseCe.js'
 export default {
-  name: 'CeKeyvisual',
+  name: 'T3CeKeyvisual',
   extends: baseCe, // here is defined header prop
   props: {
     // lead should be delivered by API
@@ -91,7 +91,7 @@ export default {
    
 ```js
 import Vue from 'vue'
-import CeKeyvisual from '~/components/CeKeyvisual'
+import CeKeyvisual from '~/components/T3CeKeyvisual'
 
 Vue.component('T3CeKeyvisual', CeKeyVisual)
 ```
@@ -104,3 +104,8 @@ export default {
 }
 ```
 
+## Autoimports 
+
+We support Nuxt [auto-imports](https://nuxtjs.org/docs/features/component-discovery#enabling-auto-discovery).
+
+If you have enabled [this options](https://nuxtjs.org/docs/configuration-glossary/configuration-components/) you can skip points (2, 3) above.

@@ -16,7 +16,7 @@ module.exports = {
         {
           title: 'General Information',
           collapsable: false,
-          children: ['/', 'getting-started']
+          children: ['/', 'getting-started', 'migration']
         },
         {
           title: 'From scratch',

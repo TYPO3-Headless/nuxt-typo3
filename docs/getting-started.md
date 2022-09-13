@@ -18,7 +18,7 @@ npm install nuxt-typo3
 
 ## Configuration
 
-Add the `typo3` object to your `nuxt.config.js` to configure all required settings. Read more about configuration [here](https://typo3-initiatives.github.io/nuxt-typo3/configuration/i18n.html).
+Add the `typo3` object to your `nuxt.config.js` to configure all required settings. Read more about configuration [here](https://github.com/TYPO3-Headless/nuxt-typo3/blob/master/lib/options.js).
 
 ```js
 {
