@@ -5,7 +5,7 @@
     @submit="onSubmit"
   >
     <template #after="{state}">
-      <p v-if="state.error || state.failture">
+      <p v-if="state.error || state.failure">
         {{ i18n.serverError }}
       </p>
       <p v-if="state.success">
