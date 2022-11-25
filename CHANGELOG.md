@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0...v1.0.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* typo (T3CeFormFormframework) ([f81d97f](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/f81d97f064ca0c6aabfcd02f171a0dead7558dfb))
+
 ## [1.0.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0-alpha.6...v1.0.0) (2022-09-12)
 
 
