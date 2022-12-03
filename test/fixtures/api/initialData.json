@@ -1,0 +1,420 @@
+{
+    "navigation": [
+        {
+            "title": "TYPO3 Demo Site",
+            "link": "/",
+            "target": "",
+            "active": 1,
+            "current": 1,
+            "spacer": 0,
+            "hasSubpages": 1,
+            "children": [
+                {
+                    "title": "empty-page",
+                    "link": "/empty-page",
+                    "target": "",
+                    "active": 0,
+                    "current": 0,
+                    "spacer": 0,
+                    "hasSubpages": 0
+                },
+                {
+                    "title": "Fun facts",
+                    "link": "/fun-facts",
+                    "target": "",
+                    "active": 0,
+                    "current": 0,
+                    "spacer": 0,
+                    "hasSubpages": 0
+                },
+                {
+                    "title": "Kinds of apples",
+                    "link": "/kinds-of-apples",
+                    "target": "",
+                    "active": 0,
+                    "current": 0,
+                    "spacer": 0,
+                    "hasSubpages": 1,
+                    "children": [
+                        {
+                            "title": "Belle de Boskoop",
+                            "link": "/kinds-of-apples/belle-de-boskoop",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Braeburn",
+                            "link": "/kinds-of-apples/braeburn",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Elstar",
+                            "link": "/kinds-of-apples/elstar",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Cox Orange",
+                            "link": "/kinds-of-apples/cox-orange",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Gala",
+                            "link": "/kinds-of-apples/gala",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Gloster",
+                            "link": "/kinds-of-apples/gloster",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Golden Delicious",
+                            "link": "/kinds-of-apples/golden-delicious",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Granny Smith",
+                            "link": "/kinds-of-apples/granny-smith",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Jonagold",
+                            "link": "/kinds-of-apples/jonagold",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Pink Lady",
+                            "link": "/kinds-of-apples/pink-lady",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        }
+                    ]
+                },
+                {
+                    "title": "Recipes",
+                    "link": "/recipes",
+                    "target": "",
+                    "active": 0,
+                    "current": 0,
+                    "spacer": 0,
+                    "hasSubpages": 1,
+                    "children": [
+                        {
+                            "title": "Apple Pie",
+                            "link": "/recipes/apple-pie",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Fruit Brandy",
+                            "link": "/recipes/fruit-brandy",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Cinnamon Overnight Oats",
+                            "link": "/recipes/cinnamon-overnight-oats",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Apple Pancakes",
+                            "link": "/recipes/apple-pancakes",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Apple Cucumber Smoothie",
+                            "link": "/recipes/apple-cucumber-smoothie",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Apple Cinnamon Tea",
+                            "link": "/recipes/apple-cinnamon-tea",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        }
+                    ]
+                },
+                {
+                    "title": "Contact form",
+                    "link": "/form-1",
+                    "target": "",
+                    "active": 0,
+                    "current": 0,
+                    "spacer": 0,
+                    "hasSubpages": 0
+                }
+            ]
+        }
+    ],
+    "i18n": [
+        {
+            "languageId": 0,
+            "locale": "en_US.UTF-8",
+            "title": "English",
+            "navigationTitle": "English",
+            "twoLetterIsoCode": "en",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/",
+            "active": 1,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 1,
+            "locale": "en_US.UTF-8",
+            "title": "Polish",
+            "navigationTitle": "Polish",
+            "twoLetterIsoCode": "pl",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/pl/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 2,
+            "locale": "en_US.UTF-8",
+            "title": "Deutsch",
+            "navigationTitle": "Deutsch",
+            "twoLetterIsoCode": "de",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/de/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 3,
+            "locale": "en_US.UTF-8",
+            "title": "Czech",
+            "navigationTitle": "Czech",
+            "twoLetterIsoCode": "cz",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/cz/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 4,
+            "locale": "en_US.UTF-8",
+            "title": "Slovakia",
+            "navigationTitle": "Slovak",
+            "twoLetterIsoCode": "sk",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/sk/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 5,
+            "locale": "en_US.UTF-8",
+            "title": "Estonia",
+            "navigationTitle": "Estonia",
+            "twoLetterIsoCode": "et",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/et/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 6,
+            "locale": "en_US.UTF-8",
+            "title": "Hungary",
+            "navigationTitle": "Hungary",
+            "twoLetterIsoCode": "hu",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/hu/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 7,
+            "locale": "en_US.UTF-8",
+            "title": "Latvia",
+            "navigationTitle": "Latvia",
+            "twoLetterIsoCode": "lv",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/lv/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 8,
+            "locale": "en_US.UTF-8",
+            "title": "Lithuania",
+            "navigationTitle": "Lithuania",
+            "twoLetterIsoCode": "lt",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/lt/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 9,
+            "locale": "en_US.UTF-8",
+            "title": "Netherlands",
+            "navigationTitle": "Netherlads",
+            "twoLetterIsoCode": "nl",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/nl/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 10,
+            "locale": "en_US.UTF-8",
+            "title": "Ukraine",
+            "navigationTitle": "Ukraine",
+            "twoLetterIsoCode": "uk",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/uk/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 11,
+            "locale": "en_US.UTF-8",
+            "title": "Romania",
+            "navigationTitle": "Romania",
+            "twoLetterIsoCode": "ro",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/ro/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 12,
+            "locale": "en_US.UTF-8",
+            "title": "French",
+            "navigationTitle": "French",
+            "twoLetterIsoCode": "fr",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/fr/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 13,
+            "locale": "en_US.UTF-8",
+            "title": "Spain",
+            "navigationTitle": "Spain",
+            "twoLetterIsoCode": "es",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/es/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        },
+        {
+            "languageId": 14,
+            "locale": "en_US.UTF-8",
+            "title": "Schwitzerland",
+            "navigationTitle": "Schwitzerland",
+            "twoLetterIsoCode": "ch",
+            "hreflang": "",
+            "direction": "ltr",
+            "flag": "flags-en-us-gb",
+            "link": "/ch/",
+            "active": 0,
+            "current": 0,
+            "available": 1
+        }
+    ]
+}

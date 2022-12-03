@@ -1,0 +1,396 @@
+{
+    "id": 47,
+    "type": "Standard",
+    "slug": "/",
+    "media": [],
+    "meta": {
+        "title": "TYPO3 Demo Project",
+        "subtitle": "",
+        "abstract": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
+        "description": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
+        "keywords": "TYPO3, CMS, Demo, Open Source, Experience TYPO3",
+        "canonical": "",
+        "robots": {
+            "noIndex": false,
+            "noFollow": false
+        },
+        "author": "",
+        "authorEmail": "",
+        "ogTitle": "TYPO3 Demo Site",
+        "ogDescription": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
+        "ogImage": null,
+        "twitterTitle": "TYPO3 Demo Site",
+        "twitterDescription": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
+        "twitterCard": "summary",
+        "twitterImage": null
+    },
+    "categories": "",
+    "breadcrumbs": [
+        {
+            "title": "TYPO3 Demo Site",
+            "link": "/",
+            "target": "",
+            "active": 1,
+            "current": 1,
+            "spacer": 0,
+            "hasSubpages": 1
+        }
+    ],
+    "appearance": {
+        "layout": "layout-0",
+        "backendLayout": "example"
+    },
+    "content": {
+        "colPos0": [
+            {
+                "id": 396,
+                "type": "textpic",
+                "colPos": 0,
+                "categories": "",
+                "appearance": {
+                    "layout": "hero",
+                    "frameClass": "none",
+                    "spaceBefore": "",
+                    "spaceAfter": "",
+                    "proportions": ""
+                },
+                "content": {
+                    "header": "Apples are awesome",
+                    "subheader": "10 Impressive Health Benefits of Apples",
+                    "headerLayout": 1,
+                    "headerPosition": "",
+                    "headerLink": {
+                        "href": "/fun-facts",
+                        "target": null,
+                        "class": null,
+                        "title": null,
+                        "linkText": "t3://page?uid=87",
+                        "additionalAttributes": []
+                    },
+                    "enlargeImageOnClick": false,
+                    "bodytext": "",
+                    "gallery": {
+                        "position": {
+                            "horizontal": "center",
+                            "vertical": "above",
+                            "noWrap": false
+                        },
+                        "width": 600,
+                        "count": {
+                            "files": 1,
+                            "columns": 1,
+                            "rows": 1
+                        },
+                        "columnSpacing": 10,
+                        "border": {
+                            "enabled": false,
+                            "width": 2,
+                            "padding": 0
+                        },
+                        "rows": {
+                            "1": {
+                                "columns": {
+                                    "1": {
+                                        "publicUrl": "https://api.t3pwa.com/fileadmin/user_upload/pexels-photo-2253316.jpeg",
+                                        "properties": {
+                                            "title": null,
+                                            "alternative": null,
+                                            "description": null,
+                                            "mimeType": "image/jpeg",
+                                            "type": "image",
+                                            "filename": "pexels-photo-2253316.jpeg",
+                                            "originalUrl": "/fileadmin/user_upload/pexels-photo-2253316.jpeg",
+                                            "uidLocal": 37,
+                                            "fileReferenceUid": 274,
+                                            "size": "579 KB",
+                                            "link": null,
+                                            "dimensions": {
+                                                "width": 2250,
+                                                "height": 1500
+                                            },
+                                            "cropDimensions": {
+                                                "width": 2250,
+                                                "height": 1500
+                                            },
+                                            "crop": {
+                                                "default": {
+                                                    "cropArea": {
+                                                        "x": 0,
+                                                        "y": 0,
+                                                        "width": 1,
+                                                        "height": 1
+                                                    },
+                                                    "selectedRatio": "NaN",
+                                                    "focusArea": null
+                                                }
+                                            },
+                                            "autoplay": null,
+                                            "extension": "jpeg"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "id": 368,
+                "type": "textpic",
+                "colPos": 0,
+                "categories": "",
+                "appearance": {
+                    "layout": "default",
+                    "frameClass": "container",
+                    "spaceBefore": "extra-large",
+                    "spaceAfter": "",
+                    "proportions": ""
+                },
+                "content": {
+                    "header": "An apple a day keeps the doctor away",
+                    "subheader": "",
+                    "headerLayout": 0,
+                    "headerPosition": "",
+                    "headerLink": "",
+                    "enlargeImageOnClick": true,
+                    "bodytext": "<p>Did you know this familiar old saying, from 1866, has proven to be true?<br> Apples are indeed special fruits containing important substances that are essential to the body's functions. It is even said that eating apples on a regular basis can extend your life expectancy - isn't that amazing?<br> <br> Welcome to the TYPO3 Demo project!</p>",
+                    "gallery": {
+                        "position": {
+                            "horizontal": "right",
+                            "vertical": "intext",
+                            "noWrap": true
+                        },
+                        "width": 300,
+                        "count": {
+                            "files": 1,
+                            "columns": 1,
+                            "rows": 1
+                        },
+                        "columnSpacing": 10,
+                        "border": {
+                            "enabled": false,
+                            "width": 2,
+                            "padding": 0
+                        },
+                        "rows": {
+                            "1": {
+                                "columns": {
+                                    "1": {
+                                        "publicUrl": "https://api.t3pwa.com/fileadmin/_processed_/1/6/csm_csm_TYPO3demo_keyvisual_red_01_97bb3f70ae_1ce02a798c.png",
+                                        "properties": {
+                                            "title": null,
+                                            "alternative": null,
+                                            "description": null,
+                                            "mimeType": "image/png",
+                                            "type": "image",
+                                            "filename": "csm_csm_TYPO3demo_keyvisual_red_01_97bb3f70ae_1ce02a798c.png",
+                                            "originalUrl": "/fileadmin/user_upload/csm_TYPO3demo_keyvisual_red_01_97bb3f70ae.webp",
+                                            "uidLocal": 27,
+                                            "fileReferenceUid": 208,
+                                            "size": "651 KB",
+                                            "link": null,
+                                            "dimensions": {
+                                                "width": 1418,
+                                                "height": 948
+                                            },
+                                            "cropDimensions": {
+                                                "width": 1418,
+                                                "height": 948
+                                            },
+                                            "crop": "",
+                                            "autoplay": null,
+                                            "extension": "webp"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "id": 355,
+                "type": "textpic",
+                "colPos": 0,
+                "categories": "",
+                "appearance": {
+                    "layout": "default",
+                    "frameClass": "container",
+                    "spaceBefore": "extra-large",
+                    "spaceAfter": "",
+                    "proportions": ""
+                },
+                "content": {
+                    "header": "Apples, apples, apples",
+                    "subheader": "",
+                    "headerLayout": 0,
+                    "headerPosition": "",
+                    "headerLink": "",
+                    "enlargeImageOnClick": false,
+                    "bodytext": "<p>Apples are fascinating. You've been eating them ever since you were young and you're probably still buying them regularly. You might even have an apple tree growing in your backyard. But we're pretty sure there still are some fun facts you don't know about this underestimated fruit.</p>",
+                    "gallery": {
+                        "position": {
+                            "horizontal": "left",
+                            "vertical": "intext",
+                            "noWrap": true
+                        },
+                        "width": 300,
+                        "count": {
+                            "files": 1,
+                            "columns": 1,
+                            "rows": 1
+                        },
+                        "columnSpacing": 10,
+                        "border": {
+                            "enabled": false,
+                            "width": 2,
+                            "padding": 0
+                        },
+                        "rows": {
+                            "1": {
+                                "columns": {
+                                    "1": {
+                                        "publicUrl": "https://api.t3pwa.com/fileadmin/user_upload/pexels-photo-2253316.jpeg",
+                                        "properties": {
+                                            "title": null,
+                                            "alternative": null,
+                                            "description": null,
+                                            "mimeType": "image/jpeg",
+                                            "type": "image",
+                                            "filename": "pexels-photo-2253316.jpeg",
+                                            "originalUrl": "/fileadmin/user_upload/pexels-photo-2253316.jpeg",
+                                            "uidLocal": 37,
+                                            "fileReferenceUid": 233,
+                                            "size": "579 KB",
+                                            "link": null,
+                                            "dimensions": {
+                                                "width": 2250,
+                                                "height": 1500
+                                            },
+                                            "cropDimensions": {
+                                                "width": 2250,
+                                                "height": 1500
+                                            },
+                                            "crop": {
+                                                "default": {
+                                                    "cropArea": {
+                                                        "x": 0,
+                                                        "y": 0,
+                                                        "width": 1,
+                                                        "height": 1
+                                                    },
+                                                    "selectedRatio": "NaN",
+                                                    "focusArea": null
+                                                }
+                                            },
+                                            "autoplay": null,
+                                            "extension": "jpeg"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "id": 351,
+                "type": "menu_pages",
+                "colPos": 0,
+                "categories": "",
+                "appearance": {
+                    "layout": "menu-with-cards",
+                    "frameClass": "container",
+                    "spaceBefore": "extra-large",
+                    "spaceAfter": "",
+                    "proportions": ""
+                },
+                "content": {
+                    "header": "Amazingly delicious recipes with apples",
+                    "subheader": "",
+                    "headerLayout": 3,
+                    "headerPosition": "",
+                    "headerLink": "",
+                    "menu": [
+                        {
+                            "title": "Apple Pie",
+                            "link": "/recipes/apple-pie",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Fruit Brandy",
+                            "link": "/recipes/fruit-brandy",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Cinnamon Overnight Oats",
+                            "link": "/recipes/cinnamon-overnight-oats",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Apple Pancakes",
+                            "link": "/recipes/apple-pancakes",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        },
+                        {
+                            "title": "Apple Cinnamon Tea",
+                            "link": "/recipes/apple-cinnamon-tea",
+                            "target": "",
+                            "active": 0,
+                            "current": 0,
+                            "spacer": 0,
+                            "hasSubpages": 0
+                        }
+                    ]
+                }
+            },
+            {
+                "id": 350,
+                "type": "menu_pages",
+                "colPos": 0,
+                "categories": "",
+                "appearance": {
+                    "layout": "default",
+                    "frameClass": "container",
+                    "spaceBefore": "extra-large",
+                    "spaceAfter": "extra-large",
+                    "proportions": ""
+                },
+                "content": {
+                    "header": "Learn more about the most popular apples worldwide",
+                    "subheader": "",
+                    "headerLayout": 3,
+                    "headerPosition": "",
+                    "headerLink": "",
+                    "menu": [
+                        {
+                            "title": "TYPO3 Demo Site",
+                            "link": "/",
+                            "target": "",
+                            "active": 1,
+                            "current": 1,
+                            "spacer": 0,
+                            "hasSubpages": 1
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
