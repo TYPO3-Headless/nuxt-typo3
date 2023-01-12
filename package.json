@@ -19,11 +19,12 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "eslint --ext .ts,.js,.vue .",
     "prerelease": "yarn test && standard-version --prerelease alpha && git push --follow-tags && npm publish --tag alpha",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
-    "commitlint": "commitlint --verbose"
+    "commitlint": "commitlint --verbose",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0",
@@ -41,7 +42,7 @@
     "@nuxt/test-utils": "^3.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "eslint": "^8.29.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "nuxt": "^3.0.0",
     "playwright": "^1.28.1",
     "standard-version": "^9.5.0",
