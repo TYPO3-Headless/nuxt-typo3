@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { T3CeMenuPagesProps } from './useT3CeMenuPages'
+import type { T3CeMenuPages } from '../../../types'
 import T3CeMenuPagesList from './T3CeMenuPagesList.vue'
 
-const props = defineProps<T3CeMenuPagesProps>()
+const props = defineProps<T3CeMenuPages>()
 </script>

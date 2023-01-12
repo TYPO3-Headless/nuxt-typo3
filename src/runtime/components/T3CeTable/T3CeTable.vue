@@ -43,26 +43,10 @@
 </template>
 
 <script lang="ts" setup>
-import useT3CeTable from './useT3CeTable'
-import type { T3CeTableProps } from './useT3CeTable'
+import type { T3CeTable } from '../../../types'
+import { useT3CeTable } from './useT3CeTable'
 
-const props = withDefaults(defineProps<T3CeTableProps>(), {
-  header: '',
-  headerLayout: 0,
-  headerPosition: '',
-  headerLink: () => ({
-    additionalAttributes: [],
-    class: '',
-    href: '',
-    linkText: '',
-    target: '',
-    title: ''
-  }),
-  subheader: '',
-  tableCaption: '',
-  tableHeaderPosition: 0,
-  tableClass: '',
-  tableTfoot: '',
+const props = withDefaults(defineProps<T3CeTable>(), {
   bodytext: () => []
 })
 

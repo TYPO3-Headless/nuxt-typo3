@@ -1,3 +1,11 @@
+export * from './T3Link'
+export * from './T3File'
+export * from './T3Gallery'
+export * from './T3Menu'
+export * from './T3Appearance'
+export * from './T3ContentElement'
+export * from './content'
+
 export interface T3Site {
   api: {
     /**
@@ -152,84 +160,10 @@ export interface T3Page extends T3RedirectData {
   i18n: T3I18N[]
 }
 
-export interface T3Menu {
-  title: string
-  link: string
-  target: string
-  active: number
-  current: number
-  spacer: number
-  hasSubpages: number
-}
-
 export interface T3InitialData {
   navigation: T3Navigation[]
   i18n: T3I18N[]
   [key: string]: any
-}
-
-export declare type T3CeAppearanceSpace =
-  | 'default'
-  | 'extra-small'
-  | 'small'
-  | 'medium'
-  | 'large'
-  | 'extra-large'
-  | string
-
-export declare type T3CeAppearanceFrameClass =
-  | 'default'
-  | 'ruler-before'
-  | 'ruler-after'
-  | 'indent'
-  | 'indent-left'
-  | 'indent-right'
-  | 'none'
-  | string
-
-export interface T3CeAppearanceInterface {
-  frameClass: T3CeAppearanceFrameClass
-  layout: string
-  spaceAfter: T3CeAppearanceSpace
-  spaceBefore: T3CeAppearanceSpace
-  background?: string
-}
-
-export interface T3CeBase {
-  appearance: {
-    frameClass:
-      | 'default'
-      | 'ruler-before'
-      | 'ruler-after'
-      | 'indent'
-      | 'indent-left'
-      | 'indent-right'
-      | 'none'
-      | string
-    layout: string
-    spaceAfter:
-      | 'default'
-      | 'extra-small'
-      | 'small'
-      | 'medium'
-      | 'large'
-      | 'extra-large'
-      | string
-    spaceBefore:
-      | 'default'
-      | 'extra-small'
-      | 'small'
-      | 'medium'
-      | 'large'
-      | 'extra-large'
-      | string
-  }
-  colPos?: number
-  categories?: string
-  content?: object
-  id?: number
-  type?: string
-  index?: number
 }
 
 export interface ModuleOptions extends Partial<T3Options> {}

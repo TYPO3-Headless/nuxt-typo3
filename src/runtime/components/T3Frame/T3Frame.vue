@@ -4,10 +4,10 @@
 import { h, PropType } from 'vue'
 
 import type {
-  T3CeAppearanceFrameClass,
-  T3CeAppearanceSpace,
-  T3CeAppearanceInterface
-} from '../../../typespes'
+  T3AppearanceFrameClass,
+  T3AppearanceSpace,
+  T3Appearance
+} from '../../../types'
 
 export default {
   name: 'T3Frame',
@@ -17,7 +17,7 @@ export default {
      * Frame main css class
      */
     frameClass: {
-      type: String as PropType<T3CeAppearanceFrameClass>,
+      type: String as PropType<T3AppearanceFrameClass>,
       default: 'default'
     },
     /**
@@ -31,18 +31,18 @@ export default {
      * Top space
      */
     spaceBefore: {
-      type: String as PropType<T3CeAppearanceSpace>,
+      type: String as PropType<T3AppearanceSpace>,
       default: 'default'
     },
     /**
      * Bottom space
      */
     spaceAfter: {
-      type: String as PropType<T3CeAppearanceSpace>,
+      type: String as PropType<T3AppearanceSpace>,
       default: 'default'
     }
   },
-  setup (props: T3CeAppearanceInterface, { slots }) {
+  setup (props: T3Appearance, { slots }) {
     return () =>
       h(
         'div',

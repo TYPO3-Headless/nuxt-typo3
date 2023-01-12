@@ -1,36 +1,8 @@
 <script lang="ts" setup>
-interface T3CeHeaderLink {
-  additionalAttributes?: string[]
-  class?: string
-  href?: string
-  linkText?: string
-  target?: string
-  title?: string
-}
+import { computed } from 'vue'
+import type { T3CeBullets } from '../../../types'
 
-interface Props {
-  header?: string
-  headerLayout?: number
-  headerPosition?: string
-  headerLink?: T3CeHeaderLink
-  subheader?: string
-  bodytext?: string[] | [][]
-  bulletsType?: number
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  header: '',
-  headerLayout: 0,
-  headerPosition: '',
-  headerLink: () => ({
-    additionalAttributes: [],
-    class: '',
-    href: '',
-    linkText: '',
-    target: '',
-    title: ''
-  }),
-  subheader: '',
+const props = withDefaults(defineProps<T3CeBullets>(), {
   bodytext: () => [],
   bulletsType: 0
 })

@@ -4,16 +4,16 @@ import { computed } from 'vue'
 import { useNuxtApp } from '#app'
 import { getBackendLayout } from '../../composables/useT3Layout'
 import { getComponentName } from '../../composables/utils'
-import type { T3CeBase } from '../../../typespes'
+import type { T3CeBase, T3ContentElement } from '../../../types'
 
-interface Props {
-  data: T3CeBase
+interface T3DynamicComponent {
+  data: T3ContentElement<T3CeBase>
   type: string
   layout?: boolean
   index?: number
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<T3DynamicComponent>(), {
   layout: false,
   index: -1
 })
@@ -34,10 +34,11 @@ const componentData = props.layout
       id: props.data.id,
       type: props.data.type,
       appearance: props.data.appearance,
-      index: props.data.index,
+      index: props.index,
       ...props.data.content
     }
   }))
+
 </script>
 
 <script lang="ts">

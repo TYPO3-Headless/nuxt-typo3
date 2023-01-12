@@ -1,5 +1,6 @@
 <template>
   <video
+    v-if="file.publicUrl"
     v-bind="$attrs"
     :class="[$attrs.class, $attrs.staticClass]"
     class="t3-ce-media-video"
@@ -14,10 +15,8 @@
   </video>
 </template>
 <script lang="ts" setup>
+import type { T3File } from '../../../../types'
 defineProps<{
-  file: {
-    type: Object
-    required: true
-  }
+  file: T3File
 }>()
 </script>
