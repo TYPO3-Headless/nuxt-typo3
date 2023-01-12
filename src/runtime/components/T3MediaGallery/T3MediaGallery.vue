@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ComputedRef } from 'vue'
 import MediaFile from '../MediaFile/MediaFile.vue'
-import type { T3CeGalleryProp } from './T3CeGallery.types'
-interface T3CeGallery {
-  gallery: T3CeGalleryProp
-}
-const props = defineProps<T3CeGallery>()
+import type { T3Gallery } from '../../../types'
 
-const galleryCss: (string | Record<string, boolean>)[] = computed(() => {
+const props = defineProps<{
+  gallery: T3Gallery
+}>()
+
+const galleryCss: ComputedRef<(string | Record<string, boolean>)[]> = computed(() => {
   return [
     `t3-ce-gallery--horizontal-${props.gallery.position.horizontal}`,
     `t3-ce-gallery--vertical-${props.gallery.position.vertical}`,
@@ -15,6 +15,7 @@ const galleryCss: (string | Record<string, boolean>)[] = computed(() => {
     { 't3-ce-gallery--border': props.gallery.border.enabled }
   ]
 })
+
 </script>
 
 <template>

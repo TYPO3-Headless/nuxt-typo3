@@ -1,16 +1,9 @@
 import { computed } from 'vue'
-import type { T3CeHeaderProps } from '../T3CeHeader/useT3CeHeader'
+import type { T3CeTable } from '../../../types'
 
 export type BodyTextType = string[][]
-export interface T3CeTableProps extends T3CeHeaderProps {
-  tableCaption: string
-  tableHeaderPosition: number
-  tableClass: string
-  tableTfoot: string
-  bodytext: BodyTextType
-}
 
-export default function (props: T3CeTableProps) {
+export const useT3CeTable = (props: T3CeTable) => {
   const thead = computed((): string[] => {
     return (
       (props.tableHeaderPosition === 1 &&

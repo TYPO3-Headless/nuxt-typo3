@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 // Due to this issue it is not possible to import types into props
 // https://github.com/vuejs/core/issues/4294
+import { T3CeBase } from '../../../types'
 
 export interface T3CeHeaderLink {
   additionalAttributes?: string[]
@@ -38,12 +39,12 @@ export interface T3CeHeaderProps {
  * Provides headerLevel and headerClass computed values based on provided props
  * @param props
  */
-export function useT3CeHeader (props: T3CeHeaderProps) {
+export function useT3CeHeader (props: T3CeBase) {
   /**
    * By defualt if type is 0, set h1
    */
   const headerLevel = computed(() => {
-    return props.headerLayout === 0 ? 1 : props.headerLayout
+    return props.headerLayout === 0 ? 1 : props.headerLayout || 1
   })
   /**
    * Apply nuxt-typo3 default class name

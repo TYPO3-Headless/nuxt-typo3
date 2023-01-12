@@ -1,19 +1,11 @@
 <script lang="ts" setup>
+import type { T3CeBase } from '../../../types'
 import { useT3CeHeader } from './useT3CeHeader'
-import type { T3CeHeaderProps } from './useT3CeHeader'
 
-const props = withDefaults(defineProps<T3CeHeaderProps>(), {
+const props = withDefaults(defineProps<T3CeBase>(), {
   header: '',
   headerLayout: 0,
   headerPosition: '',
-  headerLink: () => ({
-    additionalAttributes: [],
-    class: '',
-    href: '',
-    linkText: '',
-    target: '',
-    title: ''
-  }),
   subheader: ''
 })
 
@@ -37,7 +29,7 @@ export default {
       v-if="props.headerLayout >= 0 && props.headerLayout !== 100"
       :class="props.headerPosition"
     >
-      <NuxtLink v-if="props.headerLink" :to="props.headerLink?.href">
+      <NuxtLink v-if="props.headerLink" :to="typeof props.headerLink !== 'string' ? props.headerLink.href : props.headerLink">
         {{ props.header }}
       </NuxtLink>
       <template v-else>

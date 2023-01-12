@@ -13,10 +13,8 @@
   />
 </template>
 <script lang="ts" setup>
+import type { T3File } from '../../../../types'
 defineProps<{
-  file: {
-    type: Object
-    required: true
-  }
+  file: T3File
 }>()
 </script>

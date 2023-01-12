@@ -1,19 +1,18 @@
 <script lang="ts" setup>
 import { resolveComponent } from 'vue'
+import type { T3File } from '../../../types'
+
 defineProps<{
-  file: {
-    type: Object
-    required: true
-  }
+  file: T3File
 }>()
 
-function getMediaType (file) {
-  switch (file.type) {
+function getMediaType (file: T3File) {
+  switch (file.properties.type) {
     case 'video': {
-      if (file.mimeType.includes('youtube')) {
+      if (file.properties.mimeType.includes('youtube')) {
         return resolveComponent('MediaYoutube')
       }
-      if (file.mimeType.includes('vimeo')) {
+      if (file.properties.mimeType.includes('vimeo')) {
         return resolveComponent('MediaVimeo')
       }
       return resolveComponent('MediaVideo')
@@ -27,5 +26,5 @@ function getMediaType (file) {
 </script>
 
 <template>
-  <component :is="getMediaType(file.properties)" :file="file" />
+  <component :is="getMediaType(file)" :file="file" />
 </template>

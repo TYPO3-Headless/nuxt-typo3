@@ -1,6 +1,6 @@
 <template>
   <div class="t3-locale-switcher">
-    Current: {{ currentCode }}
+    Current locale: {{ currentCode }}
     <NuxtLink v-for="{ title, link } in locales" :key="title" :to="link">
       {{ title }}
     </NuxtLink>

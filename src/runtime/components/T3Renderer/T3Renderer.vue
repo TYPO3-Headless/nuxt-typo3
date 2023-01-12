@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 // Component to render content elements loop
 import { h, resolveComponent } from 'vue'
-import type { T3CeBase } from '../../../typespes'
+import type { T3ContentElement, T3CeBase } from '../../../types'
 
 interface RendererProps {
   /**
    * Array of content elements - colPos[x] from contentData
    */
-  content?: Array<T3CeBase>
+  content?: T3ContentElement<T3CeBase>[]
   /**
    * Control frame component displaying
    */
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<RendererProps>(), {
 })
 
 // render standalone component
-function renderComponent (element: T3CeBase, index: number) {
+function renderComponent (element: T3ContentElement<T3CeBase>, index: number) {
   return h(resolveComponent('T3DynamicComponent'), {
     data: element,
     type: element.type,
@@ -30,9 +30,8 @@ function renderComponent (element: T3CeBase, index: number) {
 }
 
 // render component with frame wrapper
-function renderFrame (element: T3CeBase, index: number) {
-  return h(
-    resolveComponent('T3Frame'),
+function renderFrame (element: T3ContentElement<T3CeBase>, index: number) {
+  return h(resolveComponent('T3Frame'),
     {
       ...element.appearance,
       id: `c${element.id}`

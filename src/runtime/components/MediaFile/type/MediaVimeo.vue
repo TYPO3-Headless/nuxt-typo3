@@ -5,7 +5,7 @@
     :src="file.publicUrl"
     :width="file.properties.dimensions.width || 640"
     :height="file.properties.dimensions.height || 360"
-    :title="file.properties.title || false"
+    :title="file.properties.title!"
     frameborder="0"
     class="t3-ce-media-video t3-ce-media-vimeo"
     webkitallowfullscreen
@@ -14,10 +14,8 @@
   />
 </template>
 <script lang="ts" setup>
+import type { T3File } from '../../../../types'
 defineProps<{
-  file: {
-    type: Object
-    required: true
-  }
+  file: T3File
 }>()
 </script>

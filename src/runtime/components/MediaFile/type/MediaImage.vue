@@ -7,10 +7,11 @@
     <component :is="isNuxtLink" :to="file.properties.link">
       <figure>
         <img
+          v-if="file.publicUrl"
           :src="file.publicUrl"
           :height="file.properties.dimensions.height"
           :width="file.properties.dimensions.width"
-          :alt="file.properties.alternative || false"
+          :alt="file.properties.alternative!"
           :title="file.properties.title || ''"
         >
         <figcaption v-if="file.properties.description">
@@ -23,11 +24,9 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import type { T3File } from '../../../../types'
 const props = defineProps<{
-  file: {
-    type: Object
-    required: true
-  }
+  file: T3File
 }>()
 
 const isNuxtLink = computed(() => {

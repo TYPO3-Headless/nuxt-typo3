@@ -1,9 +1,9 @@
 import { h } from 'vue'
 
-export default {
+export default defineComponent({
   inheritAttrs: false,
 
-  setup (props, { attrs }) {
+  setup (_props, { attrs }) {
     return () =>
       h(
         'pre',
@@ -27,4 +27,4 @@ export default {
         ]
       )
   }
-}
+})
