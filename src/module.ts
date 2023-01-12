@@ -68,6 +68,7 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     const resolver = createResolver(import.meta.url)
     nuxt.options.pages = true
+    nuxt.options.alias['#typo3'] = resolve(runtimeDir)
     nuxt.options.build.transpile.push(runtimeDir)
 
     if (options.sites) {
@@ -81,7 +82,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin(resolve(runtimeDir, 'plugin'))
     installModule('vite-plugin-vue-type-imports/nuxt')
-
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
 
     extendPages((pages) => {

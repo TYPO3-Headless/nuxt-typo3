@@ -1,25 +1,18 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import nuxtTypo3 from '..'
 export default defineNuxtConfig({
-  pages: true,
-  modules: ['@t3headless/nuxt-typo3'],
-
+  modules: [nuxtTypo3],
   typo3: {
     api: {
       baseUrl: 'https://api.t3pwa.com'
     }
   },
-  components: [
-    {
-      path: '@/components',
-      global: true
-    }
-  ],
-  runtimeConfig: {
-    public: {
-      typo3: {
-
+  components: {
+    dirs: [
+      {
+        path: '@/components/T3',
+        global: true
       }
-    }
+    ]
   }
 })
