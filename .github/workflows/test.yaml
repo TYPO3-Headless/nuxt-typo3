@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: yarn --frozen-lockfile
+      - run: yarn
 
       - name: Commitlint
         run: git log -1 --pretty=format:"%s" | yarn commitlint
@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: yarn --frozen-lockfile
+      - run: yarn
 
       - name: Units
         run: yarn test
