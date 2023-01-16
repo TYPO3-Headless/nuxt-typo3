@@ -1,44 +1,50 @@
 <script lang="ts" setup>
 // Component to render content elements loop
-import { h, resolveComponent } from 'vue'
+import { ConcreteComponent, h } from 'vue'
 import type { T3ContentElement, T3CeBase } from '../../../types'
-
-interface RendererProps {
-  /**
-   * Array of content elements - colPos[x] from contentData
-   */
-  content?: T3ContentElement<T3CeBase>[]
-  /**
-   * Control frame component displaying
-   */
-  frame?: boolean
-}
-
-const props = withDefaults(defineProps<RendererProps>(), {
-  content: () => [],
-  frame: true
-})
+import { useT3DynamicCe, useT3DynamicComponent } from '../../composables/useT3DynamicComponent'
+const props = withDefaults(
+  defineProps<{
+    /**
+     * Array of content elements - colPos[x] from contentData
+     */
+    content?: T3ContentElement<T3CeBase>[];
+    /**
+     * Control frame component displaying
+     */
+    frame?: boolean;
+  }>(),
+  {
+    content: () => [],
+    frame: true
+  }
+)
 
 // render standalone component
-function renderComponent (element: T3ContentElement<T3CeBase>, index: number) {
-  return h(resolveComponent('T3DynamicComponent'), {
-    data: element,
-    type: element.type,
+const renderComponent = (element: T3ContentElement<T3CeBase>, index: number) => {
+  const component = useT3DynamicCe(element.type) as ConcreteComponent
+  return h(component, {
+    element,
     index,
-    id: `c${element.id}`
+    id: `c${element.id}`,
+    ...element.content
   })
 }
 
 // render component with frame wrapper
-function renderFrame (element: T3ContentElement<T3CeBase>, index: number) {
-  return h(resolveComponent('T3Frame'),
+const renderFrame = (element: T3ContentElement<T3CeBase>, index: number) => {
+  const component = useT3DynamicComponent({
+    prefix: 'T3',
+    type: 'Frame',
+    mode: ''
+  })
+  return h(
+    component,
     {
       ...element.appearance,
       id: `c${element.id}`
     },
-    {
-      default: () => renderComponent(element, index)
-    }
+    () => renderComponent(element, index)
   )
 }
 

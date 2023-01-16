@@ -1,16 +1,10 @@
 <template>
-  <T3DynamicComponent
-    :data="pageData.content"
-    :type="pageData.appearance?.backendLayout"
-    layout
-  />
+  <T3BackendLayout :content="pageData.content" />
 </template>
 
 <script setup lang="ts">
 import { useHead } from '#app'
-import { useT3Api } from '../composables/useT3Api'
-import { useT3Meta } from '../composables/useT3Meta'
-const { pageData } = useT3Api()
-const { getMeta } = useT3Meta()
-useHead(getMeta)
+import { useT3Page } from '../composables/useT3Page'
+const { metaData, pageData, T3BackendLayout } = useT3Page()
+useHead(metaData)
 </script>

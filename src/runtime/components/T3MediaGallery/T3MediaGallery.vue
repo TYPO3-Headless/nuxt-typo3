@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { computed, ComputedRef } from 'vue'
-import MediaFile from '../MediaFile/MediaFile.vue'
+import { computed, ComputedRef, resolveComponent } from 'vue'
 import type { T3Gallery } from '../../../types'
 
 const props = defineProps<{
@@ -38,7 +37,7 @@ const galleryCss: ComputedRef<(string | Record<string, boolean>)[]> = computed((
           :key="`${colKey}-c`"
           class="t3-ce-gallery__col"
         >
-          <MediaFile :file="col" />
+          <component :is="resolveComponent('MediaFile')" :file="col" />
         </div>
       </div>
     </div>

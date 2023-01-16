@@ -35,7 +35,7 @@ describe('T3DynamicComponent', () => {
     await listener.close()
   })
 
-  it('renders correct host', async () => {
+  it('renders updated components', async () => {
     const page = await createPage('/components')
     const result = await $fetch('/components')
     expect(result).toContain('Apples are awesome')

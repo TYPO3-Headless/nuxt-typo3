@@ -1,9 +1,12 @@
+import type { T3ContentElement } from './T3ContentElement'
+import type { T3CeBase } from './content'
 export * from './T3Link'
 export * from './T3File'
 export * from './T3Gallery'
 export * from './T3Menu'
 export * from './T3Appearance'
 export * from './T3ContentElement'
+export * from './T3BackendLayout'
 export * from './content'
 
 export interface T3Site {
@@ -156,7 +159,9 @@ export interface T3Page extends T3RedirectData {
   categories: string
   breadcrumbs: any[]
   appearance: T3PageAppearance
-  content: Record<string, any[]>
+  content: {
+    [key: string]: T3ContentElement<any>[]
+  }
   i18n: T3I18N[]
 }
 

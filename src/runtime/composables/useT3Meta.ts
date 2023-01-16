@@ -2,7 +2,7 @@ import { ComputedRef, computed } from 'vue'
 import type { T3Meta } from '../../types'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
-interface T3MetaForUseHead {
+export interface T3MetaForUseHead {
   title: string
   htmlAttrs: {
     lang: string
@@ -12,7 +12,7 @@ interface T3MetaForUseHead {
   link: object[]
 }
 
-interface T3MetaObject {
+export interface T3MetaObject {
   hid: string
   property?: string
   name?: string

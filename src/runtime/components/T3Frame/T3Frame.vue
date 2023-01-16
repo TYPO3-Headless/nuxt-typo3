@@ -11,7 +11,7 @@ import type {
 
 export default {
   name: 'T3Frame',
-  inheritAttrs: false,
+
   props: {
     /**
      * Frame main css class
