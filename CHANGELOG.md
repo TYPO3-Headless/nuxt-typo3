@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.1...v1.1.0) (2023-01-16)
+
+
+### Features
+
+* **#247:** removing of not whitelisted query params, preventing data download if theres hash ([2dbd060](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/2dbd060d7bf117f1877f5810616684efdd8609f7)), closes [#247](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/247)
+
+
+### Bug Fixes
+
+* handling axios errors ([#291](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/291)) ([05fd5d1](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/05fd5d11713aa4d219ef84adf1d09f6d58606f6d))
+
 ### [1.0.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.0...v1.0.1) (2022-11-25)
 
 
