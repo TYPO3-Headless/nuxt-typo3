@@ -7,5 +7,4 @@ export interface T3ContentElement<T extends T3CeBase> {
   categories: string
   appearance: T3Appearance
   content: T
-
 }
