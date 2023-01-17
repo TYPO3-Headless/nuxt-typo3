@@ -1,115 +1,99 @@
 import { ComputedRef, computed } from 'vue'
+import { Meta } from '@zhead/schema'
+import type { ReactiveHead } from '@vueuse/head'
 import type { T3Meta } from '../../types'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
-export interface T3MetaForUseHead {
-  title: string
-  htmlAttrs: {
-    lang: string
-    dir: string
-  }
-  meta: object[]
-  link: object[]
-}
-
-export interface T3MetaObject {
-  hid: string
-  property?: string
-  name?: string
-  content: string
-}
 
 export const useT3Meta = (): {
-  /**
-   * TYPO3 Changed Meta Data
-   */
-  getMeta: ComputedRef<T3MetaForUseHead>
-  /**
-   * TYPO3 twitterTag
-   */
-  twitterTags: ComputedRef<T3MetaObject[]>
-  /**
-   * TYPO3 ogTag
-   */
-  ogTags: ComputedRef<T3MetaObject[]>
-  /**
-   * TYPO3 defaultTag
-   */
-  defaultTags: ComputedRef<T3MetaObject[]>
-  metaFilter: (meta: T3MetaObject[]) => T3MetaObject[]
-  /**
-   * TYPO3 Meta Initial Data
-   */
   metaData: ComputedRef<T3Meta>
+  /**
+   * TYPO3 head attributes for Nuxt Head
+   */
+  headData: ComputedRef<ReactiveHead>
+  /**
+   * TYPO3 Twitter meta data
+   */
+  twitter: ComputedRef<Meta[]>
+  /**
+   * TYPO3 Open Graph meta data
+   */
+  opengraph: ComputedRef<Meta[]>
+  /**
+   * TYPO3 base attributes (description, robots, generator)
+   */
+  base: ComputedRef<Meta[]>
 } => {
+  const { getCurrentLocaleData } = useT3i18n()
+  const currentLocale = getCurrentLocaleData()
   const data = useT3PageState()
   const metaData = computed(() => data.value?.meta)
 
-  const twitterTags = computed(() => {
+  const twitter = computed(() => {
     return [
       {
-        hid: 'twitter:title',
+        id: 'twitter:title',
         name: 'twitter:title',
         content: metaData.value?.twitterTitle || metaData?.value?.title
       },
       {
-        hid: 'twitter:description',
+        id: 'twitter:description',
         name: 'twitter:description',
         content:
           metaData?.value?.twitterDescription || metaData?.value?.description
       },
       {
-        hid: 'twitter:image',
+        id: 'twitter:image',
         property: 'twitter:image',
-        content: metaData?.value?.ogImage || null
+        content: metaData?.value?.ogImage || undefined
       },
       {
-        hid: 'twitter:card',
+        id: 'twitter:card',
         name: 'twitter:card',
         content: metaData?.value?.twitterCard || 'summary'
       }
     ]
   })
 
-  const ogTags = computed(() => {
+  const opengraph = computed(() => {
     return [
       {
-        hid: 'og:title',
+        id: 'og:title',
         property: 'og:title',
         content: metaData.value?.ogTitle || metaData?.value?.title
       },
       {
-        hid: 'og:description',
+        id: 'og:description',
         name: 'og:description',
         content: metaData?.value?.ogDescription || metaData?.value?.description
       },
       {
-        hid: 'og:type',
+        id: 'og:type',
         property: 'og:type',
         content: 'website'
       },
       {
-        hid: 'og:image',
+        id: 'og:image',
         property: 'og:image',
-        content: metaData?.value?.ogImage || null
+        content: metaData?.value?.ogImage || undefined
       }
     ]
   })
 
-  const defaultTags = computed(() => {
+  const base = computed(() => {
     return [
       {
-        hid: 'generator',
+        id: 'generator',
         name: 'generator',
         content: 'TYPO3 CMS x TYPO3PWA'
       },
       {
-        hid: 'description',
+        id: 'description',
         name: 'description',
         content: metaData?.value?.description
       },
       {
-        hid: 'robots',
+        id: 'robots',
         name: 'robots',
         content: Object.keys(metaData.value?.robots || {})
           .filter(key => metaData.value?.robots[key])
@@ -118,11 +102,8 @@ export const useT3Meta = (): {
     ]
   })
 
-  const { getCurrentLocaleData } = useT3i18n()
-  const currentLocale = getCurrentLocaleData()
-
-  const getMeta = computed(() => {
-    const meta = [].concat(defaultTags.value, twitterTags.value, ogTags.value)
+  const headData = computed(() => {
+    const meta = Array.prototype.concat(base.value, twitter.value, opengraph.value)
 
     const link = []
     if (metaData?.value?.canonical) {
@@ -143,18 +124,17 @@ export const useT3Meta = (): {
     }
   })
 
-  const metaFilter = (meta: T3MetaObject[]) => {
+  const metaFilter = (meta: Partial<Meta>[]) => {
     return meta.filter(
       ({ content }) =>
-        !!content && (Object.keys(content).length > 0 || content.length > 0)
+        !!content && (Object.keys(content).length > 0 || (typeof content === 'string' && content.length > 0))
     )
   }
   return {
     metaData,
-    getMeta,
-    twitterTags,
-    defaultTags,
-    ogTags,
-    metaFilter
+    headData,
+    twitter,
+    base,
+    opengraph
   }
 }

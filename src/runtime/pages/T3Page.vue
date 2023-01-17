@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import { useHead } from '#app'
 import { useT3Page } from '../composables/useT3Page'
-const { metaData, pageData, T3BackendLayout } = useT3Page()
-useHead(metaData)
+
+const { headData, pageData, T3BackendLayout } = useT3Page()
+useHead(headData)
 </script>

@@ -114,7 +114,7 @@ export interface T3I18N {
   navigationTitle: string
   twoLetterIsoCode: string
   hreflang: string
-  direction: string
+  direction: 'ltr' | 'rtl'
   flag: string
   link: string
   active: number
@@ -124,6 +124,7 @@ export interface T3I18N {
 export interface T3Robots {
   noIndex: boolean
   noFollow: boolean
+  [key: string]: any
 }
 export interface T3Meta {
   title: string
@@ -160,7 +161,7 @@ export interface T3Page extends T3RedirectData {
   breadcrumbs: any[]
   appearance: T3PageAppearance
   content: {
-    [key: string]: T3ContentElement<any>[]
+    [key: string]: T3ContentElement<T3CeBase>[]
   }
   i18n: T3I18N[]
 }
