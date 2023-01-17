@@ -1,4 +1,5 @@
-import { h } from 'vue'
+<script lang="ts">
+import { h, resolveComponent } from 'vue'
 import type { T3CeBase } from '../../../types'
 
 export interface T3CeShortcutInterface {
@@ -14,3 +15,4 @@ const T3CeShortcut = (props: T3CeShortcutInterface) => {
 }
 
 export default T3CeShortcut
+</script>

@@ -1,4 +1,5 @@
-import { h } from 'vue'
+<script lang="ts">
+import { h, defineComponent } from 'vue'
 
 export default defineComponent({
   inheritAttrs: false,
@@ -28,3 +29,4 @@ export default defineComponent({
       )
   }
 })
+</script>
