@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.1.0...v1.1.1) (2023-01-19)
+
+
+### Bug Fixes
+
+* wrong props construct ([#293](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/293)) ([5f74fd3](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/5f74fd344fb35b8fbfc5d25bf652401fbb73e4e3))
+
 ## [1.1.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.0.1...v1.1.0) (2023-01-16)
 
 
