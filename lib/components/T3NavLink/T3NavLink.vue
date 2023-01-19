@@ -38,7 +38,7 @@ export default {
         ...ctx.data,
         ...url.data,
         props: {
-          props,
+          ...props,
           ...url.props
         }
       },
