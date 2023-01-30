@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0-alpha.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.1.1...v1.2.0-alpha.0) (2023-01-30)
+
+
+### Features
+
+* **#296:** removed functional components ([07cb8d1](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/07cb8d14954ed05c69a446aae7e7bfe399e0e07b)), closes [#296](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/296)
+
+
+### Bug Fixes
+
+* **#297:** fixed prop type for tfoot ([86bd8ed](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/86bd8ed5d989ff8af1d06bc0e3280423c3615179))
+* apply name for dynamic page ([#300](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/300)) ([b84a14a](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/b84a14a4eccf249889a8369a3075c8464b7bb47e))
+
 ### [1.1.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.1.0...v1.1.1) (2023-01-19)
 
 
