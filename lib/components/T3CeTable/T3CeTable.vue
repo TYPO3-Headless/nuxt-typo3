@@ -55,8 +55,8 @@ export default {
       default: ''
     },
     tableTfoot: {
-      type: Number,
-      default: 0
+      type: String,
+      default: '0'
     },
     bodytext: {
       type: Array,
@@ -78,7 +78,7 @@ export default {
       return tbody
     },
     tfoot () {
-      return this.tableTfoot === 1 ? [...this.bodytext].pop() : false
+      return this.tableTfoot === '1' ? [...this.bodytext].pop() : false
     }
   }
 }
