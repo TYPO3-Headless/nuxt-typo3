@@ -5,6 +5,7 @@
       :type="t3page.appearance.backendLayout"
       layout
     />
+    <TestComponent />
   </div>
 </template>
 

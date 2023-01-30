@@ -1,9 +1,10 @@
-<template functional>
-  <hr class="t3-ce-div">
+<template>
+  <div>
+    <hr class="t3-ce-div">
+  </div>
 </template>
 <script>
 export default {
-  name: 'T3CeDiv',
-  functional: true
+  name: 'T3CeDiv'
 }
 </script>
