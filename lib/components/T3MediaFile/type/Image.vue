@@ -1,23 +1,22 @@
-<template functional>
+<template>
   <div
-    v-bind="data.attrs"
-    :class="[data.class, data.staticClass]"
+    v-bind="$attrs"
     class="t3-ce-media-image"
   >
     <component
-      :is="props.file.properties.link ? 't3-nav-link' : 'div'"
-      :to="props.file.properties.link"
+      :is="file.properties.link ? 't3-nav-link' : 'div'"
+      :to="file.properties.link"
     >
       <figure>
         <img
-          :src="props.file.publicUrl"
-          :height="props.file.properties.dimensions.height"
-          :width="props.file.properties.dimensions.width"
-          :alt="props.file.properties.alternative || false"
-          :title="props.file.properties.title || ''"
+          :src="file.publicUrl"
+          :height="file.properties.dimensions.height"
+          :width="file.properties.dimensions.width"
+          :alt="file.properties.alternative || false"
+          :title="file.properties.title || ''"
         >
-        <figcaption v-if="props.file.properties.description">
-          {{ props.file.properties.description }}
+        <figcaption v-if="file.properties.description">
+          {{ file.properties.description }}
         </figcaption>
       </figure>
     </component>
@@ -27,7 +26,6 @@
 <script>
 export default {
   name: 'MediaImage',
-  functional: true,
   props: {
     file: {
       type: Object,
