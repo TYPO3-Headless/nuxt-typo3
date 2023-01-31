@@ -1,13 +1,12 @@
-<template functional>
+<template>
   <div class="t3-ce-html">
-    <t3-html-parser :content="props.bodytext" />
+    <t3-html-parser :content="bodytext" />
   </div>
 </template>
 <script>
 import baseCe from '../../mixins/component/baseCe'
 export default {
   name: 'T3CeHtml',
-  functional: true,
   extends: baseCe,
   props: {
     bodytext: {

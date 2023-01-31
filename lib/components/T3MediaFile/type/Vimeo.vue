@@ -1,11 +1,10 @@
-<template functional>
+<template>
   <iframe
-    v-bind="data.attrs"
-    :class="[data.class, data.staticClass]"
-    :src="props.file.publicUrl"
-    :width="props.file.properties.dimensions.width || 640"
-    :height="props.file.properties.dimensions.height || 360"
-    :title="props.file.properties.title || false"
+    v-bind="$attrs"
+    :src="file.publicUrl"
+    :width="file.properties.dimensions.width || 640"
+    :height="file.properties.dimensions.height || 360"
+    :title="file.properties.title || false"
     frameborder="0"
     class="t3-ce-media-video t3-ce-media-vimeo"
     webkitallowfullscreen
@@ -16,7 +15,6 @@
 <script>
 export default {
   name: 'MediaVimeo',
-  functional: true,
   props: {
     file: {
       type: Object,

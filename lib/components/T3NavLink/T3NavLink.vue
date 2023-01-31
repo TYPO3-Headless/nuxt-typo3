@@ -3,9 +3,14 @@
 import Vue from 'vue'
 export default {
   name: 'T3NavLink',
-  functional: true,
   extends: Vue.component('RouterLink'),
-  render (h, ctx) {
+  props: {
+    to: {
+      type: String,
+      required: true
+    }
+  },
+  render (h) {
     function prepareLink (url) {
       if (typeof url === 'string' && url.match(/^((http(s)?|ftp):\/\/)|(mailto|tel):/)) {
         return {
@@ -25,24 +30,23 @@ export default {
         tag: 'nuxt-link',
         data: {},
         props: {
-          to: ctx.props.to || '/'
+          to: url || '/'
         }
       }
     }
 
-    const url = prepareLink(ctx.props.to)
-    const { tag, ...props } = ctx.props
+    const url = prepareLink(this.to)
     return h(
       url.tag,
       {
-        ...ctx.data,
+        ...this.$data,
         ...url.data,
         props: {
-          ...props,
+          ...this.$attrs,
           ...url.props
         }
       },
-      ctx.children
+      this.$slots.default
     )
   }
 }

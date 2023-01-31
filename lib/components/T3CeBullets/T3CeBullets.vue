@@ -1,16 +1,16 @@
-<template functional>
+<template>
   <div class="t3-ce-bullets">
-    <t3-ce-header v-bind="props" />
+    <t3-ce-header v-bind="$props" />
     <ul
-      :is="props.bulletsType === 1 ? 'ol' : 'ul'"
-      v-if="props.bulletsType === 0 || props.bulletsType === 1"
+      :is="bulletsType === 1 ? 'ol' : 'ul'"
+      v-if="bulletsType === 0 || bulletsType === 1"
     >
-      <li v-for="(el, index) in props.bodytext" :key="index">
+      <li v-for="(el, index) in bodytext" :key="index">
         {{ el }}
       </li>
     </ul>
     <dl v-else>
-      <template v-for="(el, index) in props.bodytext">
+      <template v-for="(el, index) in bodytext">
         <dt :key="index">
           {{ el[0] }}
         </dt>
