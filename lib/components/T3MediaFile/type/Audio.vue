@@ -1,17 +1,15 @@
-<template functional>
+<template>
   <audio
-    v-bind="data.attrs"
-    :class="[data.class, data.staticClass]"
+    v-bind="$attrs"
     class="t3-ce-media-audio"
     controls
   >
-    <source :src="props.file.publicUrl" type="audio/mp3">
+    <source :src="file.publicUrl" type="audio/mp3">
   </audio>
 </template>
 <script>
 export default {
   name: 'MediaAudio',
-  functional: true,
   props: {
     file: {
       type: Object,

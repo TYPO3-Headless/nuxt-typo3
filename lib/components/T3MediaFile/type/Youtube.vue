@@ -1,12 +1,11 @@
-<template functional>
+<template>
   <iframe
-    v-if="props.file.publicUrl"
+    v-if="file.publicUrl"
     id="ytplayer"
-    v-bind="data.attrs"
-    :class="[data.class, data.staticClass]"
-    :width="props.file.properties.dimensions.width || 640"
-    :height="props.file.properties.dimensions.height || 360"
-    :src="props.file.publicUrl"
+    v-bind="$attrs"
+    :width="file.properties.dimensions.width || 640"
+    :height="file.properties.dimensions.height || 360"
+    :src="file.publicUrl"
     class="t3-ce-media-video t3-ce-media-youtube"
     type="text/html"
     frameborder="0"
@@ -15,7 +14,6 @@
 <script>
 export default {
   name: 'MediaYoutube',
-  functional: true,
   props: {
     file: {
       type: Object,
