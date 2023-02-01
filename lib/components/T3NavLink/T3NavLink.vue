@@ -42,7 +42,7 @@ export default {
         ...this.$data,
         ...url.data,
         props: {
-          ...this.$attrs,
+          ...this.$props,
           ...url.props
         }
       },

@@ -1,6 +1,5 @@
 <template>
   <audio
-    v-bind="$attrs"
     class="t3-ce-media-audio"
     controls
   >

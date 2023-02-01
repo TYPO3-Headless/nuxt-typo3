@@ -2,7 +2,6 @@
   <div
     class="t3-ce-frame"
     :class="computedClasses"
-    v-bind="$attrs"
   >
     <slot />
   </div>

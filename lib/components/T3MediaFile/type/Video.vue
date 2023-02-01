@@ -1,6 +1,5 @@
 <template>
   <video
-    v-bind="$attrs"
     class="t3-ce-media-video"
     controls
   >
