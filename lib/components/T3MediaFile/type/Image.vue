@@ -1,6 +1,5 @@
 <template>
   <div
-    v-bind="$attrs"
     class="t3-ce-media-image"
   >
     <component

@@ -2,7 +2,6 @@
   <iframe
     v-if="file.publicUrl"
     id="ytplayer"
-    v-bind="$attrs"
     :width="file.properties.dimensions.width || 640"
     :height="file.properties.dimensions.height || 360"
     :src="file.publicUrl"

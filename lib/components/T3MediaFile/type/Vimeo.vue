@@ -1,6 +1,5 @@
 <template>
   <iframe
-    v-bind="$attrs"
     :src="file.publicUrl"
     :width="file.properties.dimensions.width || 640"
     :height="file.properties.dimensions.height || 360"
