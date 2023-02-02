@@ -7,47 +7,30 @@ export default {
   props: {
     to: {
       type: String,
-      required: true
+      default: '/'
     }
   },
   render (h) {
-    function prepareLink (url) {
-      if (typeof url === 'string' && url.match(/^((http(s)?|ftp):\/\/)|(mailto|tel):/)) {
-        return {
-          tag: 'a',
-          data: {
-            attrs: {
-              href: url,
-              target: '_blank',
-              rel: 'noopener noreferrer'
-            }
-          },
-          props: {}
+    if (typeof this.to === 'string' && this.to.match(/^((http(s)?|ftp):\/\/)|(mailto|tel):/)) {
+      return h('a', {
+        data: {
+          attrs: {
+            href: this.to,
+            target: '_blank',
+            rel: 'noopener noreferrer'
+          }
         }
-      }
-
-      return {
-        tag: 'nuxt-link',
-        data: {},
-        props: {
-          to: url || '/'
-        }
-      }
+      }, this.$slots.default)
     }
 
-    const url = prepareLink(this.to)
-    return h(
-      url.tag,
-      {
-        ...this.$data,
-        ...url.data,
-        props: {
-          ...this.$props,
-          ...url.props
-        }
-      },
-      this.$slots.default
-    )
+    const { tag, event, ...props } = { ...this.$props }
+
+    return h('nuxt-link', {
+      props: {
+        ...{ to: this.to },
+        ...props
+      }
+    }, this.$slots.default)
   }
 }
 </script>
