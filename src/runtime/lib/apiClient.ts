@@ -6,9 +6,11 @@ import type { T3InitialData, T3Page } from '../../types'
 
 export interface T3Api {
   $fetch: <T>(request: RequestInfo, options?: FetchOptions<'json'>) => Promise<T>
+  siteOptions: T3Site
   initialDataEndpoint: string
   fetchOptions?: FetchOptions<'json'>
   ssrHeaders?: Record<string, string>
+  filterQuery: (path: string) => string
   getPage(path: string, options?: FetchOptions<'json'>): Promise<T3Page>
   getInitialData(
     path: string,
@@ -29,6 +31,7 @@ export class T3ApiClient implements T3Api {
     fetchOptions?: FetchOptions<'json'>,
     ssrHeaders?: Record<string, string>
   ) {
+    this.siteOptions = siteOptions
     this.initialDataEndpoint = siteOptions.api.endpoints!.initialData!
     this.fetchOptions = fetchOptions!
     this.ssrHeaders = ssrHeaders!
@@ -42,6 +45,8 @@ export class T3ApiClient implements T3Api {
     })
   }
 
+  siteOptions: T3Site
+
   $fetch <T> (
     request: RequestInfo,
     options?: FetchOptions<'json'>
@@ -54,7 +59,7 @@ export class T3ApiClient implements T3Api {
    * @returns {Promise<T3Page>} pageData promise
    */
   getPage (path: string, options?: FetchOptions<'json'>): Promise<T3Page> {
-    return this.$fetch(path, this.getOptions(options))
+    return this.$fetch(this.filterQuery(path), this.getOptions(options))
   }
 
   /**
@@ -90,5 +95,39 @@ export class T3ApiClient implements T3Api {
     return defu(options, this.fetchOptions, {
       headers: this.ssrHeaders
     }) as FetchOptions<'json'>
+  }
+
+  /**
+   * Trim not whitelisted queries defined in api options
+   * @param {String} path Page path
+   * @returns {String} trimmed path
+   */
+  filterQuery (path: string): string {
+    const { baseUrl, allowQuery } = this.siteOptions.api
+
+    if (allowQuery && allowQuery === true) {
+      return path
+    }
+
+    const url = new URL(path, baseUrl)
+
+    if (!allowQuery) {
+      return url.pathname
+    }
+
+    const params = url.searchParams
+    const defaultAcceptedQuery = 'type'
+
+    if (allowQuery && Array.isArray(allowQuery)) {
+      Array.from(params).forEach(([key]) => {
+        if (allowQuery.includes(key) || key === defaultAcceptedQuery) {
+          return
+        }
+        params.delete(key)
+      })
+      return url.pathname + url.search
+    }
+
+    return path
   }
 }

@@ -32,10 +32,10 @@ export async function t3ContextMiddleware (
       )
     }
   }
-  if (dynamicRoute && (process.server || !isEqual(to.path, from.path))) {
+  if (dynamicRoute && (process.server || !isEqual(to.fullPath, from.fullPath))) {
     nuxtApp.callHook('page:start')
     try {
-      const data = await getPage(to.path)
+      const data = await getPage(to.fullPath)
       if (data.redirectUrl) {
         await nuxtApp.callHook('t3:middleware:redirect', data)
         return callWithNuxt(nuxtApp, () => useT3Redirect(data))

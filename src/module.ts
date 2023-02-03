@@ -39,7 +39,8 @@ export default defineNuxtModule<ModuleOptions>({
       endpoints: {
         initialData: '?type=834',
         initialDataFallback: '/?type=834'
-      }
+      },
+      allowQuery: true
     },
     i18n: {
       default: 'pl',

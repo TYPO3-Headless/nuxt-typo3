@@ -22,15 +22,21 @@ export interface T3Site {
      */
     headers?: Record<string, string>
     /**
-     * Should use Fetch credentails ?
+     * Should use Fetch credentails?
      * @default 'omit'
      */
     credentials?: 'include' | 'omit' | 'same-origin';
     /**
-     * Should proxy headers on SSR ?
+     * Should proxy headers on SSR?
      * @default false
      */
     proxyHeaders?: Boolean | Array<string>,
+    /**
+     * Should API make calls for each query param?
+     * provide whitelist as array of string or disable
+     * @default true
+     */
+    allowQuery?: Boolean | Array<string>,
     /**
      * Provide custom endpoints
      */
