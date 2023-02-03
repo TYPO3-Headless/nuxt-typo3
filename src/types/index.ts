@@ -30,7 +30,22 @@ export interface T3Site {
      * Should proxy headers on SSR ?
      * @default false
      */
-    proxyHeaders?: Boolean | Array<string>
+    proxyHeaders?: Boolean | Array<string>,
+    /**
+     * Provide custom endpoints
+     */
+    endpoints?: {
+      /**
+       * initialData GET param or page
+       * @default ?type=834
+       */
+      initialData?: string
+      /**
+       * InitialData fallback, eg. for static pages
+       * @default /?type=834
+       */
+      initialDataFallback?: string
+    }
   }
   /**
    * Internationalization settings
@@ -46,21 +61,6 @@ export interface T3Site {
      * @default ['en']
      */
     locales: Array<string>
-  }
-  /**
-   * Provide custom endpoints
-   */
-  endpoints?: {
-    /**
-     * initialData GET param or page
-     * @default ?type=834
-     */
-    initialData?: string
-    /**
-     * InitialData fallback, eg. for static pages
-     * @default /?type=834
-     */
-    initialDataFallback?: string
   }
   /**
    *

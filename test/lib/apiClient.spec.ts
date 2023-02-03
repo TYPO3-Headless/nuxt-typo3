@@ -4,15 +4,15 @@ import { T3ApiClient } from '../../src/runtime/lib/apiClient'
 const siteConfig = {
   hostname: 'localhost',
   api: {
-    baseUrl: 'https://api.t3pwa.com'
+    baseUrl: 'https://api.t3pwa.com',
+    endpoints: {
+      initialData: '?type=834',
+      initialDataFallback: '/?type=834'
+    }
   },
   i18n: {
     default: 'pl',
     locales: ['pl', 'en']
-  },
-  endpoints: {
-    initialData: '?type=834',
-    initialDataFallback: '/?type=834'
   }
 }
 

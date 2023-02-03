@@ -35,15 +35,15 @@ export default defineNuxtModule<ModuleOptions>({
       baseUrl: 'https://api.t3pwa.com',
       headers: {},
       credentials: 'omit',
-      proxyHeaders: false
+      proxyHeaders: false,
+      endpoints: {
+        initialData: '?type=834',
+        initialDataFallback: '/?type=834'
+      }
     },
     i18n: {
       default: 'pl',
       locales: ['pl']
-    },
-    endpoints: {
-      initialData: '?type=834',
-      initialDataFallback: '/?type=834'
     },
     features: {
       pageMiddleware: true,

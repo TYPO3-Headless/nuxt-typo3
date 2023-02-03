@@ -29,7 +29,7 @@ export class T3ApiClient implements T3Api {
     fetchOptions?: FetchOptions<'json'>,
     ssrHeaders?: Record<string, string>
   ) {
-    this.initialDataEndpoint = siteOptions.endpoints!.initialData!
+    this.initialDataEndpoint = siteOptions.api.endpoints!.initialData!
     this.fetchOptions = fetchOptions!
     this.ssrHeaders = ssrHeaders!
 
