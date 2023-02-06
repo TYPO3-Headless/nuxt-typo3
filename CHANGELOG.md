@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2023-02-06)
+
+
+### Features
+
+* **api:** add query whitelist ([#2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/2)) ([8140572](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/81405722d476133b40720b37acd67aa9ef665e3f))
+* **api:** avoid API calling for path with hash ([#4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/4)) ([8a1f44c](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8a1f44cedee0470061fb29d006c130a63d995be6))
+
+## [2.0.0-alpha.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2023-01-17)
+
+
+### Features
+
+* **composables:** add useT3Page composable to get all useful data ([b85e99d](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b85e99d74df5cb9a95180ee0f286b5dfcb7ef1a3))
+
+
+### Bug Fixes
+
+* fix meta typing ([d2c7822](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d2c7822e77a07a678c883c2a94b639eda050b6f7))
+
+## [2.0.0-alpha.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v0.0.0...v2.0.0-alpha.1) (2023-01-16)
+
 ## [2.0.0-alpha.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2023-01-17)
 
 
