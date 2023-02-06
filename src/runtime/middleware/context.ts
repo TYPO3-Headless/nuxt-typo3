@@ -1,4 +1,3 @@
-import { isEqual } from 'ufo'
 import type { RouteLocationNormalized } from 'vue-router'
 import { callWithNuxt, useNuxtApp } from '#app'
 import { useT3Api } from '../composables/useT3Api'
@@ -9,7 +8,8 @@ import {
 import {
   useT3Redirect,
   isDynamicRoute,
-  useT3LocalePath
+  useT3LocalePath,
+  isEqualWithoutHash
 } from '../composables/utils'
 
 export async function t3ContextMiddleware (
@@ -32,7 +32,7 @@ export async function t3ContextMiddleware (
       )
     }
   }
-  if (dynamicRoute && (process.server || !isEqual(to.fullPath, from.fullPath))) {
+  if (dynamicRoute && (process.server || !isEqualWithoutHash(to.fullPath, from.fullPath))) {
     nuxtApp.callHook('page:start')
     try {
       const data = await getPage(to.fullPath)

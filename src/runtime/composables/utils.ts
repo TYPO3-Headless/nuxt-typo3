@@ -1,7 +1,7 @@
 import type { Component } from 'vue'
 import { RouteLocationNormalized } from 'vue-router'
 import { pascalCase } from 'scule'
-import { cleanDoubleSlashes } from 'ufo'
+import { cleanDoubleSlashes, isEqual } from 'ufo'
 import { NuxtApp } from 'nuxt/dist/app/nuxt'
 import defu from 'defu'
 import type { FetchOptions } from 'ohmyfetch'
@@ -28,8 +28,18 @@ export const useT3Redirect = (redirectData: T3RedirectData) => {
  * @param {RouteLocationNormalized} route current route
  * @returns {Boolean}
  */
-export const isDynamicRoute = (route: RouteLocationNormalized) => {
+export const isDynamicRoute = (route: RouteLocationNormalized): boolean => {
   return route?.matched?.[0]?.path.includes('/:slug(.*)*')
+}
+
+/**
+ * Check if provieded paths are equal after remove hashes
+ * @param {String} a
+ * @param {String} b
+ * @returns {Boolean}
+ */
+export const isEqualWithoutHash = (a: string, b: string): boolean => {
+  return isEqual(a?.split('#')?.[0], b.split('#')?.[0])
 }
 
 /**
