@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.0...v1.2.1) (2023-02-17)
+
+
+### Bug Fixes
+
+* rendering external links ([#305](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/305)) ([734d8c8](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/734d8c8d6a6238560d1f7def7206cb08807a692b))
+* route middleware for client mode ([#306](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/306)) ([72ccb6e](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/72ccb6e1125c3564094e107d80d056c1de2694d3))
+
 ## [1.2.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.1.1...v1.2.0) (2023-02-02)
 
 
