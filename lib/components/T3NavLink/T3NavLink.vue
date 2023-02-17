@@ -13,12 +13,10 @@ export default {
   render (h) {
     if (typeof this.to === 'string' && this.to.match(/^((http(s)?|ftp):\/\/)|(mailto|tel):/)) {
       return h('a', {
-        data: {
-          attrs: {
-            href: this.to,
-            target: '_blank',
-            rel: 'noopener noreferrer'
-          }
+        attrs: {
+          href: this.to,
+          target: '_blank',
+          rel: 'noopener noreferrer'
         }
       }, this.$slots.default)
     }
