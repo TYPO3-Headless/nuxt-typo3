@@ -1,6 +1,6 @@
 <template>
   <div>
-    <T3Renderer :shortcut="shortcut" />
+    <T3Renderer :content="shortcut" />
   </div>
 </template>
 
