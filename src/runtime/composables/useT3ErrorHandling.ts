@@ -1,4 +1,4 @@
-import { FetchError } from 'ohmyfetch'
+import { FetchError } from 'ofetch'
 import { H3Error } from 'h3'
 import { createError, showError } from '#app'
 import { RouteLocationNormalized } from 'vue-router'

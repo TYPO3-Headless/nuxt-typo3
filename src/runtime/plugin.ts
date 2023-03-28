@@ -40,7 +40,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     const router = useRouter()
 
     // temporary fix, until nuxt team fix this, we handle all error during middleware
-    // https://github.com/nuxt/framework/issues/6957
+    // https://github.com/nuxt/nuxt/issues/19954
     router.onError(() => {})
     router.afterEach((to) => {
       const { t3middlewareError } = to.meta

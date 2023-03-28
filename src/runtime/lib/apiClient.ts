@@ -1,5 +1,5 @@
-import type { FetchOptions } from 'ohmyfetch'
-import { $fetch } from 'ohmyfetch'
+import type { FetchOptions } from 'ofetch'
+import { $fetch } from 'ofetch'
 import { defu } from 'defu'
 import { T3Site } from '../../types'
 import type { T3InitialData, T3Page } from '../../types'
