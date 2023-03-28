@@ -23,17 +23,15 @@ export const useT3ErrorHandling = (): {
    * Show client error page when page data not exist
    */
   handleClientPageException(to: RouteLocationNormalized): void
-  /**
-   * Parse error object
-   */
-  getFallbackDataFromError(error: H3Error): void
+
 } => {
-  const { pageData, initialData, getInitialData } = useT3Api()
+  const { pageData, initialData, getInitialData, getPage } = useT3Api()
 
   const getInitialDataFallback = async () => {
     const { getPathWithLocale } = useT3i18n()
+
     try {
-      return await getInitialData(getPathWithLocale())
+      initialData.value = await getInitialData(getPathWithLocale())
     } catch (error) {
       throw createError({
         fatal: true,
@@ -59,27 +57,31 @@ export const useT3ErrorHandling = (): {
       })
     }
 
-    const fallbackData = {
-      initialData: null
-    }
-
     if (errorContext === T3ErrorTypes.INITIAL_DATA_FAILED) {
-      fallbackData.initialData = await getInitialDataFallback()
+      try {
+        await Promise.allSettled([
+          getInitialDataFallback(),
+          getPageDataFallback()
+        ])
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err)
+      }
     }
 
     throw createError({
       unhandled: false,
       fatal: true,
       statusCode: error.response.status || 404,
-      statusMessage: error.message,
-      data: JSON.stringify(fallbackData)
+      statusMessage: error.message
     })
   }
 
-  const handleClientPageException = (to: RouteLocationNormalized) => {
+  const handleClientPageException = async (to: RouteLocationNormalized) => {
     const error = to.meta.t3middlewareError as H3Error
 
     if (error) {
+      await getPageDataFallback()
       showError({
         unhandled: false,
         fatal: true,
@@ -89,19 +91,20 @@ export const useT3ErrorHandling = (): {
     }
   }
 
-  const getFallbackDataFromError = (error: H3Error) => {
-    if (process.server && error.data) {
-      const errorDataParsed = JSON.parse(error.data)
-      if (errorDataParsed.initialData) {
-        pageData.value = errorDataParsed.pageData
-        initialData.value = errorDataParsed.initialData
-      }
-    }
+  const getPageDataFallback = async () => {
+    try {
+      await getPage(useRoute().fullPath, {
+        onResponseError (payload) {
+          if (JSON.parse(JSON.stringify(payload.response?._data))) {
+            pageData.value = payload.response?._data
+          }
+        }
+      })
+    } catch (err) {}
   }
 
   return {
     handleServerException,
-    handleClientPageException,
-    getFallbackDataFromError
+    handleClientPageException
   }
 }
