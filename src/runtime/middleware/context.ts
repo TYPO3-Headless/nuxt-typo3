@@ -26,10 +26,10 @@ export async function t3ContextMiddleware (
       const data = await getInitialData(path)
       initialData.value = data
     } catch (error) {
-      return await handleServerException(
+      return await callWithNuxt(nuxtApp, () => handleServerException(
         error,
         T3ErrorTypes.INITIAL_DATA_FAILED
-      )
+      ))
     }
   }
   if (dynamicRoute && (process.server || !isEqualWithoutHash(to.fullPath, from.fullPath))) {

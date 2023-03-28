@@ -5,7 +5,7 @@ import { useT3DynamicBl } from './useT3DynamicComponent'
 export const useT3Page = () => {
   const { pageData } = useT3Api()
   const { headData } = useT3Meta()
-  const T3BackendLayout = useT3DynamicBl(pageData.value.appearance.backendLayout)
+  const T3BackendLayout = useT3DynamicBl(pageData.value?.appearance.backendLayout)
 
   return {
     pageData,
