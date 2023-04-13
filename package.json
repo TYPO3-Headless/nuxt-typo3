@@ -1,6 +1,6 @@
 {
   "name": "@t3headless/nuxt-typo3",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0-alpha.6",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -21,8 +21,8 @@
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "test": "vitest run",
     "lint": "eslint --ext .ts,.js,.vue .",
-    "prerelease": "yarn test && standard-version --prerelease alpha && git push --follow-tags && npm publish --tag alpha",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "prerelease": "yarn test && npx standard-version --prerelease alpha && git push --follow-tags && npm publish --tag alpha",
+    "release": "yarn test && npx standard-version && git push --follow-tags && npm publish",
     "commitlint": "commitlint --verbose",
     "prepare": "husky install"
   },
