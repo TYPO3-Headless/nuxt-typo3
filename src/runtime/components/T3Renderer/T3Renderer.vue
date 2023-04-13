@@ -27,7 +27,6 @@ const renderComponent = (element: T3ContentElement<T3CeBase>, index: number) => 
   return h(component, {
     ...{
       uid: id,
-      type,
       appearance,
       index
     },

@@ -21,19 +21,15 @@ export interface T3CeBase {
    */
   subheader?: string;
   /**
-   * Componetnt type
-   */
-  type: string
-  /**
    * Content Element ID
    */
-  uid: number,
+  uid?: number,
   /**
    * Index in the Renderer
    */
-  index: number,
+  index?: number,
   /**
    * Appearance setup
    */
-  appearance: T3Appearance,
+  appearance?: T3Appearance,
 }
