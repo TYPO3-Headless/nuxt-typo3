@@ -1,4 +1,4 @@
-import type { T3Link } from '..'
+import type { T3Appearance, T3Link } from '..'
 export interface T3CeBase {
   /**
    * Header content / TYPO3 header
@@ -20,4 +20,20 @@ export interface T3CeBase {
    * Subheader / TYPO3 subheader
    */
   subheader?: string;
+  /**
+   * Componetnt type
+   */
+  type: string
+  /**
+   * Content Element ID
+   */
+  uid: number,
+  /**
+   * Index in the Renderer
+   */
+  index: number,
+  /**
+   * Appearance setup
+   */
+  appearance: T3Appearance,
 }

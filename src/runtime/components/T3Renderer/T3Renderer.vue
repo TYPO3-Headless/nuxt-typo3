@@ -22,12 +22,17 @@ const props = withDefaults(
 
 // render standalone component
 const renderComponent = (element: T3ContentElement<T3CeBase>, index: number) => {
-  const component = useT3DynamicCe(element.type) as ConcreteComponent
+  const { id, type, appearance, content } = element
+  const component = useT3DynamicCe(type) as ConcreteComponent
   return h(component, {
-    element,
-    index,
-    id: `c${element.id}`,
-    ...element.content
+    ...{
+      uid: id,
+      type,
+      appearance,
+      index
+    },
+    id: appearance.frameClass === 'none' ? `c${id}` : null,
+    ...content
   })
 }
 
