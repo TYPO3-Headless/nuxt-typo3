@@ -82,7 +82,7 @@ export default defineNuxtModule<ModuleOptions>({
     )
 
     addPlugin(resolve(runtimeDir, 'plugin'))
-    installModule('vite-plugin-vue-type-imports/nuxt')
+    installModule('@rah-emil/vite-plugin-vue-type-imports/nuxt')
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
 
     extendPages((pages) => {

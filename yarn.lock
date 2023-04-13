@@ -1063,6 +1063,19 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
+"@rah-emil/vite-plugin-vue-type-imports@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@rah-emil/vite-plugin-vue-type-imports/-/vite-plugin-vue-type-imports-0.2.5.tgz#42fa3fe3fdbbe0b7149754c8b8aec30374c2e435"
+  integrity sha512-g4M0BmsBmPLPdRmtcEDzVQVK6X+YRJZQLXHV6aZOJXtrJkRSiUpYANL90EE3ypkPKUPNZljMbQAyxgvknddBAA==
+  dependencies:
+    "@babel/types" "^7.19.0"
+    "@vue/compiler-sfc" "^3.2.24"
+    debug "^4.3.4"
+    fast-glob "^3.2.12"
+    local-pkg "^0.4.2"
+    magic-string "^0.26.4"
+    picocolors "^1.0.0"
+
 "@rollup/plugin-alias@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-4.0.2.tgz#fec6c6aff8dd6fce580ae6bc5345084cd702bb62"
@@ -7273,19 +7286,6 @@ vite-plugin-checker@^0.5.6:
     vscode-languageserver "^7.0.0"
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
-
-vite-plugin-vue-type-imports@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/vite-plugin-vue-type-imports/-/vite-plugin-vue-type-imports-0.2.4.tgz#733fb75e64681950e01e58d2f82089f0fbd53a64"
-  integrity sha512-qjz1RMd1MgG1gd2KNGo2uDSpGbaB7KwcuUVFZfC8mBdzUG63eR/gJzMUvfpM9JWQ+JTEfEGiLxe6NJvg4n3Kuw==
-  dependencies:
-    "@babel/types" "^7.19.0"
-    "@vue/compiler-sfc" "^3.2.24"
-    debug "^4.3.4"
-    fast-glob "^3.2.12"
-    local-pkg "^0.4.2"
-    magic-string "^0.26.4"
-    picocolors "^1.0.0"
 
 vite@^3.0.0:
   version "3.2.4"

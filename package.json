@@ -27,6 +27,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@rah-emil/vite-plugin-vue-type-imports": "^0.2.5",
     "defu": "^6.1.1",
     "ofetch": "^1.0.1",
     "scule": "^1.0.0",
@@ -45,7 +46,6 @@
     "nuxt": "^3.3.2",
     "playwright": "^1.28.1",
     "standard-version": "^9.5.0",
-    "vite-plugin-vue-type-imports": "^0.2.4",
     "vitest": "^0.25.3"
   }
 }
