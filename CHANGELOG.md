@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.5](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2023-04-13)
+
+
+### Bug Fixes
+
+* applying appearance properties ([#7](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/7)) ([9e21986](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/9e219861ef8da86943d95976271ba57047493aeb))
+
 ## [2.0.0-alpha.4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2023-03-28)
 
 
