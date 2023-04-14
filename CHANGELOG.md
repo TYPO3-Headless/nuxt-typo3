@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2023-04-14)
+
+
+### Bug Fixes
+
+* avoid nuxt warning in middlewares ([c2da0b3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/c2da0b30457516be9d12998a36067a64381c3733))
+
 ## [2.0.0-alpha.7](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2023-04-13)
 
 ## [2.0.0-alpha.6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2023-04-13)
