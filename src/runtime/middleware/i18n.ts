@@ -7,8 +7,7 @@ export async function t3i18nMiddleware (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized
 ) {
-  const route = useRoute()
-  const { getLocale, setLocale, currentLocale } = useT3i18n(route.fullPath)
+  const { getLocale, setLocale, currentLocale } = useT3i18n(to.fullPath)
   const newLocale = getLocale(to.fullPath)
 
   if (

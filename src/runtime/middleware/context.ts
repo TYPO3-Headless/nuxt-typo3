@@ -17,8 +17,8 @@ export async function t3ContextMiddleware (
   from: RouteLocationNormalized
 ) {
   const nuxtApp = useNuxtApp()
-  const { pageData, initialData, getPage, getInitialData } = useT3Api()
-  const { handleServerException } = useT3ErrorHandling()
+  const { pageData, initialData, getPage, getInitialData } = useT3Api(to.fullPath)
+  const { handleServerException } = useT3ErrorHandling(to.fullPath)
   const dynamicRoute = isDynamicRoute(to)
   if (process.server) {
     try {

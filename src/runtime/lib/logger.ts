@@ -1,2 +1,3 @@
-import consola from 'consola'
-export default consola.withScope('nuxt-typo3')
+import { consola } from 'consola'
+consola.withTag('nuxt-typo3')
+export default consola

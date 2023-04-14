@@ -11,7 +11,7 @@ export const enum T3ErrorTypes {
 }
 
 // Note: this is an internal handling and some functionalities might change until stable release.
-export const useT3ErrorHandling = (): {
+export const useT3ErrorHandling = (path?: string): {
   /**
    * Create error and pass page content as error data
    */
@@ -25,10 +25,11 @@ export const useT3ErrorHandling = (): {
   handleClientPageException(to: RouteLocationNormalized): void
 
 } => {
-  const { pageData, initialData, getInitialData, getPage } = useT3Api()
+  path ??= useRoute().fullPath
+  const { pageData, initialData, getInitialData, getPage } = useT3Api(path)
 
   const getInitialDataFallback = async () => {
-    const { getPathWithLocale } = useT3i18n()
+    const { getPathWithLocale } = useT3i18n(path)
 
     try {
       initialData.value = await getInitialData(getPathWithLocale())
@@ -93,7 +94,7 @@ export const useT3ErrorHandling = (): {
 
   const getPageDataFallback = async () => {
     try {
-      await getPage(useRoute().fullPath, {
+      await getPage(path!, {
         onResponseError (payload) {
           if (JSON.parse(JSON.stringify(payload.response?._data))) {
             pageData.value = payload.response?._data
