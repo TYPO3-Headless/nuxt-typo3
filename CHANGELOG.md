@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.3...v1.2.4) (2023-04-17)
+
+
+### Bug Fixes
+
+* prop name in T3CeShortcut ([e858611](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/e858611ca7f9aa59409029474756cd1e70524c15))
+
 ### [1.2.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.2...v1.2.3) (2023-04-17)
 
 
