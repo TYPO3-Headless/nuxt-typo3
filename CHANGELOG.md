@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.2...v1.2.3) (2023-04-17)
+
+
+### Bug Fixes
+
+* mixing state in store ([#310](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/310)) ([5a876df](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/5a876df1b6c69c5d8b4fe5b5b9e6795151b85fcc))
+
 ### [1.2.2](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.1...v1.2.2) (2023-02-20)
 
 ### [1.2.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.0...v1.2.1) (2023-02-17)
