@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 // Component to render content elements loop
-import { ConcreteComponent, h } from 'vue'
+import { h } from 'vue'
 import type { T3ContentElement, T3CeBase } from '../../../types'
 import { useT3DynamicCe, useT3DynamicComponent } from '../../composables/useT3DynamicComponent'
-const props = withDefaults(
+
+withDefaults(
   defineProps<{
     /**
      * Array of content elements - colPos[x] from contentData
@@ -23,7 +24,8 @@ const props = withDefaults(
 // render standalone component
 const renderComponent = (element: T3ContentElement<T3CeBase>, index: number) => {
   const { id, type, appearance, content } = element
-  const component = useT3DynamicCe(type) as ConcreteComponent
+  const component = useT3DynamicCe(type)
+
   return h(component, {
     ...{
       uid: id,
@@ -48,20 +50,13 @@ const renderFrame = (element: T3ContentElement<T3CeBase>, index: number) => {
       ...element.appearance,
       id: `c${element.id}`
     },
-    () => renderComponent(element, index)
+    {
+      default: () => renderComponent(element, index)
+    }
   )
-}
-
-// render loop of content elements
-const T3Renderer = () => {
-  return props.content.map((element, index: number) => {
-    return props.frame && element.appearance.frameClass !== 'none'
-      ? renderFrame(element, index)
-      : renderComponent(element, index)
-  })
 }
 </script>
 
 <template>
-  <T3Renderer />
+  <component :is="frame && component.appearance.frameClass !== 'none' ? renderFrame(component, index) : renderComponent(component, index)" v-for="(component, index) in content" :key="index" />
 </template>

@@ -1,7 +1,7 @@
-import { resolveComponent } from 'vue'
+import { resolveDynamicComponent, resolveComponent } from 'vue'
 import { pascalCase } from 'scule'
-import type { ConcreteComponent } from 'vue'
-import { T3BackendLayout, T3CeBase, T3ContentElement } from '../../types'
+import { DefineComponent } from 'nuxt/dist/app/compat/capi'
+import { T3BackendLayout, T3CeBase } from '../../types'
 
 interface DynamicComponentParams {
   type?: string
@@ -9,7 +9,7 @@ interface DynamicComponentParams {
   mode?: 'Lazy' | ''
 }
 
-export const useT3DynamicComponent = (
+export const useT3DynamicComponent = <T>(
   {
     type,
     prefix,
@@ -22,17 +22,19 @@ export const useT3DynamicComponent = (
 ) => {
   const componentName =
     (mode || 'Lazy') + (prefix || 'T3Ce') + pascalCase(type || 'default')
-  const component = resolveComponent(componentName)
+  const component = resolveDynamicComponent(componentName)
 
-  return typeof component === 'string'
-    ? resolveComponent(`${prefix}Default`)
-    : component
+  if (typeof component === 'string') {
+    return resolveDynamicComponent(`${prefix}Default`) as DefineComponent<T>
+  }
+
+  return component as DefineComponent<T>
 }
 
-export const useT3DynamicBl = (type: string) => {
-  return useT3DynamicComponent({ type, prefix: 'T3Bl', mode: '' }) as ConcreteComponent<T3BackendLayout>
+export const useT3DynamicBl = <T = T3BackendLayout>(type: string) => {
+  return useT3DynamicComponent<T>({ type, prefix: 'T3Bl', mode: '' })
 }
 
-export const useT3DynamicCe = <T extends T3CeBase = any>(type: string) => {
-  return useT3DynamicComponent({ type, prefix: 'T3Ce', mode: '' }) as ConcreteComponent<T3ContentElement<T>>
+export const useT3DynamicCe = <T extends T3CeBase = T3CeBase>(type: string) => {
+  return useT3DynamicComponent<T>({ type, prefix: 'T3Ce', mode: '' })
 }

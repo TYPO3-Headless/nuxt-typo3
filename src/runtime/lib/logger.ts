@@ -1,3 +1,5 @@
 import { consola } from 'consola'
-consola.withTag('nuxt-typo3')
-export default consola
+const logger = consola.create({}).withDefaults({
+  tag: 'typo3'
+})
+export default logger
