@@ -1,6 +1,6 @@
-import { T3CeBase, T3Appearance } from './'
+import { T3Appearance, T3CeBaseProps } from './'
 
-export interface T3ContentElement<T extends T3CeBase> {
+export interface T3ContentElement<T extends T3CeBaseProps> {
   id: number
   type: string
   colPos: number

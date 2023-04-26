@@ -1,6 +1,6 @@
-import { T3File, T3Gallery, T3CeBase } from '../'
+import { T3CeBaseProps, T3Gallery } from '../'
 
-export interface T3CeGallery extends T3CeBase {
+export interface T3CeGalleryProps extends T3CeBaseProps {
   bodytext?: string,
   gallery: T3Gallery
 }

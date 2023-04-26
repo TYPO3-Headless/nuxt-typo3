@@ -1,6 +1,6 @@
-import { T3CeBase } from '../'
+import { T3CeBaseProps } from '../'
 
-export interface T3CeTable extends T3CeBase {
+export interface T3CeTableProps extends T3CeBaseProps {
   tableCaption: string
   tableHeaderPosition: number
   tableClass: string

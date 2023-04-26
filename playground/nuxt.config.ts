@@ -15,7 +15,8 @@ export default defineNuxtConfig({
     dirs: [
       {
         path: '@/components/T3',
-        global: true
+        global: true,
+        pathPrefix: false
       }
     ]
   },

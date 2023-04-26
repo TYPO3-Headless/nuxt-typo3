@@ -1,12 +1,12 @@
 import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
-import { useRoute, useAsyncData, useError, showError } from '#app'
 import { FetchError } from 'ofetch'
 import { T3Page } from '../../types'
 import { useT3Api } from './useT3Api'
 import { useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
 import { useT3DynamicBl } from './useT3DynamicComponent'
+import { useRoute, useAsyncData, useError, showError } from '#app'
 import { RouteLocationNormalized } from '~/.nuxt/vue-router'
 
 export const useT3Page = async (options: {

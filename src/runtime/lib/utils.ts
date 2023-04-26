@@ -1,7 +1,7 @@
-import { NuxtApp, useRequestHeaders } from '#app'
 import { defu } from 'defu'
 import type { FetchOptions } from 'ofetch'
 import type { T3Site } from '../../types'
+import { NuxtApp, useRequestHeaders } from '#app'
 
 /**
  * Share API client state between SSR/Client

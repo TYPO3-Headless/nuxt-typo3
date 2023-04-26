@@ -1,8 +1,8 @@
 import { computed } from 'vue'
 import type { ComputedRef } from 'vue'
-import { useRuntimeConfig, useRequestHeaders } from '#app'
 import type { T3Site, T3Options } from '../../types'
 import { getRawHost } from '../lib/url'
+import { useRuntimeConfig, useRequestHeaders } from '#app'
 
 export const useT3Options = (): {
   /**

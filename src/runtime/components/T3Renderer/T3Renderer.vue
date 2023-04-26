@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // Component to render content elements loop
 import { h } from 'vue'
-import type { T3ContentElement, T3CeBase } from '../../../types'
+import type { T3ContentElement, T3CeBaseProps } from '../../../types'
 import { useT3DynamicCe, useT3DynamicComponent } from '../../composables/useT3DynamicComponent'
 
 withDefaults(
@@ -9,7 +9,7 @@ withDefaults(
     /**
      * Array of content elements - colPos[x] from contentData
      */
-    content?: T3ContentElement<T3CeBase>[];
+    content?: T3ContentElement<T3CeBaseProps>[];
     /**
      * Control frame component displaying
      */
@@ -22,7 +22,7 @@ withDefaults(
 )
 
 // render standalone component
-const renderComponent = (element: T3ContentElement<T3CeBase>, index: number) => {
+const renderComponent = (element: T3ContentElement<T3CeBaseProps>, index: number) => {
   const { id, type, appearance, content } = element
   const component = useT3DynamicCe(type)
 
@@ -38,7 +38,7 @@ const renderComponent = (element: T3ContentElement<T3CeBase>, index: number) => 
 }
 
 // render component with frame wrapper
-const renderFrame = (element: T3ContentElement<T3CeBase>, index: number) => {
+const renderFrame = (element: T3ContentElement<T3CeBaseProps>, index: number) => {
   const component = useT3DynamicComponent({
     prefix: 'T3',
     type: 'Frame',

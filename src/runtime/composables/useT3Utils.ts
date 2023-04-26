@@ -1,8 +1,8 @@
 import { cleanDoubleSlashes } from 'ufo'
-import { navigateTo, useNuxtApp } from '#app'
 import { T3RedirectData } from '../../types'
 import { useT3i18nState } from './useT3i18n'
 import { useT3Options } from './useT3Options'
+import { navigateTo, useNuxtApp } from '#app'
 
 export const useT3Utils = () => {
   const nuxtApp = useNuxtApp()

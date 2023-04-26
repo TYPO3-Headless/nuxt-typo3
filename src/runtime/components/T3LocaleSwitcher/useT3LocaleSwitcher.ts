@@ -1,7 +1,7 @@
 import type { ComputedRef, Ref } from 'vue'
-import type { T3I18N } from '../../../types'
 import { useT3PageState } from '../../composables/useT3Api'
 import { useT3i18nState } from '../../composables/useT3i18n'
+import type { T3I18N } from '~/../src/types'
 
 const useT3LocaleSwitcher = (): {
   /**

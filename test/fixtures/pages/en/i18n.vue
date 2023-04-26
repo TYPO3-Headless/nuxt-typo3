@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute, useAsyncData } from '#app'
 import { useT3i18n } from '../../../../src/runtime/composables/useT3i18n'
 import { useT3Api } from '../../../../src/runtime/composables/useT3Api'
+import { useRoute, useAsyncData } from '#app'
 const { currentLocale } = useT3i18n()
 const { pageData, getPage } = useT3Api()
 const route = useRoute().fullPath

@@ -1,5 +1,5 @@
-import { T3CeBase } from '../index'
+import { T3CeBaseProps } from '../index'
 
-export interface T3CeText extends T3CeBase {
+export interface T3CeTextProps extends T3CeBaseProps {
   bodytext?: string
 }

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { T3CeBase } from '../../../types'
+import type { T3CeBaseProps } from '../../../types'
 import { useT3CeHeader } from './useT3CeHeader'
 
-const props = withDefaults(defineProps<T3CeBase>(), {
+const props = withDefaults(defineProps<T3CeBaseProps>(), {
   header: '',
   headerLayout: 0,
   headerPosition: '',

@@ -4,7 +4,7 @@
     :class="[$attrs.class, $attrs.staticClass]"
     class="t3-ce-media-image"
   >
-    <component :is="isNuxtLink" :to="file.properties.link">
+    <component :is="wrapperComponent" :to="file.properties.link">
       <figure>
         <img
           v-if="file.publicUrl"
@@ -25,11 +25,12 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import type { T3File } from '../../../../types'
+import { useMediaFile } from '../useMediaFile'
+
 const props = defineProps<{
   file: T3File
 }>()
 
-const isNuxtLink = computed(() => {
-  return props.file?.properties?.link ? 'nuxt-link' : 'div'
-})
+const { isNuxtLink } = useMediaFile(props.file)
+const wrapperComponent = computed(() => isNuxtLink ? 'nuxt-link' : 'div')
 </script>

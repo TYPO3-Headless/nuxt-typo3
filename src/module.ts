@@ -84,6 +84,7 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolve(runtimeDir, 'plugin'))
 
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
+    addImportsDir(resolver.resolve('runtime/components/**/*'))
 
     extendPages((pages) => {
       pages.push({

@@ -7,9 +7,9 @@
 
 <script setup lang="ts">
 import T3CeHeader from '../T3CeHeader/T3CeHeader.vue'
-import type { T3CeGallery } from '../../../types'
+import type { T3CeGalleryProps } from '../../../types'
 
-const props = withDefaults(defineProps<T3CeGallery>(), {
+const props = withDefaults(defineProps<T3CeGalleryProps>(), {
   header: '',
   headerLayout: 0,
   headerPosition: '',

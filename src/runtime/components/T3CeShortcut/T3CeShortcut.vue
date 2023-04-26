@@ -1,9 +1,9 @@
 <script lang="ts">
 import { h, resolveComponent } from 'vue'
-import type { T3CeBase } from '../../../types'
+import type { T3CeBaseProps } from '../../../types'
 
 export interface T3CeShortcutInterface {
-  shortcut: Array<T3CeBase>
+  shortcut: Array<T3CeBaseProps>
 }
 
 const T3CeShortcut = (props: T3CeShortcutInterface) => {

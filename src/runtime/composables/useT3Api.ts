@@ -1,8 +1,8 @@
-import { useState, useNuxtApp, useRoute } from '#app'
 import { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
 import type { T3InitialData, T3Page } from '../../types'
 import type { T3Api } from '../lib/apiClient'
+import { useState, useNuxtApp, useRoute } from '#app'
 /**
  * Get page data state
  * @returns {Ref<T3Page>}

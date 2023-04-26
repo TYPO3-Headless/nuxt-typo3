@@ -1,9 +1,9 @@
 import { computed } from 'vue'
-import type { T3CeTable } from '../../../types'
+import type { T3CeTableProps } from '~/../src/types'
 
 export type BodyTextType = string[][]
 
-export const useT3CeTable = (props: T3CeTable) => {
+export const useT3CeTable = (props: T3CeTableProps) => {
   const thead = computed((): string[] => {
     return (
       (props.tableHeaderPosition === 1 &&

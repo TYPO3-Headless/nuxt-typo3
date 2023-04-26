@@ -1,7 +1,6 @@
-import { T3CeBase } from '../'
+import { T3CeBaseProps } from '../'
 
-export interface T3CeBullets extends T3CeBase {
+export interface T3CeBulletsProps extends T3CeBaseProps {
   bodytext?: string[] | [][],
   bulletsType?: number
-
 }

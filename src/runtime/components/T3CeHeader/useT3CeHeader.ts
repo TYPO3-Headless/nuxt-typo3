@@ -1,45 +1,13 @@
 import { computed } from 'vue'
 // Due to this issue it is not possible to import types into props
 // https://github.com/vuejs/core/issues/4294
-import { T3CeBase } from '../../../types'
-
-export interface T3CeHeaderLink {
-  additionalAttributes?: string[]
-  class?: string
-  href?: string
-  linkText?: string
-  target?: string
-  title?: string
-}
-
-export interface T3CeHeaderProps {
-  /**
-   * Header content / TYPO3 header
-   */
-  header?: string
-  /**
-   * Header Type / TYPO3 header_layout
-   */
-  headerLayout?: number
-  /**
-   * Header alignment / TYPO3 header_position
-   */
-  headerPosition?: string
-  /**
-   * Header link / TYPO3 header_link
-   */
-  headerLink?: T3CeHeaderLink | string
-  /**
-   * Subheader / TYPO3 subheader
-   */
-  subheader?: string
-}
+import { T3CeHeaderProps } from '~/../src/types'
 
 /**
  * Provides headerLevel and headerClass computed values based on provided props
  * @param props
  */
-export function useT3CeHeader (props: T3CeBase) {
+export function useT3CeHeader (props: T3CeHeaderProps) {
   /**
    * By defualt if type is 0, set h1
    */

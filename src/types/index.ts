@@ -1,5 +1,5 @@
 import type { T3ContentElement } from './T3ContentElement'
-import type { T3CeBase } from './content'
+import type { T3CeBaseProps } from './content'
 export * from './T3Link'
 export * from './T3File'
 export * from './T3Gallery'
@@ -167,7 +167,7 @@ export interface T3Page extends T3RedirectData {
   breadcrumbs: any[]
   appearance: T3PageAppearance
   content: {
-    [key: string]: T3ContentElement<T3CeBase>[]
+    [key: string]: T3ContentElement<T3CeBaseProps>[]
   }
   i18n: T3I18N[]
 }

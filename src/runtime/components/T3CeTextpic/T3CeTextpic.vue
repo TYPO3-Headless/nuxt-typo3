@@ -8,10 +8,11 @@
 </template>
 
 <script setup lang="ts">
-import type { T3CeGallery } from '../../../types'
+import type { T3CeGalleryProps } from '../../../types'
 
-const props = defineProps<T3CeGallery>()
+const props = defineProps<T3CeGalleryProps>()
 </script>
+
 <script lang="ts">
 export default {
   name: 'T3CeTextpic',

@@ -6,6 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import type { T3CeText } from '../../../types'
-const props = defineProps<T3CeText>()
+import type { T3CeTextProps } from '../../../types'
+const props = defineProps<T3CeTextProps>()
 </script>

@@ -1,7 +1,7 @@
 import { resolveDynamicComponent } from 'vue'
 import { pascalCase } from 'scule'
 import { DefineComponent } from 'nuxt/dist/app/compat/capi'
-import { T3BackendLayout, T3CeBase } from '../../types'
+import { T3BackendLayout, T3CeBaseProps } from '../../types'
 
 interface DynamicComponentParams {
   type?: string
@@ -35,6 +35,6 @@ export const useT3DynamicBl = <T = T3BackendLayout>(type = 'default') => {
   return useT3DynamicComponent<T>({ type, prefix: 'T3Bl', mode: '' })
 }
 
-export const useT3DynamicCe = <T extends T3CeBase = T3CeBase>(type = 'default') => {
+export const useT3DynamicCe = <T extends T3CeBaseProps = T3CeBaseProps>(type = 'default') => {
   return useT3DynamicComponent<T>({ type, prefix: 'T3Ce', mode: '' })
 }

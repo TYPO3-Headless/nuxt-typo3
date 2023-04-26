@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import { useNuxtApp, useAsyncData, useState } from '#app'
 import { useT3Api } from '../../../src/runtime/composables/useT3Api'
+import { useNuxtApp, useAsyncData, useState } from '#app'
 const { initialData, pageData, getPage, getInitialData, setHeaders } =
   useT3Api()
 const headersTest = useState('headers', () => ({}))

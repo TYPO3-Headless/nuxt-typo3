@@ -1,24 +1,17 @@
 <script lang="ts" setup>
-import { computed, ComputedRef, resolveComponent } from 'vue'
+import { resolveComponent } from 'vue'
 import type { T3Gallery } from '../../../types'
+import { useT3MediaGallery } from './useT3MediaGallery'
 
 const props = defineProps<{
   gallery: T3Gallery
 }>()
 
-const galleryCss: ComputedRef<(string | Record<string, boolean>)[]> = computed(() => {
-  return [
-    `t3-ce-gallery--horizontal-${props.gallery.position.horizontal}`,
-    `t3-ce-gallery--vertical-${props.gallery.position.vertical}`,
-    { 't3-ce-gallery--no-wrap': props.gallery.position.noWrap },
-    { 't3-ce-gallery--border': props.gallery.border.enabled }
-  ]
-})
-
+const { galleryClassList } = useT3MediaGallery(props.gallery)
 </script>
 
 <template>
-  <div :class="galleryCss" class="t3-ce-gallery">
+  <div :class="galleryClassList" class="t3-ce-gallery">
     <slot name="before" />
     <div
       v-if="gallery.position.vertical === 'below'"

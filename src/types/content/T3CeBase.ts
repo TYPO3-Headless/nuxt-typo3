@@ -1,5 +1,5 @@
 import type { T3Appearance, T3Link } from '..'
-export interface T3CeBase {
+export interface T3CeBaseProps {
   /**
    * Header content / TYPO3 header
    */

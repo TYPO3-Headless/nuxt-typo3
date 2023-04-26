@@ -1,14 +1,3 @@
-<script lang="ts" setup>
-import type { T3CeBulletsProps } from '../../../types'
-import { useT3CeBullets } from './useT3CeBullets'
-
-const props = withDefaults(defineProps<T3CeBulletsProps>(), {
-  bodytext: () => [],
-  bulletsType: 0
-})
-
-const { listTag, showBaseList } = useT3CeBullets(props)
-</script>
 <template>
   <div class="t3-ce-bullets">
     <T3CeHeader v-if="props.header" v-bind="props" />
@@ -30,3 +19,11 @@ const { listTag, showBaseList } = useT3CeBullets(props)
     </dl>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { T3CeBulletsProps } from '../../../src/types'
+import { useT3CeBullets } from '#typo3/components/T3CeBullets/useT3CeBullets'
+
+const props = defineProps<T3CeBulletsProps>()
+const { listTag, showBaseList } = useT3CeBullets(props)
+</script>
