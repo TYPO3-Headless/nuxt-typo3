@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2023-05-10)
+
+
+### Bug Fixes
+
+* add temporary global component import polyfill ([#9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/9)) ([143b12e](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/143b12ef5d178df38071a815a70f4e6418a9f6e7))
+
 ## [2.0.0-alpha.9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2023-05-10)
 
 
