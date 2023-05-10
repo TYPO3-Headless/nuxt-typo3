@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.11](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-05-10)
+
+
+### Features
+
+* add option to disable T3 components ([07d68a6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/07d68a610e4ca47e8b683c57bf2305478cce4e39))
+
 ## [2.0.0-alpha.10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2023-05-10)
 
 
