@@ -2,7 +2,21 @@
 
 Useful composable to recreate your own page file.
 
-
+## Type
+```ts
+const useT3Page: (options?: {
+    route?: string;
+    fetchOnInit?: boolean;
+}) => Promise<{
+    pageData: Ref<T3Page | null>;
+    getPageData: (path: string) => Promise<{
+        data: Ref<T3Page | null>;
+        error: Ref<Error | null>;
+    }>;
+    headData: ComputedRef<ReactiveHead>
+    T3BackendLayout: ComputedRef<DefineComponent<T3BackendLayout>>
+}>
+```
 ## example
 Create your own page layout. 
 Create/edit `pages/[...slug].vue`
