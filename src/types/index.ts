@@ -85,7 +85,11 @@ export interface T3Site {
     /**
      * show content element data on each frontend component
      */
-    debug?: boolean
+    debug?: boolean,
+    /**
+     * register T3 components
+     */
+    components: boolean
   }
 }
 

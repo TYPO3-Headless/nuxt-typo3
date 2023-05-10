@@ -49,6 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
     features: {
       initInitialData: true,
       i18nMiddleware: true,
+      components: true,
       debug: false
     }
   },
@@ -74,7 +75,10 @@ export default defineNuxtModule<ModuleOptions>({
     )
 
     addPlugin(resolve(runtimeDir, 'plugin'))
-    addPlugin(resolve(runtimeDir, 'import-polyfill'))
+
+    if (options.features?.components) {
+      addPlugin(resolve(runtimeDir, 'import-polyfill'))
+    }
 
     installModule('@rah-emil/vite-plugin-vue-type-imports/nuxt')
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
