@@ -8,10 +8,12 @@
 </template>
 <script setup lang="ts">
 import { H3Error } from 'h3'
-defineProps<{
+const props = defineProps<{
   error: H3Error
 }>()
 
-const { pageData } = useT3Api()
-const { T3BackendLayout } = useT3Page()
+const { T3BackendLayout, pageData } = await useT3Page({
+  fetchOnInit: false
+})
+
 </script>

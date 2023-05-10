@@ -43,11 +43,11 @@ export default defineNuxtModule<ModuleOptions>({
       allowQuery: true
     },
     i18n: {
-      default: 'pl',
-      locales: ['pl']
+      default: 'en',
+      locales: ['en']
     },
     features: {
-      pageMiddleware: true,
+      initInitialData: true,
       i18nMiddleware: true,
       debug: false
     }

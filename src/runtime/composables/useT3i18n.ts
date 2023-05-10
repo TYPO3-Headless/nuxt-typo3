@@ -55,7 +55,7 @@ export const useT3i18n = (
   }
 
   const setLocale = async (localeCode: string) => {
-    const { getInitialData, initialData } = useT3Api()
+    const { getInitialData, initialData } = useT3Api(path)
     const oldLocale = currentLocale.value
     currentLocale.value = localeCode
     await callHook('t3:i18n', localeCode, oldLocale)

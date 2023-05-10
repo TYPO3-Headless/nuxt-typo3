@@ -73,10 +73,10 @@ export interface T3Site {
    */
   features?: {
     /**
-     * fetch initial data before each page render
+     * use built middleware to get initialData and pageData
      * @default true
      */
-    initInitialData?: boolean
+    pageMiddleware?: boolean
     /**
      * use built middleware to detect language changes
      * * @default true

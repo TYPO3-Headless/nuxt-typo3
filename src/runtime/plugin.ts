@@ -1,15 +1,39 @@
 
-import { defineNuxtPlugin, addRouteMiddleware, useRouter } from '#app'
+import { defineNuxtPlugin, addRouteMiddleware, callWithNuxt, useRoute, useNuxtApp } from '#app'
 import type { NuxtApp } from '#app'
+import type { FetchError } from 'ofetch'
 import { useT3ErrorHandling } from './composables/useT3ErrorHandling'
 import { useT3Options } from './composables/useT3Options'
 import { useT3i18n } from './composables/useT3i18n'
+import { useT3Api } from './composables/useT3Api'
+import { useT3Utils } from './composables/useT3Utils'
 import { T3ApiClient } from './lib/apiClient'
-import { t3ContextMiddleware } from './middleware/context'
 import { t3i18nMiddleware } from './middleware/i18n'
-import { setT3ClientState, useSSRHeaders } from './composables/utils'
+import { setT3ClientState, useSSRHeaders, isDynamicRoute } from './lib/utils'
 
-export default defineNuxtPlugin((nuxtApp) => {
+const initInitialData = async () => {
+  const route = useRoute()
+  const nuxtApp = useNuxtApp()
+  const { initialData, getInitialData } = useT3Api(route.fullPath)
+  const { handleServerException } = useT3ErrorHandling(route.fullPath)
+  const { localePath } = useT3Utils()
+  const dynamicRoute = isDynamicRoute(route)
+
+  if (process.server) {
+    try {
+      const path = dynamicRoute ? route.path : localePath()
+      const data = await getInitialData(path)
+      initialData.value = data
+    } catch (error) {
+      return await callWithNuxt(nuxtApp, async () => await handleServerException(
+        error as FetchError
+      )
+      )
+    }
+  }
+}
+
+export default defineNuxtPlugin(async (nuxtApp) => {
   const { currentSiteOptions } = useT3Options()
   const { initLocale } = useT3i18n()
 
@@ -28,28 +52,12 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   nuxtApp.provide('typo3', typo3)
+  if (currentSiteOptions.value.features?.initInitialData) {
+    await initInitialData()
+  }
 
   if (currentSiteOptions.value.features?.i18nMiddleware) {
     addRouteMiddleware('typo3-i18n-middleware', t3i18nMiddleware, {
-      global: true
-    })
-  }
-
-  if (currentSiteOptions.value.features?.pageMiddleware) {
-    const { handleClientPageException } = useT3ErrorHandling()
-    const router = useRouter()
-
-    // temporary fix, until nuxt team fix this, we handle all error during middleware
-    // https://github.com/nuxt/nuxt/issues/19954
-    router.onError(() => {})
-    router.afterEach((to) => {
-      const { t3middlewareError } = to.meta
-      if (t3middlewareError) {
-        handleClientPageException(to)
-      }
-    })
-
-    addRouteMiddleware('typo3-page-middleware', t3ContextMiddleware, {
       global: true
     })
   }

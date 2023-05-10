@@ -1,25 +1,9 @@
-import type { Component } from 'vue'
 import { RouteLocationNormalized } from 'vue-router'
-import { pascalCase } from 'scule'
-import { cleanDoubleSlashes, isEqual } from 'ufo'
-import { NuxtApp, navigateTo, useRequestHeaders } from '#app'
+import { isEqual } from 'ufo'
+import { NuxtApp, useRequestHeaders } from '#app'
 import { defu } from 'defu'
 import type { FetchOptions } from 'ofetch'
-import type { T3RedirectData, T3Site } from '../../types'
-import { useT3i18nState } from './useT3i18n'
-
-/**
- * Handle TYPO3 Redirect
- * @param {T3RedirectData} redirectData
- * @returns
- */
-export const useT3Redirect = (redirectData: T3RedirectData) => {
-  const { redirectUrl, statusCode } = redirectData
-
-  return navigateTo(redirectUrl, {
-    redirectCode: statusCode
-  })
-}
+import type { T3Site } from '../../types'
 
 /**
  * Check if targeted route is dynamic or not
@@ -39,33 +23,6 @@ export const isDynamicRoute = (route: RouteLocationNormalized): boolean => {
  */
 export const isEqualWithoutHash = (a: string, b: string): boolean => {
   return isEqual(a?.split('#')?.[0], b.split('#')?.[0])
-}
-
-/**
- * Get component name for T3Renderer
- * @param {String} type Content Element type
- * @param {Record<string, Component>} components List of available components
- * @returns {String} Component name
- */
-export const getComponentName = (
-  type: string,
-  components?: Record<string, Component>
-): string => {
-  const component = `LazyT3Ce${pascalCase(type)}`
-  if (!components) {
-    return component
-  }
-
-  if (Object.prototype.hasOwnProperty.call(components, component)) {
-    return component
-  }
-
-  return 'T3CeDefault'
-}
-
-export const useT3LocalePath = (path?: String) => {
-  const currentLocale = useT3i18nState()
-  return cleanDoubleSlashes(`/${currentLocale.value}${path ? `/${path}` : ''}`)
 }
 
 /**

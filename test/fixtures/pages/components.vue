@@ -4,7 +4,7 @@
       refresh
     </button>
     <T3Renderer
-      v-if="pageData.content?.colPos0"
+      v-if="pageData?.content?.colPos0"
       :content="pageData.content.colPos0"
     />
   </div>

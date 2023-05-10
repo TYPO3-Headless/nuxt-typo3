@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
-import { setup, $fetch } from '@nuxt/test-utils'
+import { setup, $fetch, url } from '@nuxt/test-utils'
 
 const test = await setup({
   server: true,
@@ -10,7 +10,7 @@ const test = await setup({
 describe('useT3Options', () => {
   it('renders correct host', async () => {
     const result = await $fetch('/')
-    expect(result).toContain('api host: my-api-demo.com')
+    expect(result).toContain('api host: https://my-api-demo.com')
   }, 15000)
 
   it('renders correct curent locale', async () => {

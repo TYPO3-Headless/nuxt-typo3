@@ -1,5 +1,4 @@
 import type { RouteLocationNormalized } from 'vue-router'
-import { useRoute } from '#app'
 import { isEqual } from 'ufo'
 import { useT3i18n } from '../composables/useT3i18n'
 

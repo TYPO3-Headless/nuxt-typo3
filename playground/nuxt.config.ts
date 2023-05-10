@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   typo3: {
     api: {
       baseUrl: 'http://localhost:3000/api'
+    },
+    i18n: {
+      locales: ['en', 'de', 'pl']
     }
   },
   components: {

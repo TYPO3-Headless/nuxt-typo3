@@ -8,7 +8,7 @@ import type { T3Api } from '../lib/apiClient'
  * @returns {Ref<T3Page>}
  */
 export const useT3PageState = () => {
-  const pageState = useState<T3Page>('T3:Page')
+  const pageState = useState<T3Page | null>('T3:Page')
   return pageState
 }
 
@@ -33,7 +33,7 @@ export const useT3Api = (
   /**
    * TYPO3 Page Data
    */
-  pageData: Ref<T3Page>
+  pageData: Ref<T3Page | null>
   /**
    * TYPO3 Initial Data
    */
