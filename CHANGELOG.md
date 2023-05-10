@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2023-05-10)
+
+
+### Refactor
+
+* remove middleware and use page composable ([#10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/10)) ([846b0a2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/846b0a2e65d69f78fdf3d5e1b01bb65136b5d0f2))
+* useT3DynamicComponent ([#8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/8)) ([d27af74](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d27af74985569d2d40495969ef7e2f9919ab5814))
+
+
+### Documentation
+
+* add info about EAP program to the page ([5547931](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/5547931d927d272ca57b9c514dab0af64eac1790))
+* add info about removing middleware ([#10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/10)) ([0552d33](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/0552d33a0b622c82e1cc9ec19503be939977dc20))
+
 ## [2.0.0-alpha.8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2023-04-14)
 
 
