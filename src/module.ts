@@ -55,15 +55,7 @@ export default defineNuxtModule<ModuleOptions>({
   hooks: {
     't3:initialData': () => {},
     't3:page': () => {},
-    't3:i18n': () => {},
-    'components:dirs' (dirs) {
-      dirs.push({
-        path: fileURLToPath(new URL('./runtime/components', import.meta.url)),
-        extensions: ['vue', 'ts'],
-        ignore: ['**/*.types.ts'],
-        global: true
-      })
-    }
+    't3:i18n': () => {}
   },
   setup (options, nuxt) {
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
@@ -82,6 +74,8 @@ export default defineNuxtModule<ModuleOptions>({
     )
 
     addPlugin(resolve(runtimeDir, 'plugin'))
+    addPlugin(resolve(runtimeDir, 'import-polyfill'))
+
     installModule('@rah-emil/vite-plugin-vue-type-imports/nuxt')
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
 
