@@ -27,7 +27,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@rah-emil/vite-plugin-vue-type-imports": "^0.2.5",
     "defu": "^6.1.2",
     "ofetch": "^1.0.1",
     "scule": "^1.0.0",

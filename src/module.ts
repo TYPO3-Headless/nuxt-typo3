@@ -49,14 +49,22 @@ export default defineNuxtModule<ModuleOptions>({
     features: {
       initInitialData: true,
       i18nMiddleware: true,
-      components: true,
       debug: false
     }
   },
   hooks: {
     't3:initialData': () => {},
     't3:page': () => {},
-    't3:i18n': () => {}
+    't3:i18n': () => {},
+    'components:dirs' (dirs) {
+      dirs.push({
+        path: fileURLToPath(new URL('./runtime/components', import.meta.url)),
+        extensions: ['vue'],
+        pathPrefix: false,
+        ignore: ['**/*.types.ts'],
+        global: true
+      })
+    }
   },
   setup (options, nuxt) {
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
@@ -76,11 +84,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin(resolve(runtimeDir, 'plugin'))
 
-    if (options.features?.components) {
-      addPlugin(resolve(runtimeDir, 'import-polyfill'))
-    }
-
-    installModule('@rah-emil/vite-plugin-vue-type-imports/nuxt')
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
 
     extendPages((pages) => {
