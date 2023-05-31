@@ -84,7 +84,7 @@ export namespace TYPO3 {
       /** get available languages and menu data for current page and locale */
       getInitialData(params: { path: string }): Promise<void>,
       /** get page response  */
-      getPage(path: string): Promise<void>,
+      getPage(path: string): Promise<TYPO3.Response>,
       /** set different API options */
       setOptions(options: Options.Api): void
     }
