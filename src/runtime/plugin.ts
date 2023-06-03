@@ -1,34 +1,32 @@
-
-import { defineNuxtPlugin, addRouteMiddleware, callWithNuxt, useRoute, useNuxtApp } from '#app'
+import { defineNuxtPlugin, addRouteMiddleware, useRoute, showError } from '#app'
 import type { NuxtApp } from '#app'
-import type { FetchError } from 'ofetch'
-import { useT3ErrorHandling } from './composables/useT3ErrorHandling'
 import { useT3Options } from './composables/useT3Options'
 import { useT3i18n } from './composables/useT3i18n'
 import { useT3Api } from './composables/useT3Api'
-import { useT3Utils } from './composables/useT3Utils'
 import { T3ApiClient } from './lib/apiClient'
 import { t3i18nMiddleware } from './middleware/i18n'
-import { setT3ClientState, useSSRHeaders, isDynamicRoute } from './lib/utils'
+import { setT3ClientState, useSSRHeaders } from './lib/utils'
 
 const initInitialData = async () => {
   const route = useRoute()
-  const nuxtApp = useNuxtApp()
-  const { initialData, getInitialData } = useT3Api(route.fullPath)
-  const { handleServerException } = useT3ErrorHandling(route.fullPath)
-  const { localePath } = useT3Utils()
-  const dynamicRoute = isDynamicRoute(route)
+  const { initialData, pageData, getInitialData } = useT3Api(route.fullPath)
 
   if (process.server) {
     try {
-      const path = dynamicRoute ? route.path : localePath()
-      const data = await getInitialData(path)
+      const { currentSiteOptions } = useT3Options()
+      const { getPathWithLocale } = useT3i18n(route.fullPath)
+      const data = await getInitialData(getPathWithLocale(currentSiteOptions.value.api.endpoints?.initialData))
       initialData.value = data
-    } catch (error) {
-      return await callWithNuxt(nuxtApp, async () => await handleServerException(
-        error as FetchError
-      )
-      )
+    } catch (error: any) {
+      showError({
+        fatal: true,
+        unhandled: false,
+        statusCode: error.statusCode || 500,
+        statusMessage: error.statusMessage,
+        data: error.response?._data,
+        message: error.message
+
+      })
     }
   }
 }

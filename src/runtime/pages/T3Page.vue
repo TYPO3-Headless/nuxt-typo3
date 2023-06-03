@@ -1,5 +1,5 @@
 <template>
-  <T3BackendLayout v-if="pageData" :content="pageData.content" />
+  <T3BackendLayout v-if="pageData?.content" :content="pageData.content" />
 </template>
 
 <script setup lang="ts">

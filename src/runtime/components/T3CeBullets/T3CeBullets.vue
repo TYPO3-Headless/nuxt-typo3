@@ -17,7 +17,7 @@ const showBaseList = computed(() => {
 </script>
 <template>
   <div class="t3-ce-bullets">
-    <T3CeHeader v-bind="props" />
+    <T3CeHeader v-if="props.header" v-bind="props" />
     <component :is="listTag" v-if="showBaseList">
       <li v-for="(el, i) in bodytext" :key="i">
         {{ el }}

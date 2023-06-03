@@ -24,6 +24,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useT3Api } from '~/../src/runtime/composables/useT3Api'
+import { useT3Utils } from '~/../src/runtime/composables/useT3Utils'
+
 const { initialData } = useT3Api()
 const { localePath } = useT3Utils()
 const navigation = computed(() => {

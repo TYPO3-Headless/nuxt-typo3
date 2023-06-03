@@ -1,29 +1,7 @@
-import { RouteLocationNormalized } from 'vue-router'
-import { isEqual } from 'ufo'
 import { NuxtApp, useRequestHeaders } from '#app'
 import { defu } from 'defu'
 import type { FetchOptions } from 'ofetch'
 import type { T3Site } from '../../types'
-
-/**
- * Check if targeted route is dynamic or not
- *
- * @param {RouteLocationNormalized} route current route
- * @returns {Boolean}
- */
-export const isDynamicRoute = (route: RouteLocationNormalized): boolean => {
-  return route?.matched?.[0]?.path.includes('/:slug(.*)*')
-}
-
-/**
- * Check if provieded paths are equal after remove hashes
- * @param {String} a
- * @param {String} b
- * @returns {Boolean}
- */
-export const isEqualWithoutHash = (a: string, b: string): boolean => {
-  return isEqual(a?.split('#')?.[0], b.split('#')?.[0])
-}
 
 /**
  * Share API client state between SSR/Client

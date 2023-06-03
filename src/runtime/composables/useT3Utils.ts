@@ -1,5 +1,5 @@
 import { cleanDoubleSlashes } from 'ufo'
-import { callWithNuxt, navigateTo, useNuxtApp } from '#app'
+import { navigateTo, useNuxtApp } from '#app'
 import { T3RedirectData } from '../../types'
 import { useT3i18nState } from './useT3i18n'
 import { useT3Options } from './useT3Options'
@@ -15,14 +15,12 @@ export const useT3Utils = () => {
    * @returns
    */
   const redirect = async (redirectData: T3RedirectData) => {
-    await callWithNuxt(nuxtApp, async () => {
-      await nuxtApp.callHook('t3:middleware:redirect', redirectData)
-      const { redirectUrl, statusCode } = redirectData
+    await nuxtApp.callHook('t3:redirect', redirectData)
+    const { redirectUrl, statusCode } = redirectData
 
-      return navigateTo(redirectUrl, {
-        redirectCode: statusCode,
-        external: true
-      })
+    return navigateTo(redirectUrl, {
+      redirectCode: statusCode,
+      external: true
     })
   }
 

@@ -7,8 +7,7 @@ import {
   addPlugin,
   extendPages,
   addImportsDir,
-  createResolver,
-  installModule
+  createResolver
 } from '@nuxt/kit'
 import type { $Fetch, FetchOptions } from 'ofetch'
 import { T3ApiClient } from './runtime/lib/apiClient'
@@ -20,7 +19,7 @@ export interface ModuleHooks {
   't3:initialData': (initialData: T3InitialData) => Promise<void> | void
   't3:page': (pageData: T3Page) => Promise<void> | void
   't3:i18n': (newLocale: string, oldLocale: string) => Promise<void> | void
-  't3:middleware:redirect': (
+  't3:redirect': (
     redirectData: T3RedirectData
   ) => Promise<void> | void
 }
