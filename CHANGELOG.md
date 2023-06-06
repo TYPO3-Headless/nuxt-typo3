@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.12](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2023-06-06)
+
+
+### Refactor
+
+* adapt Vue 3.3 ([#12](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/12)) ([36b7ef3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/36b7ef3c84bb294d80d97b0a51efc9aa1c859bc9))
+* use local ref for client side ([#13](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/13)) ([69311c1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/69311c1fb50ac1e6d1eb075bd881fc65381f4e36))
+
+
+### Documentation
+
+* update docs ([f6ae67b](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/f6ae67b1e449bf591e0e920e51a1af08d99d46d8))
+
 ## [2.0.0-alpha.11](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-05-10)
 
 
