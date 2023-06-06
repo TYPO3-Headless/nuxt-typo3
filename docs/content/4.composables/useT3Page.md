@@ -5,9 +5,10 @@ Useful composable to recreate your own page file.
 ## Type
 ```ts
 const useT3Page: (options?: {
-    route?: string;
+    route?: RouteLocationNormalized
     fetchOnInit?: boolean;
 }) => Promise<{
+    pageDataFallback: ComputedRef<T3Page | null>;
     pageData: Ref<T3Page | null>;
     getPageData: (path: string) => Promise<{
         data: Ref<T3Page | null>;
