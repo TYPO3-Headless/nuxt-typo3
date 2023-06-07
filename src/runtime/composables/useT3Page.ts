@@ -17,16 +17,14 @@ export const useT3Page = async (options: {
   fetchOnInit: true
 }) => {
   const { route, fetchOnInit } = options
-  const { pageData: sharedPageData, getPage } = useT3Api()
+  const { pageData, getPage } = useT3Api()
   const { headData } = useT3Meta()
   const { redirect } = useT3Utils()
-  const pageData = ref<T3Page | null>(null)
 
   const getPageData = async (path: string) => {
-    const { data, error } = await useAsyncData(() => getPage(path))
+    const { data, error } = await useAsyncData('t3:page', () => getPage(path))
 
     if (data.value) {
-      sharedPageData.value = data.value
       pageData.value = data.value
 
       if (pageData?.value.redirectUrl) {
@@ -75,7 +73,7 @@ export const useT3Page = async (options: {
 
   return {
     pageDataFallback,
-    pageData,
+    pageData: process.server ? pageData : ref<T3Page | null>(pageData.value),
     getPageData,
     headData,
     T3BackendLayout
