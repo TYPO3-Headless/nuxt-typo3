@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.13](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2023-06-07)
+
+
+### Bug Fixes
+
+* set pageData depends on context ([310e06a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/310e06aea7b97507999a42b3085249eaf70d9aa1))
+
 ## [2.0.0-alpha.12](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2023-06-06)
 
 
