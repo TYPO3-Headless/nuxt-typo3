@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.14](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2023-06-13)
+
+
+### Bug Fixes
+
+* fetch initialData on middleware to handle headers ([0e47e09](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/0e47e09ec6a73e8cdd2877ca1f9715fcff9c53d7))
+
+
+### Documentation
+
+* update how to use pinia ([#14](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/14)) ([3279ff8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/3279ff83a7b52729dd06aa5959d10a1339004f82))
+
 ## [2.0.0-alpha.13](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2023-06-07)
 
 
