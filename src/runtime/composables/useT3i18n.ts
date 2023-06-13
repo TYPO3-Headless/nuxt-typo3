@@ -1,10 +1,11 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
+import { parseURL, withoutTrailingSlash } from 'ufo'
 import { useNuxtApp, useRoute, useState } from '#app'
-import { withoutTrailingSlash } from 'ufo'
 import type { T3I18N } from '../../types'
 import { useT3Api, useT3PageState } from './useT3Api'
 import { useT3Options } from './useT3Options'
+
 export const useT3i18nState = () => {
   const i18nState = useState<string>('T3:i18n')
   return i18nState
@@ -45,7 +46,8 @@ export const useT3i18n = (
   const currentLocale = useT3i18nState()
 
   const getLocale = (path: string = defaultPath) => {
-    const localeCode = path?.split('/')[1]
+    const { pathname: slugs } = parseURL(path)
+    const localeCode = slugs?.split('/')[1]
 
     if (i18n.locales && i18n.locales?.find(locale => locale === localeCode)) {
       return localeCode // if localCode doesn't exist and current locale is not fallback locale
