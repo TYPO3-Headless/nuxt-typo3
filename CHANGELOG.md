@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.15](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2023-06-14)
+
+
+### Bug Fixes
+
+* properly detect locale if param in url path ([8e8912a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8e8912a3327557e81dbd1915a42ce840d9aac45c))
+
 ## [2.0.0-alpha.14](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2023-06-13)
 
 
