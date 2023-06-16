@@ -55,6 +55,10 @@ export namespace TYPO3 {
      * Additional domains configuration
      */
     domains?: Types.Domain[]
+    /**
+     * Enable forwarding headers on SSR
+     */
+    headers?: boolean | Array<string>,
   }
 
   namespace Plugin {
