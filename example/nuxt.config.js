@@ -34,7 +34,8 @@ module.exports = {
       baseURL: 'https://api.t3pwa.com' // please use https://github.com/TYPO3-Initiatives/pwa-demo/pull/42
     },
     i18n: localeConfig,
-    forms: true
+    forms: true,
+    headers: false
   },
   /*
    ** Add components/layouts overrides
