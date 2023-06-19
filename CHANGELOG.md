@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.4...v1.3.0) (2023-06-19)
+
+
+### Features
+
+* add option to forward headers on SSR response ([5a60388](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/5a60388428360addb4758817f3495a8628f1e82e))
+
+
+### Bug Fixes
+
+* set correct return type ([b1a1e70](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/b1a1e7088f5f919053bf3880cec892d4d866569b))
+
 ### [1.2.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.3...v1.2.4) (2023-04-17)
 
 
