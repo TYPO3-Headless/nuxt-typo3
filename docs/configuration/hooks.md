@@ -28,3 +28,8 @@ $nuxt.$typo3.hook('localeChange', (newLocale, oldLocale) => {})
 ```js
 $nuxt.$typo3.hook('initialData', (response) => {})
 ```
+
+### After initial typo3 fetch on SSR
+```js
+$nuxt.$typo3.hook('ssr:headers', (headers) => {})
+```
