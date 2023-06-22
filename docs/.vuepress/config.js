@@ -49,7 +49,8 @@ module.exports = {
             'configuration/domains',
             'configuration/static-generate',
             'configuration/404-handling',
-            'configuration/redirects/'
+            'configuration/redirects/',
+            'configuration/headers'
           ]
         }
       ],
