@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, onMounted, onBeforeUnmount } from 'vue'
+import { navigateTo, nextTick, ref, onMounted, onBeforeUnmount } from '#imports'
 
 const links = ref<HTMLCollection>()
 
