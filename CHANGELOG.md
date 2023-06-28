@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.16](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2023-06-28)
+
+
+### Bug Fixes
+
+* add missing navigateTo import ([c570bac](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/c570bac0f04505b86cd72083ba4ef1b7cbb44115))
+
+
+### Documentation
+
+* remove unneeded imports ([b1ce074](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b1ce07453d911bddec467bacf620541ff82c53f6))
+
 ## [2.0.0-alpha.15](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2023-06-14)
 
 
