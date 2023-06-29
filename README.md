@@ -17,6 +17,10 @@ TYPO3 >= v11.5 & Headless version 3.x -> nuxt-typo3@1.x.x (master)
 TYPO3 < 11.5 & Headless version 2.x -> nuxt-typo3@0.x.x [(0.9x)](https://github.com/TYPO3-Headless/nuxt-typo3/tree/0.9x) 
 ### [DOCUMENTATION](https://typo3-headless.github.io/nuxt-typo3/)
 
+### NUXT3
+Are you looking for the newest version compatible with Nuxt3?
+https://t3headless.macopedia.io/nuxt-typo3/ 
+
 # Features
 
 ✅ Handle dynamic API routes
