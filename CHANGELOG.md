@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.0...v1.3.1) (2023-06-29)
+
+
+### Features
+
+* add headers hook call on ssr request ([8856849](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/885684990b0757c488b557beecd27ebe2d9e7bcd))
+* change meta generator ([e3b6c63](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/e3b6c63fe12022f4d79d07b69f6c4f929eafa491))
+
 ## [1.3.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.2.4...v1.3.0) (2023-06-19)
 
 
