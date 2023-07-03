@@ -45,6 +45,7 @@ describe('useT3Api', () => {
 
   it('use common headers', async () => {
     const result = await $fetch('/client')
+
     expect(result).includes('<span>headers test: typo3 is the best</span>')
   }, 15000)
 })

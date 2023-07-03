@@ -17,12 +17,8 @@ const siteConfig = {
 }
 
 describe('T3ApiClient', () => {
-  const client = new T3ApiClient(siteConfig, {
-    headers: {
-      Authorization: 'Token'
-    }
-  })
-
+  const client = new T3ApiClient(siteConfig)
+  client.setHeaders({ Authorization: 'Token' })
   it('returns raw headers', () => {
     const { headers } = client.getOptions({})
     expect(headers).toEqual({ Authorization: 'Token' })

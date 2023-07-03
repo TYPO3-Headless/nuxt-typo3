@@ -1,8 +1,8 @@
 import type { RouteLocationNormalized } from 'vue-router'
+import { showError } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
-import { showError } from '#app'
 
 export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
   if (process.client) {

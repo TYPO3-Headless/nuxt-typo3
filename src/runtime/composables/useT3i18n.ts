@@ -1,10 +1,10 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
 import { parseURL, withoutTrailingSlash } from 'ufo'
+import { useNuxtApp, useRoute, useState } from '#app'
 import type { T3I18N } from '../../types'
 import { useT3Api, useT3PageState } from './useT3Api'
 import { useT3Options } from './useT3Options'
-import { useNuxtApp, useRoute, useState } from '#app'
 
 export const useT3i18nState = () => {
   const i18nState = useState<string>('T3:i18n')

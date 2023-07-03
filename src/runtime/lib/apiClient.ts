@@ -1,4 +1,4 @@
-import type { FetchOptions } from 'ofetch'
+import type { FetchContext, FetchOptions, FetchResponse } from 'ofetch'
 import { $fetch } from 'ofetch'
 import { defu } from 'defu'
 import { T3Site } from '../../types'
@@ -7,10 +7,11 @@ import type { T3InitialData, T3Page } from '../../types'
 export interface T3Api {
   $fetch: <T>(request: RequestInfo, options?: FetchOptions<'json'>) => Promise<T>
   siteOptions: T3Site
+  apiHeaders: Record<string, string>
   initialDataEndpoint: string
   fetchOptions?: FetchOptions<'json'>
-  ssrHeaders?: Record<string, string>
   filterQuery: (path: string) => string
+  mapResponseHeaders: (headers: Headers) => Record<string, string>
   getPage(path: string, options?: FetchOptions<'json'>): Promise<T3Page>
   getInitialData(
     path: string,
@@ -21,30 +22,29 @@ export interface T3Api {
 export class T3ApiClient implements T3Api {
   private _$fetch: typeof $fetch
   initialDataEndpoint: string
-  ssrHeaders: Record<string, string> = {}
   fetchOptions: FetchOptions<'json'> = {
     headers: {}
   }
 
   constructor (
-    siteOptions: T3Site,
-    fetchOptions?: FetchOptions<'json'>,
-    ssrHeaders?: Record<string, string>
+    siteOptions: T3Site
+
   ) {
     this.siteOptions = siteOptions
     this.initialDataEndpoint = siteOptions.api.endpoints!.initialData!
-    this.fetchOptions = fetchOptions!
-    this.ssrHeaders = ssrHeaders!
+    this.apiHeaders = {}
 
-    // internal instance for using with merged options
-    this._$fetch = $fetch.create({
-      baseURL: siteOptions.api.baseUrl,
-      headers: this.fetchOptions.headers,
-      credentials: this.fetchOptions.credentials,
+    this.fetchOptions = {
+      baseURL: this.siteOptions.api.baseUrl,
+      headers: this.siteOptions.api.headers,
+      credentials: this.siteOptions.api.credentials,
       retry: false
-    })
+    }
+
+    this._$fetch = $fetch.create(this.fetchOptions)
   }
 
+  apiHeaders: Record<string, string>
   siteOptions: T3Site
 
   $fetch <T> (
@@ -92,9 +92,18 @@ export class T3ApiClient implements T3Api {
    * @returns {FetchOptions} merged options
    */
   getOptions (options?: FetchOptions<'json'>): FetchOptions<'json'> {
-    return defu(options, this.fetchOptions, {
-      headers: this.ssrHeaders
-    }) as FetchOptions<'json'>
+    return defu(options, {
+      onResponse: (context: FetchContext & {
+        response: FetchResponse<'json'>;
+    }) => {
+        if (this.fetchOptions.onResponse) {
+          this.fetchOptions.onResponse(context)
+        }
+        if (process.server && Array.isArray(this.siteOptions.api?.proxyHeaders) && context.response.headers) {
+          this.apiHeaders = this.mapResponseHeaders(context.response.headers)
+        }
+      }
+    }, this.fetchOptions) as FetchOptions<'json'>
   }
 
   /**
@@ -129,5 +138,22 @@ export class T3ApiClient implements T3Api {
     }
 
     return path
+  }
+
+  /**
+   * Map API Headers to setup on Response
+   * @param resHeaders
+   * @returns {Headers} headers
+   */
+  mapResponseHeaders (resHeaders: Headers): Record<string, string> {
+    const proxyHeaders = this.siteOptions.api?.proxyHeaders as string[]
+
+    if (!proxyHeaders || !proxyHeaders.length) {
+      return {}
+    }
+
+    let headers = Array.from(resHeaders.entries())
+    headers = headers.filter(header => proxyHeaders.includes(header[0]))
+    return Object.fromEntries(new Headers(headers))
   }
 }

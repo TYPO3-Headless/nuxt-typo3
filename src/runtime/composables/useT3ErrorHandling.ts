@@ -1,7 +1,7 @@
 import { FetchError } from 'ofetch'
+import { createError, useRoute } from '#app'
 import { useT3Api } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
-import { createError, useRoute } from '#app'
 
 // Note: this is an internal handling and some functionalities might change until stable release.
 export const useT3ErrorHandling = (path?: string) => {

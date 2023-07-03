@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useT3Api } from '../../../src/runtime/composables/useT3Api'
 import { useRoute, useAsyncData } from '#app'
+import { useT3Api } from '../../../src/runtime/composables/useT3Api'
 const { pageData, getPage } = useT3Api()
 const route = useRoute().fullPath
 

@@ -35,6 +35,7 @@ export default defineNuxtModule<ModuleOptions>({
       headers: {},
       credentials: 'omit',
       proxyHeaders: false,
+      proxyReqHeaders: false,
       endpoints: {
         initialData: '?type=834',
         initialDataFallback: '/?type=834'

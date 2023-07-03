@@ -1,31 +1,25 @@
+import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders } from '#app'
+import { setResponseHeaders, setResponseHeader } from 'h3'
 import { useT3Options } from './composables/useT3Options'
 import { useT3i18n } from './composables/useT3i18n'
 import { T3ApiClient } from './lib/apiClient'
 import { t3i18nMiddleware } from './middleware/i18n'
 import { t3initialDataMiddleware } from './middleware/initialData'
-import { setT3ClientState, useSSRHeaders } from './lib/utils'
-import type { NuxtApp } from '#app'
-import { defineNuxtPlugin, addRouteMiddleware, useRoute, showError } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { currentSiteOptions } = useT3Options()
   const { initLocale } = useT3i18n()
+  const client = new T3ApiClient(currentSiteOptions.value)
 
   initLocale()
-  const t3State = setT3ClientState(currentSiteOptions.value, nuxtApp as NuxtApp & typeof nuxtApp)
-  const ssrHeaders = useSSRHeaders(currentSiteOptions.value)
-  const client = new T3ApiClient(
-    currentSiteOptions.value,
-    t3State.client,
-    ssrHeaders
-  )
-
+  hydrateT3ClientHeaders(client)
   const typo3 = {
     api: client,
-    $fetch: client.$fetch
+    $fetch: client.$fetch.bind(client)
   }
 
   nuxtApp.provide('typo3', typo3)
+
   if (currentSiteOptions.value.features?.initInitialData) {
     addRouteMiddleware('typo3-initialData-middleware', t3initialDataMiddleware, {
       global: true
@@ -38,3 +32,23 @@ export default defineNuxtPlugin((nuxtApp) => {
     })
   }
 })
+
+// grab SSR and Request headers and hydrate them to ClientSide
+export const hydrateT3ClientHeaders = (client: T3ApiClient) => {
+  useHydration('T3:api:headers',
+    () => {
+      if (client.siteOptions.api.proxyHeaders) {
+        setResponseHeaders(useRequestEvent(), client.apiHeaders)
+      }
+
+      const proxyHeaders = client.siteOptions.api.proxyReqHeaders
+      const reqHeaders = (proxyHeaders && Array.isArray(proxyHeaders) && proxyHeaders.length) ? useRequestHeaders(proxyHeaders) : {}
+      client.fetchOptions.headers = { ...client.fetchOptions.headers, ...reqHeaders }
+      return client.fetchOptions.headers
+    },
+    (headers) => {
+      client.fetchOptions.headers = headers
+      window.__NUXT__!['T3:api:headers'] = null
+    }
+  )
+}

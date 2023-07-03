@@ -1,8 +1,9 @@
 import { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
+import { useState, useNuxtApp, useRoute } from '#app'
 import type { T3InitialData, T3Page } from '../../types'
 import type { T3Api } from '../lib/apiClient'
-import { useState, useNuxtApp, useRoute } from '#app'
+
 /**
  * Get page data state
  * @returns {Ref<T3Page>}
@@ -53,7 +54,11 @@ export const useT3Api = (
   /**
    * Set API Headers
    */
-  setHeaders(headers: Record<string, string>): void
+  setHeaders(headers: Record<string, string>): void,
+  /**
+   * Set API Clinet global options
+   */
+  setOption<T extends keyof FetchOptions<'json'>>(key: T, value:FetchOptions<'json'>[T]): void
 } => {
   const app = useNuxtApp()
   const { $typo3, callHook } = app
@@ -91,12 +96,17 @@ export const useT3Api = (
     $typo3.api.setHeaders(headers)
   }
 
+  const setOption = <T extends keyof FetchOptions<'json'>>(key: T, value:FetchOptions<'json'>[T]) => {
+    $typo3.api.fetchOptions[key] = value
+  }
+
   return {
     pageData,
     initialData,
     $fetch,
     getPage,
     getInitialData,
-    setHeaders
+    setHeaders,
+    setOption
   }
 }
