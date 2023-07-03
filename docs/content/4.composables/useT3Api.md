@@ -33,6 +33,10 @@ export const useT3Api = (
    * Set API Headers
    */
   setHeaders(headers: Record<string, string>): void
+  /**
+   * Set API Clinet global options
+   */
+  setOptions<T extends keyof FetchOptions<'json'>>(key: T, value:FetchOptions<'json'>[T]): void
 }
 ```
 
