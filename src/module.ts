@@ -111,9 +111,6 @@ declare module '#app' {
       api: T3ApiClient
       $fetch: $Fetch
     }
-    _t3State: {
-      client: FetchOptions<'json'>
-    }
   }
 
   interface RuntimeNuxtHooks extends ModuleHooks {}
