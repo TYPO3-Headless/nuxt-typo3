@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.17](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2023-07-04)
+
+
+### Features
+
+* fetch initialData for mainpage by default ([97b6e9b](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/97b6e9bb2553ef5c9a24d0a54d3169e942cb2c65))
+
+
+### Refactor
+
+* **ce:** components interfaces and extending ce docs ([16b3a1c](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/16b3a1c79a59d1321da228a2e0d7dd4050010923))
+* provide interceptors for API client ([#3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/3)) ([58b6e1f](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/58b6e1f1d1d77e1e7716fb0023b67211bca54526))
+
+
+### Documentation
+
+* describe content elements implementation ([d742200](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d7422006274e10ed2903fa082c0e51852341183a))
+* interceptors and headers ([#3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/3)) ([d8d73ca](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d8d73ca53b5ac73187ca07462410de226f64c52b))
+
 ## [2.0.0-alpha.16](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2023-06-28)
 
 
