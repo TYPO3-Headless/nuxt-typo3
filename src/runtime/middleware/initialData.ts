@@ -1,4 +1,5 @@
 import type { RouteLocationNormalized } from 'vue-router'
+import { cleanDoubleSlashes } from 'ufo'
 import { showError } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
@@ -10,11 +11,22 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
   }
 
   const { initialData, getInitialData } = useT3Api(to.fullPath)
+  const { currentSiteOptions } = useT3Options()
+  const { getPathWithLocale } = useT3i18n(to.fullPath)
+  const initialDataEndpoint = currentSiteOptions.value.api.endpoints?.initialData
+  const initialDataFallback = currentSiteOptions.value.api.endpoints?.initialDataFallback
+
+  const getInitialDataPath = (endpoint: string) => {
+    return cleanDoubleSlashes(endpoint?.startsWith('?') ? getPathWithLocale(to.fullPath) + endpoint : getPathWithLocale() + endpoint)
+  }
 
   try {
-    const { currentSiteOptions } = useT3Options()
-    const { getPathWithLocale } = useT3i18n(to.fullPath)
-    const data = await getInitialData(getPathWithLocale(currentSiteOptions.value.api.endpoints?.initialData))
+    let data
+    try {
+      data = await getInitialData(getInitialDataPath(initialDataEndpoint!), {}, true)
+    } catch {
+      data = await getInitialData(getInitialDataPath(initialDataFallback!), {}, true)
+    }
     initialData.value = data
   } catch (error: any) {
     showError({
@@ -23,7 +35,7 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
       statusCode: error.statusCode || 500,
       statusMessage: error.statusMessage,
       data: error.response?._data,
-      message: error.message
+      message: `Initial Data is unavailable: ${error.message}`
 
     })
   }

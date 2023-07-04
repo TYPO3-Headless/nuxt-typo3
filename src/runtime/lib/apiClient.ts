@@ -1,5 +1,6 @@
 import type { FetchContext, FetchOptions, FetchResponse } from 'ofetch'
 import { $fetch } from 'ofetch'
+import { cleanDoubleSlashes } from 'ufo'
 import { defu } from 'defu'
 import { T3Site } from '../../types'
 import type { T3InitialData, T3Page } from '../../types'
@@ -70,11 +71,12 @@ export class T3ApiClient implements T3Api {
    */
   getInitialData (
     path: string,
-    options?: FetchOptions<'json'>
+    options?: FetchOptions<'json'>,
+    customPath = false
   ): Promise<T3InitialData> {
-    return this.$fetch(
-      `${path}${this.initialDataEndpoint}`,
-      this.getOptions(options)
+    return this.$fetch(cleanDoubleSlashes(
+      customPath ? path : (path + this.initialDataEndpoint)),
+    this.getOptions(options)
     )
   }
 
