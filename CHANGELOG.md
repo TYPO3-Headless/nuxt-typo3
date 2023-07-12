@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.18](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2023-07-12)
+
+
+### Bug Fixes
+
+* initialData for path with queries ([9547ca2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/9547ca248e3768c937dee412e2e7adcac839cf03))
+
 ## [2.0.0-alpha.17](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2023-07-04)
 
 
