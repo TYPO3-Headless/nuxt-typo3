@@ -50,7 +50,7 @@ export const useT3Api = (
   /**
    * Get TYPO3 Initial data
    */
-  getInitialData(path?: string, options?: FetchOptions, customPath?: boolean): Promise<T3InitialData>
+  getInitialData(path?: string, options?: FetchOptions): Promise<T3InitialData>
   /**
    * Set API Headers
    */
@@ -85,10 +85,9 @@ export const useT3Api = (
 
   const getInitialData = async (
     path: string = defaultPath,
-    options: FetchOptions<'json'> = defaultOptions,
-    customPath = false
+    options: FetchOptions<'json'> = defaultOptions
   ) => {
-    const initialData = await $typo3.api.getInitialData(path, options, customPath)
+    const initialData = await $typo3.api.getInitialData(path, options)
     await callHook('t3:initialData', initialData)
     return initialData
   }

@@ -23,9 +23,9 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
   try {
     let data
     try {
-      data = await getInitialData(getInitialDataPath(initialDataEndpoint!), {}, true)
+      data = await getInitialData(getInitialDataPath(initialDataEndpoint!))
     } catch {
-      data = await getInitialData(getInitialDataPath(initialDataFallback!), {}, true)
+      data = await getInitialData(getInitialDataPath(initialDataFallback!))
     }
     initialData.value = data
   } catch (error: any) {

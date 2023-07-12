@@ -9,7 +9,7 @@ import {
   addImportsDir,
   createResolver
 } from '@nuxt/kit'
-import type { $Fetch, FetchOptions } from 'ofetch'
+import type { $Fetch } from 'ofetch'
 import { T3ApiClient } from './runtime/lib/apiClient'
 import type { T3InitialData, T3Page, T3RedirectData, ModuleOptions } from './types'
 
