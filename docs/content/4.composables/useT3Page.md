@@ -28,7 +28,12 @@ Create/edit `pages/[...slug].vue`
 </template>
 
 <script setup lang="ts">
-const { headData, pageData, T3BackendLayout } = useT3Page()
+const { headData, pageData, T3BackendLayout } = await useT3Page()
 useHead(headData)
 </script>
 ```
+
+::alert{type="warning"}
+Please be aware that `await useT3Page()` is responsible for fetching the current page data. If you use it in multiple places, it may lead to unexpeceted API call. To avoid this, you can either use await `useT3Page({fetchOnInit: false})` to prevent fetching on initialization, or alternatively use [useT3Api()](./useT3Api.md).
+::
+
