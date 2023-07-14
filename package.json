@@ -27,10 +27,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vee-validate/rules": "^4.10.2",
     "defu": "^6.1.2",
     "ofetch": "^1.0.1",
     "scule": "^1.0.0",
-    "ufo": "^1.0.1"
+    "ufo": "^1.0.1",
+    "vee-validate": "^4.10.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.0",
