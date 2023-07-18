@@ -4,25 +4,84 @@
     "slug": "/",
     "media": [],
     "meta": {
-        "title": "TYPO3 Demo Project",
-        "subtitle": "",
-        "abstract": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
-        "description": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
-        "keywords": "TYPO3, CMS, Demo, Open Source, Experience TYPO3",
-        "canonical": "",
-        "robots": {
-            "noIndex": false,
-            "noFollow": false
-        },
-        "author": "",
-        "authorEmail": "",
-        "ogTitle": "TYPO3 Demo Site",
-        "ogDescription": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
-        "ogImage": null,
-        "twitterTitle": "TYPO3 Demo Site",
-        "twitterDescription": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
-        "twitterCard": "summary",
-        "twitterImage": null
+      "title": "TYPO3 Demo Project",
+      "subtitle": "",
+      "abstract": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
+      "description": "Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3's amazing features.",
+      "keywords": "TYPO3, CMS, Demo, Open Source, Experience TYPO3",
+      "canonical": "",
+      "robots": { "noIndex": false, "noFollow": false },
+      "author": "",
+      "authorEmail": "",
+      "ogTitle": "Open graph title",
+      "ogDescription": "Open graph description ",
+      "ogImage": {
+        "publicUrl": "https://api.t3pwa.com/fileadmin/_processed_/6/e/csm_csm_pexels-matheus-gomes-2516025__1__b4cfde370d_0ee4fe9ac2.png",
+        "properties": {
+          "title": null,
+          "alternative": null,
+          "description": null,
+          "mimeType": "image/png",
+          "type": "image",
+          "filename": "csm_csm_pexels-matheus-gomes-2516025__1__b4cfde370d_0ee4fe9ac2.png",
+          "originalUrl": "/fileadmin/user_upload/csm_pexels-matheus-gomes-2516025__1__b4cfde370d.webp",
+          "uidLocal": 41,
+          "fileReferenceUid": 308,
+          "size": "277 KB",
+          "link": null,
+          "dimensions": { "width": 709, "height": 474 },
+          "cropDimensions": { "width": 709, "height": 474 },
+          "crop": {
+            "social": {
+              "cropArea": {
+                "x": 0,
+                "y": 0.10843440033578541,
+                "width": 1,
+                "height": 0.7831311993284292
+              },
+              "selectedRatio": "1_91:1",
+              "focusArea": null
+            }
+          },
+          "autoplay": null,
+          "extension": "webp"
+        }
+      },
+      "twitterTitle": "Twitter title",
+      "twitterDescription": "Twitter description ",
+      "twitterCard": "summary",
+      "twitterImage": {
+        "publicUrl": "https://api.t3pwa.com/fileadmin/_processed_/6/e/csm_csm_pexels-matheus-gomes-2516025__1__b4cfde370d_0ee4fe9ac2.png",
+        "properties": {
+          "title": null,
+          "alternative": null,
+          "description": null,
+          "mimeType": "image/png",
+          "type": "image",
+          "filename": "csm_csm_pexels-matheus-gomes-2516025__1__b4cfde370d_0ee4fe9ac2.png",
+          "originalUrl": "/fileadmin/user_upload/csm_pexels-matheus-gomes-2516025__1__b4cfde370d.webp",
+          "uidLocal": 41,
+          "fileReferenceUid": 325,
+          "size": "277 KB",
+          "link": null,
+          "dimensions": { "width": 709, "height": 474 },
+          "cropDimensions": { "width": 709, "height": 474 },
+          "crop": {
+            "social": {
+              "cropArea": {
+                "x": 0,
+                "y": 0.10843440033578541,
+                "width": 1,
+                "height": 0.7831311993284292
+              },
+              "selectedRatio": "1_91:1",
+              "focusArea": null
+            }
+          },
+          "autoplay": null,
+          "extension": "webp"
+        }
+      }
     },
     "categories": "",
     "breadcrumbs": [

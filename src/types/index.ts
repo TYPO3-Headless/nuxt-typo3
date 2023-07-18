@@ -1,5 +1,7 @@
 import type { T3ContentElement } from './T3ContentElement'
 import type { T3CeBaseProps } from './content'
+import type { T3Link } from './T3Link'
+import type { T3File } from './T3File'
 export * from './T3Link'
 export * from './T3File'
 export * from './T3Gallery'
@@ -139,17 +141,17 @@ export interface T3Meta {
   abstract: string
   description: string
   keywords: string
-  canonical: string
+  canonical: T3Link
   robots: T3Robots
   author: string
   authorEmail: string
   ogTitle: string
   ogDescription: string
-  ogImage: null | string
+  ogImage: T3File | null
   twitterTitle: string
   twitterDescription: string
   twitterCard: string
-  twitterImage: null | string
+  twitterImage: T3File | null
 }
 
 export interface T3PageAppearance {
