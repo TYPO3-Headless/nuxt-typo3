@@ -41,6 +41,10 @@ describe('useT3Meta', () => {
     expect(result).contains('<title>TYPO3 Demo Project</title>')
   }, 15000)
 
+  it('displays correct lang and dir attrs', () => {
+    expect(result).contains('<html lang="pl" dir="ltr">')
+  }, 15000)
+
   it('displays correct meta description', () => {
     expect(result).contains('<meta id="description" name="description" content="Get an insight on how the CMS TYPO3 works, log in to the backend, edit and delete content and experience TYPO3\'s amazing features.">')
   }, 15000)

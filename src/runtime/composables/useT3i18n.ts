@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { parseURL, withoutTrailingSlash } from 'ufo'
 import { useNuxtApp, useRoute, useState } from '#app'
 import type { T3I18N } from '../../types'
-import { useT3Api, useT3PageState } from './useT3Api'
+import { useT3Api, useT3InitialDataState } from './useT3Api'
 import { useT3Options } from './useT3Options'
 
 export const useT3i18nState = () => {
@@ -78,9 +78,13 @@ export const useT3i18n = (
   }
 
   const getCurrentLocaleData = () => {
-    const data = useT3PageState()
-    const locales = computed(() => data.value?.i18n)
+    const initialData = useT3InitialDataState()
 
+    if (!initialData.value) {
+      return null
+    }
+
+    const locales = computed(() => initialData.value.i18n)
     return locales.value?.find((t3locale) => {
       const twoLettterCurrentLocale = currentLocale.value.split('-')[0]
       return t3locale.twoLetterIsoCode === twoLettterCurrentLocale
