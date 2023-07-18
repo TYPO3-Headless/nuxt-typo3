@@ -1,6 +1,9 @@
 <template>
   <div>
-    <button id="refresh" @click="updateData()">
+    <button
+      id="refresh"
+      @click="updateData()"
+    >
       refresh
     </button>
     <T3Renderer

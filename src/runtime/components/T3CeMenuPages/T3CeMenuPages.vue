@@ -2,7 +2,10 @@
   <div class="t3-ce-menu">
     <T3CeHeader v-bind="props" />
     <ul v-if="props.menu">
-      <li v-for="(menuItem, key) in menu" :key="key">
+      <li
+        v-for="(menuItem, key) in menu"
+        :key="key"
+      >
         <NuxtLink
           :to="menuItem.link"
           :target="menuItem.target || null"
@@ -10,7 +13,10 @@
         >
           {{ menuItem.title }}
         </NuxtLink>
-        <slot name="link" :link="menuItem" />
+        <slot
+          name="link"
+          :link="menuItem"
+        />
         <T3CeMenuPagesList
           v-if="menuItem.children"
           :children="menuItem.children"

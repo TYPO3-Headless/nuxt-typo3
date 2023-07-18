@@ -29,14 +29,20 @@ export default {
       v-if="props.headerLayout >= 0 && props.headerLayout !== 100"
       :class="props.headerPosition"
     >
-      <NuxtLink v-if="props.headerLink" :to="typeof props.headerLink !== 'string' ? props.headerLink.href : props.headerLink">
+      <NuxtLink
+        v-if="props.headerLink"
+        :to="typeof props.headerLink !== 'string' ? props.headerLink.href : props.headerLink"
+      >
         {{ props.header }}
       </NuxtLink>
       <template v-else>
         {{ props.header }}
       </template>
     </component>
-    <component :is="`h${headerLevel + 1}`" v-if="props.subheader">
+    <component
+      :is="`h${headerLevel + 1}`"
+      v-if="props.subheader"
+    >
       {{ props.subheader }}
     </component>
   </div>

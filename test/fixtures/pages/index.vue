@@ -4,7 +4,10 @@
     <p>default locale: {{ i18n.default }}</p>
     <p>
       locales:
-      <span v-for="locale in i18n.locales" :key="locale">{{ locale }}</span>
+      <span
+        v-for="locale in i18n.locales"
+        :key="locale"
+      >{{ locale }}</span>
     </p>
     <NuxtPage />
   </div>

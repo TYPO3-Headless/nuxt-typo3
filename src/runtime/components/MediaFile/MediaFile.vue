@@ -10,5 +10,8 @@ const { mediaTypeComponent } = useMediaFile(props.file)
 </script>
 
 <template>
-  <component :is="mediaTypeComponent" :file="file" />
+  <component
+    :is="mediaTypeComponent"
+    :file="file"
+  />
 </template>

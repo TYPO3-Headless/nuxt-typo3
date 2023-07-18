@@ -1,7 +1,11 @@
 <template>
   <!-- /* eslint-disable @typescript-eslint/no-unused-vars */ -->
   <!-- eslint-disable vue/no-v-html -->
-  <div ref="htmlparser" class="t3-ce-rte" v-html="content" />
+  <div
+    ref="htmlparser"
+    class="t3-ce-rte"
+    v-html="content"
+  />
 </template>
 
 <script lang="ts" setup>

@@ -4,7 +4,10 @@
     :class="[$attrs.class, $attrs.staticClass]"
     class="t3-ce-media-image"
   >
-    <component :is="wrapperComponent" :to="file.properties.link">
+    <component
+      :is="wrapperComponent"
+      :to="file.properties.link"
+    >
       <figure>
         <img
           v-if="file.publicUrl"

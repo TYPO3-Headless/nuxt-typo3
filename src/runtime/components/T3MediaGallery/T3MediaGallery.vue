@@ -11,7 +11,10 @@ const { galleryClassList } = useT3MediaGallery(props.gallery)
 </script>
 
 <template>
-  <div :class="galleryClassList" class="t3-ce-gallery">
+  <div
+    :class="galleryClassList"
+    class="t3-ce-gallery"
+  >
     <slot name="before" />
     <div
       v-if="gallery.position.vertical === 'below'"
@@ -19,7 +22,10 @@ const { galleryClassList } = useT3MediaGallery(props.gallery)
     >
       <slot />
     </div>
-    <div v-if="gallery.count.files" class="t3-ce-gallery__container">
+    <div
+      v-if="gallery.count.files"
+      class="t3-ce-gallery__container"
+    >
       <div
         v-for="(row, rowKey) in gallery.rows"
         :key="`${rowKey}-r`"
@@ -30,7 +36,10 @@ const { galleryClassList } = useT3MediaGallery(props.gallery)
           :key="`${colKey}-c`"
           class="t3-ce-gallery__col"
         >
-          <component :is="resolveComponent('MediaFile')" :file="col" />
+          <component
+            :is="resolveComponent('MediaFile')"
+            :file="col"
+          />
         </div>
       </div>
     </div>

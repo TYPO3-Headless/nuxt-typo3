@@ -58,5 +58,9 @@ const renderFrame = (element: T3ContentElement<T3CeBaseProps>, index: number) =>
 </script>
 
 <template>
-  <component :is="frame && component.appearance.frameClass !== 'none' ? renderFrame(component, index) : renderComponent(component, index)" v-for="(component, index) in content" :key="index" />
+  <component
+    :is="frame && component.appearance.frameClass !== 'none' ? renderFrame(component, index) : renderComponent(component, index)"
+    v-for="(component, index) in content"
+    :key="index"
+  />
 </template>

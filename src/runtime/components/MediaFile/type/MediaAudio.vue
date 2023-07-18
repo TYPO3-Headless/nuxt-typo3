@@ -6,7 +6,10 @@
     class="t3-ce-media-audio"
     controls
   >
-    <source :src="file.publicUrl" type="audio/mp3">
+    <source
+      :src="file.publicUrl"
+      type="audio/mp3"
+    >
   </audio>
 </template>
 

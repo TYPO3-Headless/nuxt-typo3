@@ -3,7 +3,10 @@
     <div class="container">
       <h1>{{ error.statusCode }}</h1>
     </div>
-    <T3BackendLayout v-if="pageDataFallback" :content="pageDataFallback.content" />
+    <T3BackendLayout
+      v-if="pageDataFallback"
+      :content="pageDataFallback.content"
+    />
   </NuxtLayout>
 </template>
 <script setup lang="ts">
