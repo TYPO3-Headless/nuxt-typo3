@@ -42,7 +42,7 @@
     "@nuxt/test-utils": "latest",
     "eslint": "^8.29.0",
     "husky": "^8.0.0",
-    "nuxt": "^3.6.1",
+    "nuxt": "^3.6.3",
     "playwright": "^1.28.1",
     "standard-version": "^9.5.0",
     "vitest": "latest"
