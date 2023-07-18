@@ -1,5 +1,5 @@
 import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders } from '#app'
-import { setResponseHeaders, setResponseHeader } from 'h3'
+import { setResponseHeaders } from 'h3'
 import { useT3Options } from './composables/useT3Options'
 import { useT3i18n } from './composables/useT3i18n'
 import { T3ApiClient } from './lib/apiClient'

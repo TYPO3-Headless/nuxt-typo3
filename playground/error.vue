@@ -10,7 +10,7 @@
 import { H3Error } from 'h3'
 import { useHead } from '#app'
 import { useT3Page } from '../src/runtime/composables/useT3Page'
-const props = defineProps<{
+defineProps<{
   error: H3Error
 }>()
 
