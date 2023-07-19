@@ -4,9 +4,8 @@ import { FetchError } from 'ofetch'
 import { useRoute, useAsyncData, useError, showError } from '#app'
 import { T3Page } from '../../types'
 import { useT3Api } from './useT3Api'
-import { useT3Utils } from './useT3Utils'
+import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
-import { useT3DynamicBl } from './useT3DynamicComponent'
 import { RouteLocationNormalized } from '~/.nuxt/vue-router'
 
 export const useT3Page = async (options: {
@@ -65,17 +64,19 @@ export const useT3Page = async (options: {
     }
   })
 
-  const T3BackendLayout = computed(() => useT3DynamicBl(pageData?.value?.appearance?.backendLayout))
-
   if (fetchOnInit && route) {
     await getPageData(route.fullPath)
   }
+
+  const backendLayout = pageData.value?.appearance.backendLayout || 'default'
+  const frontendLayout = hasLayout(pageData.value?.appearance.layout!) ? pageData.value?.appearance.layout : 'default'
 
   return {
     pageDataFallback,
     pageData: process.server ? pageData : ref<T3Page | null>(pageData.value),
     getPageData,
     headData,
-    T3BackendLayout
+    backendLayout,
+    frontendLayout
   }
 }

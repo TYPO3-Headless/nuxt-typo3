@@ -1,7 +1,5 @@
 <template>
   <div>
-    <NuxtLoadingIndicator />
-
     <header v-if="navigation">
       <NuxtLink :to="localePath('doentexist')">
         does not exist

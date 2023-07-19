@@ -3,6 +3,7 @@ import { navigateTo, useNuxtApp } from '#app'
 import { T3RedirectData } from '../../types'
 import { useT3i18nState } from './useT3i18n'
 import { useT3Options } from './useT3Options'
+import layouts from '#build/layouts'
 
 export const useT3Utils = () => {
   const nuxtApp = useNuxtApp()
@@ -39,4 +40,8 @@ export const useT3Utils = () => {
     redirect,
     localePath
   }
+}
+
+export const hasLayout = (name = 'default') => {
+  return name in layouts
 }

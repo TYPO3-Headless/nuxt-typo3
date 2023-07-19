@@ -5,6 +5,7 @@
     </div>
     <T3BackendLayout
       v-if="pageDataFallback"
+      :name="pageDataFallback.appearance.backendLayout"
       :content="pageDataFallback.content"
     />
   </NuxtLayout>
@@ -17,7 +18,7 @@ defineProps<{
   error: H3Error
 }>()
 
-const { T3BackendLayout, pageDataFallback, headData } = await useT3Page({
+const { pageDataFallback, headData } = await useT3Page({
   fetchOnInit: false
 })
 useHead(headData)
