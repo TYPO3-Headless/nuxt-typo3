@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.20](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2023-07-19)
+
+
+### Refactor
+
+* layouts rendering ([#15](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/15)) ([0f4dda3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/0f4dda31f82bef8da0720818d4d64ff790cd67fa))
+
+
+### Documentation
+
+* layout section ([b9b124f](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b9b124f19b237d82fe035a5e3961cdfdda841487))
+
 ## [2.0.0-alpha.19](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.18...v2.0.0-alpha.19) (2023-07-18)
 
 
