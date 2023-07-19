@@ -15,7 +15,8 @@ const useT3Page: (options?: {
         error: Ref<Error | null>;
     }>;
     headData: ComputedRef<ReactiveHead>
-    T3BackendLayout: ComputedRef<DefineComponent<T3BackendLayout>>
+    backendLayout: string
+    frontendLayout: string | undefined
 }>
 ```
 ## example
@@ -24,11 +25,15 @@ Create/edit `pages/[...slug].vue`
 
 ```vue [pages/[...slug].vue]
 <template>
-  <T3BackendLayout :content="pageData.content" />
+  <T3BackendLayout
+    v-if="pageData?.content"
+    :name="backendLayout"
+    :content="pageData.content"
+  />
 </template>
 
 <script setup lang="ts">
-const { headData, pageData, T3BackendLayout } = await useT3Page()
+const { headData, pageData, backendLayout } = await useT3Page()
 useHead(headData)
 </script>
 ```
