@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.21](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.20...v2.0.0-alpha.21) (2023-07-21)
+
+
+### Documentation
+
+* add warning about headers passing ([cff9d66](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/cff9d6631ed37f9589b82015a6006f5dea662961))
+
+
+### Refactor
+
+* move frontend layouts out of scope T3Page to avoid rerendering ([b4d0c6d](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b4d0c6d51f7d42abf379d3f9f8f80b978fd3f8c4))
+
 ## [2.0.0-alpha.20](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2023-07-19)
 
 
