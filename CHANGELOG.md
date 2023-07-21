@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.1...v1.3.2) (2023-07-21)
+
+
+### Bug Fixes
+
+* t3debug correct name and render ([0f3b295](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/0f3b29584c2507ddc6158b4dcb2660de4a100738))
+
 ### [1.3.1](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.0...v1.3.1) (2023-06-29)
 
 
