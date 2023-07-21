@@ -5,12 +5,12 @@ export default {
   functional: true,
   render (createElement, ctx) {
     return createElement(
-      'div',
+      'pre',
       {
         style: {
           position: 'relative'
         },
-        class: 't3p-debug'
+        class: 't3-debug'
       },
       [
         createElement(
@@ -22,7 +22,6 @@ export default {
               color: '#000',
               display: 'inline-block',
               wordBreak: 'break-word',
-              position: 'absolute',
               fontSize: '12px',
               fontFamily:
                 'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace',
@@ -33,7 +32,7 @@ export default {
               backgroundColor: '#FED7D7'
             }
           },
-          JSON.stringify(ctx.props)
+          JSON.stringify(ctx.props, null, 4)
         ),
         ctx.children
       ]
