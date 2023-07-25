@@ -32,8 +32,8 @@ export interface T3Site {
      * Should proxy headers on SSR?
      * @default false
      */
-    proxyReqHeaders?: Boolean | Array<string>,
-    proxyHeaders?: Boolean | Array<string>
+    proxyReqHeaders?: false | Array<string>,
+    proxyHeaders?: false | Array<string>
     /**
      * Should API make calls for each query param?
      * provide whitelist as array of string or disable

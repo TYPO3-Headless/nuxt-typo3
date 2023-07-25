@@ -18,6 +18,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     $fetch: client.$fetch.bind(client)
   }
 
+  const proxyReqHeaders = client.siteOptions.api.proxyReqHeaders
+  const reqHeaders = (proxyReqHeaders && Array.isArray(proxyReqHeaders) && proxyReqHeaders.length) ? useRequestHeaders(proxyReqHeaders) : {}
+  client.fetchOptions.headers = { ...client.fetchOptions.headers, ...reqHeaders }
+
   nuxtApp.provide('typo3', typo3)
 
   if (currentSiteOptions.value.features?.initInitialData) {
@@ -31,19 +35,18 @@ export default defineNuxtPlugin((nuxtApp) => {
       global: true
     })
   }
+
+  nuxtApp.hook('app:rendered', () => {
+    if (client.siteOptions.api.proxyHeaders) {
+      setResponseHeaders(useRequestEvent(), client.apiHeaders)
+    }
+  })
 })
 
 // grab SSR and Request headers and hydrate them to ClientSide
 export const hydrateT3ClientHeaders = (client: T3ApiClient) => {
   useHydration('T3:api:headers',
     () => {
-      if (client.siteOptions.api.proxyHeaders) {
-        setResponseHeaders(useRequestEvent(), client.apiHeaders)
-      }
-
-      const proxyHeaders = client.siteOptions.api.proxyReqHeaders
-      const reqHeaders = (proxyHeaders && Array.isArray(proxyHeaders) && proxyHeaders.length) ? useRequestHeaders(proxyHeaders) : {}
-      client.fetchOptions.headers = { ...client.fetchOptions.headers, ...reqHeaders }
       return client.fetchOptions.headers
     },
     (headers) => {
