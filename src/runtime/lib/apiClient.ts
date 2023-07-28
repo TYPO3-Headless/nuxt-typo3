@@ -59,7 +59,7 @@ export class T3ApiClient implements T3Api {
    * @param {FetchOptions} options
    * @returns {Promise<T3Page>} pageData promise
    */
-  getPage (path: string, options?: FetchOptions<'json'>): Promise<T3Page> {
+  getPage (path: string = '/', options?: FetchOptions<'json'>): Promise<T3Page> {
     return this.$fetch(this.filterQuery(path), this.getOptions(options))
   }
 
@@ -70,13 +70,13 @@ export class T3ApiClient implements T3Api {
    * @returns {Promise<T3InitialData>} initialData promise
    */
   getInitialData (
-    path: string,
+    path: string = '/',
     options?: FetchOptions<'json'>
   ): Promise<T3InitialData> {
     const isQuery = getQuery(this.initialDataEndpoint)
     const initialDataPath = !Object.keys(isQuery).length ? this.initialDataEndpoint : ''
 
-    return this.$fetch(cleanDoubleSlashes(path + initialDataPath),
+    return this.$fetch(this.filterQuery(cleanDoubleSlashes(path + initialDataPath)),
       { query: isQuery ?? {}, ...this.getOptions(options) }
     )
   }
