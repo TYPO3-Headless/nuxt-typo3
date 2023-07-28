@@ -1,5 +1,5 @@
 import type { RouteLocationNormalized } from 'vue-router'
-import { cleanDoubleSlashes } from 'ufo'
+import { withoutLeadingSlash, withQuery } from 'ufo'
 import { showError } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
@@ -17,7 +17,15 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
   const initialDataFallback = currentSiteOptions.value.api.endpoints?.initialDataFallback
 
   const getInitialDataPath = (endpoint: string) => {
-    return cleanDoubleSlashes(endpoint?.startsWith('?') ? getPathWithLocale(to.fullPath) + endpoint : getPathWithLocale() + endpoint)
+    if (endpoint.startsWith('?')) {
+      return getPathWithLocale(to.fullPath)
+    }
+
+    if (Object.keys(to.query).length) {
+      return withQuery(getPathWithLocale(), to.query)
+    }
+
+    return withoutLeadingSlash(getPathWithLocale())
   }
 
   try {

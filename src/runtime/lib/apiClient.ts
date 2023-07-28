@@ -76,7 +76,7 @@ export class T3ApiClient implements T3Api {
     const isQuery = getQuery(this.initialDataEndpoint)
     const initialDataPath = !Object.keys(isQuery).length ? this.initialDataEndpoint : ''
 
-    return this.$fetch(cleanDoubleSlashes(path + initialDataPath),
+    return this.$fetch(this.filterQuery(cleanDoubleSlashes(path + initialDataPath)),
       { query: isQuery ?? {}, ...this.getOptions(options) }
     )
   }
