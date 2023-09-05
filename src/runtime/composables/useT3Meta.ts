@@ -32,7 +32,7 @@ export const useT3Meta = (): {
   const currentLocale = getCurrentLocaleData()
   const data = useT3PageState()
   const metaData = computed(() => data.value?.meta)
-
+  console.log(data);
   const twitter = computed(() => {
     const { twitterTitle, twitterDescription, twitterImage, twitterCard, title, description, ogImage } = metaData.value!
 
@@ -135,11 +135,33 @@ export const useT3Meta = (): {
         lang: currentLocale?.twoLetterIsoCode,
         dir: currentLocale?.direction
       },
+      bodyAttrs: {
+        class: generateClassString()
+      },
       meta: metaFilter(meta),
       link: links
     }
   })
 
+  const generateClassString = (): string => {
+    const classPrefixes: Record<string, number | string | undefined> = {
+      pid: data.value?.id,
+      layout: data.value?.appearance?.layout,
+    };
+  
+    const classStringArray: string[] = [];
+  
+    for (const prefix in classPrefixes) {
+      if (classPrefixes[prefix] !== undefined) {
+        classStringArray.push(`${prefix}-${classPrefixes[prefix]}`);
+      }
+    }
+  
+    const classString = classStringArray.join(' ');
+  
+    return classString;
+  }
+  
   const metaFilter = (meta: Partial<Meta>[]) => {
     return meta.filter(
       ({ content }) =>
