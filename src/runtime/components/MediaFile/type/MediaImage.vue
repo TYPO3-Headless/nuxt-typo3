@@ -35,5 +35,5 @@ const props = defineProps<{
 }>()
 
 const { isNuxtLink } = useMediaFile(props.file)
-const wrapperComponent = computed(() => isNuxtLink ? resolveComponent('NuxtLink') : 'div')
+const wrapperComponent = computed(() => isNuxtLink.value ? resolveComponent('nuxt-link') : 'div')
 </script>
