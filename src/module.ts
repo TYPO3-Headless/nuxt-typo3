@@ -62,9 +62,14 @@ export default defineNuxtModule<ModuleOptions>({
         extensions: ['vue'],
         pathPrefix: false,
         ignore: ['**/*.types.ts'],
-        global: true
+        global: true,
+        extendComponent: (component) => {
+          component.priority = -1
+          return component
+        }
       })
-    }
+    },
+
   },
   setup (options, nuxt) {
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
