@@ -1,33 +1,39 @@
 <script lang="ts" setup>
 // helper component to render nested list
-import { h } from 'vue'
+import { h, resolveComponent } from 'vue'
 
 interface T3CeMenuPagesListProps {
-  children: Array<any>
+  children: Array<any>;
 }
 const props = defineProps<T3CeMenuPagesListProps>()
 
-const T3CeMenuPagesList = h(
-  'ul',
-  props.children.map((el) => {
+const renderItems = () => {
+  return props.children.map((el) => {
     return h('li', {}, [
       h(
-        'NuxtLink',
+        resolveComponent('NuxtLink'),
         {
           to: el.link,
           target: el.target || null,
           title: el.title
         },
-        el.title
+        () => [el.title]
       ),
       el.children
-        ? h('T3CeMenuPagesList', {
-          children: el.children
-        })
-        : false
+        ? h(resolveComponent('T3CeMenuPagesList'), { children: el.children })
+        : null
     ])
   })
-)
+}
+const T3CeMenuPagesList = () => {
+  return h(
+    'ul',
+    {},
+    {
+      default: () => renderItems()
+    }
+  )
+}
 </script>
 
 <template>

@@ -10,7 +10,8 @@ export interface T3File {
     originalUrl: string
     fileReferenceUid: number
     size: string
-    link: string | null
+    link: string | null,
+    uidLocal?: number,
     dimensions: {
       width: number
       height: number
