@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, resolveComponent } from 'vue'
 import type { T3File } from '../../../../types'
 import { useMediaFile } from '../useMediaFile'
 
@@ -35,5 +35,5 @@ const props = defineProps<{
 }>()
 
 const { isNuxtLink } = useMediaFile(props.file)
-const wrapperComponent = computed(() => isNuxtLink ? 'nuxt-link' : 'div')
+const wrapperComponent = computed(() => isNuxtLink ? resolveComponent('NuxtLink') : 'div')
 </script>
