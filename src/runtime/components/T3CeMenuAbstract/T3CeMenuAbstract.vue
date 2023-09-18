@@ -4,9 +4,10 @@
     class="t3-ce-menu-abstract"
   >
     <template #link="{ link }">
+      {{ link.title }}
       <T3HtmlParser
-        v-if="link?.data?.abstract"
-        :content="link.data.abstract"
+        v-if="link.abstract"
+        :content="link.abstract"
       />
     </template>
   </T3CeMenuPages>
@@ -15,4 +16,7 @@
 <script lang="ts" setup>
 import T3CeMenuPages from '../T3CeMenuPages/T3CeMenuPages.vue'
 import T3HtmlParser from '../T3HtmlParser/T3HtmlParser.vue'
+import type { T3CeMenuPagesProps } from '../../../types'
+
+defineProps<T3CeMenuPagesProps>()
 </script>
