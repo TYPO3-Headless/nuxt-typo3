@@ -27,9 +27,11 @@ onBeforeUnmount(() => {
 
 const htmlparser = ref<HTMLDivElement>()
 function addListeners () {
-  links.value = htmlparser.value?.getElementsByTagName('a')
-  for (let i = 0; i < links.value!.length; i++) {
-    links.value![i].addEventListener('click', navigate, false)
+  links.value = htmlparser.value?.getElementsByTagName('a');
+  if (links.value) {
+    for (let i = 0; i < links.value.length; i++) {
+      links.value[i]?.addEventListener('click', navigate, false);
+    }
   }
 }
 
