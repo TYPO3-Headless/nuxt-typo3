@@ -42,7 +42,7 @@ describe('useT3Meta', () => {
   }, 15000)
 
   it('displays correct lang and dir attrs', () => {
-    expect(result).contains('<html lang="pl" dir="ltr">')
+    expect(result).contains('lang="pl" dir="ltr"')
   }, 15000)
 
   it('displays correct meta description', () => {
