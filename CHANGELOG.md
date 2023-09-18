@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.23](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2023-09-18)
+
+
+### Features
+
+* add priority to typo3 components to prevent console warnings ([20d2ce2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/20d2ce298fa125471989e7d9e3c72fd306e35699))
+
+
+### Bug Fixes
+
+* html attr in test because of nuxt changes ([0a5f36c](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/0a5f36cc75f8016a9e9d3b82355854600feac36a))
+* remove none-null assertion from t3htmlparser, addd additional check ([4a4dd9a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/4a4dd9ab5d20f38bc804746a7070d16a0b79c2ce))
+* rendering nuxt link if is set with image ([a91a994](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a91a994492738ff09477ecf82d447129aee30246))
+* type error with menuAbstract ([d3bac75](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d3bac7561b278bdc0b498da12417ac42fa29755a))
+* wrapperComponent always true, needs value to be checked ([1eb60c9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/1eb60c945fac82f355a41b1662f41958bf416650))
+
+
+### Documentation
+
+* i18n sections ([#22](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/22)) ([1eecc4e](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/1eecc4ec9db5777b1ac31c459f261f4c372363f3))
+* update types section ([#21](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/21)) ([ca99a86](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ca99a86af8f0d3fe2e7f18503c7e19916e9ea09f))
+
 ## [2.0.0-alpha.22](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2023-07-31)
 
 

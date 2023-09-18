@@ -1,6 +1,6 @@
 {
   "name": "@t3headless/nuxt-typo3",
-  "version": "2.0.0-alpha.22",
+  "version": "2.0.0-alpha.23",
   "license": "MIT",
   "type": "module",
   "exports": {
