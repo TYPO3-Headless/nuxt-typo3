@@ -156,14 +156,14 @@ export const useT3Meta = (): {
         dir: currentLocale?.direction
       },
       bodyAttrs: {
-        class: generateClassString()
+        class: bodyClassString
       },
       meta: metaFilter(meta),
       link: links
     }
   })
 
-  const generateClassString = (): string => {
+  const bodyClassString = computed(() => {
     const classPrefixes: Record<string, number | string | undefined> = {
       pid: data.value?.id,
       layout: data.value?.appearance?.layout,
@@ -180,7 +180,7 @@ export const useT3Meta = (): {
     const classString = classStringArray.join(' ');
   
     return classString;
-  }
+  })
 
   const metaFilter = (meta: Partial<Meta>[]) => {
     return meta.filter(
