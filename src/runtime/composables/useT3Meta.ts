@@ -1,9 +1,10 @@
 import { ComputedRef, computed } from 'vue'
 import type { Meta } from 'zhead'
 import type { ReactiveHead } from '@unhead/vue'
-import type { T3Meta } from '../../types'
+import type { T3I18N, T3Meta } from '../../types'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
+import { useT3Options } from '../composables/useT3Options'
 
 export const useT3Meta = (): {
   metaData: ComputedRef<T3Meta | undefined>
@@ -31,8 +32,8 @@ export const useT3Meta = (): {
   const { getCurrentLocaleData } = useT3i18n()
   const currentLocale = getCurrentLocaleData()
   const data = useT3PageState()
+  const { currentSiteOptions } = useT3Options()
   const metaData = computed(() => data.value?.meta)
-
   const twitter = computed(() => {
     const { twitterTitle, twitterDescription, twitterImage, twitterCard, title, description, ogImage } = metaData.value!
 
@@ -109,18 +110,37 @@ export const useT3Meta = (): {
     ]
   })
 
+
   const links = computed(() => {
-    const { canonical } = metaData.value!
-
-    if (!canonical) {
-      return []
+    const link: { rel: string; hreflang?: string; href: string }[] = [];
+    const baseUrl = currentSiteOptions.value?.baseUrl;
+    const canonical = {
+      rel: 'canonical',
+      href: metaData.value?.canonical?.href || '', 
+    };
+  
+    if (baseUrl) {
+      data.value?.i18n.forEach((item: T3I18N) => {
+        if (!canonical.href && item.active) {
+          canonical.href = baseUrl + item.link;
+        }
+    
+        if (item.available) {
+          link.push({
+            rel: 'alternate',
+            hreflang: item.hreflang,
+            href: baseUrl + item.link,
+          });
+        }
+      });
     }
-
-    return [{
-      ref: 'canonical',
-      href: canonical.href
-    }]
-  })
+  
+    if (canonical.href) {
+      link.push(canonical);
+    }
+    return link;
+  });
+  
 
   const headData = computed(() => {
     if (!metaData.value) {
@@ -135,9 +155,31 @@ export const useT3Meta = (): {
         lang: currentLocale?.twoLetterIsoCode,
         dir: currentLocale?.direction
       },
+      bodyAttrs: {
+        class: bodyClassString
+      },
       meta: metaFilter(meta),
       link: links
     }
+  })
+
+  const bodyClassString = computed(() => {
+    const classPrefixes: Record<string, number | string | undefined> = {
+      pid: data.value?.id,
+      layout: data.value?.appearance?.layout,
+    };
+  
+    const classStringArray: string[] = [];
+  
+    for (const prefix in classPrefixes) {
+      if (classPrefixes[prefix] !== undefined) {
+        classStringArray.push(`${prefix}-${classPrefixes[prefix]}`);
+      }
+    }
+  
+    const classString = classStringArray.join(' ');
+  
+    return classString;
   })
 
   const metaFilter = (meta: Partial<Meta>[]) => {

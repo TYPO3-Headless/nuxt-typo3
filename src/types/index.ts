@@ -13,6 +13,10 @@ export * from './T3BackendLayout'
 export * from './content'
 
 export interface T3Site {
+  /**
+     * Base app url for handling default canonical links
+  */
+  baseUrl?: string
   api: {
     /**
      * TYPO3 headless API base url
