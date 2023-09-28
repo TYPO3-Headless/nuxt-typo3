@@ -120,23 +120,31 @@ export const useT3Meta = (): {
 
     if (baseUrl) {
       data.value?.i18n.forEach((item: T3I18N) => {
-        if (!canonical.href && item.active) {
-          canonical.href = baseUrl + item.link
+        if (item.active) {
+          canonical.href = baseUrl + (canonical.href || item.link)
+        }
+
+        if (item.languageId === 0) {
+          link.push({
+            rel: 'alternate',
+            hreflang: 'x-default',
+            href: baseUrl + item.link
+          })
         }
 
         if (item.available) {
           link.push({
             rel: 'alternate',
-            hreflang: item.hreflang,
+            hreflang: item.twoLetterIsoCode,
             href: baseUrl + item.link
           })
         }
       })
     }
-
     if (canonical.href) {
       link.push(canonical)
     }
+
     return link
   })
 
