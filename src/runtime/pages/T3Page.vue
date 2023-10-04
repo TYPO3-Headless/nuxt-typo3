@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import { useHead } from "#app"
-import { useT3Page } from "../composables/useT3Page"
+import { useHead } from '#app'
+import { useT3Page } from '../composables/useT3Page'
 const { headData, pageData, backendLayout } = await useT3Page()
-useHead(headData);
+useHead(headData)
 </script>

@@ -69,7 +69,7 @@ export const useT3Page = async (options: {
   }
 
   const backendLayout = pageData.value?.appearance.backendLayout || 'default'
-  const frontendLayout = hasLayout(pageData.value?.appearance.layout!) ? pageData.value?.appearance.layout : 'default'
+  const frontendLayout = hasLayout(pageData.value?.appearance.layout) ? pageData.value?.appearance.layout : 'default'
 
   return {
     pageDataFallback,

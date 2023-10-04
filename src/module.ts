@@ -68,7 +68,7 @@ export default defineNuxtModule<ModuleOptions>({
           return component
         }
       })
-    },
+    }
 
   },
   setup (options, nuxt) {

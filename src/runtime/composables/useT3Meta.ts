@@ -2,9 +2,9 @@ import { ComputedRef, computed } from 'vue'
 import type { Meta } from 'zhead'
 import type { ReactiveHead } from '@unhead/vue'
 import type { T3I18N, T3Meta } from '../../types'
+import { useT3Options } from '../composables/useT3Options'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
-import { useT3Options } from '../composables/useT3Options'
 
 export const useT3Meta = (): {
   metaData: ComputedRef<T3Meta | undefined>
@@ -110,37 +110,35 @@ export const useT3Meta = (): {
     ]
   })
 
-
   const links = computed(() => {
-    const link: { rel: string; hreflang?: string; href: string }[] = [];
-    const baseUrl = currentSiteOptions.value?.baseUrl;
+    const link: { rel: string; hreflang?: string; href: string }[] = []
+    const baseUrl = currentSiteOptions.value?.baseUrl
     const canonical = {
       rel: 'canonical',
-      href: metaData.value?.canonical?.href || '', 
-    };
-  
+      href: metaData.value?.canonical?.href || ''
+    }
+
     if (baseUrl) {
       data.value?.i18n.forEach((item: T3I18N) => {
         if (!canonical.href && item.active) {
-          canonical.href = baseUrl + item.link;
+          canonical.href = baseUrl + item.link
         }
-    
+
         if (item.available) {
           link.push({
             rel: 'alternate',
             hreflang: item.hreflang,
-            href: baseUrl + item.link,
-          });
+            href: baseUrl + item.link
+          })
         }
-      });
+      })
     }
-  
+
     if (canonical.href) {
-      link.push(canonical);
+      link.push(canonical)
     }
-    return link;
-  });
-  
+    return link
+  })
 
   const headData = computed(() => {
     if (!metaData.value) {
@@ -166,20 +164,20 @@ export const useT3Meta = (): {
   const bodyClassString = computed(() => {
     const classPrefixes: Record<string, number | string | undefined> = {
       pid: data.value?.id,
-      layout: data.value?.appearance?.layout,
-    };
-  
-    const classStringArray: string[] = [];
-  
+      layout: data.value?.appearance?.layout
+    }
+
+    const classStringArray: string[] = []
+
     for (const prefix in classPrefixes) {
       if (classPrefixes[prefix] !== undefined) {
-        classStringArray.push(`${prefix}-${classPrefixes[prefix]}`);
+        classStringArray.push(`${prefix}-${classPrefixes[prefix]}`)
       }
     }
-  
-    const classString = classStringArray.join(' ');
-  
-    return classString;
+
+    const classString = classStringArray.join(' ')
+
+    return classString
   })
 
   const metaFilter = (meta: Partial<Meta>[]) => {
