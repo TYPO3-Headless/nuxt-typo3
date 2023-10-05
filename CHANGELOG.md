@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.24](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2023-10-05)
+
+
+### Features
+
+* add canonical link with current url if not set, add hreflang links ([e8175ea](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/e8175ea1c8801c0c5b3b70b73d9f255ab5803cc8))
+* add default canonicals and hreflangs ([#19](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/19)) ([8ce9a37](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8ce9a372a7eb271ac651d6c8186d472cc313f2ec))
+* add form framework support ([aacc8a3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/aacc8a38583ac4e2da0a2ac28a60e92d9de7cb98))
+* add missing content elements ([c9e0f97](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/c9e0f97323e5b49eccfc143a301c647f51fa88c5))
+* add new option - baseUrl to handle canonical and hreflang links, update documentation ([3e66dd4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/3e66dd430b4d4b76dedca45860cd55cbe55b0c26))
+* add priority to typo3 components to prevent console warnings ([b002786](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b002786081143a7c120311c82e1c21f509294dbf))
+* add to body classes with page id and layout name ([#19](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/19)) ([d4be1c3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d4be1c3a1f5c270e95057eed6357904fa7af7092))
+
+
+### Bug Fixes
+
+* change function generating body classes string for computed property ([38f37a8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/38f37a8f9b5c7ec2b18097775fa814235945930c))
+* html attr in test because of nuxt changes ([a79cc7f](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a79cc7f50cc27c109954e5e1afa5ab8713d1467f))
+* remove none-null assertion from t3htmlparser, addd additional check ([50e9b00](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/50e9b00239e8cf68d44d2c1cdd0e188d3652f6d9))
+* rendering nuxt link if is set with image ([eef22b0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/eef22b0e7fc579998c29e7b87623c602dab33e5c))
+* type error with menuAbstract ([c12ee10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/c12ee100eb2ad271d9e0ac9a7a40324798fc90ea))
+* wrapperComponent always true, needs value to be checked ([909a640](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/909a64011f0384770e4c32e87ac88082c9f6eda5))
+
 ## [2.0.0-alpha.23](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2023-09-18)
 
 
