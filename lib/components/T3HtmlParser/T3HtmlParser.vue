@@ -45,8 +45,12 @@ export default {
       // If target is still not a link, ignore
       if (!(target instanceof HTMLAnchorElement)) { return }
       const href = target.getAttribute('href')
-      // Get link target, if local link, navigate with router link
-      if (href && href[0] === '/') {
+      const hrefTarget = target.getAttribute('target')
+      const isCtrlKeyPressed = event.ctrlKey || event.metaKey
+      const openInNewTab = (hrefTarget && hrefTarget === '_blank') || isCtrlKeyPressed
+      // If link is local, not set to open in a new tab,
+      // and Ctrl (or Cmd) key is not pressed, navigate with router link
+      if (href && href[0] === '/' && !openInNewTab) {
         event.preventDefault()
         this.$router.push(href)
       }
