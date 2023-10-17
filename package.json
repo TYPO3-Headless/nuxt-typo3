@@ -1,6 +1,6 @@
 {
   "name": "nuxt-typo3",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "TYPO3 Frontend rendered in Vue.js and Nuxt (frontend for EXT:headless)",
   "license": "MIT",
   "author": "Macopedia",
@@ -22,7 +22,7 @@
     "vue"
   ],
   "scripts": {
-    "dev": "nuxt example",
+    "dev": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && nuxt example",
     "lint": "eslint --ext .js,.vue example lib",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "yarn jest",

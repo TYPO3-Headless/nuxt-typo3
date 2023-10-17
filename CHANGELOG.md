@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.2...v1.3.3) (2023-10-17)
+
+
+### Bug Fixes
+
+* add option to open local links in a new tab ([#317](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/317)) ([f7640e8](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/f7640e867ed1f6409c0f39ad8ede961f400d796d))
+
 ### [1.3.2](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.1...v1.3.2) (2023-07-21)
 
 
