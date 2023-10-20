@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { T3FormI18n } from '../../../../types'
+import type { T3FormI18n } from '../../../../types'
 
 defineProps<{
   state: { sending: boolean }

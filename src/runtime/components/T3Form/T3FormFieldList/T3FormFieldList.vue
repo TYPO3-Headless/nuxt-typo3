@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { T3FormFieldListProps } from '../../../../types'
+import type { T3FormFieldListProps } from '../../../../types'
 import { useT3FormFieldList } from './useT3FormFieldList'
 
 const props = defineProps<T3FormFieldListProps>()
