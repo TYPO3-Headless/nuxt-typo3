@@ -1,6 +1,7 @@
-import { resolveDynamicComponent, inject, type VNodeTypes } from 'vue'
+import { resolveDynamicComponent, inject } from 'vue'
+import type { VNodeTypes } from 'vue'
 import { pascalCase } from 'scule'
-import { T3FormElement, T3FormFieldListProps } from '../../../../types'
+import type { T3FormElement, T3FormFieldListProps } from '../../../../types'
 import { T3FormCustomComponentsKey } from '../useT3Form'
 
 export function useT3FormFieldList (props: T3FormFieldListProps) {

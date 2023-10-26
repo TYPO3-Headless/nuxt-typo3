@@ -1,7 +1,7 @@
 import { resolveDynamicComponent } from 'vue'
 import { pascalCase } from 'scule'
-import { DefineComponent } from 'nuxt/dist/app/compat/capi'
-import { T3BackendLayout, T3CeBaseProps } from '../../types'
+import type { DefineComponent } from 'nuxt/dist/app/compat/capi'
+import type { T3BackendLayout, T3CeBaseProps } from '../../types'
 
 interface DynamicComponentParams {
   type?: string

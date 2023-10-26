@@ -1,7 +1,7 @@
 <script lang="ts">
 // Content element wrapper - Section Frame
 // All props are returned from appearance
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 
 import type {
   T3AppearanceFrameClass,

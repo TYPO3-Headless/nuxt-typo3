@@ -1,7 +1,5 @@
 import { computed } from 'vue'
-// Due to this issue it is not possible to import types into props
-// https://github.com/vuejs/core/issues/4294
-import { T3CeHeaderProps } from '~/../src/types'
+import type { T3CeHeaderProps } from '~/../src/types'
 
 /**
  * Provides headerLevel and headerClass computed values based on provided props

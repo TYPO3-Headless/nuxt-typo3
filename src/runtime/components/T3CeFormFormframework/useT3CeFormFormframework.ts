@@ -1,4 +1,5 @@
-import { computed, ref, Ref } from 'vue'
+import { computed, ref } from 'vue'
+import type { Ref } from 'vue'
 import {
   alpha,
   integer,
@@ -11,7 +12,7 @@ import {
 } from '@vee-validate/rules'
 import { defineRule } from 'vee-validate'
 import { navigateTo } from 'nuxt/app'
-import { T3CeFormFormframeworkOptions, T3CeFormFormframeworkProps, Form, T3CeFormResponse, FormElement, T3FormElement, T3FormSubmitPayload, FormErrors } from '../../../types'
+import type { T3CeFormFormframeworkOptions, T3CeFormFormframeworkProps, Form, T3CeFormResponse, FormElement, T3FormElement, T3FormSubmitPayload, FormErrors } from '../../../types'
 import { useT3Api } from '../../composables/useT3Api'
 
 export function useT3CeFormFormframework (

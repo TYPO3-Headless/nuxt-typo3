@@ -1,4 +1,4 @@
-import { T3ContentElement } from '.'
+import type { T3ContentElement } from '.'
 
 export interface T3BackendLayout {
   content: {

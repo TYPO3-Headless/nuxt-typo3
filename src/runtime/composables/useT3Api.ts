@@ -1,4 +1,4 @@
-import { FetchOptions } from 'ofetch'
+import type { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
 import { useState, useNuxtApp, useRoute } from '#app'
 import type { T3InitialData, T3Page } from '../../types'

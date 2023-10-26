@@ -1,7 +1,7 @@
 import type { InjectionKey } from 'vue'
 import { computed, provide } from 'vue'
 import { useForm } from 'vee-validate'
-import { T3FormCustomComponents, T3FormElement, T3FormProps } from '../../../types'
+import type { T3FormCustomComponents, T3FormElement, T3FormProps } from '../../../types'
 
 export const T3FormCustomComponentsKey: InjectionKey<T3FormCustomComponents> = Symbol('CustomComponents')
 

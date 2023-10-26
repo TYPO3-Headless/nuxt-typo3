@@ -1,8 +1,8 @@
-import { FieldMeta, FormState } from 'vee-validate'
-import { T3Link } from '../T3Link'
-import { T3PageAppearance } from '../../types'
-import { T3CeBaseProps } from './T3CeBase'
-import { FormElement, T3FormI18n } from './T3Form'
+import type { FieldMeta, FormState } from 'vee-validate'
+import type { T3Link } from '../T3Link'
+import type { T3PageAppearance } from '../../types'
+import type { T3CeBaseProps } from './T3CeBase'
+import type { FormElement, T3FormI18n } from './T3Form'
 
 export interface FormAPI {
   status: string | null;

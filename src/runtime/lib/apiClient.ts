@@ -2,8 +2,7 @@ import type { FetchContext, FetchOptions, FetchResponse } from 'ofetch'
 import { $fetch } from 'ofetch'
 import { cleanDoubleSlashes, getQuery } from 'ufo'
 import { defu } from 'defu'
-import { T3Site } from '../../types'
-import type { T3InitialData, T3Page } from '../../types'
+import type { T3Site, T3Page, T3InitialData } from '../../types'
 
 export interface T3Api {
   $fetch: <T>(request: RequestInfo, options?: FetchOptions<'json'>) => Promise<T>
