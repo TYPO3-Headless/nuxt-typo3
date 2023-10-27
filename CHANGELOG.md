@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-alpha.25](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2023-10-27)
+
+
+### Bug Fixes
+
+* add option to open local links in a new tab ([8a3e206](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8a3e20646e31211fd9a8574afd95a80c342f8cdc))
+* gitlab-ci ([0b44668](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/0b44668598f7d8b97813bc909bae61d578c3aa73))
+* use type-only import ([234a931](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/234a931817ec74b303da2d59fd7351d0cfe7c1ac))
+* use type-only import ([2054ac5](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/2054ac5890811a46b6e305aca28cc5e0f9443186))
+
 ## [2.0.0-alpha.24](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2023-10-05)
 
 
