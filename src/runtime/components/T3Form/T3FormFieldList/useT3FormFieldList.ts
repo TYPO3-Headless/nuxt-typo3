@@ -29,5 +29,9 @@ export function useT3FormFieldList (props: T3FormFieldListProps) {
     return getComponentByName(field.identifier) ?? getComponentByName(field.type) ?? 'T3FormField'
   }
 
-  return { resolveFieldComponent }
+  const resolveFieldWrapper = (field: T3FormElement) => {
+    return field.type === 'fieldset' ? 'fieldset' : 'div'
+  }
+
+  return { resolveFieldComponent, resolveFieldWrapper }
 }

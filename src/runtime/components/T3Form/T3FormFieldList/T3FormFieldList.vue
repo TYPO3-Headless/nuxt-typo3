@@ -1,6 +1,7 @@
 <template>
   <div class="t3-form-field-list">
-    <div
+    <component
+      :is="resolveFieldWrapper(field)"
       v-for="(field) in elements"
       :key="field.identifier"
     >
@@ -15,7 +16,7 @@
         :elements="field.elements"
         :custom-components="customComponents"
       />
-    </div>
+    </component>
   </div>
 </template>
 
@@ -24,5 +25,5 @@ import type { T3FormFieldListProps } from '../../../../types'
 import { useT3FormFieldList } from './useT3FormFieldList'
 
 const props = defineProps<T3FormFieldListProps>()
-const { resolveFieldComponent } = useT3FormFieldList(props)
+const { resolveFieldComponent, resolveFieldWrapper } = useT3FormFieldList(props)
 </script>
