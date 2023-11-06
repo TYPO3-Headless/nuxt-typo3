@@ -9,5 +9,7 @@ export function useT3FormFieldSelect ({ field }: { field: any}) {
     })
   })
 
-  return { options }
+  const prependOptionLabel = field.properties?.prependOptionLabel ?? null
+
+  return { options, prependOptionLabel }
 }
