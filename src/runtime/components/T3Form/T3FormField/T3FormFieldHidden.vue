@@ -1,7 +1,7 @@
 <template>
   <T3FormField
-    v-bind="props"
-    type="hidden"
+    :name="props.name"
+    :field="{ ...props.field, type: 'hidden' }"
     class="t3-form-field-hidden"
   />
 </template>

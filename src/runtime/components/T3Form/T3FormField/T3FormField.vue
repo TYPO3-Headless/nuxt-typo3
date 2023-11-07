@@ -7,7 +7,7 @@
       <input
         v-model="value"
         :name="name"
-        :type="type"
+        :type="field.type"
         :placeholder="field.properties?.fluidAdditionalAttributes?.placeholder"
       >
     </slot>
