@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.3...v1.3.4) (2023-11-08)
+
+
+### Bug Fixes
+
+* add error handling for attempts to access pages with content-type other than json ([#319](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/319)) ([632b88b](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/632b88bd552bdce905b2873ab19e9c7c2ea87ee2))
+* handle JSON error handling ([#322](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/322)) ([a24f05a](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/a24f05a5b4aa53cccceca12efa97f3495dfa11db))
+
 ### [1.3.3](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.2...v1.3.3) (2023-10-17)
 
 
