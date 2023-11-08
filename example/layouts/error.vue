@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>ERROR PAGE {{ error.statusCode }}</h1>
+    <h1>ERROR PAGE {{ error.message }}</h1>
+
     <t3-dynamic
-      v-if="t3page"
+      v-if="t3page && t3page.content"
       :data="t3page.content"
       :type="t3page.appearance.backendLayout"
       layout
