@@ -91,11 +91,6 @@ export interface T3Site {
      */
     i18nMiddleware?: boolean
     /**
-     * use form components with vee-validate
-     * * @default true
-     */
-    forms?: boolean
-    /**
      * show content element data on each frontend component
      */
     debug?: boolean

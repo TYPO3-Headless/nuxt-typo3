@@ -49,7 +49,6 @@ export default defineNuxtModule<ModuleOptions>({
     },
     features: {
       initInitialData: true,
-      forms: true,
       i18nMiddleware: true,
       debug: false
     }
@@ -94,17 +93,11 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
     addImportsDir(resolver.resolve('runtime/components/**/*'))
 
-    const isFormFeatureEnabled = nuxt.options.runtimeConfig.public.typo3.features?.forms
     addComponentsDir({
       path: fileURLToPath(new URL('./runtime/components', import.meta.url)),
       extensions: ['vue'],
       pathPrefix: false,
-      ignore: [
-        ...!isFormFeatureEnabled
-          ? ['*(T3Form/**/*|T3CeFormFormframework/**/*)']
-          : [],
-        '**/*.types.ts'
-      ],
+      ignore: ['**/*.types.ts'],
       global: true
     })
 
