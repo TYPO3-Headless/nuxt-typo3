@@ -6,7 +6,8 @@ export default defineAppConfig({
     image: 'https://pbs.twimg.com/profile_banners/1571770922461274114/1663762529/1500x500',
     socials: {
       twitter: 't3headless',
-      github: 'TYPO3-Headless'
+      github: 'TYPO3-Headless',
+      youtube: '@TYPO3Headless'
     },
     header: {
       logo: true,
