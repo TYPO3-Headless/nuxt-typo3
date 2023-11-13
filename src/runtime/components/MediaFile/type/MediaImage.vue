@@ -6,7 +6,7 @@
   >
     <component
       :is="wrapperComponent"
-      :to="file.properties.link"
+      :link="file.properties.linkData"
     >
       <figure>
         <img
@@ -34,6 +34,6 @@ const props = defineProps<{
   file: T3File
 }>()
 
-const { isNuxtLink } = useMediaFile(props.file)
-const wrapperComponent = computed(() => isNuxtLink.value ? resolveComponent('nuxt-link') : 'div')
+const { hasLink } = useMediaFile(props.file)
+const wrapperComponent = computed(() => hasLink.value ? resolveComponent('T3Link') : 'div')
 </script>

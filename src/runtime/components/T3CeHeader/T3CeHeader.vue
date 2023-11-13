@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { T3CeBaseProps } from '../../../types'
+import T3Link from '../T3Link/T3Link.vue'
 import { useT3CeHeader } from './useT3CeHeader'
 
 const props = withDefaults(defineProps<T3CeBaseProps>(), {
@@ -30,12 +31,12 @@ export default {
       v-if="props.headerLayout >= 0 && props.headerLayout !== 100"
       :class="props.headerPosition"
     >
-      <NuxtLink
+      <T3Link
         v-if="props.headerLink"
-        :to="typeof props.headerLink !== 'string' ? props.headerLink.href : props.headerLink"
+        :link="props.headerLink"
       >
         {{ props.header }}
-      </NuxtLink>
+      </T3Link>
       <template v-else>
         {{ props.header }}
       </template>

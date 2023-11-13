@@ -20,10 +20,10 @@ export const useMediaFile = (file: T3File) => {
     }
   })
 
-  const isNuxtLink = computed(() => !!file.properties.link)
+  const hasLink = computed(() => !!file.properties.link)
 
   return {
     mediaTypeComponent,
-    isNuxtLink
+    hasLink
   }
 }

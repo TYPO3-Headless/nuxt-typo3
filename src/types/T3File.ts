@@ -1,3 +1,5 @@
+import type { T3Link } from './T3Link'
+
 export interface T3File {
   publicUrl: string,
   properties: {
@@ -11,6 +13,7 @@ export interface T3File {
     fileReferenceUid: number
     size: string
     link: string | null,
+    linkData: T3Link,
     uidLocal?: number,
     dimensions: {
       width: number
