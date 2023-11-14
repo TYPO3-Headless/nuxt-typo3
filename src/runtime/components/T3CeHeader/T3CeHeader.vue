@@ -25,7 +25,6 @@ export default {
     :class="headerClass"
     class="t3-ce-header"
   >
-    {{ props.headerLink }}
     <component
       :is="`h${headerLevel}`"
       v-if="props.headerLayout >= 0 && props.headerLayout !== 100"
