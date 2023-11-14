@@ -7,6 +7,14 @@ const props = withDefaults(defineProps<T3CeBaseProps>(), {
   header: '',
   headerLayout: 0,
   headerPosition: '',
+  headerLink: () => ({
+    additionalAttributes: [],
+    class: '',
+    href: '',
+    linkText: '',
+    target: '',
+    title: ''
+  }),
   subheader: ''
 })
 

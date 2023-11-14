@@ -3,13 +3,7 @@
     :class="`t3-ce-table--${tableClass}`"
     class="t3-ce-table"
   >
-    <T3CeHeader
-      :header="props.header"
-      :header-layout="props.headerLayout"
-      :header-position="props.headerPosition"
-      :header-link="props.headerLink"
-      :subheader="props.subheader"
-    />
+    <T3CeHeader v-bind="props" />
     <table>
       <caption v-if="tableCaption">
         {{

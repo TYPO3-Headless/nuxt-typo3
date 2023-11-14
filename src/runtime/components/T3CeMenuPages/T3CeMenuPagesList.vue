@@ -5,7 +5,10 @@ import { h, resolveComponent } from 'vue'
 interface T3CeMenuPagesListProps {
   children: Array<any>;
 }
-const props = defineProps<T3CeMenuPagesListProps>()
+
+const props = withDefaults(defineProps<T3CeMenuPagesListProps>(), {
+  children: () => []
+})
 
 const renderItems = () => {
   return props.children.map((el) => {
