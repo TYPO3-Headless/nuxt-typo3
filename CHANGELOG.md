@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.25...v2.0.0) (2023-11-15)
+
+
+### Features
+
+* [T3H-153] add prependOptionlabel to single select ([1b5e42c](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/1b5e42c014483a51509962da0e47b452210036c4))
+* add TypeScript as a dependency ([#16](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/16)) ([ba52e76](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ba52e76ab7f0724a490178bb41c08a38ce160f32))
+* change tag from div to fieldset for fieldset fields ([4cefc19](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/4cefc192e446dc72d1142acf16fcdc0534d5d612))
+* create a T3Link component ([#28](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/28)) ([dd73b62](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/dd73b625c78d762dffa693e5efd8b6e318187ff1))
+* create forms docs ([f543eba](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/f543ebae54b11287fa3bcce9cdfcade5c5f10fc2))
+* improvements for T3Link-related props ([7451110](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/74511100c4a199bdd6faa6f48eeff80d4b0b8eae))
+
+
+### Bug Fixes
+
+* fields types ([a44fe32](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a44fe328e85ed857ffa4dd676e9b52d66d7bc5a8))
+* fix forms docs ([8c3d0b9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8c3d0b951b2d52d9fec0591cfacbdf58ce5dcfcd))
+
+
+### Documentation
+
+* update documentation ([ee6e20e](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ee6e20ea6a05c6543db83949e095ed51442d4634))
+
 ## [2.0.0-alpha.25](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2023-10-27)
 
 
