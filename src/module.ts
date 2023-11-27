@@ -54,9 +54,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
   },
   hooks: {
-    't3:initialData': () => {},
-    't3:page': () => {},
-    't3:i18n': () => {},
+    't3:initialData': () => { },
+    't3:page': () => { },
+    't3:i18n': () => { },
     'components:dirs' (dirs) {
       dirs.push({
         path: fileURLToPath(new URL('./runtime/components', import.meta.url)),
@@ -80,7 +80,9 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push(runtimeDir)
 
     if (options.sites) {
-      options.sites = mergeSiteOptions(options)
+      options = {
+        sites: mergeSiteOptions(options)
+      }
     }
 
     nuxt.options.runtimeConfig.public.typo3 = defu(
@@ -113,9 +115,13 @@ export default defineNuxtModule<ModuleOptions>({
 
 const mergeSiteOptions = (options: ModuleOptions) => {
   return options.sites?.map((site) => {
-    const _options = { ...options }
-    delete _options.sites
-    return defu(site, _options)
+    const defaulOptions = { ...options }
+    delete defaulOptions.sites
+    const siteOptions = defu(site, defaulOptions)
+    if (site.i18n?.locales) {
+      siteOptions.i18n.locales = [...new Set([...defaulOptions.i18n!.locales, ...site.i18n?.locales])]
+    }
+    return siteOptions
   })
 }
 
@@ -127,16 +133,17 @@ declare module '#app' {
     }
   }
 
-  interface RuntimeNuxtHooks extends ModuleHooks {}
+  interface RuntimeNuxtHooks extends ModuleHooks { }
 }
 
 declare module '@nuxt/schema' {
-  interface NuxtHooks extends ModuleHooks {}
+  interface NuxtHooks extends ModuleHooks { }
 
   interface ConfigSchema {
     runtimeConfig: {
       public?: {
         typo3?: ModuleOptions
+        typo3current: any
       }
     }
   }

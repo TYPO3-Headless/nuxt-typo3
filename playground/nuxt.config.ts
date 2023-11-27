@@ -4,12 +4,24 @@ import nuxtTypo3 from '..'
 export default defineNuxtConfig({
   modules: [nuxtTypo3],
   typo3: {
-    api: {
-      baseUrl: 'http://localhost:3000/api'
-    },
-    i18n: {
-      locales: ['en', 'de', 'pl']
-    }
+    sites: [
+      {
+        hostname: 'localhost',
+        api: {
+          baseUrl: 'http://localhost:3000/api'
+        },
+        i18n: {
+          default: 'en',
+          locales: ['en', 'de', 'pl']
+        }
+      },
+      {
+        hostname: 'local.t3pwa.com',
+        api: {
+          baseUrl: 'http://localhost:3000/api'
+        }
+      }
+    ]
   },
   components: {
     dirs: [
