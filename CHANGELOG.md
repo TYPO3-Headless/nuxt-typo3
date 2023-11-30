@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0...v2.0.1) (2023-11-30)
+
+
+### Bug Fixes
+
+* multidomain config ([5c509d1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/5c509d19f67ff68e07bf15f1b563baf013f902fa))
+
 ## [2.0.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0-alpha.25...v2.0.0) (2023-11-15)
 
 
