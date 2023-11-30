@@ -1,6 +1,5 @@
 # nuxt-typo3 documentation
 
-
 ## Setup
 
 Install dependencies:

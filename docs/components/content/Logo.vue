@@ -29,7 +29,7 @@ css({
       height: '{space.7}'
     },
     '.cls-1': {
-    fill: '{color.white}'
+    fill: 'currentColor'
     },
     '.cls-2': {
       fill: '#f18518'

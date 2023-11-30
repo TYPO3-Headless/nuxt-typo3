@@ -1,5 +1,4 @@
 export default defineAppConfig({
-
   docus: {
     title: 'TYPO3 Headless',
     description: 'TYPO3 Frontend rendered in Vue.js and Nuxt (frontend for EXT:headless)',
@@ -13,8 +12,9 @@ export default defineAppConfig({
       logo: true,
       showLinkIcon: true,
       exclude: []
-
+    },
+    footer: {
+      credits: false
     }
-
   }
 })

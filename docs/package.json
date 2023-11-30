@@ -6,10 +6,14 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
-    "preview": "nuxi preview"
+    "preview": "nuxi preview",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "^1.4.4",
-    "nuxt": "^3.0.0"
+    "@nuxt-themes/docus": "1.15.0",
+    "@nuxt/devtools": "^1.0.4",
+    "@nuxt/eslint-config": "^0.2.0",
+    "eslint": "^8.54.0",
+    "nuxt": "^3.8.2"
   }
 }
