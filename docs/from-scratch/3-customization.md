@@ -63,6 +63,10 @@ The call to the `store` is actually done in the `nuxt-typo3` plugin. If you want
 
 `nuxt-typo3` provides core content elements with the basic logic and markup by default. One thing you have to do to make it nicer is to add some styles. But you can also override the HTML markup and / or the Javascript logic. To do so, follow these steps:
 
+::: tip Info
+The `~typo3` alias is at your disposal, providing convenient access to components and mixins within the module.
+:::
+
 ### 2.1 Create own `CeText` component
 
 **Just add / override some CSS styles.**
