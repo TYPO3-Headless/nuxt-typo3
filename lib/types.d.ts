@@ -85,6 +85,8 @@ export namespace TYPO3 {
     }
 
     interface Api {
+      /** HTTP client instance (Axios) for making API requests */
+      $http: AxiosInstance,
       /** get available languages and menu data for current page and locale */
       getInitialData(params: { path: string }): Promise<void>,
       /** get page response  */
