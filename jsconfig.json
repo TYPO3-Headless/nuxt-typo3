@@ -2,5 +2,10 @@
   "include": [
     "./lib/**/*",
     "./example/**/*"
-  ]
+  ],
+  "compilerOptions": {
+    "paths": {
+      "~typo3/*": ["./node_modules/nuxt-typo3/lib/*"]
+    }
+  },
 }
