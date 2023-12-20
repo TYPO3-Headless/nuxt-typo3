@@ -27,6 +27,8 @@ TYPO3 Headless Frontend Rendering module based on Nuxt and Vue.js
 
 Learn how to setup nuxt-typo3 module in your Nuxt 3 application.
 
+You can also use the playground on [StackBlitz](https://stackblitz.com/edit/nuxt-starter-fpc2gq?file=app.vue)
+
 ## Kickstart nuxt-typo3 project
 
 You can use the `nuxi init` command to initialize a fresh Nuxt project with the required nuxt-typo3 setup. Learn more about [nuxi](https://nuxt.com/docs/api/commands/init)
