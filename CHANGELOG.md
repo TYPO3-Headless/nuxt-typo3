@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.1...v2.0.2) (2024-02-20)
+
+
+### Documentation
+
+* add link to stackblitz ([32e2f5a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/32e2f5afe31e67e15663b80254bc70d119d5347f))
+* avoid using export default for components overriding ([a027eab](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a027eabb5562896c330090604aaff3d9242fa07b))
+* fix layout section ([39b5b14](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/39b5b140413cfff4e09e54c3a530f5022a6ccc91))
+* use alias for components ([1c31c84](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/1c31c84cb642b0bc1ff11651016bdc40af1c4ba7))
+
 ### [2.0.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.0...v2.0.1) (2023-11-30)
 
 
