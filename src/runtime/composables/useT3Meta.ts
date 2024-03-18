@@ -1,34 +1,11 @@
-import { ComputedRef, computed } from 'vue'
+import { computed } from 'vue'
 import type { Meta } from 'zhead'
-import type { ReactiveHead } from '@unhead/vue'
-import type { T3I18N, T3Meta } from '../../types'
+import type { T3I18N } from '../../types'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
 
-export const useT3Meta = (): {
-  metaData: ComputedRef<T3Meta | undefined>
-  /**
-   * TYPO3 head attributes for Nuxt Head
-   */
-  headData: ComputedRef<ReactiveHead>
-  /**
-   * TYPO3 Twitter meta data
-   */
-  twitter: ComputedRef<Meta[]>
-  /**
-   * TYPO3 Open Graph meta data
-   */
-  openGraph: ComputedRef<Meta[]>
-  /**
-  * @deprecated since version 2.0.0, use openGraph
-  */
-  opengraph: ComputedRef<Meta[]>
-  /**
-   * TYPO3 base attributes (description, robots, generator)
-   */
-  base: ComputedRef<Meta[]>
-} => {
+export const useT3Meta = () => {
   const { getCurrentLocaleData } = useT3i18n()
   const currentLocale = getCurrentLocaleData()
   const data = useT3PageState()
