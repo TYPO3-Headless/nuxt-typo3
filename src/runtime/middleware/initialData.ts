@@ -4,6 +4,11 @@ import { showError } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
+import type { LocationQuery } from '#vue-router'
+
+function hasControllerKey (obj: LocationQuery) {
+  return Object.keys(obj).some(key => key.includes('[controller]'))
+}
 
 export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
   if (process.client) {
@@ -21,11 +26,15 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
       return getPathWithLocale(to.fullPath)
     }
 
-    if (Object.keys(to.query).length) {
-      return withQuery(getPathWithLocale(), to.query)
+    if (!Object.keys(to.query).length) {
+      return withoutLeadingSlash(getPathWithLocale())
     }
 
-    return withoutLeadingSlash(getPathWithLocale())
+    if (hasControllerKey(to.query)) {
+      return withQuery(to.fullPath, to.query)
+    }
+
+    return withQuery(getPathWithLocale(), to.query)
   }
 
   try {
@@ -44,7 +53,6 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
       statusMessage: error.statusMessage,
       data: error.response?._data,
       message: `Initial Data is unavailable: ${error.message}`
-
     })
   }
 }
