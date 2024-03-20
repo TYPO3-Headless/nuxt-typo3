@@ -24,11 +24,10 @@ export const useT3Page = async (options: {
     const { data, error } = await useAsyncData('t3:page', () => getPage(path))
 
     if (data.value) {
-      pageData.value = data.value
-
-      if (pageData?.value.redirectUrl) {
-        redirect(pageData.value)
+      if (data?.value?.redirectUrl) {
+        return redirect(data.value)
       }
+      pageData.value = data.value
     }
 
     if (error.value as any) {
@@ -68,8 +67,8 @@ export const useT3Page = async (options: {
     await getPageData(route.fullPath)
   }
 
-  const backendLayout = pageData.value?.appearance.backendLayout || 'default'
-  const frontendLayout = hasLayout(pageData.value?.appearance.layout) ? pageData.value?.appearance.layout : 'default'
+  const backendLayout = pageData.value?.appearance?.backendLayout || 'default'
+  const frontendLayout = hasLayout(pageData.value?.appearance?.layout) ? pageData.value?.appearance.layout : 'default'
 
   return {
     pageDataFallback,
