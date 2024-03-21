@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.2...v2.0.3) (2024-03-21)
+
+
+### Bug Fixes
+
+* do not set pageData if there is redirectUrl ([c90eb2d](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/c90eb2d1d7850bbd60c6264ae1f7826f107a9a41))
+* initialData fetching ([#24](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/24)) ([3a3147b](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/3a3147bbec9bc2ea687e47fb097e8d7e71776eeb))
+* redirect with nuxt context when is returned ([daa3b80](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/daa3b800ea8c6410e5184d3fee0451d1f8e7d25d))
+* type inference ([a95c267](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a95c2676b80874869cb1b4c87f7e0015f02d23eb))
+
 ### [2.0.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.1...v2.0.2) (2024-02-20)
 
 
