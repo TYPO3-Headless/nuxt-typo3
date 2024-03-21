@@ -1,4 +1,4 @@
-import { cleanDoubleSlashes } from 'ufo'
+import { cleanDoubleSlashes, hasProtocol } from 'ufo'
 import { navigateTo, useNuxtApp } from '#app'
 import type { T3RedirectData } from '../../types'
 import { useT3i18nState } from './useT3i18n'
@@ -18,11 +18,12 @@ export const useT3Utils = () => {
   const redirect = async (redirectData: T3RedirectData) => {
     await nuxtApp.callHook('t3:redirect', redirectData)
     const { redirectUrl, statusCode } = redirectData
+    const isExternal = hasProtocol(redirectUrl, { acceptRelative: true })
 
-    return navigateTo(redirectUrl, {
+    return await nuxtApp.runWithContext(() => navigateTo(redirectUrl, {
       redirectCode: statusCode,
-      external: true
-    })
+      external: isExternal
+    }))
   }
 
   /**
