@@ -6,7 +6,7 @@ import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
 
 export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
-  if (process.client) {
+  if (import.meta.client) {
     return
   }
 

@@ -10,7 +10,7 @@ export async function t3i18nMiddleware (
   const newLocale = getLocale(to.fullPath)
 
   if (
-    !process.server &&
+    !import.meta.server &&
     !isEqual(to.fullPath, from.fullPath) &&
     currentLocale.value !== newLocale
   ) {
