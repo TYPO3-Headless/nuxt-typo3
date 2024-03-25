@@ -73,7 +73,7 @@ export const useT3Page = async (options: {
 
   return {
     pageDataFallback,
-    pageData: process.server ? pageData : ref<T3Page | null>(pageData.value),
+    pageData: import.meta.server ? pageData : ref<T3Page | null>(pageData.value),
     getPageData,
     headData,
     backendLayout,
