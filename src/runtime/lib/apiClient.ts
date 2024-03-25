@@ -101,7 +101,7 @@ export class T3ApiClient implements T3Api {
         if (this.fetchOptions.onResponse) {
           this.fetchOptions.onResponse(context)
         }
-        if (process.server && Array.isArray(this.siteOptions.api?.proxyHeaders) && context.response.headers) {
+        if (import.meta.server && Array.isArray(this.siteOptions.api?.proxyHeaders) && context.response.headers) {
           this.apiHeaders = this.mapResponseHeaders(context.response.headers)
         }
       }

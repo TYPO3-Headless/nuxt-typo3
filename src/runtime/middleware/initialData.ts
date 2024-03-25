@@ -11,7 +11,7 @@ function hasControllerKey (obj: LocationQuery) {
 }
 
 export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
-  if (process.client) {
+  if (import.meta.client) {
     return
   }
 
