@@ -42,11 +42,11 @@ npx nuxi@latest init -t gh:TYPO3-Headless/nuxt-typo3-starter <project-name>
 Add `@t3headless/nuxt-typo3` dev dependency to your project:
 
 ```bash [yarn]
-yarn add --dev @t3headless/nuxt-typo3
+npx nuxi@latest module add typo3
 ```
 
 ```bash [npm]
-npm install @t3headless/nuxt-typo3 --save-dev
+npx nuxi@latest module add typo3
 ```
 
 Then, add `@t3headless/nuxt-typo3` to the [`modules`](https://nuxt.com/docs/guide/concepts/modules) section of your Nuxt configuration:
