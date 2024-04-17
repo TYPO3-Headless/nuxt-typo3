@@ -1,6 +1,6 @@
 import type { RouteLocationNormalized } from 'vue-router'
 import { withoutLeadingSlash, withQuery } from 'ufo'
-import { showError } from '#app'
+import { showError, callOnce } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
@@ -10,11 +10,7 @@ function hasControllerKey (obj: LocationQuery) {
   return Object.keys(obj).some(key => key.includes('[controller]'))
 }
 
-export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
-  if (import.meta.client) {
-    return
-  }
-
+async function fetchInitialData (to: RouteLocationNormalized) {
   const { initialData, getInitialData } = useT3Api(to.fullPath)
   const { currentSiteOptions } = useT3Options()
   const { getPathWithLocale } = useT3i18n(to.fullPath)
@@ -55,4 +51,8 @@ export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
       message: `Initial Data is unavailable: ${error.message}`
     })
   }
+}
+
+export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
+  await callOnce(async () => await fetchInitialData(to))
 }
