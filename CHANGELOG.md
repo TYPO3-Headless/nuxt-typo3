@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.3...v2.0.4) (2024-04-17)
+
+
+### Bug Fixes
+
+* initial data when ssr is disabled ([aedfd34](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/aedfd34474b600e530e2c7712eda7dcaba1b8bd0))
+* opt in to `import.meta.*` properties ([736a0b6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/736a0b69034b9360efb7a3ab29ac07da4be50e5d))
+
+
+### Documentation
+
+* use new `nuxi module add` command in installation ([b4dce8d](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b4dce8d3c95a3a131f6f1c2b65028dd6fc9117a7))
+
 ### [2.0.3](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.2...v2.0.3) (2024-03-21)
 
 
