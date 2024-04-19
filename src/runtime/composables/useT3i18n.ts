@@ -40,13 +40,14 @@ export const useT3i18n = (
   getPathWithLocale: (path?: string) => string
 } => {
   const { callHook } = useNuxtApp()
-  const defaultPath = path || useRoute().fullPath
+  const defaultPath = path
   const { currentSiteOptions } = useT3Options()
   const { i18n } = currentSiteOptions.value
   const currentLocale = useT3i18nState()
 
-  const getLocale = (path: string = defaultPath) => {
-    const { pathname: slugs } = parseURL(path)
+  const getLocale = (path?: string | undefined) => {
+    const fullPath = path ?? (defaultPath || useRoute().fullPath)
+    const { pathname: slugs } = parseURL(fullPath)
     const localeCode = slugs?.split('/')[1]
 
     if (i18n.locales && i18n.locales?.find(locale => locale === localeCode)) {
