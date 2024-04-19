@@ -58,6 +58,7 @@ export const useT3i18n = (
   }
 
   const setLocale = async (localeCode: string) => {
+    const path = defaultPath || useRoute().fullPath
     const { getInitialData, initialData } = useT3Api(path)
     const oldLocale = currentLocale.value
     currentLocale.value = localeCode
