@@ -22,7 +22,8 @@ export const useT3Utils = () => {
 
     return await nuxtApp.runWithContext(() => navigateTo(redirectUrl, {
       redirectCode: statusCode,
-      external: isExternal
+      external: isExternal,
+      replace: true
     }))
   }
 
