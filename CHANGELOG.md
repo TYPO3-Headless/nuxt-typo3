@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.4...v2.0.5) (2024-04-19)
+
+
+### Bug Fixes
+
+* change location of useRoute call in getLocale (useT3i18n) ([#32](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/32)) ([757064c](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/757064c623e0edaa4a8c7f9c120b40af804934b0))
+* setup default path for setLocale ([#32](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/32)) ([64267e5](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/64267e5772c999fe29ffd2030002a312d5ca0c18))
+* use replace for navigateTo / redirect ([#33](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/33)) ([a6c61d2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a6c61d2e5969aaf614ff45ce226688be00285fb6))
+
 ### [2.0.4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.3...v2.0.4) (2024-04-17)
 
 
