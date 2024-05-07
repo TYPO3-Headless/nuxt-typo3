@@ -45,7 +45,8 @@
     "vee-validate": "^3.4.14",
     "defu": "^6.1.2",
     "scule": "^0.3.2",
-    "consola": "^2.15.3"
+    "consola": "^2.15.3",
+    "hookable": "^5.5.3"
   },
   "devDependencies": {
     "@babel/core": "latest",
