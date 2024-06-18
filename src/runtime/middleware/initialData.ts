@@ -54,5 +54,5 @@ async function fetchInitialData (to: RouteLocationNormalized) {
 }
 
 export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
-  await callOnce(async () => await fetchInitialData(to))
+  await callOnce('t3:initialData', async () => await fetchInitialData(to))
 }
