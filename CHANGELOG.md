@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.5...v2.0.6) (2024-06-19)
+
+
+### Bug Fixes
+
+* add callOnce key for fetching initialData ([0ebfa8c](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/0ebfa8c56bb687397d802125c934cbf3ca4952fa))
+
 ### [2.0.5](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.4...v2.0.5) (2024-04-19)
 
 
