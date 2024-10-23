@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.4...v1.4.0) (2024-10-23)
+
+
+### Features
+
+* added the '~typo3' alias to documentation and included it in the compiler options paths ([#266](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/266)) ([0e20bbe](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/0e20bbe4a561810e954d1265b2883acafcff9151))
+
+
+### Bug Fixes
+
+* add $http (Axios) to API interface ([#244](https://github.com/TYPO3-Initiatives/nuxt-typo3/issues/244)) ([837550b](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/837550bd333b6f3e00c008c97fa211584eefa319))
+* compatibility with the latest 2.x version ([ec8c3fe](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/ec8c3fe3cf5d5106b83754ef43bff255393254ad))
+* use of hookable package instead of hable ([00c0f42](https://github.com/TYPO3-Initiatives/nuxt-typo3/commit/00c0f4268330d5feb42041b6dc186c6824217f79))
+
 ### [1.3.4](https://github.com/TYPO3-Initiatives/nuxt-typo3/compare/v1.3.3...v1.3.4) (2023-11-08)
 
 
