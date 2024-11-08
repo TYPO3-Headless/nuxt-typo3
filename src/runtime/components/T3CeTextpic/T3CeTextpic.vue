@@ -15,10 +15,3 @@ import type { T3CeGalleryProps } from '../../../types'
 
 const props = defineProps<T3CeGalleryProps>()
 </script>
-
-<script lang="ts">
-export default {
-  name: 'T3CeTextpic',
-  inheritAttrs: false
-}
-</script>
