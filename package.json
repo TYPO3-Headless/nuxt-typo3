@@ -46,7 +46,7 @@
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "eslint": "^8.29.0",
     "husky": "^8.0.0",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.14.159",
     "playwright": "^1.28.1",
     "standard-version": "^9.5.0",
     "vitest": "latest"
