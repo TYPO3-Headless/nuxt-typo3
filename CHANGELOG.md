@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.7](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.6...v2.0.7) (2024-11-15)
+
+
+### Bug Fixes
+
+* add props definition to T3CeTextMedia Content Element ([74c84e1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/74c84e1c4fbda622afc93bc0d380a2ae9f237c79))
+* checking headers in test ([b82c4c2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b82c4c2698f0ec830d86f7cd1463d14baa416cb4))
+
 ### [2.0.6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.5...v2.0.6) (2024-06-19)
 
 
