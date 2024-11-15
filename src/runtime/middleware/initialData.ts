@@ -1,10 +1,9 @@
-import type { RouteLocationNormalized } from 'vue-router'
+import type { RouteLocationNormalized, LocationQuery } from 'vue-router'
 import { withoutLeadingSlash, withQuery } from 'ufo'
 import { showError, callOnce } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
-import type { LocationQuery } from '#vue-router'
 
 function hasControllerKey (obj: LocationQuery) {
   return Object.keys(obj).some(key => key.includes('[controller]'))
