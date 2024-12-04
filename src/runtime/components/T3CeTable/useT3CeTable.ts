@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import type { T3CeTableProps } from '~/../src/types'
+import type { T3CeTableProps } from '../../../module'
 
 export type BodyTextType = string[][]
 

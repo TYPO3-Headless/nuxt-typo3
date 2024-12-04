@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { T3Link } from '../../../types'
+import type { T3Link } from '../../../module'
 
 const props = defineProps<{ link: string | T3Link }>()
 

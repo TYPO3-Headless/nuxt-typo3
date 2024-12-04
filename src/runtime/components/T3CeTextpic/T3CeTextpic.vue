@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type { T3CeGalleryProps } from '../../../types'
+import type { T3CeGalleryProps } from '../../../module'
 
 const props = defineProps<T3CeGalleryProps>()
 </script>

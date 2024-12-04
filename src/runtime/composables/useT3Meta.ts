@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import type { Meta } from 'zhead'
-import type { T3I18N } from '../../types'
+import type { T3I18N } from '../../module'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'

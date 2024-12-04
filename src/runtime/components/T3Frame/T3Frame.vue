@@ -6,7 +6,7 @@ import type { PropType } from 'vue'
 import type {
   T3AppearanceFrameClass,
   T3AppearanceSpace
-} from '../../../types'
+} from '../../../module'
 
 export default {
   name: 'T3Frame',

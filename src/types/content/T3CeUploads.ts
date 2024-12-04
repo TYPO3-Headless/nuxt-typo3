@@ -1,4 +1,4 @@
-import type { T3CeBaseProps, T3File } from '../'
+import type { T3CeBaseProps, T3File } from '..'
 
 export interface T3CeUploadsProps extends T3CeBaseProps {
     media?: T3File[],

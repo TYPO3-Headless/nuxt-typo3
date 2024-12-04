@@ -1,4 +1,4 @@
-import type { T3CeBaseProps } from '../'
+import type { T3CeBaseProps } from '..'
 
 export interface T3CeTableProps extends T3CeBaseProps {
   tableCaption: string

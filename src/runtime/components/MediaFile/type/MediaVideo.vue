@@ -15,7 +15,7 @@
   </video>
 </template>
 <script lang="ts" setup>
-import type { T3File } from '../../../../types'
+import type { T3File } from '../../../../module'
 defineProps<{
   file: T3File
 }>()

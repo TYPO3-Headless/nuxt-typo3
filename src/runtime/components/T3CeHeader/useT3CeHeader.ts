@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import type { T3CeHeaderProps } from '~/../src/types'
+import type { T3CeHeaderProps } from '../../../module'
 
 /**
  * Provides headerLevel and headerClass computed values based on provided props

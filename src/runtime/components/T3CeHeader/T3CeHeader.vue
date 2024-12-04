@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { T3CeBaseProps } from '../../../types'
+import type { T3CeBaseProps } from '../../../module'
 import T3Link from '../T3Link/T3Link.vue'
 import { useT3CeHeader } from './useT3CeHeader'
 

@@ -38,7 +38,7 @@
     "@commitlint/cli": "17.4.0",
     "@commitlint/config-conventional": "17.4.0",
     "@nuxt/kit": "3.14.1592",
-    "@nuxt/module-builder": "0.6.0",
+    "@nuxt/module-builder": "0.8.4",
     "@nuxt/schema": "3.14.1592",
     "@nuxt/test-utils": "latest",
     "@nuxtjs/eslint-config-typescript": "12.1.0",

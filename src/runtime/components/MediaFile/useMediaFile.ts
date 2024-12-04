@@ -1,5 +1,5 @@
 import { computed, resolveComponent } from 'vue'
-import type { T3File } from '~/../src/types'
+import type { T3File } from '../../../module'
 
 export const useMediaFile = (file: T3File) => {
   const mediaTypeComponent = computed(() => {

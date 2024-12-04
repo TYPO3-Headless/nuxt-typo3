@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import type { T3Gallery } from '~/../src/types'
+import type { T3Gallery } from '../../../module'
 
 export const useT3MediaGallery = (gallery: T3Gallery) => {
   const galleryClassList = computed<Array<string | Record<string, boolean | undefined>>>(() => {

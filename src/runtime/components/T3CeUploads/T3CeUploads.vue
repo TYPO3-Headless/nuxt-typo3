@@ -49,7 +49,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { T3CeUploadsProps } from '../../../types'
+import type { T3CeUploadsProps } from '../../../module'
 import { useT3CeUploads } from './useT3CeUploads'
 
 const props = defineProps<T3CeUploadsProps>()

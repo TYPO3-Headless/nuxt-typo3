@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { useRuntimeConfig, useRequestHeaders, useState } from '#app'
-import type { T3Site, T3Options } from '../../types'
+import type { T3Site, T3Options } from '../../module'
 import { getRawHost } from '../lib/url'
 
 export const useT3OptionsState = () => {

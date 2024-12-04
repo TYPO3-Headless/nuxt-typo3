@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { resolveComponent } from 'vue'
-import type { T3Gallery } from '../../../types'
+import type { T3Gallery } from '../../../module'
 import { useT3MediaGallery } from './useT3MediaGallery'
 
 const props = defineProps<{

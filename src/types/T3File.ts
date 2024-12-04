@@ -1,4 +1,4 @@
-import type { T3Link } from './T3Link'
+import type { T3Link } from '.'
 
 export interface T3File {
   publicUrl: string,

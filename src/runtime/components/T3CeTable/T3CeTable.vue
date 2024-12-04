@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { T3CeTableProps } from '../../../types'
+import type { T3CeTableProps } from '../../../module'
 import { useT3CeTable } from './useT3CeTable'
 
 const props = withDefaults(defineProps<T3CeTableProps>(), {

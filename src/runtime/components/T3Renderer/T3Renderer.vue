@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // Component to render content elements loop
 import { h } from 'vue'
-import type { T3ContentElement, T3CeBaseProps } from '../../../types'
+import type { T3ContentElement, T3CeBaseProps } from '../../../module'
 import { useT3DynamicCe, useT3DynamicComponent } from '../../composables/useT3DynamicComponent'
 
 withDefaults(

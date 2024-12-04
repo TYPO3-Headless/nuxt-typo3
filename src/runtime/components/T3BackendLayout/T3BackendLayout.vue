@@ -7,7 +7,7 @@
 </template>
 <script setup lang="ts">
 import { useT3DynamicBl } from '../../composables/useT3DynamicComponent'
-import type { T3BackendLayout } from '../../../types'
+import type { T3BackendLayout } from '../../../module'
 defineProps<{
   name: string
 } & T3BackendLayout>()

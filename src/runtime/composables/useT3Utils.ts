@@ -1,6 +1,6 @@
 import { cleanDoubleSlashes, hasProtocol } from 'ufo'
 import { navigateTo, useNuxtApp } from '#app'
-import type { T3RedirectData } from '../../types'
+import type { T3RedirectData } from '../../module'
 import { useT3i18nState } from './useT3i18n'
 import { useT3Options } from './useT3Options'
 import layouts from '#build/layouts'

@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { computed, resolveComponent } from 'vue'
-import type { T3File } from '../../../../types'
+import type { T3File } from '../../../../module'
 import { useMediaFile } from '../useMediaFile'
 
 const props = defineProps<{

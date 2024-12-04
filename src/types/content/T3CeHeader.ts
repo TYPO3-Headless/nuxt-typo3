@@ -1,4 +1,4 @@
-import type { T3CeBaseProps, T3Link } from '../index'
+import type { T3CeBaseProps, T3Link } from '..'
 
 export interface T3CeHeaderProps extends T3CeBaseProps {
   /**

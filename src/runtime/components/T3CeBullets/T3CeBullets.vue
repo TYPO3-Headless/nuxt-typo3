@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { T3CeBulletsProps } from '../../../types'
+import type { T3CeBulletsProps } from '../../../module'
 import { useT3CeBullets } from './useT3CeBullets'
 
 const props = withDefaults(defineProps<T3CeBulletsProps>(), {

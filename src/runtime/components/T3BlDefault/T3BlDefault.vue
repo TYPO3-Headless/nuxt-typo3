@@ -6,6 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-import type { T3BackendLayout } from '../../../types'
+import type { T3BackendLayout } from '../../../module'
 defineProps<T3BackendLayout>()
 </script>

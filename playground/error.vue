@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import type { H3Error } from 'h3'
 import { useHead } from '#app'
-import { useT3Page } from '../src/runtime/composables/useT3Page'
+import { useT3Page } from '~/../src/runtime/composables/useT3Page'
 defineProps<{
   error: H3Error
 }>()

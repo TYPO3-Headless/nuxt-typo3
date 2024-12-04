@@ -1,7 +1,7 @@
 import { resolveDynamicComponent } from 'vue'
 import { pascalCase } from 'scule'
 import type { DefineComponent } from 'vue'
-import type { T3BackendLayout, T3CeBaseProps } from '../../types'
+import type { T3BackendLayout, T3CeBaseProps } from '../../module'
 
 interface DynamicComponentParams {
   type?: string

@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import type { T3CeBulletsProps } from '~/../src/types'
+import type { T3CeBulletsProps } from '../../../module'
 
 export const useT3CeBullets = (props: T3CeBulletsProps) => {
   const listTag = computed(() => {

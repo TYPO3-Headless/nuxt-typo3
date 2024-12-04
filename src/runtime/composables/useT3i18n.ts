@@ -2,7 +2,7 @@ import type { Ref } from 'vue'
 import { computed } from 'vue'
 import { parseURL, withoutTrailingSlash } from 'ufo'
 import { useNuxtApp, useRoute, useState } from '#app'
-import type { T3I18N } from '../../types'
+import type { T3I18N } from '../../module'
 import { useT3Api, useT3InitialDataState } from './useT3Api'
 import { useT3Options } from './useT3Options'
 

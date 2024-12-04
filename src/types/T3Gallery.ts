@@ -1,4 +1,4 @@
-import type { T3File } from './'
+import type { T3File } from '.'
 
 export interface T3Gallery {
   position: {

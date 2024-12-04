@@ -37,7 +37,7 @@
 
 <script lang="ts" setup>
 import { useT3CeBullets } from '#typo3/components/T3CeBullets/useT3CeBullets'
-import type { T3CeBulletsProps } from '../../../src/types'
+import type { T3CeBulletsProps } from '~/../src/module'
 
 const props = defineProps<T3CeBulletsProps>()
 const { listTag, showBaseList } = useT3CeBullets(props)
