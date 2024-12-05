@@ -1,6 +1,6 @@
 {
   "name": "@t3headless/nuxt-typo3",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -56,7 +56,7 @@
     "pnpm": ">=9.14.4"
   },
   "volta": {
-    "node": "18.20.5",
+    "node": "22.12.0",
     "pnpm": "9.14.4"
   }
 }

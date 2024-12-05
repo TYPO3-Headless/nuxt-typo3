@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.7...v2.0.8) (2024-12-05)
+
+
+### Bug Fixes
+
+* eslint issues ([3ed9bca](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/3ed9bcaacc69cc9fe49a82b36a2ba80fcc427857))
+* import types directly from the module file ([67f0753](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/67f07536d3b0f673d55abf3b4c1b5fe40d44789d))
+* locked version of packages and corrected version of pnpm ([e178743](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/e1787437f4d206940dc5f559de8accf1c5030ec3))
+* pages deploying ([54b5e16](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/54b5e167eddcbf0b1c3a72967875d8c557e5851d))
+
 ### [2.0.7](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.6...v2.0.7) (2024-11-15)
 
 
