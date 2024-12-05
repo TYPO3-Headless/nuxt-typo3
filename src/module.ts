@@ -34,7 +34,7 @@ export default defineNuxtModule<ModuleOptions>({
     api: {
       baseUrl: 'https://api.t3pwa.com',
       headers: {},
-      credentials: 'omit',
+      credentials: ('credentials' in Request.prototype) ? 'omit' : undefined,
       proxyHeaders: false,
       proxyReqHeaders: false,
       endpoints: {
