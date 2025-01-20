@@ -159,6 +159,25 @@ export interface T3Meta {
   twitterImage: T3File | null
 }
 
+export interface T3SeoMetaItem {
+  property?: string
+  name?: string
+  content: string
+}
+
+export interface T3SeoLinkItem {
+  href: string
+  hreflang?: string
+  rel: string
+}
+
+export interface T3Seo {
+  title: string
+  meta: T3SeoMetaItem[]
+  link: T3SeoLinkItem[]
+  robots?: Record<string, string>
+}
+
 export interface T3PageAppearance {
   layout: string
   backendLayout: string
@@ -170,7 +189,8 @@ export interface T3Page extends T3RedirectData {
   type: string
   slug: string
   media: any[]
-  meta: T3Meta
+  meta?: T3Meta
+  seo?: T3Seo
   categories: string
   breadcrumbs: any[]
   appearance: T3PageAppearance

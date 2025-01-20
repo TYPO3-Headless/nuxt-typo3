@@ -1,17 +1,25 @@
 import { computed } from 'vue'
 import type { Meta } from 'zhead'
-import type { T3I18N } from '../../module'
+import type { T3I18N, T3SeoMetaItem } from '../../module'
 import { useT3Options } from '../composables/useT3Options'
-import { useT3PageState } from './useT3Api'
+import { useT3Api, useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
+
 
 export const useT3Meta = () => {
   const { getCurrentLocaleData } = useT3i18n()
   const currentLocale = getCurrentLocaleData()
+  const { pageData } = useT3Api()
   const data = useT3PageState()
   const { currentSiteOptions } = useT3Options()
   const metaData = computed(() => data.value?.meta)
+  const seoData = computed(() => pageData.value?.seo)
+
   const twitter = computed(() => {
+    if (!metaData.value) {
+      return null
+    }
+
     const { twitterTitle, twitterDescription, twitterImage, twitterCard, title, description, ogImage } = metaData.value!
 
     return [
@@ -40,6 +48,10 @@ export const useT3Meta = () => {
   })
 
   const openGraph = computed(() => {
+    if (!metaData.value) {
+      return null
+    }
+
     const { ogTitle, ogDescription, ogImage, title, description } = metaData.value!
     return [
       {
@@ -66,6 +78,10 @@ export const useT3Meta = () => {
   })
 
   const base = computed(() => {
+    if (!metaData.value) {
+      return null
+    }
+
     return [
       {
         id: 'generator',
@@ -89,6 +105,11 @@ export const useT3Meta = () => {
 
   const links = computed(() => {
     const link: { rel: string; hreflang?: string; href: string }[] = []
+
+    if (seoData.value?.link?.length) {
+      return seoData.value.link
+    }
+
     const baseUrl = currentSiteOptions.value?.baseUrl
     const canonical = {
       rel: 'canonical',
@@ -125,9 +146,74 @@ export const useT3Meta = () => {
     return link
   })
 
+  const seoMeta = computed(() => {
+    if (!seoData.value) {
+      return null
+    }
+
+    const fallbackRequired = {
+      'og:title': true,
+      'og:description': true,
+      'twitter:title': true,
+      'twitter:description': true,
+      'twitter:card': true,
+      generator: true
+    }
+
+    const fallback = {
+      'og:title': seoData.value?.title,
+      'og:description': seoData.value?.description,
+      'twitter:title': seoData.value?.title,
+      'twitter:description': seoData.value?.description,
+      'twitter:card': 'summary',
+      generator: 'TYPO3 CMS x T3Headless'
+    }
+
+    const metaArray = seoData.value?.meta.map((item: T3SeoMetaItem) => {
+      if (item?.name) {
+        if (item.name in fallbackRequired) {
+          fallbackRequired[item.name] = false
+        }
+
+        return { ...item, id: item.name }
+      } else if (item?.property) {
+        if (item.property in fallbackRequired) {
+          fallbackRequired[item.property] = false
+        }
+
+        return { ...item, id: item.property }
+      }
+      return null
+    })
+
+    const metaFallbackArray = Object.keys(fallback).map(key => fallbackRequired?.[key] ? fallback[key] : null)
+
+    const base = [
+      {
+        id: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        id: 'robots',
+        name: 'robots',
+        content: Object.keys(seoData.value?.robots || {})
+          .filter(key => seoData.value?.robots[key])
+          .join(', ')
+      }
+    ]
+
+    return [...base, ...metaFallbackArray, ...metaArray]
+  })
+
   const headData = computed(() => {
-    if (!metaData.value) {
+    if (!metaData.value && !seoMeta.value) {
       return {}
+    }
+
+    if (!seoMeta.value) {
+      // eslint-disable-next-line no-console
+      console.log('Using meta object is deprecated. Will be removed in a future major release of ext:headless. Please move to SEO object.')
     }
 
     const meta = Array.prototype.concat(base.value, twitter.value, openGraph.value)
@@ -141,7 +227,7 @@ export const useT3Meta = () => {
       bodyAttrs: {
         class: bodyClassString
       },
-      meta: metaFilter(meta),
+      meta: seoMeta.value.filter(item => item) || metaFilter(meta),
       link: links
     }
   })
