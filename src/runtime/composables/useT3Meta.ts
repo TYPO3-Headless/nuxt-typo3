@@ -97,7 +97,7 @@ export const useT3Meta = () => {
         id: 'robots',
         name: 'robots',
         content: Object.keys(metaData.value?.robots || {})
-          .filter(key => metaData.value?.robots[key])
+          ?.filter(key => metaData.value?.robots[key])
           .join(', ')
       }
     ]
@@ -198,7 +198,7 @@ export const useT3Meta = () => {
         id: 'robots',
         name: 'robots',
         content: Object.keys(seoData.value?.robots || {})
-          .filter(key => seoData.value?.robots[key])
+          ?.filter(key => seoData.value?.robots[key])
           .join(', ')
       }
     ]
@@ -227,7 +227,7 @@ export const useT3Meta = () => {
       bodyAttrs: {
         class: bodyClassString
       },
-      meta: seoMeta.value.filter(item => item) || metaFilter(meta),
+      meta: seoMeta.value?.filter(item => item) || metaFilter(meta),
       link: links
     }
   })
