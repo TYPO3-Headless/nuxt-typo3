@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
 import type { FetchError } from 'ofetch'
-import { useRoute, useAsyncData, useError, showError } from '#app'
+import { useRoute, useAsyncData, useError, showError, clearNuxtData, useNuxtApp } from '#app'
 import type { RouteLocationNormalized } from '#vue-router'
 import type { T3Page } from '../../module'
 import { useT3Api } from './useT3Api'
@@ -19,8 +19,17 @@ export const useT3Page = async (options: {
   const { pageData, getPage } = useT3Api()
   const { headData } = useT3Meta()
   const { redirect } = useT3Utils()
+  const { payload } = useNuxtApp()
 
   const getPageData = async (path: string) => {
+    /**
+     * If app is running client side only, we need to clear cached data for 't3:page'
+     * to allow refetching data e.g. when redirect happens.
+     */
+    if (import.meta.client && !payload.serverRendered) {
+      clearNuxtData('t3:page')
+    }
+
     const { data, error } = await useAsyncData('t3:page', () => getPage(path))
 
     if (data.value) {
