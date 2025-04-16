@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.8...v2.1.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* redirects are not fetching new page data (if SSR disabled) ([de02147](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/de02147a718efa35743e7ee1997f0a4cc517d1e1))
+
+
+### Refactor
+
+* async data page fetcher ([#35](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/issues/35)) ([f524ca7](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/f524ca7ac26158a05ca43d17089bd8dda720c3ce))
+
 ### [2.0.8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.7...v2.0.8) (2024-12-05)
 
 
