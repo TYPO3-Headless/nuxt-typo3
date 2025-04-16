@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
-import nuxtTypo3 from '..'
+import nuxtTypo3 from '../src/module'
 
 export default defineNuxtConfig({
   modules: [nuxtTypo3],

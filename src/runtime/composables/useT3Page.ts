@@ -1,6 +1,4 @@
-import { computed, ref } from 'vue'
-import type { Ref } from 'vue'
-import type { FetchError } from 'ofetch'
+import { computed, watch } from 'vue'
 import { useRoute, useAsyncData, useError, showError, clearNuxtData, useNuxtApp } from '#app'
 import type { RouteLocationNormalized } from '#vue-router'
 import type { T3Page } from '../../module'
@@ -9,7 +7,7 @@ import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
 
 export const useT3Page = async (options: {
-  route?: RouteLocationNormalized,
+  route: RouteLocationNormalized,
   fetchOnInit?: boolean
 } = {
   route: useRoute(),
@@ -21,38 +19,40 @@ export const useT3Page = async (options: {
   const { redirect } = useT3Utils()
   const { payload } = useNuxtApp()
 
-  const getPageData = async (path: string) => {
+  const { data, execute: getAsyncPage, error } = useAsyncData(
+    't3:page',
+    () => getPage(route.fullPath),
+    { immediate: false }
+  )
+
+  const getPageData = async () => {
     /**
      * If app is running client side only, we need to clear cached data for 't3:page'
      * to allow refetching data e.g. when redirect happens.
+     * https://github.com/nuxt/nuxt/issues/31818
      */
     if (import.meta.client && !payload.serverRendered) {
       clearNuxtData('t3:page')
     }
 
-    const { data, error } = await useAsyncData('t3:page', () => getPage(path))
+    await getAsyncPage()
 
-    if (data.value) {
-      if (data?.value?.redirectUrl) {
-        return redirect(data.value)
-      }
-      pageData.value = data.value
-    }
-
-    if (error.value as any) {
-      const _error = error as any as Ref<FetchError>
-
+    if (error.value) {
       showError({
+        ...error.value,
         unhandled: false,
-        fatal: true,
-        message: _error.value?.message,
-        statusCode: _error.value?.statusCode || 500,
-        data: _error.value?.data,
-        statusMessage: _error.value?.message
+        fatal: true
       })
     }
+    if (data.value?.redirectUrl) {
+      return redirect(data.value)
+    }
+    pageData.value = data.value
 
-    return { data, error }
+    return {
+      data,
+      error
+    }
   }
 
   const pageDataFallback = computed<T3Page | null>(() => {
@@ -73,15 +73,17 @@ export const useT3Page = async (options: {
   })
 
   if (fetchOnInit && route) {
-    await getPageData(route.fullPath)
+    await getPageData()
   }
+
+  watch(() => route.query, getPageData)
 
   const backendLayout = pageData.value?.appearance?.backendLayout || 'default'
   const frontendLayout = hasLayout(pageData.value?.appearance?.layout) ? pageData.value?.appearance.layout : 'default'
 
   return {
     pageDataFallback,
-    pageData: import.meta.server ? pageData : ref<T3Page | null>(pageData.value),
+    pageData,
     getPageData,
     headData,
     backendLayout,
