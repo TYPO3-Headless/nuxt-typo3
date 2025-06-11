@@ -1,6 +1,7 @@
 import type { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
-import { useState, useNuxtApp, useRoute } from '#app'
+import { useState, useNuxtApp, useRoute, useRuntimeConfig } from '#app'
+import { hash } from 'ohash'
 import type { T3InitialData, T3Page } from '../../module'
 import type { T3Api } from '../lib/apiClient'
 
@@ -48,6 +49,11 @@ export const useT3Api = (
    */
   getPage(path: string, options?: FetchOptions): Promise<T3Page>
   /**
+   * Get unique cache key for TYPO3 page data based on route full path.
+   * Falls back to a static key if Nuxt version < 3.17.0 (changed useAsyncData implementation).
+   */
+  getPageKey(fullPath?: string): string
+  /**
    * Get TYPO3 Initial data
    */
   getInitialData(path?: string, options?: FetchOptions): Promise<T3InitialData>
@@ -56,7 +62,7 @@ export const useT3Api = (
    */
   setHeaders(headers: Record<string, string>): void,
   /**
-   * Set API Clinet global options
+   * Set API Client global options
    */
   setOption<T extends keyof FetchOptions<'json'>>(key: T, value:FetchOptions<'json'>[T]): void
 } => {
@@ -66,6 +72,7 @@ export const useT3Api = (
   const defaultOptions = options!
   const pageData = useT3PageState()
   const initialData = useT3InitialDataState()
+  const useLegacyAsyncDataPageKey = useRuntimeConfig().public.typo3Internals?.useLegacyAsyncDataPageKey
 
   const $fetch = async <T>(
     path: RequestInfo = defaultPath,
@@ -81,6 +88,12 @@ export const useT3Api = (
     const pageData = await $typo3.api.getPage(path, options)
     await callHook('t3:page', pageData)
     return pageData
+  }
+
+  const getPageKey = (fullPath = defaultPath): string => {
+    return useLegacyAsyncDataPageKey
+      ? 't3:page'
+      : `t3:page:${hash(fullPath)}`
   }
 
   const getInitialData = async (
@@ -105,6 +118,7 @@ export const useT3Api = (
     initialData,
     $fetch,
     getPage,
+    getPageKey,
     getInitialData,
     setHeaders,
     setOption

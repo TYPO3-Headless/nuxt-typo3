@@ -41,5 +41,6 @@ export default defineNuxtConfig({
         preserveHeaderKeyCase: true
       }
     }
-  }
+  },
+  compatibilityDate: '2025-06-16'
 })

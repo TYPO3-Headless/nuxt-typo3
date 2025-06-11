@@ -1,5 +1,5 @@
 import { computed, watch } from 'vue'
-import { useRoute, useAsyncData, useError, showError, clearNuxtData, useNuxtApp } from '#app'
+import { useRoute, useAsyncData, useError, showError, clearNuxtData, useNuxtApp, useRuntimeConfig } from '#app'
 import type { RouteLocationNormalized } from '#vue-router'
 import type { T3Page } from '../../module'
 import { useT3Api } from './useT3Api'
@@ -14,25 +14,30 @@ export const useT3Page = async (options: {
   fetchOnInit: true
 }) => {
   const { route, fetchOnInit } = options
-  const { pageData, getPage } = useT3Api()
+  const useLegacyAsyncDataPageKey = useRuntimeConfig().public.typo3Internals?.useLegacyAsyncDataPageKey
+  const { pageData, getPage, getPageKey } = useT3Api()
   const { headData } = useT3Meta()
   const { redirect } = useT3Utils()
   const { payload } = useNuxtApp()
 
+  const pageCacheKey = computed(() => getPageKey(route.fullPath))
+
   const { data, execute: getAsyncPage, error } = useAsyncData(
-    't3:page',
+    useLegacyAsyncDataPageKey ? pageCacheKey.value : pageCacheKey,
     () => getPage(route.fullPath),
-    { immediate: false }
+    {
+      immediate: false
+    }
   )
 
   const getPageData = async () => {
     /**
-     * If app is running client side only, we need to clear cached data for 't3:page'
+     * If app is running client side only, we need to clear cached data for 't3:page:${pageHash}'
      * to allow refetching data e.g. when redirect happens.
      * https://github.com/nuxt/nuxt/issues/31818
      */
     if (import.meta.client && !payload.serverRendered) {
-      clearNuxtData('t3:page')
+      clearNuxtData(pageCacheKey.value)
     }
 
     await getAsyncPage()

@@ -186,10 +186,23 @@ export interface T3InitialData {
   [key: string]: any
 }
 
-export interface ModuleOptions extends Partial<T3Options> {}
+export interface ModuleOptions extends Partial<T3Options> {
+  fallback?: {
+    useLegacyAsyncDataPageKey?: boolean
+  }
+}
+
+export interface T3RuntimeConfig {
+  public?: {
+    typo3?: ModuleOptions
+    typo3Internals?: {
+      useLegacyAsyncDataPageKey?: boolean
+    }
+  }
+}
 
 declare module '@nuxt/schema' {
-  interface PublicRuntimeConfig {
-    typo3: ModuleOptions
+  interface ConfigSchema {
+    runtimeConfig: T3RuntimeConfig
   }
 }

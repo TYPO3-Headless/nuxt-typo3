@@ -1,18 +1,18 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { defu } from 'defu'
-
 import {
   defineNuxtModule,
   addPlugin,
   extendPages,
   addImportsDir,
   createResolver,
-  addComponentsDir
+  addComponentsDir,
+  checkNuxtCompatibility
 } from '@nuxt/kit'
 import type { $Fetch } from 'ofetch'
 import { T3ApiClient } from './runtime/lib/apiClient'
-import type { T3InitialData, T3Page, T3RedirectData, ModuleOptions } from './types'
+import type { T3InitialData, T3Page, T3RedirectData, ModuleOptions, T3RuntimeConfig } from './types'
 
 export * from './types'
 
@@ -70,11 +70,15 @@ export default defineNuxtModule<ModuleOptions>({
         }
       })
     }
-
   },
-  setup (options, nuxt) {
+  async setup (options, nuxt) {
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     const resolver = createResolver(import.meta.url)
+    const issues = await checkNuxtCompatibility({
+      nuxt: '>=3.17.0'
+    }, nuxt)
+    const useLegacyAsyncDataPageKey = issues.length > 0
+
     nuxt.options.pages = true
     nuxt.options.alias['#typo3'] = resolve(runtimeDir)
     nuxt.options.build.transpile.push(runtimeDir)
@@ -89,6 +93,10 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.options.runtimeConfig.public.typo3,
       options
     )
+
+    nuxt.options.runtimeConfig.public.typo3Internals = {
+      useLegacyAsyncDataPageKey
+    }
 
     addPlugin(resolve(runtimeDir, 'plugin'))
 
@@ -140,11 +148,6 @@ declare module '@nuxt/schema' {
   interface NuxtHooks extends ModuleHooks { }
 
   interface ConfigSchema {
-    runtimeConfig: {
-      public?: {
-        typo3?: ModuleOptions
-        typo3current: any
-      }
-    }
+    runtimeConfig: T3RuntimeConfig
   }
 }
