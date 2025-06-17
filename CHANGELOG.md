@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.1.0...v2.2.0) (2025-06-17)
+
+
+### Bug Fixes
+
+* adapt new nuxt builder settings ([b0276b1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b0276b14ed7125f8d8ffdb19596a6bbd80bc02f9))
+* issue fetching next page data since 3.17.0 ([a006ce1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a006ce19266f31e54fdb9844da53ef45a828181a))
+
 ## [2.1.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.0.8...v2.1.0) (2025-04-16)
 
 
