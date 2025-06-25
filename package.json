@@ -3,12 +3,19 @@
   "version": "2.2.0",
   "license": "MIT",
   "type": "module",
-  "exports": {
+ "exports": {
     ".": {
-      "types": "./dist/types.d.mts",
       "import": "./dist/module.mjs"
     }
   },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
+  "types": "./dist/types.d.mts",
   "main": "./dist/module.mjs",
   "files": [
     "dist"
@@ -47,6 +54,7 @@
     "nuxt": "3.17.5",
     "playwright": "1.28.1",
     "standard-version": "9.5.0",
+    "unbuild": "^3.5.0",
     "vitest": "latest",
     "vue-tsc": "2.2.10"
   },

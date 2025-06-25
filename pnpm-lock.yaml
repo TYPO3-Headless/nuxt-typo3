@@ -66,6 +66,9 @@ importers:
       standard-version:
         specifier: 9.5.0
         version: 9.5.0
+      unbuild:
+        specifier: ^3.5.0
+        version: 3.5.0(typescript@5.8.3)(vue-sfc-transformer@0.1.16(@vue/compiler-core@3.5.16)(esbuild@0.25.5)(vue@3.5.16(typescript@5.8.3)))(vue-tsc@2.2.10(typescript@5.8.3))(vue@3.5.16(typescript@5.8.3))
       vitest:
         specifier: latest
         version: 3.2.3(@types/node@20.5.1)(jiti@2.4.2)(terser@5.42.0)(yaml@2.8.0)
