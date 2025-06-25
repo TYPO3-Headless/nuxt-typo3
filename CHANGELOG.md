@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.2.0...v2.2.1) (2025-06-25)
+
+
+### Bug Fixes
+
+* use unbuild to build compatible types ([44b969f](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/44b969f2451fd1e24e5b5669676c458335dd439c))
+
 ## [2.2.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.1.0...v2.2.0) (2025-06-17)
 
 

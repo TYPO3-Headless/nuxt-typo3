@@ -1,9 +1,9 @@
 {
   "name": "@t3headless/nuxt-typo3",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "license": "MIT",
   "type": "module",
- "exports": {
+  "exports": {
     ".": {
       "import": "./dist/module.mjs"
     }
