@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.2.1...v2.2.2) (2025-07-25)
+
+
+### Bug Fixes
+
+* add types export to allow augmenting the module ([78129f4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/78129f4cb32e3c5399a51fde5a79ce950ca8f7ad))
+
 ### [2.2.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.2.0...v2.2.1) (2025-06-25)
 
 
