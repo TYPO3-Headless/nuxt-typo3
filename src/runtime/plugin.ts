@@ -1,4 +1,4 @@
-import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders } from '#app'
+import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders, useNuxtApp } from '#app'
 import { setResponseHeaders } from 'h3'
 import { useT3Options } from './composables/useT3Options'
 import { useT3i18n } from './composables/useT3i18n'
@@ -51,7 +51,9 @@ export const hydrateT3ClientHeaders = (client: T3ApiClient) => {
     },
     (headers) => {
       client.fetchOptions.headers = headers
-      window.__NUXT__!['T3:api:headers'] = null
+
+      const { payload } = useNuxtApp()
+      payload!['T3:api:headers'] = null
     }
   )
 }
