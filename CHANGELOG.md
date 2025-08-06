@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.2.2...v2.3.0) (2025-08-06)
+
+
+### Bug Fixes
+
+* lint ([7a042b4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/7a042b451e97259650375f5a82cc76152b8f84d2))
+* test runinig ([bb24e92](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/bb24e9219988cf1814443fff3558f8de445457c0))
+
+
+### Refactor
+
+* **plugin:** migrate from window.__NUXT__ usage for Nuxt 4 compatibility ([ca3fbb4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ca3fbb4d5f9d3a9b94d5c9a618498025197b9390))
+
 ### [2.2.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.2.1...v2.2.2) (2025-07-25)
 
 
