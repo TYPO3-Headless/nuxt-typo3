@@ -1,10 +1,10 @@
 import { computed, watch } from 'vue'
 import { useRoute, useAsyncData, useError, showError, clearNuxtData, useNuxtApp, useRuntimeConfig } from '#app'
+import type { RouteLocationNormalized } from '#vue-router'
 import type { T3Page } from '../../module'
 import { useT3Api } from './useT3Api'
 import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
-import type { RouteLocationNormalized } from '#vue-router'
 
 export const useT3Page = async (options: {
   route: RouteLocationNormalized,
