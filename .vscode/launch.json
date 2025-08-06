@@ -6,7 +6,10 @@
   "compounds": [
     {
       "name": "fullstack: Nuxt & Chrome",
-      "configurations": ["server: Nuxt", "client: Chrome"]
+      "configurations": [
+        "server: Nuxt",
+        "client: Chrome"
+      ]
     }
   ],
   "configurations": [
@@ -23,7 +26,21 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Current Test File",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "program": "${workspaceRoot}/node_modules/vitest/vitest.mjs",
+      "args": ["run", "${relativeFile}"],
+      "smartStep": true,
       "console": "integratedTerminal"
     }
   ]

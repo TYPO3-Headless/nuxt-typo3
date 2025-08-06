@@ -35,6 +35,6 @@ describe('T3ApiClient', () => {
     })
 
     expect(requestOptions).toHaveProperty('baseURL', 'https://api.t3pwa.com')
-    expect(requestOptions.headers.get('Authorization')).toBe('Token')
+    expect(requestOptions.headers.Authorization).toBe('Token')
   })
 })

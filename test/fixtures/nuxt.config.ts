@@ -3,6 +3,10 @@ import MyModule from '../../src/module'
 
 export default defineNuxtConfig({
   modules: [MyModule],
+  sourcemap: {
+    server: true,
+    client: true
+  },
   typo3: {
     sites:
       [
