@@ -112,7 +112,7 @@ export const useT3Meta = () => {
         if (item.available) {
           link.push({
             rel: 'alternate',
-            hreflang: item.twoLetterIsoCode,
+            hreflang: item.hreflang,
             href: baseUrl + item.link
           })
         }
