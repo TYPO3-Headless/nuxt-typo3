@@ -1,5 +1,5 @@
 import type { RouteLocationNormalized, LocationQuery } from 'vue-router'
-import { withoutLeadingSlash, withQuery } from 'ufo'
+import { withoutLeadingSlash, withQuery, withoutTrailingSlash } from 'ufo'
 import { showError, callOnce } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
@@ -18,7 +18,7 @@ async function fetchInitialData (to: RouteLocationNormalized) {
 
   const getInitialDataPath = (endpoint: string) => {
     if (endpoint.startsWith('?')) {
-      return getPathWithLocale(to.fullPath)
+      return withoutTrailingSlash(to.fullPath)
     }
 
     if (!Object.keys(to.query).length) {
