@@ -1,5 +1,6 @@
 import type { RouteLocationNormalized, LocationQuery } from 'vue-router'
-import { parseURL, parseQuery, withQuery } from 'ufo'
+import { parseURL, parseQuery, withQuery, withoutTrailingSlash } from 'ufo'
+
 import { showError, callOnce } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
@@ -29,7 +30,7 @@ async function fetchInitialData (to: RouteLocationNormalized) {
       const { pathname: fullPathPathname, search: baseSearch } = parseURL(fullPath)
       const baseQuery = parseQuery(baseSearch)
       const mergedQuery = { ...baseQuery, ...staticConfigEndpointQuery }
-      return withQuery(getPathWithLocale(fullPathPathname), mergedQuery)
+      return withQuery(withoutTrailingSlash(fullPathPathname), mergedQuery)
     }
 
     return withQuery(getPathWithLocale(endpointPathname), staticConfigEndpointQuery)
