@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.3.0...v2.3.1) (2025-10-24)
+
+
+### Bug Fixes
+
+* 'getInitialDataPath' not using configured initialData' endpoints from config ([b24b141](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b24b1414900b3ffe310308cfe0669c735b47380f))
+* fetch initial data for endpoints started by '?' ([8f60c37](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8f60c37cd418507a40d9fd54aff09150fcae235e))
+* fetching initial data fallback ([4be7737](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/4be7737054c3f87f8b3e4986e08402771f7dc2d7))
+* links alternate hreflang ([ce17403](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ce17403587e2e1ce94d92939707bbd4e1045ac84))
+
 ## [2.3.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.2.2...v2.3.0) (2025-08-06)
 
 
