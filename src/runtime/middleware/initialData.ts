@@ -66,6 +66,10 @@ async function fetchInitialData (to: RouteLocationNormalized) {
       return buildInitialDataPath(endpoint)
     }
 
+    if (Object.keys(routeQuery).some(key => key.includes('[controller]'))) {
+      return withQuery(to.fullPath, routeQuery)
+    }
+
     return buildDefaultInitialDataPath(endpoint, routeQuery)
   }
 
