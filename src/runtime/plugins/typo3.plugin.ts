@@ -1,10 +1,9 @@
 import { setResponseHeaders } from 'h3'
 import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders, useNuxtApp } from '#app'
-import { useT3Options } from './composables/useT3Options'
-import { useT3i18n } from './composables/useT3i18n'
-import { T3ApiClient } from './lib/apiClient'
-import { t3i18nMiddleware } from './middleware/i18n'
-import { t3initialDataMiddleware } from './middleware/initialData'
+import { useT3Options } from '../composables/useT3Options'
+import { useT3i18n } from '../composables/useT3i18n'
+import { T3ApiClient } from '../lib/apiClient'
+import { t3i18nMiddleware } from '../middleware/i18n'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { currentSiteOptions } = useT3Options()
@@ -24,12 +23,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.provide('typo3', typo3)
 
-  if (currentSiteOptions.value.features?.initInitialData) {
-    addRouteMiddleware('typo3-initialData-middleware', t3initialDataMiddleware, {
-      global: true
-    })
-  }
-
   if (currentSiteOptions.value.features?.i18nMiddleware) {
     addRouteMiddleware('typo3-i18n-middleware', t3i18nMiddleware, {
       global: true
@@ -38,7 +31,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.hook('app:rendered', () => {
     if (client.siteOptions.api.proxyHeaders) {
-      setResponseHeaders(useRequestEvent(), client.apiHeaders)
+      const reqEvent = useRequestEvent()
+      if (reqEvent) {
+        setResponseHeaders(reqEvent, client.apiHeaders)
+      }
     }
   })
 })

@@ -1,4 +1,5 @@
 import type { UseHeadInput } from '@unhead/vue'
+import type { NuxtError } from '#app'
 import type { T3ContentElement } from './T3ContentElement'
 import type { T3CeBaseProps } from './content'
 import type { T3Link } from './T3Link'
@@ -82,10 +83,10 @@ export interface T3Site {
    */
   features?: {
     /**
-     * fetch initial data before each page render
+     * fetch initial data on first ssr request
      * @default true
      */
-    initInitialData?: boolean
+    initialDataPlugin?: boolean
     /**
      * use built middleware to detect language changes
      * * @default true
@@ -95,6 +96,10 @@ export interface T3Site {
      * show content element data on each frontend component
      */
     debug?: boolean
+    /**
+     * generate dynamic page key for async data
+     */
+    dynamicPageKey?: boolean
   }
 }
 
@@ -190,6 +195,13 @@ export interface T3InitialData {
   [key: string]: any
 }
 
+export interface T3ErrorData {
+  initialData: T3InitialData
+  pageData: T3Page
+}
+export interface T3Error extends NuxtError<T3ErrorData> {
+  data: T3ErrorData
+}
 export interface ModuleOptions extends Partial<T3Options> {
   fallback?: {
     useLegacyAsyncDataPageKey?: boolean
@@ -199,9 +211,6 @@ export interface ModuleOptions extends Partial<T3Options> {
 export interface T3RuntimeConfig {
   public?: {
     typo3?: ModuleOptions
-    typo3Internals?: {
-      useLegacyAsyncDataPageKey?: boolean
-    }
   }
 }
 

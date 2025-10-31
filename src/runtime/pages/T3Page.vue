@@ -9,6 +9,8 @@
 <script setup lang="ts">
 import { useHead } from '#app'
 import { useT3Page } from '../composables/useT3Page'
-const { headData, pageData, backendLayout } = await useT3Page()
+import { useRoute, watch } from '#imports'
+const { headData, pageData, backendLayout, getPageData } = await useT3Page()
 useHead(headData)
+watch(() => useRoute().query, getPageData)
 </script>

@@ -1,10 +1,12 @@
 import type { RouteLocationNormalized, LocationQuery } from 'vue-router'
 import { parseURL, parseQuery, withQuery, withoutTrailingSlash } from 'ufo'
 
-import { showError, callOnce } from '#app'
+import { showError } from '#app'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
+import type { T3Error } from '../../types'
+import { defineNuxtPlugin, useError, useRoute, useT3Page } from '#imports'
 
 async function fetchInitialData (to: RouteLocationNormalized) {
   const { initialData, getInitialData } = useT3Api(to.fullPath)
@@ -82,6 +84,7 @@ async function fetchInitialData (to: RouteLocationNormalized) {
       data = await getInitialData(getInitialDataPath(initialDataFallback!))
     }
     initialData.value = data
+    return data
   } catch (error: any) {
     showError({
       fatal: true,
@@ -94,6 +97,34 @@ async function fetchInitialData (to: RouteLocationNormalized) {
   }
 }
 
-export async function t3initialDataMiddleware (to: RouteLocationNormalized) {
-  await callOnce('t3:initialData', async () => await fetchInitialData(to))
-}
+export default defineNuxtPlugin(async () => {
+  if (!import.meta.server) {
+    return
+  }
+
+  const { currentSiteOptions } = useT3Options()
+  const { initialData, pageData } = useT3Api()
+  const { getPageData } = await useT3Page()
+
+  const error: T3Error = useError().value as T3Error
+
+  // restore state from previous event context
+  // https://github.com/nuxt/nuxt/issues/33651
+  if (error?.data) {
+    initialData.value = error.data.initialData ?? null
+    pageData.value = error.data.pageData ?? null
+
+    // perevent double API calls for error pages
+    // https://github.com/nuxt/nuxt/issues/25084#issuecomment-1939607226
+    return
+  }
+
+  if (currentSiteOptions.value.features?.initialDataPlugin) {
+    const route = useRoute()
+    await fetchInitialData(route)
+  }
+
+  // fetch page data on the server once,
+  // then access it in the page-level composable.
+  await getPageData()
+})

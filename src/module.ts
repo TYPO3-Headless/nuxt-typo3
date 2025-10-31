@@ -7,8 +7,7 @@ import {
   extendPages,
   addImportsDir,
   createResolver,
-  addComponentsDir,
-  checkNuxtCompatibility
+  addComponentsDir
 } from '@nuxt/kit'
 import type { $Fetch } from 'ofetch'
 import { T3ApiClient } from './runtime/lib/apiClient'
@@ -48,8 +47,9 @@ export default defineNuxtModule<ModuleOptions>({
       locales: ['en']
     },
     features: {
-      initInitialData: true,
+      initialDataPlugin: true,
       i18nMiddleware: true,
+      dynamicPageKey: true,
       debug: false
     }
   },
@@ -71,13 +71,9 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
   },
-  async setup (options, nuxt) {
+  setup (options, nuxt) {
     const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
     const resolver = createResolver(import.meta.url)
-    const issues = await checkNuxtCompatibility({
-      nuxt: '>=3.17.0'
-    }, nuxt)
-    const useLegacyAsyncDataPageKey = issues.length > 0
 
     nuxt.options.pages = true
     nuxt.options.alias['#typo3'] = resolve(runtimeDir)
@@ -94,11 +90,12 @@ export default defineNuxtModule<ModuleOptions>({
       options
     )
 
-    nuxt.options.runtimeConfig.public.typo3Internals = {
-      useLegacyAsyncDataPageKey
-    }
-
-    addPlugin(resolve(runtimeDir, 'plugin'))
+    addPlugin(resolve(runtimeDir, 'plugins/typo3.plugin'))
+    addPlugin({
+      src: resolve(runtimeDir, 'plugins/initialData.plugin'),
+      mode: 'server',
+      order: 20
+    })
 
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
     addImportsDir(resolver.resolve('runtime/components/**/*'))

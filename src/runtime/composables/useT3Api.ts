@@ -1,9 +1,10 @@
 import type { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
-import { useState, useNuxtApp, useRoute, useRuntimeConfig } from '#app'
+import { useState, useNuxtApp, useRoute } from '#app'
 import { hash } from 'ohash'
 import type { T3InitialData, T3Page } from '../../module'
 import type { T3Api } from '../lib/apiClient'
+import { useT3Options } from '#imports'
 
 /**
  * Get page data state
@@ -72,7 +73,7 @@ export const useT3Api = (
   const defaultOptions = options!
   const pageData = useT3PageState()
   const initialData = useT3InitialDataState()
-  const useLegacyAsyncDataPageKey = useRuntimeConfig().public.typo3Internals?.useLegacyAsyncDataPageKey
+  const { currentSiteOptions } = useT3Options()
 
   const $fetch = async <T>(
     path: RequestInfo = defaultPath,
@@ -91,9 +92,7 @@ export const useT3Api = (
   }
 
   const getPageKey = (fullPath = defaultPath): string => {
-    return useLegacyAsyncDataPageKey
-      ? 't3:page'
-      : `t3:page:${hash(fullPath)}`
+    return currentSiteOptions.value.features?.dynamicPageKey ? `t3:page:${hash(fullPath)}` : 't3:page'
   }
 
   const getInitialData = async (
