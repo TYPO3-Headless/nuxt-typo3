@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+
+
+ --color-orange-50: #fffaec;
+  --color-orange-100: #fff4d3;
+  --color-orange-200: #ffe4a5;
+  --color-orange-300: #ffd06d;
+  --color-orange-400: #ffb032;
+  --color-orange-500: #ff960a;
+  --color-orange-600: #ee7500;
+  --color-orange-700: #cc5b02;
+  --color-orange-800: #a1460b;
+  --color-orange-900: #823c0c;
+}

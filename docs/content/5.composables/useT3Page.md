@@ -1,4 +1,8 @@
-# useT3Page
+---
+title: useT3Page
+description: 
+---
+
 
 Useful composable to recreate your own page file.
 
@@ -38,7 +42,7 @@ useHead(headData)
 </script>
 ```
 
-::alert{type="warning"}
+::warning
 Please be aware that `await useT3Page()` is responsible for fetching the current page data. If you use it in multiple places, it may lead to unexpeceted API call. To avoid this, you can either use await `useT3Page({fetchOnInit: false})` to prevent fetching on initialization, or alternatively use [useT3Api()](./useT3Api.md).
 ::
 

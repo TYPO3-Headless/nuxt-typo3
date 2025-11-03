@@ -1,4 +1,7 @@
-# useT3i18n
+---
+title: useT3i18n
+description: 
+---
 
 This composable provides methods to deal with internationalization
 
@@ -41,6 +44,6 @@ const { currentLocale } = useT3i18n()
 </script>
 ```
 
-::alert{type="warning"}
+::warning
 Please be aware, the `@t3headless/nuxt-typo3` is available as Early Access Program and API might change.
 ::

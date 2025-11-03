@@ -1,4 +1,7 @@
-# useT3DynamicComponent
+---
+title: useT3DynamicComponent
+description: 
+---
 
 Instead of additional T3DynamicComponent which is responsible for rendering <pre>`<component is="{Type}"/>`</pre> we use `useT3DynamicComponent` composable. You can use it to resolve any `T3` component. 
 

@@ -1,5 +1,7 @@
-# useT3Api
-
+---
+title: useT3Api
+description: 
+---
 This composable provides useful methods to use TYPO3 Api Client
 
 ## Type
@@ -25,6 +27,10 @@ export const useT3Api = (
    * Get TYPO3 Page data
    */
   getPage(path: string, options?: FetchOptions): Promise<T3Page>
+  /**
+   * Get unique cache key for TYPO3 page data based on route full path.
+   */
+  getPageKey(fullPath?: string): string;
   /**
    * Get TYPO3 Initial data
    */
@@ -52,6 +58,6 @@ const navigation = computed(() => {
 
 ```
 
-::alert{type="warning"}
+::warning
 Please be aware, the `@t3headless/nuxt-typo3` is available as Early Access Program and API might change.
 ::

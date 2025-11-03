@@ -1,4 +1,7 @@
-# useT3Options
+---
+title: useT3Options
+description: 
+---
 
 This composable provides access to configuration
 
@@ -29,6 +32,6 @@ const { api, i18n } = options
 </script>
 ```
 
-::alert{type="warning"}
+::warning
 Please be aware, the `@t3headless/nuxt-typo3` is available as Early Access Program and API might change.
 ::
