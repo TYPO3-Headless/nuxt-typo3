@@ -1,10 +1,12 @@
-# The Docker image that will be used to build your app
-image: node:18
-# Functions that should be executed before the build script is run
+image: node:20-bullseye
+
 before_script:
+  - apt-get update && apt-get install -y build-essential python3
   - npm install -g pnpm
+  - rm -f tsconfig.json
   - cd docs
   - pnpm install
+
 pages:
   tags:
     - docker
@@ -14,9 +16,6 @@ pages:
     - cp -r .output/public ../public
   artifacts:
     paths:
-      # The folder that contains the files to be exposed at the Page URL
       - public
   rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH

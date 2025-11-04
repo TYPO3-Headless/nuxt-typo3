@@ -27,6 +27,7 @@ dist
 # Env
 .env
 .npmrc
+!docs/.npmrc
 
 # Testing
 reports
