@@ -1,4 +1,3 @@
-import type { UseHeadInput } from '@unhead/vue'
 import type { NuxtError } from '#app'
 import type { T3ContentElement } from './T3ContentElement'
 import type { T3CeBaseProps } from './content'
@@ -165,7 +164,14 @@ export interface T3Meta {
   twitterImage: T3File | null
 }
 
-export type T3Seo = UseHeadInput
+interface T3Seo {
+  title?: string
+  htmlAttrs?: Record<string, any>
+  bodyAttrs?: Record<string, any>
+  meta?: Array<{ name?: string; property?: string; content?: string }>
+  link?: Array<{ rel: string; href: string; hreflang?: string }>
+  [key: string]: any
+}
 
 export interface T3PageAppearance {
   layout: string
