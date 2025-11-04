@@ -1,3 +1,4 @@
+import type { UseHeadInput } from '@unhead/vue'
 import type { T3ContentElement } from './T3ContentElement'
 import type { T3CeBaseProps } from './content'
 import type { T3Link } from './T3Link'
@@ -159,24 +160,7 @@ export interface T3Meta {
   twitterImage: T3File | null
 }
 
-export interface T3SeoMetaItem {
-  property?: string
-  name?: string
-  content: string
-}
-
-export interface T3SeoLinkItem {
-  href: string
-  hreflang?: string
-  rel: string
-}
-
-export interface T3Seo {
-  title: string
-  meta: T3SeoMetaItem[]
-  link: T3SeoLinkItem[]
-  robots?: Record<string, string>
-}
+export type T3Seo = UseHeadInput
 
 export interface T3PageAppearance {
   layout: string

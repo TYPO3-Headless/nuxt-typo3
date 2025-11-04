@@ -9,7 +9,7 @@ import type { T3Api } from '../lib/apiClient'
  * Get page data state
  * @returns {Ref<T3Page>}
  */
-export const useT3PageState = (): Ref<T3Page> => {
+export const useT3PageState = () => {
   const pageState = useState<T3Page | null>('T3:Page')
   return pageState
 }
@@ -18,7 +18,7 @@ export const useT3PageState = (): Ref<T3Page> => {
  * Get initial data state
  * @returns {Ref<T3InitialData>}
  */
-export const useT3InitialDataState = (): Ref<T3InitialData> => {
+export const useT3InitialDataState = () => {
   const initialDataState = useState<T3InitialData>('T3:InitialData')
   return initialDataState
 }
