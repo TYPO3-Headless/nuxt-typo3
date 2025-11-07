@@ -39,7 +39,7 @@
     "ohash": "^2.0.11",
     "scule": "1.3.0",
     "typescript": "5.9.3",
-    "ufo": "1.5.4"
+    "ufo": "1.6.1"
   },
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
