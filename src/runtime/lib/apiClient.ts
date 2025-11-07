@@ -1,6 +1,6 @@
 import type { $Fetch, FetchContext, FetchOptions } from 'ofetch'
 import { $fetch } from 'ofetch'
-import { cleanDoubleSlashes, parseQuery, parseURL } from 'ufo'
+import { cleanDoubleSlashes, parseQuery, parseURL, filterQuery, getQuery, stringifyQuery, withQuery } from 'ufo'
 import { defu } from 'defu'
 import type { T3Site, T3Page, T3InitialData } from '../../module'
 
@@ -77,12 +77,11 @@ export class T3ApiClient implements T3Api {
     const queryFromPath = parseQuery(search)
     const mergedQuery = { ...queryFromPath, ...(options?.query ?? {}) }
 
-    return this.$fetch<T3InitialData>(
-      this.filterQuery(cleanDoubleSlashes(pathname)),
-      {
-        ...this.getOptions(options),
-        query: mergedQuery
-      }
+    const fullPath = withQuery(pathname, mergedQuery)
+
+    return this.$fetch(
+      this.filterQuery(cleanDoubleSlashes(fullPath)),
+      this.getOptions(options)
     )
   }
 
@@ -131,23 +130,17 @@ export class T3ApiClient implements T3Api {
       return path
     }
 
-    const url = new URL(path, baseUrl)
-
-    if (!allowQuery) {
-      return url.pathname
-    }
-
-    const params = url.searchParams
+    const fullUrl = new URL(path, baseUrl).href
     const defaultAcceptedQuery = 'type'
 
-    if (allowQuery && Array.isArray(allowQuery)) {
-      Array.from(params).forEach(([key]) => {
-        if (allowQuery.includes(key) || key === defaultAcceptedQuery) {
-          return
-        }
-        params.delete(key)
+    if (!allowQuery) {
+      return filterQuery(fullUrl, key => key === defaultAcceptedQuery)
+    }
+
+    if (Array.isArray(allowQuery)) {
+      return filterQuery(fullUrl, (key) => {
+        return allowQuery.includes(key) || key === defaultAcceptedQuery
       })
-      return url.pathname + url.search
     }
 
     return path

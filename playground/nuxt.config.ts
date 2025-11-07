@@ -8,7 +8,8 @@ export default defineNuxtConfig({
       {
         hostname: 'localhost',
         api: {
-          baseUrl: 'http://localhost:3000/api'
+          baseUrl: 'http://localhost:8080',
+          allowQuery: ['blabla']
         },
         i18n: {
           default: 'en',
@@ -18,7 +19,8 @@ export default defineNuxtConfig({
       {
         hostname: 'local.t3pwa.com',
         api: {
-          baseUrl: 'http://localhost:3000/api'
+          baseUrl: 'http://localhost:3000/api',
+          allowQuery: false
         }
       }
     ]
