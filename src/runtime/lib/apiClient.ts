@@ -1,34 +1,33 @@
-import type { FetchContext, FetchOptions, FetchResponse } from 'ofetch'
+import type { $Fetch, FetchContext, FetchOptions } from 'ofetch'
 import { $fetch } from 'ofetch'
 import { cleanDoubleSlashes, parseQuery, parseURL } from 'ufo'
 import { defu } from 'defu'
 import type { T3Site, T3Page, T3InitialData } from '../../module'
 
 export interface T3Api {
-  $fetch: <T>(request: RequestInfo, options?: FetchOptions<'json'>) => Promise<T>
+  $fetch: <T>(request: RequestInfo, options?: FetchOptions) => Promise<T>
   siteOptions: T3Site
   apiHeaders: Record<string, string>
   initialDataEndpoint: string
-  fetchOptions?: FetchOptions<'json'>
+  fetchOptions?: FetchOptions
   filterQuery: (path: string) => string
   mapResponseHeaders: (headers: Headers) => Record<string, string>
-  getPage(path: string, options?: FetchOptions<'json'>): Promise<T3Page>
+  getPage(path: string, options?: FetchOptions): Promise<T3Page>
   getInitialData(
     path: string,
-    options?: FetchOptions<'json'>
+    options?: FetchOptions
   ): Promise<T3InitialData>
 }
 
 export class T3ApiClient implements T3Api {
-  private _$fetch: typeof $fetch
+  private _$fetch: $Fetch
   initialDataEndpoint: string
-  fetchOptions: FetchOptions<'json'> = {
+  fetchOptions: FetchOptions = {
     headers: {}
   }
 
   constructor (
     siteOptions: T3Site
-
   ) {
     this.siteOptions = siteOptions
     this.initialDataEndpoint = siteOptions.api.endpoints!.initialData!
@@ -49,8 +48,10 @@ export class T3ApiClient implements T3Api {
 
   $fetch <T> (
     request: RequestInfo,
-    options?: FetchOptions<'json'>
-  ): Promise<T> { return this._$fetch(request, this.getOptions(options)) }
+    options?: FetchOptions
+  ): Promise<T> {
+    return this._$fetch<T>(request, this.getOptions(options) as FetchOptions<'json'>)
+  }
 
   /**
    * Get TYPO3 Page data
@@ -58,8 +59,8 @@ export class T3ApiClient implements T3Api {
    * @param {FetchOptions} options
    * @returns {Promise<T3Page>} pageData promise
    */
-  getPage (path = '/', options?: FetchOptions<'json'>): Promise<T3Page> {
-    return this.$fetch(this.filterQuery(path), this.getOptions(options))
+  getPage (path = '/', options?: FetchOptions) {
+    return this.$fetch<T3Page>(this.filterQuery(path), this.getOptions(options))
   }
 
   /**
@@ -70,13 +71,13 @@ export class T3ApiClient implements T3Api {
    */
   getInitialData (
     path: string = '/',
-    options?: FetchOptions<'json'>
+    options?: FetchOptions
   ): Promise<T3InitialData> {
     const { pathname, search } = parseURL(path)
     const queryFromPath = parseQuery(search)
     const mergedQuery = { ...queryFromPath, ...(options?.query ?? {}) }
 
-    return this.$fetch(
+    return this.$fetch<T3InitialData>(
       this.filterQuery(cleanDoubleSlashes(pathname)),
       {
         ...this.getOptions(options),
@@ -98,19 +99,24 @@ export class T3ApiClient implements T3Api {
    * @param {FetchOptions} options
    * @returns {FetchOptions} merged options
    */
-  getOptions (options?: FetchOptions<'json'>): FetchOptions<'json'> {
+  getOptions (options?: FetchOptions): FetchOptions {
     return defu(options, {
-      onResponse: (context: FetchContext & {
-        response: FetchResponse<'json'>;
-    }) => {
+      onResponse: async (context: FetchContext) => {
         if (this.fetchOptions.onResponse) {
-          this.fetchOptions.onResponse(context)
+          const interceptors = Array.isArray(this.fetchOptions.onResponse)
+            ? this.fetchOptions.onResponse
+            : [this.fetchOptions.onResponse]
+
+          for (const interceptor of interceptors) {
+            await interceptor(context as any)
+          }
         }
-        if (import.meta.server && Array.isArray(this.siteOptions.api?.proxyHeaders) && context.response.headers) {
+
+        if (import.meta.server && Array.isArray(this.siteOptions.api?.proxyHeaders) && context.response?.headers) {
           this.apiHeaders = this.mapResponseHeaders(context.response.headers)
         }
       }
-    }, this.fetchOptions) as FetchOptions<'json'>
+    }, this.fetchOptions)
   }
 
   /**

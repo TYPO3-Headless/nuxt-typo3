@@ -31,7 +31,7 @@ export const useT3InitialDataState = () => {
  */
 export const useT3Api = (
   path?: string,
-  options?: FetchOptions<'json'>
+  options?: FetchOptions
 ): {
   /**
    * TYPO3 Page Data
@@ -65,7 +65,7 @@ export const useT3Api = (
   /**
    * Set API Client global options
    */
-  setOption<T extends keyof FetchOptions<'json'>>(key: T, value:FetchOptions<'json'>[T]): void
+  setOption<T extends keyof FetchOptions>(key: T, value:FetchOptions[T]): void
 } => {
   const app = useNuxtApp()
   const { $typo3, callHook } = app
@@ -77,14 +77,14 @@ export const useT3Api = (
 
   const $fetch = async <T>(
     path: RequestInfo = defaultPath,
-    options: FetchOptions<'json'> = defaultOptions
+    options: FetchOptions = defaultOptions
   ): Promise<T> => {
     return await $typo3.api.$fetch(path, options)
   }
 
   const getPage = async (
     path: string = defaultPath,
-    options: FetchOptions<'json'> = defaultOptions
+    options: FetchOptions = defaultOptions
   ) => {
     const pageData = await $typo3.api.getPage(path, options)
     await callHook('t3:page', pageData)
@@ -97,7 +97,7 @@ export const useT3Api = (
 
   const getInitialData = async (
     path: string = defaultPath,
-    options: FetchOptions<'json'> = defaultOptions
+    options: FetchOptions = defaultOptions
   ) => {
     const initialData = await $typo3.api.getInitialData(path, options)
     await callHook('t3:initialData', initialData)
@@ -108,7 +108,7 @@ export const useT3Api = (
     $typo3.api.setHeaders(headers)
   }
 
-  const setOption = <T extends keyof FetchOptions<'json'>>(key: T, value:FetchOptions<'json'>[T]) => {
+  const setOption = <T extends keyof FetchOptions>(key: T, value:FetchOptions[T]) => {
     $typo3.api.fetchOptions[key] = value
   }
 
