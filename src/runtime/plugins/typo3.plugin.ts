@@ -1,6 +1,6 @@
 import { setResponseHeaders } from 'h3'
-import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders, useNuxtApp } from '#app'
-import { useT3Options } from '../composables/useT3Options'
+import { defineNuxtPlugin, addRouteMiddleware, useHydration, useRequestEvent, useRequestHeaders, useNuxtApp, useRuntimeConfig } from '#app'
+import { useT3Options, useT3OptionsState } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
 import { T3ApiClient } from '../lib/apiClient'
 import { t3i18nMiddleware } from '../middleware/i18n'
@@ -30,6 +30,13 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   nuxtApp.hook('app:rendered', () => {
+    const ssrConfig = useRuntimeConfig().typo3
+    // clear the merged SSR config to prevent hydration on the client side
+    if (ssrConfig) {
+      const state = useT3OptionsState()
+      state.value = null
+    }
+
     if (client.siteOptions.api.proxyHeaders) {
       const reqEvent = useRequestEvent()
       if (reqEvent) {
@@ -39,7 +46,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   })
 })
 
-// grab SSR and Request headers and hydrate them to ClientSide
+// grab SSR and Request headers and hydrate them to client side
 export const hydrateT3ClientHeaders = (client: T3ApiClient) => {
   useHydration('T3:api:headers',
     () => {

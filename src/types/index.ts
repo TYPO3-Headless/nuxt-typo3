@@ -13,6 +13,10 @@ export * from './T3ContentElement'
 export * from './T3BackendLayout'
 export * from './content'
 
+type DeepPartial<T> = T extends object
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : T;
+
 export interface T3Site {
   /**
      * Base app url for handling default canonical links
@@ -209,9 +213,7 @@ export interface T3Error extends NuxtError<T3ErrorData> {
   data: T3ErrorData
 }
 export interface ModuleOptions extends Partial<T3Options> {
-  fallback?: {
-    useLegacyAsyncDataPageKey?: boolean
-  }
+
 }
 
 export interface T3RuntimeConfig {
@@ -221,6 +223,15 @@ export interface T3RuntimeConfig {
 }
 
 declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    typo3: ModuleOptions
+  }
+  interface RuntimeConfig {
+    typo3: DeepPartial<ModuleOptions>
+  }
+  interface PublicRuntimeConfig {
+    typo3: ModuleOptions
+  }
   interface ConfigSchema {
     runtimeConfig: T3RuntimeConfig
   }

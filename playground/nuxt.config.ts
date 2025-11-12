@@ -15,15 +15,21 @@ export default defineNuxtConfig({
           default: 'en',
           locales: ['en', 'de', 'pl']
         }
-      },
-      {
-        hostname: 'local.t3pwa.com',
-        api: {
-          baseUrl: 'http://localhost:3000/api',
-          allowQuery: false
-        }
       }
     ]
+  },
+  runtimeConfig: {
+    typo3: {
+      sites: [
+        {
+          hostname: 'localhost',
+          api: {
+            baseUrl: 'https://macopedia.com/headless'
+          }
+        }
+      ]
+    }
+
   },
   components: {
     dirs: [

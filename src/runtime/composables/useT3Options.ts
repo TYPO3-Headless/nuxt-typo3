@@ -1,4 +1,5 @@
 import type { Ref } from 'vue'
+import { defu } from 'defu'
 import { useRuntimeConfig, useRequestHeaders, useState } from '#app'
 import type { T3Site, T3Options } from '../../module'
 import { getRawHost } from '../lib/url'
@@ -25,8 +26,8 @@ export const useT3Options = (): {
   const options = useRuntimeConfig().public.typo3 as T3Options
   const currentSiteOptions = useT3OptionsState() as Ref<T3Site>
 
-  const getSiteOptions = (domain?: string): T3Site => {
-    const { sites } = options
+  const getOptions = (domain?: string, context = options): T3Site => {
+    const { sites } = context
 
     if (!sites || !sites.length) {
       return options
@@ -48,6 +49,28 @@ export const useT3Options = (): {
     }
 
     return site
+  }
+
+  const getSiteOptions = (domain?: string): T3Options => {
+    const clientOptions = getOptions(domain)
+
+    if (import.meta.client) {
+      return clientOptions
+    }
+
+    const ssrConfig = useRuntimeConfig().typo3 as T3Options
+    if (!ssrConfig) {
+      return clientOptions
+    }
+
+    const serverOptions = getOptions(domain, ssrConfig)
+
+    if (!serverOptions) {
+      return clientOptions
+    }
+
+    const merged = defu(serverOptions, clientOptions)
+    return merged
   }
 
   if (!currentSiteOptions.value) {
