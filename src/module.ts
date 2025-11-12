@@ -38,7 +38,7 @@ export default defineNuxtModule<ModuleOptions>({
       proxyReqHeaders: false,
       endpoints: {
         initialData: '/?type=834',
-        initialDataFallback: '/?type=834'
+        initialDataFallback: false
       },
       allowQuery: true
     },

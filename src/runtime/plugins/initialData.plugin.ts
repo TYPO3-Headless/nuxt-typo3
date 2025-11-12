@@ -1,7 +1,7 @@
 import type { RouteLocationNormalized, LocationQuery } from 'vue-router'
 import { parseURL, parseQuery, withQuery, withoutTrailingSlash } from 'ufo'
-
 import { showError } from '#app'
+import logger from '../lib/logger'
 import { useT3Api } from '../composables/useT3Api'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3i18n } from '../composables/useT3i18n'
@@ -80,8 +80,15 @@ async function fetchInitialData (to: RouteLocationNormalized) {
     let data
     try {
       data = await getInitialData(getInitialDataPath(initialDataEndpoint!))
-    } catch {
-      data = await getInitialData(getInitialDataPath(initialDataFallback!))
+    } catch (error) {
+      if (initialDataFallback && typeof initialDataFallback === 'string') {
+        if (import.meta.dev) {
+          logger.warn('[DEPRECATED]: initialDataFallback is depracted and will be removed in the next minor version, use interceptor instead')
+        }
+        data = await getInitialData(getInitialDataPath(initialDataFallback!))
+      } else {
+        throw new Error(error as any)
+      }
     }
     initialData.value = data
     return data

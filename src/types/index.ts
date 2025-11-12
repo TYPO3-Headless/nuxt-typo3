@@ -59,7 +59,7 @@ export interface T3Site {
        * InitialData fallback, eg. for static pages
        * @default /?type=834
        */
-      initialDataFallback?: string
+      initialDataFallback?: string | boolean
     }
   }
   /**
