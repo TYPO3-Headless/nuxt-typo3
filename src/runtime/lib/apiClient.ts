@@ -74,10 +74,12 @@ export class T3ApiClient implements T3Api {
     options?: FetchOptions
   ): Promise<T3InitialData> {
     const { pathname, search } = parseURL(path)
+    const isQuery = getQuery(this.initialDataEndpoint)
+    const initialDataPath = !Object.keys(isQuery).length ? this.initialDataEndpoint : ''
     const queryFromPath = parseQuery(search)
-    const mergedQuery = { ...queryFromPath, ...(options?.query ?? {}) }
+    const mergedQuery = { ...queryFromPath, ...isQuery }
 
-    const fullPath = withQuery(pathname, mergedQuery)
+    const fullPath = withQuery(pathname + initialDataPath, mergedQuery)
 
     return this.$fetch(
       this.filterQuery(cleanDoubleSlashes(fullPath)),
