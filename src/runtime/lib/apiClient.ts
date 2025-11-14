@@ -124,21 +124,19 @@ export class T3ApiClient implements T3Api {
    * @returns {String} trimmed path
    */
   filterQuery (path: string): string {
-    const { baseUrl, allowQuery } = this.siteOptions.api
+    const { allowQuery } = this.siteOptions.api
+    const defaultAcceptedQuery = 'type'
 
-    if (allowQuery && allowQuery === true) {
+    if (allowQuery === true) {
       return path
     }
 
-    const fullUrl = new URL(path, baseUrl).href
-    const defaultAcceptedQuery = 'type'
-
     if (!allowQuery) {
-      return filterQuery(fullUrl, key => key === defaultAcceptedQuery)
+      return filterQuery(path, key => key === defaultAcceptedQuery)
     }
 
     if (Array.isArray(allowQuery)) {
-      return filterQuery(fullUrl, (key) => {
+      return filterQuery(path, (key) => {
         return allowQuery.includes(key) || key === defaultAcceptedQuery
       })
     }
