@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { RouteLocationNormalized } from '#vue-router'
 import { useRoute, useAsyncData, showError, clearNuxtData, useNuxtApp } from '#app'
 import { useT3Api } from './useT3Api'
@@ -66,7 +66,7 @@ export const useT3Page = async (options: {
   const frontendLayout = hasLayout(pageData.value?.appearance?.layout) ? pageData.value?.appearance.layout : 'default'
 
   return {
-    pageData,
+    pageData: import.meta.server ? pageData : ref(pageData.value),
     getPageData,
     headData,
     backendLayout,
