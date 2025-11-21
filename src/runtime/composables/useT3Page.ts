@@ -4,30 +4,38 @@ import { useRoute, useAsyncData, showError, clearNuxtData, useNuxtApp } from '#a
 import { useT3Api } from './useT3Api'
 import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
+import { getCurrentInstance, onBeforeUnmount } from '#imports'
 
 export const useT3Page = async (options: {
   route: RouteLocationNormalized,
+  fetchOnInit: boolean,
+  abortSignal: boolean
 } = {
-  route: useRoute()
+  route: useRoute(),
+  fetchOnInit: true,
+  abortSignal: true
 }) => {
   const { route } = options
   const { pageData, getPage, getPageKey, initialData } = useT3Api()
   const { headData } = useT3Meta()
   const { redirect } = useT3Utils()
   const { isHydrating, payload } = useNuxtApp()
-
+  const pageDataAbortController = new AbortController()
+  const isNotHydrating = import.meta.client && !isHydrating
   const pageCacheKey = computed(() => getPageKey(route.fullPath))
 
-  const { data, execute: getAsyncPage, error } = useAsyncData(
+  const { data, execute: getAsyncPage, error, refresh: refreshPageData } = useAsyncData(
     pageCacheKey.value,
-    () => getPage(route.fullPath),
+    () => getPage(route.fullPath, {
+      signal: pageDataAbortController.signal
+    }),
     {
       immediate: false
     }
   )
 
   const getPageData = async () => {
-    if (import.meta.client && !useNuxtApp().isHydrating) {
+    if (!isNotHydrating) {
       clearNuxtData(pageCacheKey.value)
       delete payload.data[pageCacheKey.value]
     }
@@ -59,8 +67,15 @@ export const useT3Page = async (options: {
     }
   }
 
+  // abort paga data fetching on unmounting component
+  if (options.abortSignal && getCurrentInstance()) {
+    onBeforeUnmount(() => {
+      pageDataAbortController.abort()
+    })
+  }
+
   // call it only on client navigation
-  if (route && !import.meta.server && !isHydrating) {
+  if (options.fetchOnInit && route && isNotHydrating) {
     await getPageData()
   }
 
@@ -70,6 +85,8 @@ export const useT3Page = async (options: {
   return {
     pageData: import.meta.server ? pageData : ref(pageData.value),
     getPageData,
+    refreshPageData,
+    pageDataAbortController,
     headData,
     backendLayout,
     frontendLayout
