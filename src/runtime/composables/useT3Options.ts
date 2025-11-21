@@ -30,7 +30,7 @@ export const useT3Options = (): {
     const { sites } = context
 
     if (!sites || !sites.length) {
-      return options
+      return context
     }
 
     const host = domain || useRequestHeaders()?.host || window?.location.origin
