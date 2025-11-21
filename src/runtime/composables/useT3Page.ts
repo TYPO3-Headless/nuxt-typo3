@@ -34,7 +34,8 @@ export const useT3Page = async (options: {
 
     await getAsyncPage()
 
-    if (error.value || !data.value) {
+    // show error page only for current page route
+    if ((error.value || !data.value) && useRoute().fullPath === route.fullPath) {
       showError({
         ...error.value,
         unhandled: false,
@@ -45,6 +46,7 @@ export const useT3Page = async (options: {
         }
       })
     }
+
     if (data.value?.redirectUrl) {
       return redirect(data.value)
     }
