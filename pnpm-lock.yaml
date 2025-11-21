@@ -11,6 +11,9 @@ importers:
       defu:
         specifier: 6.1.4
         version: 6.1.4
+      dot-prop:
+        specifier: ^10.1.0
+        version: 10.1.0
       ofetch:
         specifier: 1.5.1
         version: 1.5.1

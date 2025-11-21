@@ -1,10 +1,29 @@
 import type { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
-import { useState, useNuxtApp, useRoute } from '#app'
 import { hash } from 'ohash'
+import { getProperty, setProperty } from 'dot-prop'
+import { useState, useNuxtApp, useRoute } from '#app'
 import type { T3InitialData, T3Page } from '../../module'
 import type { T3Api } from '../lib/apiClient'
-import { useT3Options } from '#imports'
+import { computed, toRaw, useRuntimeConfig, useT3Options } from '#imports'
+
+const debackslashPageData = (pageData: T3Page | null, backslashPageDataProperties: Array<string> = []) => {
+  if (!pageData) {
+    return null
+  }
+
+  for (const property of backslashPageDataProperties) {
+    const value = getProperty(pageData, property)
+
+    if (!value || typeof value !== 'string') {
+      continue
+    }
+
+    setProperty(pageData, property, value.replaceAll('\\/', '/'))
+  }
+
+  return pageData
+}
 
 /**
  * Get page data state
@@ -12,7 +31,27 @@ import { useT3Options } from '#imports'
  */
 export const useT3PageState = () => {
   const pageState = useState<T3Page | null>('T3:Page')
-  return pageState
+
+  const backslashPageDataProperties = useRuntimeConfig().public.typo3?.features?.backslashPageDataProperties
+  if (!backslashPageDataProperties?.length) {
+    return pageState
+  }
+
+  const pageStateProxy = computed<T3Page | null>({
+    get: () => {
+      if (!pageState.value) {
+        return null
+      }
+
+      const rawPageData = structuredClone(toRaw(pageState.value))
+
+      return debackslashPageData(rawPageData, backslashPageDataProperties)
+    },
+    set: (value: T3Page | null) => {
+      pageState.value = value
+    }
+  })
+  return pageStateProxy
 }
 
 /**
@@ -65,7 +104,7 @@ export const useT3Api = (
   /**
    * Set API Client global options
    */
-  setOption<T extends keyof FetchOptions>(key: T, value:FetchOptions[T]): void
+  setOption<T extends keyof FetchOptions>(key: T, value: FetchOptions[T]): void
 } => {
   const app = useNuxtApp()
   const { $typo3, callHook } = app
@@ -108,7 +147,7 @@ export const useT3Api = (
     $typo3.api.setHeaders(headers)
   }
 
-  const setOption = <T extends keyof FetchOptions>(key: T, value:FetchOptions[T]) => {
+  const setOption = <T extends keyof FetchOptions>(key: T, value: FetchOptions[T]) => {
     $typo3.api.fetchOptions[key] = value
   }
 

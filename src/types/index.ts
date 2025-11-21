@@ -1,8 +1,8 @@
-import type { NuxtError } from '#app'
 import type { T3ContentElement } from './T3ContentElement'
 import type { T3CeBaseProps } from './content'
 import type { T3Link } from './T3Link'
 import type { T3File } from './T3File'
+import type { NuxtError } from '#app'
 export * from './T3Link'
 export * from './T3File'
 export * from './T3Gallery'
@@ -103,6 +103,11 @@ export interface T3Site {
      * generate dynamic page key for async data
      */
     dynamicPageKey?: boolean
+    /**
+     * automatically backslash pagedata properties
+     */
+    backslashPageDataProperties?: Array<string>
+
   }
 }
 
