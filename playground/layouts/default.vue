@@ -33,12 +33,11 @@
 import { computed } from 'vue'
 import { useT3Api } from '~/../src/runtime/composables/useT3Api'
 import { useT3Utils } from '~/../src/runtime/composables/useT3Utils'
-import { useRuntimeConfig, useT3Options } from '#imports'
+import { useT3Options } from '#imports'
 
 const { initialData } = useT3Api()
 const { localePath } = useT3Utils()
 const { currentSiteOptions } = useT3Options()
-const typo3 = useRuntimeConfig().public
 const navigation = computed(() => {
   return initialData.value?.navigation?.[0].children
 })
