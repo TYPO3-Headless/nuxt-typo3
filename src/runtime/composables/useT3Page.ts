@@ -1,30 +1,10 @@
 import { computed, ref } from 'vue'
-import { getProperty, setProperty } from 'dot-prop'
 import { useRoute, useAsyncData, showError, clearNuxtData, useNuxtApp } from '#app'
 import type { RouteLocationNormalized } from '#vue-router'
-import type { T3Page } from '../../types'
 import { useT3Api } from './useT3Api'
 import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
-import { useRuntimeConfig } from '#imports'
-
-const backslashPageData = (pageData: T3Page | null, backslashPageDataProperties: Array<string> = []) => {
-  if (!pageData) {
-    return null
-  }
-
-  for (const property of backslashPageDataProperties) {
-    const value = getProperty(pageData, property)
-
-    if (!value || typeof value !== 'string') {
-      continue
-    }
-
-    setProperty(pageData, property, value.replaceAll('/', '\\/'))
-  }
-
-  return pageData
-}
+import { getCurrentInstance, onBeforeUnmount } from '#imports'
 
 export const useT3Page = async (options: {
   route: RouteLocationNormalized,
@@ -42,7 +22,6 @@ export const useT3Page = async (options: {
   const { isHydrating, payload } = useNuxtApp()
   const pageDataAbortController = new AbortController()
   const isNotHydrating = import.meta.client && !isHydrating
-  const backslashPageDataProperties = useRuntimeConfig().public.typo3?.features?.backslashPageDataProperties
 
   const pageCacheKey = computed(() => getPageKey(route.fullPath))
 
@@ -52,12 +31,7 @@ export const useT3Page = async (options: {
       signal: pageDataAbortController.signal
     }),
     {
-      immediate: false,
-      ...(backslashPageDataProperties?.length
-        ? {
-            transform: (input: T3Page) => backslashPageData(input, backslashPageDataProperties)
-          }
-        : {})
+      immediate: false
     }
   )
 

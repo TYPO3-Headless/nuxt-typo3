@@ -91,6 +91,7 @@ export default defineNuxtModule<ModuleOptions>({
     )
 
     addPlugin(resolve(runtimeDir, 'plugins/typo3.plugin'))
+    addPlugin(resolve(runtimeDir, 'plugins/backslash.plugin'))
     addPlugin({
       src: resolve(runtimeDir, 'plugins/initialData.plugin'),
       mode: 'server',

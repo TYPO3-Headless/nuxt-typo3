@@ -1,6 +1,6 @@
 import type { $Fetch, FetchContext, FetchOptions } from 'ofetch'
 import { $fetch } from 'ofetch'
-import { cleanDoubleSlashes, parseQuery, parseURL, filterQuery, getQuery, stringifyQuery, withQuery } from 'ufo'
+import { cleanDoubleSlashes, parseQuery, parseURL, filterQuery, getQuery, withQuery } from 'ufo'
 import { defu } from 'defu'
 import type { T3Site, T3Page, T3InitialData } from '../../module'
 

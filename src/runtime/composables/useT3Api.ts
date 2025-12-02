@@ -1,29 +1,10 @@
 import type { FetchOptions } from 'ofetch'
 import type { Ref } from 'vue'
 import { hash } from 'ohash'
-import { getProperty, setProperty } from 'dot-prop'
 import { useState, useNuxtApp, useRoute } from '#app'
 import type { T3InitialData, T3Page } from '../../module'
 import type { T3Api } from '../lib/apiClient'
-import { computed, toRaw, useRuntimeConfig, useT3Options } from '#imports'
-
-const debackslashPageData = (pageData: T3Page | null, backslashPageDataProperties: Array<string> = []) => {
-  if (!pageData) {
-    return null
-  }
-
-  for (const property of backslashPageDataProperties) {
-    const value = getProperty(pageData, property)
-
-    if (!value || typeof value !== 'string') {
-      continue
-    }
-
-    setProperty(pageData, property, value.replaceAll('\\/', '/'))
-  }
-
-  return pageData
-}
+import { useT3Options } from '#imports'
 
 /**
  * Get page data state
@@ -31,27 +12,7 @@ const debackslashPageData = (pageData: T3Page | null, backslashPageDataPropertie
  */
 export const useT3PageState = () => {
   const pageState = useState<T3Page | null>('T3:Page')
-
-  const backslashPageDataProperties = useRuntimeConfig().public.typo3?.features?.backslashPageDataProperties
-  if (!backslashPageDataProperties?.length) {
-    return pageState
-  }
-
-  const pageStateProxy = computed<T3Page | null>({
-    get: () => {
-      if (!pageState.value) {
-        return null
-      }
-
-      const rawPageData = structuredClone(toRaw(pageState.value))
-
-      return debackslashPageData(rawPageData, backslashPageDataProperties)
-    },
-    set: (value: T3Page | null) => {
-      pageState.value = value
-    }
-  })
-  return pageStateProxy
+  return pageState
 }
 
 /**

@@ -1,8 +1,8 @@
+import type { NuxtError } from '#app'
 import type { T3ContentElement } from './T3ContentElement'
 import type { T3CeBaseProps } from './content'
 import type { T3Link } from './T3Link'
 import type { T3File } from './T3File'
-import type { NuxtError } from '#app'
 export * from './T3Link'
 export * from './T3File'
 export * from './T3Gallery'
@@ -104,10 +104,48 @@ export interface T3Site {
      */
     dynamicPageKey?: boolean
     /**
-     * automatically backslash pagedata properties
+     * Automatically backslash API data properties to prevent SEO/crawler issues
+     *
+     * Search engine bots and crawlers scan JSON responses and extract strings containing
+     * slashes (e.g., '/about/team', '/products/item') assuming they are valid page URLs.
+     * Bots then attempt to visit these URLs, causing 404 errors when the strings are just
+     * data fields (like slugs, paths in objects) and not actual accessible pages.
+     *
+     * This feature escapes slashes (/ -> \/) on the server to hide them from crawlers,
+     * and optionally unescapes them on the client for normal display.
+     *
+     * Supports nested properties and arrays with wildcard notation:
+     * - Simple: 'slug'
+     * - Nested: 'meta.description'
+     * - Arrays: 'breadcrumbs.*.title'
+     * - Multiple levels: 'navigation.*.children.*.link'
+     * @default undefined
+     *
+     * @example
+     * // Apply to both pageData and initialData
+     * backslashApiProperties: ['slug', 'breadcrumbs.*.title']
+     *
+     * @example
+     * // Separate configuration with client unescaping disabled
+     * backslashApiProperties: {
+     *   pageDataProps: ['slug', 'navigation.*.link'],
+     *   initialDataProps: ['menu.items.*.slug'],
+     *   unbackslashOnClient: true // remove backslashes on client-side
+     * }
      */
-    backslashPageDataProperties?: Array<string>
-
+    backslashApiProperties?: Array<string> | {
+      /** Properties to backslash in initialData */
+      initialDataProps?: Array<string>
+      /** Properties to backslash in pageData */
+      pageDataProps?: Array<string>,
+       /**
+        * Whether to remove backslashes on client-side (default: false)
+        * @warning Setting unbackslashOnClient to true may cause hydration mismatches
+        * if the unescaped values differ from server-rendered content. Only enable if
+        * you're certain the affected properties are not part of SSR HTML output.
+       */
+      unbackslashOnClient?: boolean
+    }
   }
 }
 
