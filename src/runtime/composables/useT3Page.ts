@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useAsyncData, showError, clearNuxtData, useNuxtApp } from '#app'
 import type { RouteLocationNormalized } from '#vue-router'
+import type { T3Page } from '../../types'
 import { useT3Api } from './useT3Api'
 import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
@@ -25,7 +26,7 @@ export const useT3Page = async (options: {
 
   const pageCacheKey = computed(() => getPageKey(route.fullPath))
 
-  const { data, execute: getAsyncPage, error, refresh: refreshPageData } = useAsyncData(
+  const { data, execute: getAsyncPage, error, refresh } = useAsyncData<T3Page>(
     pageCacheKey.value,
     () => getPage(route.fullPath, {
       signal: pageDataAbortController.signal
@@ -34,6 +35,8 @@ export const useT3Page = async (options: {
       immediate: false
     }
   )
+
+  const refreshPageData: () => Promise<void> = () => refresh()
 
   const getPageData = async () => {
     if (!isNotHydrating) {
