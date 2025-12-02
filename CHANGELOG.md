@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.3.1...v2.4.0) (2025-12-02)
+
+
+### Features
+
+* add feature option to backslash provided pageData properties ([4d2dca9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/4d2dca97fc1044ed03ef3a0bd88e619b6d6ffb16))
+* implement abort controller on page unmounting ([d423f46](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/d423f463553c3b88741acd95bce6179b2e57ab5b))
+* make backslash feature more pluginable ([ba0bae6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ba0bae60b41ae0e627ad76d6ec96421d02e7f1d5))
+* make initialData fallback depracted ([a88111a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a88111a0ab23440ef0e372fb31e28b1ac2f87cdb))
+* provide server side configuration ([7ba3926](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/7ba3926b7a818c8140f396bd070bfff92875d475))
+
+
+### Bug Fixes
+
+* add explicit refresh page data type ([7ef6b3a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/7ef6b3af5e873e32b0bc444363cbda8e2a89d90a))
+* do not use full url in filter query ([2754b35](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/2754b354e9bcaf1396ed519f56c3d052c2049bfe))
+* linting ([a8c7694](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a8c76942088ff623fea4f493535cefd4c37911d9))
+* post test fix ([e445df9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/e445df92cbf6c751e4d0f9dfc328760b0f88a18d))
+* providing default query for initial data fetching ([24240c4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/24240c4f3c345749082b54c74ff6eb6cefb6df65))
+* resolving ssr configuration for one site ([bbad28e](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/bbad28e24b29832e964f6453c096dbf4f6ed2317))
+* restore ref for current page scope to fix animated pages ([eb52975](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/eb52975266834adf08909afbbafa3daad5b61c05))
+* show error page only for current route scope ([21ed9e6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/21ed9e6ff59dcbfc14f6abc7e11e4aa61c36df92))
+* using external module type definition ([defd198](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/defd198ae3b4e6275e37ffc99382c74e63d308ce))
+
+
+### Refactor
+
+* adjust api client to new ofetch types ([8e3f378](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8e3f3783695c9c5c15573585ebabc765e78c7ebe))
+* prevent double request calls ([e4cf0e6](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/e4cf0e64e9336801fbd8ea443bbf8f8349aeb01a))
+* simplify fallback meta and use seo field directly ([e113b30](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/e113b306bd5bf8d17983152c603c40cbaf1d3b0b))
+* use filterQuery method from ufo and fix fullPath in initialData ([9f9fdf4](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/9f9fdf4758a953f3dc23b26df72b039825b69c5c))
+
+
+### Documentation
+
+* add backslash feature ([fe8a555](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/fe8a5558cf949a30a427f024f17dbc148130c2cc))
+* add section covering backend multistep implementation ([89a6886](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/89a688626c748100af4714ccd30ba6c88a6f9322))
+* migrate to docus v5 ([c77b204](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/c77b204802ecec28cc3b6587ece47f6f494ea37d))
+* update configuration section ([12ff53a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/12ff53aac5f6175c5499a695fd6b7f8c89452bd3))
+
 ### [2.3.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.3.0...v2.3.1) (2025-10-24)
 
 
