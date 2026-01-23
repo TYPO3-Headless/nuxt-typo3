@@ -4,8 +4,8 @@
     "dev": "nuxt dev --extends docus",
     "build": "nuxt build --extends docus",
     "generate": "nuxt generate --extends docus",
-    "preview": "nuxt preview"
-
+    "preview": "nuxt preview",
+    "preview:static": "rm -rf .output/serve && mkdir -p .output/serve/nuxt-typo3 && cp -r .output/public/* .output/serve/nuxt-typo3/ && cp serve.json .output/serve/ && npx serve .output/serve -l 3000"
   },
   "dependencies": {
     "docus": "latest",
