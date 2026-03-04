@@ -1,10 +1,12 @@
 import type { Ref } from 'vue'
-import { useRuntimeConfig, useRequestHeaders, useState } from '#app'
+import { ref } from 'vue'
+import { useRuntimeConfig, useRequestHeaders } from '#app'
 import type { T3Site, T3Options } from '../../module'
 import { getRawHost } from '../lib/url'
+import { defu } from "defu";
 
 export const useT3OptionsState = () => {
-  const options = useState<T3Site | null>('T3:Options')
+  const options = ref<T3Site | null>(null)
   return options
 }
 
@@ -22,7 +24,12 @@ export const useT3Options = (): {
    */
   currentSiteOptions: Ref<T3Site>
 } => {
-  const options = useRuntimeConfig().public.typo3 as T3Options
+  const config = useRuntimeConfig()
+  const options = defu(
+      {},
+      config.typo3 || {},
+      config.public.typo3 || {}
+  ) as T3Options
   const currentSiteOptions = useT3OptionsState() as Ref<T3Site>
 
   const getSiteOptions = (domain?: string): T3Site => {
