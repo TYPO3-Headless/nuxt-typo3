@@ -8,8 +8,7 @@ export default defineNuxtConfig({
       {
         hostname: 'localhost',
         api: {
-          baseUrl: 'http://localhost:8080',
-          allowQuery: ['blabla']
+          baseUrl: 'http://localhost:3000/api'
         },
         i18n: {
           default: 'en',
@@ -24,12 +23,11 @@ export default defineNuxtConfig({
         {
           hostname: 'localhost',
           api: {
-            baseUrl: 'https://macopedia.com/headless'
+            baseUrl: 'http://localhost:3000/api'
           }
         }
       ]
     }
-
   },
   components: {
     dirs: [
