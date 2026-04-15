@@ -10,7 +10,7 @@ await setup({
 describe('useT3Options', () => {
   it('renders correct host', async () => {
     const result = await $fetch('/')
-    expect(result).toContain('api host: https://my-api-demo.com')
+    expect(result).toContain('api host: http://localhost:9876')
   }, 15000)
 
   it('renders correct curent locale', async () => {

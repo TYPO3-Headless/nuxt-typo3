@@ -13,27 +13,27 @@ export default defineNuxtConfig({
         {
           hostname: '127.0.0.1',
           api: {
-            baseUrl: 'https://my-api-demo.com'
+            baseUrl: 'http://localhost:9876'
           },
           i18n: {
             default: 'pl',
             locales: ['pl', 'en', 'de']
           },
           features: {
-            initInitialData: false
+            initialDataPlugin: false
           }
         },
         {
           hostname: 'localhost',
           api: {
-            baseUrl: 'https://my-api-demo.com'
+            baseUrl: 'http://localhost:9876'
           },
           i18n: {
             default: 'pl',
             locales: ['pl', 'en', 'de']
           },
           features: {
-            initInitialData: false
+            initialDataPlugin: false
           }
         }
       ]

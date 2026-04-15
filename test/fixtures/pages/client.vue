@@ -20,7 +20,7 @@ $typo3.api.$fetch('/', {
 
   // eslint-disable-next-line require-await
   async onRequest ({ options }) {
-    headersTest.value = options.headers
+    headersTest.value = Object.fromEntries(options.headers as Headers)
   }
 })
 

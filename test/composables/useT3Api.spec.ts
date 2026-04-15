@@ -1,10 +1,6 @@
 import { fileURLToPath } from 'node:url'
-import { describe, beforeEach, afterEach, it, expect } from 'vitest'
-import { listen } from 'listhen'
-import { createApp, eventHandler, toNodeListener } from 'h3'
+import { describe, it, expect } from 'vitest'
 import { setup, $fetch } from '@nuxt/test-utils'
-import initialData from '../fixtures/api/initialData.json'
-import pageData from '../fixtures/api/page.json'
 
 await setup({
   server: true,
@@ -12,27 +8,6 @@ await setup({
 })
 
 describe('useT3Api', () => {
-  let listener
-
-  beforeEach(async () => {
-    const app = createApp()
-      .use(
-        '/?type=834',
-        eventHandler(() => initialData)
-      )
-      .use(
-        '/',
-        eventHandler(() => pageData)
-      )
-    listener = await listen(toNodeListener(app), {
-      port: 9876
-    })
-  })
-
-  afterEach(async () => {
-    await listener.close()
-  })
-
   it('fetch initialData and set internal state', async () => {
     const result = await $fetch('/client')
     expect(result).includes('<span>initial data: TYPO3 Demo Site</span>')
