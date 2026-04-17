@@ -40,7 +40,7 @@ nuxt-typo3 is a Vue.js module for [TYPO3 headless](https://github.com/TYPO3-Head
   color: neutral
   size: xl
   to: introduction
-  trailing-icon: i-lucide-arrow-right
+  icon: lucide:square-chevron-right
   ---
   Get Started
   :::
@@ -58,12 +58,12 @@ nuxt-typo3 is a Vue.js module for [TYPO3 headless](https://github.com/TYPO3-Head
 
   :::u-button
   ---
-  color: neutral
+  color: primary
   size: xl
   to: join-eap
-  variant: outline
+  icon: simple-icons-stackblitz
   ---
-  Join EAP →
+  Join EAP
   :::
 
 #headline

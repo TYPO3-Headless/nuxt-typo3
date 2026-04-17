@@ -1,0 +1,20 @@
+diff --git a/dist/features/llms/runtime/server/routes/raw/[...slug].md.get.js b/dist/features/llms/runtime/server/routes/raw/[...slug].md.get.js
+index 166e3c48a1bb74a49b7ced2091b31711a1c39106..77a92f0dc8b4e9f4d242c2831b4357d808885ded 100644
+--- a/dist/features/llms/runtime/server/routes/raw/[...slug].md.get.js
++++ b/dist/features/llms/runtime/server/routes/raw/[...slug].md.get.js
+@@ -28,8 +28,13 @@ export default eventHandler(async (event) => {
+     throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
+   }
+   if (page.body.value[0]?.[0] !== "h1") {
+-    page.body.value.unshift(["blockquote", {}, page.description]);
+-    page.body.value.unshift(["h1", {}, page.title]);
++    if (typeof page.title === "string" && page.title.trim().length > 0) {
++      page.body.value.unshift(["h1", {}, page.title]);
++    }
++    if (typeof page.description === "string" && page.description.trim().length > 0) {
++      const titleOffset = typeof page.title === "string" && page.title.trim().length > 0 ? 1 : 0;
++      page.body.value.splice(titleOffset, 0, ["blockquote", {}, page.description]);
++    }
+   }
+   const links = page.links || page.meta?.links;
+   if (Array.isArray(links) && links.length > 0) {
