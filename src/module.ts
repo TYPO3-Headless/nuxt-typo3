@@ -111,7 +111,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     extendPages((pages) => {
       pages.push({
-        name: 'page',
+        name: 't3page',
+        meta: {
+          t3Page: true
+        },
         path: '/:slug(.*)*',
         file: resolver.resolve('./runtime/pages/T3Page.vue')
       })

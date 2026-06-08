@@ -279,3 +279,23 @@ declare module '@nuxt/schema' {
     runtimeConfig: T3RuntimeConfig
   }
 }
+
+// Augmenting `PageMeta` also types `route.meta`, because Nuxt declares
+// `RouteMeta extends UnwrapRef<PageMeta>`. This makes the flags discoverable
+// both in `definePageMeta({ ... })` and when reading `route.meta`.
+declare module '#app' {
+  interface PageMeta {
+    /**
+     * Marks a route as handled by Nuxt-TYPO3. The module sets this on its
+     * default catch-all route. Set it yourself (`definePageMeta({ t3Page: true })`)
+     * when you re-implement the catch-all page, so server-side page resolution
+     * still runs. Routes without this flag are left untouched by the module.
+     */
+    t3Page?: boolean
+    /**
+     * Set to `false` to skip the initial-data fetch for this route while still
+     * resolving TYPO3 page data. Defaults to enabled when omitted.
+     */
+    t3InitialData?: boolean
+  }
+}

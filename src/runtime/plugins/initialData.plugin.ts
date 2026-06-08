@@ -109,6 +109,10 @@ export default defineNuxtPlugin(async () => {
     return
   }
 
+  const route = useRoute()
+  const isT3Page = route.meta.t3Page === true
+  const avoidInitialData = route.meta.t3InitialData === false
+
   const { currentSiteOptions } = useT3Options()
   const { initialData, pageData } = useT3Api()
   const { getPageData } = await useT3Page()
@@ -126,12 +130,19 @@ export default defineNuxtPlugin(async () => {
     return
   }
 
-  if (currentSiteOptions.value.features?.initialDataPlugin) {
-    const route = useRoute()
+  if (currentSiteOptions.value.features?.initialDataPlugin && !avoidInitialData) {
     await fetchInitialData(route)
   }
 
+  // only run TYPO3 page resolution for routes handled by this module.
+  // routes opt in via `meta.typo3` (set on the module's catch-all route,
+  // or by user pages that re-implement TYPO3 rendering through
+  // `definePageMeta({ typo3: true })`). static/own pages are left untouched.
+  if (!isT3Page) {
+    return
+  }
   // fetch page data on the server once,
   // then access it in the page-level composable.
+
   await getPageData()
 })
