@@ -46,14 +46,59 @@ export default defineNuxtPlugin((nuxtApp) => {
   })
 })
 
-// grab SSR and Request headers and hydrate them to client side
+/**
+ * Header names that must not reach the browser, lower-cased for matching:
+ * `api.headers` may hold server-only auth, `api.proxyReqHeaders` are
+ * request-scoped (cookie, forwarded-for) and the client re-derives them anyway.
+ */
+const getSensitiveHeaderNames = (client: T3ApiClient): Set<string> => {
+  const sensitive = new Set<string>()
+
+  const configHeaders = client.siteOptions.api.headers
+  if (configHeaders) {
+    for (const name of Object.keys(configHeaders)) {
+      sensitive.add(name.toLowerCase())
+    }
+  }
+
+  const proxyReqHeaders = client.siteOptions.api.proxyReqHeaders
+  if (Array.isArray(proxyReqHeaders)) {
+    for (const name of proxyReqHeaders) {
+      sensitive.add(String(name).toLowerCase())
+    }
+  }
+
+  return sensitive
+}
+
+/**
+ * Filter into a new object, so SSR fetches keep using the full headers.
+ */
+const stripSensitiveHeaders = (
+  headers: HeadersInit | undefined,
+  sensitive: Set<string>
+): Record<string, string> => {
+  if (!headers || typeof headers !== 'object' || Array.isArray(headers) || headers instanceof Headers) {
+    return {}
+  }
+
+  return Object.fromEntries(
+    Object.entries(headers as Record<string, string>)
+      .filter(([name]) => !sensitive.has(name.toLowerCase()))
+  )
+}
+
+// Grab SSR and Request headers and hydrate them to client side.
+// The getter runs on `app:rendered`, so it sees the final headers — sensitive
+// ones are dropped there to keep them out of the `__NUXT_DATA__` payload.
 export const hydrateT3ClientHeaders = (client: T3ApiClient) => {
   useHydration('T3:api:headers',
     () => {
-      return client.fetchOptions.headers
+      const sensitive = getSensitiveHeaderNames(client)
+      return stripSensitiveHeaders(client.fetchOptions.headers, sensitive)
     },
     (headers) => {
-      client.fetchOptions.headers = headers
+      client.fetchOptions.headers = { ...client.fetchOptions.headers, ...headers }
 
       const { payload } = useNuxtApp()
       payload['T3:api:headers'] = null
