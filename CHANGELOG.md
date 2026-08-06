@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0-alpha.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.4.0...v2.5.0-alpha.1) (2026-08-06)
+
+
+### Features
+
+* gate TYPO3 page resolution behind t3Page route meta ([302e0d8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/302e0d8743da67e89526994b011aea95dc244e63))
+
+
+### Bug Fixes
+
+* strip sensitive headers from client hydration payload ([bb87520](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/bb87520957bef7ca1c543b4f1014740f17f7dbd7))
+* tests and upgrade deps ([9ff7d55](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/9ff7d55ed612bdb12dbc37c3b9472c3229a5f10d))
+
+
+### Documentation
+
+* disable subfolder index files for docs and gitlab routing ([b4e3334](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b4e3334c7ee57a79c8cd6a2552132ab0beeb52dd))
+* fix crawling ([b0884e1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b0884e14614d83ddb5a6c3a09fbef0bf09226287))
+* fix old docus components ([600189a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/600189ab387fc70a8e3ccd8af9f3a4a29799027d))
+
 ## [2.4.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.3.1...v2.4.0) (2025-12-02)
 
 
