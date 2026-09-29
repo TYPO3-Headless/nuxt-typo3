@@ -2,7 +2,8 @@ image: node:20-bullseye
 
 before_script:
   - apt-get update && apt-get install -y build-essential python3
-  - npm install -g pnpm
+  # Pinned: unpinned `pnpm` pulled a new major that broke the lockfile install.
+  - npm install -g pnpm@10.34.6
   - rm -f tsconfig.json
   - cd docs
   - pnpm install
@@ -14,6 +15,14 @@ pages:
   script:
     - pnpm run generate
     - cp -r .output/public ../public
+    # GitLab Pages redirects /introduction to /introduction/ when a directory
+    # introduction/ exists next to introduction.html, so give it an index.html.
+    # The trailing slash is stripped client-side (middleware/trailing-slash.global.ts).
+    - |
+      find ../public -name '*.html' -not -path '*/__og-image__/*' | while read -r f; do
+        d="${f%.html}"
+        if [ -d "$d" ] && [ ! -e "$d/index.html" ]; then cp "$f" "$d/index.html"; echo "index: $d/"; fi
+      done
   artifacts:
     paths:
       - public
