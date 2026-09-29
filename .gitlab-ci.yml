@@ -15,6 +15,14 @@ pages:
   script:
     - pnpm run generate
     - cp -r .output/public ../public
+    # GitLab Pages redirects /introduction to /introduction/ when a directory
+    # introduction/ exists next to introduction.html, so give it an index.html.
+    # The trailing slash is stripped client-side (middleware/trailing-slash.global.ts).
+    - |
+      find ../public -name '*.html' -not -path '*/__og-image__/*' | while read -r f; do
+        d="${f%.html}"
+        if [ -d "$d" ] && [ ! -e "$d/index.html" ]; then cp "$f" "$d/index.html"; echo "index: $d/"; fi
+      done
   artifacts:
     paths:
       - public
