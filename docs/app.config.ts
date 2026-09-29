@@ -11,13 +11,13 @@ export default defineAppConfig({
   },
   socials: {
     x: 'https://x.com/t3headless/',
-    github: 'https://github.com/TYPO3-Headless',
+    github: 'https://github.com/TYPO3-Headless/nuxt-typo3',
     youtube: 'https://www.youtube.com/@TYPO3Headless'
   },
   footer: {
     credits: false
   },
-   ui: {
+  ui: {
     colors: {
       primary: 'orange',
       // neutral: 'zinc'

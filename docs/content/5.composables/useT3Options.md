@@ -1,6 +1,5 @@
 ---
 title: useT3Options
-description: 
 ---
 
 This composable provides access to configuration

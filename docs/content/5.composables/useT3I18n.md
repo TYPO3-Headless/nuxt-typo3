@@ -1,6 +1,5 @@
 ---
 title: useT3i18n
-description: 
 ---
 
 This composable provides methods to deal with internationalization

@@ -1,0 +1,11 @@
+<template>
+  <UButton
+    to="/join-eap"
+    color="primary"
+    variant="solid"
+    icon="i-simple-icons-stackblitz"
+    size="sm"
+  >
+    EAP
+  </UButton>
+</template>

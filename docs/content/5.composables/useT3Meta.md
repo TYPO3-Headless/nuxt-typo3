@@ -1,6 +1,5 @@
 ---
 title: useT3Meta
-description: 
 ---
 
 Composable to get all meta information

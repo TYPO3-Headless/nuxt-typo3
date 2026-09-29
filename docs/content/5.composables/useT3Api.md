@@ -1,6 +1,5 @@
 ---
 title: useT3Api
-description: 
 ---
 This composable provides useful methods to use TYPO3 Api Client
 
