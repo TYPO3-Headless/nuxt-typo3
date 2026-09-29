@@ -13,10 +13,6 @@
     "nuxt": "^4.4.2"
   },
   "pnpm": {
-    "patchedDependencies": {
-      "docus@5.9.0": "patches/docus@5.9.0.patch",
-      "@nuxt/content@3.13.0": "patches/@nuxt__content@3.13.0.patch"
-    },
     "onlyBuiltDependencies": [
       "better-sqlite3"
     ]
