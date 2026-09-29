@@ -8,14 +8,17 @@
     "preview:static": "rm -rf .output/serve && mkdir -p .output/serve/nuxt-typo3 && cp -r .output/public/* .output/serve/nuxt-typo3/ && cp serve.json .output/serve/ && npx serve .output/serve -l 3000"
   },
   "dependencies": {
-    "docus": "latest",
+    "docus": "5.2.1",
     "better-sqlite3": "^12.2.0",
     "nuxt": "^4.1.2"
   },
    "pnpm": {
     "onlyBuiltDependencies": [
       "better-sqlite3"
-    ]
+    ],
+    "overrides": {
+      "@nuxt/content": "3.8.2"
+    }
   }
 
 }

@@ -2,7 +2,8 @@ image: node:20-bullseye
 
 before_script:
   - apt-get update && apt-get install -y build-essential python3
-  - npm install -g pnpm
+  # Pinned: unpinned `pnpm` pulled a new major that broke the lockfile install.
+  - npm install -g pnpm@10.34.6
   - rm -f tsconfig.json
   - cd docs
   - pnpm install
