@@ -1,11 +1,15 @@
 import { computed, ref } from 'vue'
-import { useRoute, useAsyncData, showError, clearNuxtData, useNuxtApp } from '#app'
+import { useRoute, useAsyncData, showError, createError, clearNuxtData, useNuxtApp } from '#app'
 import type { RouteLocationNormalized } from '#vue-router'
 import type { T3Page } from '../../types'
 import { useT3Api } from './useT3Api'
 import { hasLayout, useT3Utils } from './useT3Utils'
 import { useT3Meta } from './useT3Meta'
 import { getCurrentInstance, onBeforeUnmount } from '#imports'
+
+// TYPO3 can answer with something that is not a page (sitemap XML, backend HTML, files)
+const isPageResponse = (value: unknown): value is T3Page =>
+  value !== null && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype
 
 export const useT3Page = async (options: {
   route: RouteLocationNormalized,
@@ -20,7 +24,8 @@ export const useT3Page = async (options: {
   const { pageData, getPage, getPageKey, initialData } = useT3Api()
   const { headData } = useT3Meta()
   const { redirect } = useT3Utils()
-  const { isHydrating, payload } = useNuxtApp()
+  const nuxtApp = useNuxtApp()
+  const { isHydrating, payload } = nuxtApp
   const pageDataAbortController = new AbortController()
   const isNotHydrating = import.meta.client && !isHydrating
 
@@ -30,6 +35,11 @@ export const useT3Page = async (options: {
     pageCacheKey.value,
     () => getPage(route.fullPath, {
       signal: pageDataAbortController.signal
+    }).then((response) => {
+      if (!isPageResponse(response)) {
+        throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+      }
+      return response
     }),
     {
       immediate: false
@@ -46,9 +56,10 @@ export const useT3Page = async (options: {
 
     await getAsyncPage()
 
+    // Nuxt context is lost after the await above, so use nuxtApp captured before it.
     // show error page only for current page route
-    if ((error.value || !data.value) && useRoute().fullPath === route.fullPath) {
-      showError({
+    if ((error.value || !data.value) && nuxtApp._route.fullPath === route.fullPath) {
+      nuxtApp.runWithContext(() => showError({
         ...error.value,
         unhandled: false,
         fatal: false,
@@ -56,7 +67,7 @@ export const useT3Page = async (options: {
           initialData: initialData.value,
           pageData: error.value?.data
         }
-      })
+      }))
     }
 
     if (data.value?.redirectUrl) {
@@ -84,7 +95,8 @@ export const useT3Page = async (options: {
   }
 
   const backendLayout = pageData.value?.appearance?.backendLayout || 'default'
-  const frontendLayout = hasLayout(pageData.value?.appearance?.layout) ? pageData.value?.appearance.layout : 'default'
+  const frontendLayoutName = pageData.value?.appearance?.layout
+  const frontendLayout = frontendLayoutName && hasLayout(frontendLayoutName) ? frontendLayoutName : 'default'
 
   return {
     pageData: import.meta.server ? pageData : ref(pageData.value),
