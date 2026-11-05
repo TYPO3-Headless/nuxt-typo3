@@ -40,6 +40,8 @@ describe('T3DynamicComponent', () => {
     const result = await $fetch('/components')
     expect(result).toContain('Apples are awesome')
     await page.click('[id="refresh"]')
+    // the re-render (and the lazy component chunk it may load) is async
+    await page.getByText('Updated content').waitFor()
     const content = await page.content()
     expect(content).toContain('Updated content')
   }, 15000)
