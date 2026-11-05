@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import type { T3I18N } from '../../module'
+import type { T3I18N, T3HeadLink } from '../../module'
 import { useT3Options } from '../composables/useT3Options'
 import { useT3PageState } from './useT3Api'
 import { useT3i18n } from './useT3i18n'
@@ -100,14 +100,14 @@ export const useT3Meta = () => {
   })
 
   const links = computed(() => {
-    const link: { rel: string; hreflang?: string; href: string }[] = []
+    const link: T3HeadLink[] = []
     const baseUrl = currentSiteOptions.value?.baseUrl
 
     if (!baseUrl || !metaData.value) {
       return link
     }
 
-    const canonical = {
+    const canonical: Extract<T3HeadLink, { rel: 'canonical' }> = {
       rel: 'canonical',
       href: metaData.value.canonical?.href || ''
     }

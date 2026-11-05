@@ -34,33 +34,33 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "defu": "6.1.4",
-    "dot-prop": "^10.1.0",
+    "defu": "6.1.7",
+    "dot-prop": "^10.2.0",
     "ofetch": "1.5.1",
-    "ohash": "^2.0.11",
+    "ohash": "^2.0.12",
     "scule": "1.3.0",
     "typescript": "5.9.3",
-    "ufo": "1.6.1"
+    "ufo": "1.6.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.1.0",
+    "@commitlint/cli": "20.5.3",
     "@commitlint/config-conventional": "20.0.0",
-    "@nuxt/kit": "4.4.2",
-    "@nuxt/module-builder": "1.0.2",
-    "@nuxt/schema": "4.4.2",
-    "@nuxt/test-utils": "^4.0.2",
+    "@nuxt/kit": "4.6.4",
+    "@nuxt/module-builder": "1.0.3",
+    "@nuxt/schema": "4.6.4",
+    "@nuxt/test-utils": "^4.3.4",
     "@nuxtjs/eslint-config-typescript": "12.1.0",
-    "@types/semver": "^7.7.1",
-    "eslint": "8.48.0",
-    "h3": "^1.15.4",
+    "@types/semver": "^7.8.0",
+    "eslint": "8.57.1",
+    "h3": "^1.15.11",
     "husky": "9.1.7",
-    "listhen": "^1.9.0",
-    "nuxt": "4.4.2",
-    "playwright": "1.56.1",
+    "listhen": "^1.10.1",
+    "nuxt": "4.6.4",
+    "playwright": "1.64.1",
     "standard-version": "9.5.0",
     "unbuild": "^3.6.1",
-    "vitest": "^4.1.4",
-    "vue-tsc": "3.1.3"
+    "vitest": "^4.1.12",
+    "vue-tsc": "3.3.14"
   },
   "packageManager": "pnpm@9.14.4",
   "engines": {
@@ -70,5 +70,10 @@
   "volta": {
     "node": "22.12.0",
     "pnpm": "9.14.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "minimatch@9": "^9.0.7"
+    }
   }
 }

@@ -211,12 +211,20 @@ export interface T3Meta {
   twitterImage: T3File | null
 }
 
+export type T3HeadMeta =
+  | { name: string; content: string }
+  | { property: string; content: string }
+
+export type T3HeadLink =
+  | { rel: 'canonical'; href: string }
+  | { rel: 'alternate'; hreflang: string; href: string }
+
 interface T3Seo {
   title?: string
   htmlAttrs?: Record<string, any>
   bodyAttrs?: Record<string, any>
-  meta?: Array<{ name?: string; property?: string; content?: string }>
-  link?: Array<{ rel: string; href: string; hreflang?: string }>
+  meta?: T3HeadMeta[]
+  link?: T3HeadLink[]
   [key: string]: any
 }
 
