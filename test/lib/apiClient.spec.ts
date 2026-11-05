@@ -4,7 +4,7 @@ import { T3ApiClient } from '../../src/runtime/lib/apiClient'
 const siteConfig = {
   hostname: 'localhost',
   api: {
-    baseUrl: 'https://api.t3pwa.com',
+    baseUrl: 'http://localhost:9876',
     endpoints: {
       initialData: '?type=834',
       initialDataFallback: '/?type=834'
@@ -34,7 +34,7 @@ describe('T3ApiClient', () => {
       }
     })
 
-    expect(requestOptions).toHaveProperty('baseURL', 'https://api.t3pwa.com')
+    expect(requestOptions).toHaveProperty('baseURL', 'http://localhost:9876')
     expect(requestOptions.headers.get('Authorization')).toBe('Token')
   })
 })
