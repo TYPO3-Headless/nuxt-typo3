@@ -12,7 +12,8 @@ export async function setup () {
     .use(eventHandler((event) => {
       const { type, cHash } = getQuery(event)
       // TYPO3 rejects a cHash that doesn't belong to the requested path.
-      if (type === '834' && cHash) {
+      // The de locale is used to simulate a failing initial data request.
+      if (type === '834' && (cHash || event.path.startsWith('/de'))) {
         throw createError({ statusCode: 404 })
       }
     }))

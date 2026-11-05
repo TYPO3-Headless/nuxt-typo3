@@ -13,4 +13,9 @@ describe('page and initial data errors', () => {
     const response = await fetch('/detail?id=1&cHash=abc')
     expect(response.status).toBe(200)
   }, 15000)
+
+  it('keeps the status code of a failed initial data request', async () => {
+    const response = await fetch('/de/')
+    expect(response.status).toBe(404)
+  }, 15000)
 })

@@ -89,7 +89,7 @@ async function fetchInitialData (to: RouteLocationNormalized) {
         }
         data = await getInitialData(getInitialDataPath(initialDataFallback!))
       } else {
-        throw new Error(error as any)
+        throw error
       }
     }
     initialData.value = data
