@@ -51,6 +51,8 @@ async function fetchInitialData (to: RouteLocationNormalized) {
     const { pathname, search } = parseURL(endpoint)
     const endpointQuery = parseQuery(search)
     const mergedQuery = { ...endpointQuery, ...routeQuery }
+    // cHash belongs to the path of the current page. TYPO3 rejects it on the initial data endpoint with a 404.
+    delete mergedQuery.cHash
     return withQuery(getPathWithLocale(pathname), mergedQuery)
   }
 
