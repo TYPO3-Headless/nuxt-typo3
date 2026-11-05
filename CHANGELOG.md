@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0-alpha.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.5.0-alpha.1...v2.5.0-alpha.2) (2026-11-05)
+
+
+### Bug Fixes
+
+* **initialData:** do not send the cHash of a page to the initial data endpoint ([8e23c35](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8e23c35c9df8a6cf79a40afc8076d95301ec49d9))
+* **initialData:** keep the status code of a failed initial data request ([dadf3aa](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/dadf3aaf57084b2e9c5e947f5356712aa858aaf0))
+* **useT3Page:** keep Nuxt context after awaiting page data ([24feee0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/24feee0968395932208b6bfe5361f5ede292e735))
+* **useT3Page:** show the error page after a client side navigation ([cd8db10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/cd8db10de0392ba6b573b66b591fb1b3799c9f93))
+
+
+### Documentation
+
+* fix 404 on direct links to section index pages ([ed64f25](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ed64f254ba649dbbabe08b0686a335091be633bb))
+* fix front matter and broken internal links ([eada43b](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/eada43bad92f084effb1fa77322365ad328ebc83))
+* hide MCP server entries in the page header menu ([1920c1e](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/1920c1ea2f8316b8b114211c350fd1f9bac07c04))
+* update EAP docs ([b678c67](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b678c67a0e6ac4f3333e60ba5e74ed84e6fd7d75))
+
 ## [2.5.0-alpha.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.4.0...v2.5.0-alpha.1) (2026-08-06)
 
 
