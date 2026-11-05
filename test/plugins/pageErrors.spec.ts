@@ -18,4 +18,11 @@ describe('page and initial data errors', () => {
     const response = await fetch('/de/')
     expect(response.status).toBe(404)
   }, 15000)
+
+  it('responds with a 404 for missing pages under parallel requests', async () => {
+    const responses = await Promise.all(
+      Array.from({ length: 40 }, (_, index) => fetch(`/not-found-page/${index}`))
+    )
+    expect(responses.map(({ status }) => status)).toEqual(Array(40).fill(404))
+  }, 30000)
 })

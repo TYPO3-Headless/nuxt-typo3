@@ -19,6 +19,9 @@ export async function setup () {
     }))
     .use('/?type=834', eventHandler(() => initialData))
     .use('/en/i18n', eventHandler(() => pageDataEn))
+    .use('/not-found-page', eventHandler(() => {
+      throw createError({ statusCode: 404 })
+    }))
     .use('/', eventHandler(() => pageData))
 
   listener = await listen(toNodeListener(app), { port: 9876 })
