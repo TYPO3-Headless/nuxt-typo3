@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
 import { useRoute, useAsyncData, showError, createError, clearNuxtData, useNuxtApp } from '#app'
-import type { RouteLocationNormalized } from '#vue-router'
+import type { RouteLocationNormalized, Router } from '#vue-router'
 import type { T3Page } from '../../types'
 import { useT3Api } from './useT3Api'
 import { hasLayout, useT3Utils } from './useT3Utils'
@@ -57,8 +57,11 @@ export const useT3Page = async (options: {
     await getAsyncPage()
 
     // Nuxt context is lost after the await above, so use nuxtApp captured before it.
+    // During a client side navigation nuxtApp._route still points to the previous page, router.currentRoute doesn't.
+    const currentRoute = import.meta.client ? (nuxtApp.$router as Router).currentRoute.value : nuxtApp._route
+
     // show error page only for current page route
-    if ((error.value || !data.value) && nuxtApp._route.fullPath === route.fullPath) {
+    if ((error.value || !data.value) && currentRoute.fullPath === route.fullPath) {
       nuxtApp.runWithContext(() => showError({
         ...error.value,
         unhandled: false,

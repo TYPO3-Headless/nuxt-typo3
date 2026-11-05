@@ -1,6 +1,6 @@
 import type { Listener } from 'listhen'
 import { listen } from 'listhen'
-import { createApp, createError, eventHandler, getQuery, toNodeListener } from 'h3'
+import { createApp, createError, eventHandler, getQuery, setResponseHeader, toNodeListener } from 'h3'
 import initialData from './fixtures/api/initialData.json'
 import pageData from './fixtures/api/page.json'
 import pageDataEn from './fixtures/api/en/page.json'
@@ -19,7 +19,9 @@ export async function setup () {
     }))
     .use('/?type=834', eventHandler(() => initialData))
     .use('/en/i18n', eventHandler(() => pageDataEn))
-    .use('/not-found-page', eventHandler(() => {
+    .use('/not-found-page', eventHandler((event) => {
+      // also requested by the browser during a client side navigation
+      setResponseHeader(event, 'access-control-allow-origin', '*')
       throw createError({ statusCode: 404 })
     }))
     .use('/', eventHandler(() => pageData))
