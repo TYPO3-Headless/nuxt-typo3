@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.4.0...v2.5.0) (2026-11-12)
+
+
+### Features
+
+* gate TYPO3 page resolution behind t3Page route meta ([302e0d8](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/302e0d8743da67e89526994b011aea95dc244e63))
+
+
+### Bug Fixes
+
+* **initialData:** do not send the cHash of a page to the initial data endpoint ([8e23c35](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/8e23c35c9df8a6cf79a40afc8076d95301ec49d9))
+* **initialData:** keep the status code of a failed initial data request ([dadf3aa](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/dadf3aaf57084b2e9c5e947f5356712aa858aaf0))
+* **useT3Page:** keep Nuxt context after awaiting page data ([24feee0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/24feee0968395932208b6bfe5361f5ede292e735))
+* **useT3Page:** show the error page after a client side navigation ([cd8db10](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/cd8db10de0392ba6b573b66b591fb1b3799c9f93))
+* strip sensitive headers from client hydration payload ([bb87520](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/bb87520957bef7ca1c543b4f1014740f17f7dbd7))
+* tests and upgrade deps ([9ff7d55](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/9ff7d55ed612bdb12dbc37c3b9472c3229a5f10d))
+
+
+### Documentation
+
+* disable subfolder index files for docs and gitlab routing ([b4e3334](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b4e3334c7ee57a79c8cd6a2552132ab0beeb52dd))
+* fix 404 on direct links to section index pages ([ed64f25](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/ed64f254ba649dbbabe08b0686a335091be633bb))
+* fix crawling ([b0884e1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b0884e14614d83ddb5a6c3a09fbef0bf09226287))
+* fix front matter and broken internal links ([eada43b](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/eada43bad92f084effb1fa77322365ad328ebc83))
+* fix old docus components ([600189a](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/600189ab387fc70a8e3ccd8af9f3a4a29799027d))
+* hide MCP server entries in the page header menu ([1920c1e](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/1920c1ea2f8316b8b114211c350fd1f9bac07c04))
+* update EAP docs ([b678c67](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/b678c67a0e6ac4f3333e60ba5e74ed84e6fd7d75))
+
+
 ## [2.5.0-alpha.2](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.5.0-alpha.1...v2.5.0-alpha.2) (2026-11-05)
 
 
