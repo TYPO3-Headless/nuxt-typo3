@@ -99,7 +99,9 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     addImportsDir(resolver.resolve('runtime/composables/**/*'))
-    addImportsDir(resolver.resolve('runtime/components/**/*'))
+    // Only the colocated composables (use*.ts) are auto-imports. A wider glob
+    // also picks up components and their emitted .d.ts files (issue #369).
+    addImportsDir(resolver.resolve('runtime/components/**/use*'))
 
     addComponentsDir({
       path: fileURLToPath(new URL('./runtime/components', import.meta.url)),
