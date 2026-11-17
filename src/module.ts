@@ -98,10 +98,16 @@ export default defineNuxtModule<ModuleOptions>({
       order: 20
     })
 
-    addImportsDir(resolver.resolve('runtime/composables/**/*'))
-    // Only the colocated composables (use*.ts) are auto-imports. A wider glob
-    // also picks up components and their emitted .d.ts files (issue #369).
-    addImportsDir(resolver.resolve('runtime/components/**/use*'))
+    addImportsDir([
+      resolver.resolve('runtime/composables/**/*'),
+      // Only the colocated composables (use*.ts) are auto-imports. A wider glob
+      // also picks up components and their emitted .d.ts files (issue #369).
+      resolver.resolve('runtime/components/**/use*'),
+      // Nuxt ignores *.d.ts only inside the app's rootDir, not in a hoisted
+      // node_modules of a monorepo. The default export of useFoo.d.ts would
+      // become an extra `useFooD` auto-import.
+      '!' + resolver.resolve('runtime/**/*.d.ts')
+    ])
 
     addComponentsDir({
       path: fileURLToPath(new URL('./runtime/components', import.meta.url)),
