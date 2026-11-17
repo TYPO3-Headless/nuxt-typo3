@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.5.0...v2.5.1) (2026-11-17)
+
+
+### Bug Fixes
+
+* auto-import only composables from the components dir ([a01a3f9](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/a01a3f93548f288cef0b1ea1275d12b8b2786c42))
+* exclude emitted .d.ts files from the auto-import scan ([582eda0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/commit/582eda038b51e3f0f15682c7a3908ae36d29ddf7)), closes [#369](https://github.com/TYPO3-Headless/nuxt-typo3/issues/369)
+
 ## [2.5.0](https://git.macopedia.pl:59184/t3headless/nuxt-typo3/compare/v2.4.0...v2.5.0) (2026-11-12)
 
 
