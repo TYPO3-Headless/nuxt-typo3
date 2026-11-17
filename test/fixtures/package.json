@@ -2,6 +2,7 @@
     "private": true,
     "version": "0.0.0",
     "name": "fixture",
+    "type": "module",
     "devDependencies": {
         "nuxt-typo3": "*"
     }
